@@ -22,5 +22,5 @@ coulombtype	= cut-off	; Treatment of long range electrostatic interactions
 rcoulomb	= 1.0		; long range electrostatic cut-off
 rvdw		= 1.0		; long range Van der Waals cut-off
 constraints	= none		; Bond types to replace by constraints
-pbc		= yes		; Periodic Boundary Conditions (yes/no)
+pbc		= xyz		; Periodic Boundary Conditions (yes/no)
 cutoff-scheme   = verlet
