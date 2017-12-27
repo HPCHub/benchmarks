@@ -1,0 +1,25 @@
+#!/bin/bash
+
+fftw_version=3.3.7
+if [ ! -f fftw-${fftw_version}.tar.gz ]; then 
+  wget http://www.fftw.org/fftw-${fftw_version}.tar.gz
+  tar -xvzf fftw-${fftw_version}.tar.gz 
+  cd fftw-${fftw_version}
+  ./configure --prefix=${HOME}/usr --enable-sse2 --enable-avx --enable-avx2
+  make && make install
+fi  
+
+version=5.1.4
+if [ ! -f gromacs-${version}.tar.gz ]; then
+  wget ftp://ftp.gromacs.org/pub/gromacs/gromacs-${version}.tar.gz
+fi
+  tar -xvzf gromacs-${version}.tar.gz
+  cd gromacs-${version}
+  mkdir build
+  cd build 
+  cmake .. -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON -DGMX_BUILD_OWN_FFTW=ON -DCMAKE_INSTALL_PREFIX=${HOME}/usr -DCMAKE_PREFIX_PATH=${HOME}/usr -DREGRESSIONTEST_DOWNLOAD=ON
+  make
+  make check
+  make install
+  source /usr/local/gromacs/bin/GMXRC
+
