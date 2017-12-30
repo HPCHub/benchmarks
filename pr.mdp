@@ -4,8 +4,8 @@ define                   = -DPOSRES
 
 ; RUN CONTROL PARAMETERS
 integrator               = md
-dt                       = 0.0001 ; time step (ps)
-nsteps                   = 2500  ; number of steps
+dt                       = 0.001 ; time step (ps)
+nsteps                   = 500  ; number of steps
 
 ; OUTPUT CONTROL OPTIONS
 nstenergy                = 1
@@ -30,7 +30,7 @@ gen_temp                 = 200.0  ; Temperature to generate corresponding Maxwel
 gen_seed                 = 9999   ; Seed for (semi) random number generation. Different numbers give different sets of velocities
 
 ; OPTIONS FOR BONDS    
-constraints              = all-bonds ; All bonds will be treated as constraints (fixed length)
+constraints              = none ; All bonds will be treated as constraints (fixed length)
 
 
 cutoff-scheme   = verlet
