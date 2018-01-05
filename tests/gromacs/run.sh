@@ -90,7 +90,7 @@ for p in $files; do
 
   LogStep Step6-grompp
 
-  gmx mdrun -v -deffnm ${prot}-em 
+  ${HPCHUB_MPIRUN} gmx mdrun -v -deffnm ${prot}-em 
   
   LogStep Step7-mdrun-em
 
@@ -98,7 +98,7 @@ for p in $files; do
 
   LogStep Step8-grompp
  
-  gmx mdrun -deffnm ${prot}-nvt
+  ${HPCHUB_MPIRUN}  gmx mdrun -deffnm ${prot}-nvt
 
   LogStep Step9-mdrun-nvt
 
@@ -106,7 +106,7 @@ for p in $files; do
 
   LogStep Step10-npt
 
-  gmx mdrun -deffnm ${prot}-npt
+  ${HPCHUB_MPIRUN}   gmx mdrun -deffnm ${prot}-npt
 
   LogStep Step11-mdrun-npt
 
@@ -118,15 +118,15 @@ for p in $files; do
 
   LogStep Step12-grompp
 
-  gmx mdrun -deffnm ${prot}-md_0_1.100
+  ${HPCHUB_MPIRUN}  gmx mdrun -deffnm ${prot}-md_0_1.100
    
   LogStep Step13-mdrun-prod-100
 
-  gmx mdrun -deffnm ${prot}-md_0_1.1000
+  ${HPCHUB_MPIRUN}  gmx mdrun -deffnm ${prot}-md_0_1.1000
    
   LogStep Step13-mdrun-prod-1000
 
-  gmx mdrun -deffnm ${prot}-md_0_1.10000
+  ${HPCHUB_MPIRUN}  gmx mdrun -deffnm ${prot}-md_0_1.10000
  
   LogStep Step13-mdrun-prod-10000
 
