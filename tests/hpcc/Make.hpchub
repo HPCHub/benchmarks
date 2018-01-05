@@ -173,7 +173,7 @@ CCFLAGS      = $(HPL_DEFS) -fomit-frame-pointer -O3 -funroll-loops -W -Wall
 # On some platforms,  it is necessary  to use the Fortran linker to find
 # the Fortran internals used in the BLAS library.
 #
-LINKER       = /usr/bin/g77
+LINKER       = $(HPCHUB_LINKER)
 LINKFLAGS    = $(CCFLAGS)
 #
 ARCHIVER     = ar

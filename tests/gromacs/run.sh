@@ -10,6 +10,13 @@ if [ -f "${HPCHUB_PLATFORM}" ]; then
   . ${HPCHUB_PLATFORM}
 fi
 
+if [ "${HPCHUB_REPORT}" = "" ]; then
+  report_to=../report.time.txt
+else
+  report_to=${HPCHUB_REPORT}
+fi
+
+
 mkdir molmod || echo "molmod already exists."
 cd molmod
 rm \#*
@@ -37,11 +44,11 @@ function LogStep {
    fi
    local T0=`date +%s.%N`
    dT=`echo "$T0 - $Tprev" | bc -l`
-   echo -ne "${p}\t$1\t$dT\t$T0\n" >> ../report.time.txt
+   echo -ne "${p}\t$1\t$dT\t$T0\n" >> $report_to
    Tprev=$T0
 }
 
-echo -ne "Protein\tStep\tdT\tTimeStamp\n" > report.time.txt
+echo -ne "Protein\tStep\tdT\tTimeStamp\n" > $report_to
 
 for p in $files; do
   prot=${p%%.pdb}
