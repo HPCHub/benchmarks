@@ -1,11 +1,21 @@
 #!/bin/bash
 
+if [ -f ../platform.sh ]; then
+  . ../platform.sh
+fi
+
+HPCHUB_TEST_STATE=install
+
+if [ -f "${HPCHUB_PLATFORM}" ]; then
+  . ${HPCHUB_PLATFORM}
+fi
+
 fftw_version=3.3.7
 if [ ! -f fftw-${fftw_version}.tar.gz ]; then 
   wget http://www.fftw.org/fftw-${fftw_version}.tar.gz
   tar -xvzf fftw-${fftw_version}.tar.gz 
   cd fftw-${fftw_version}
-  ./configure --prefix=${HOME}/usr --enable-sse2 --enable-avx --enable-avx2
+  ./configure --prefix=${HOME}/usr ${FFTW_CONFIGURE_FLAGS}
   make && make install
 fi  
 
