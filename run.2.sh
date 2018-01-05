@@ -99,13 +99,25 @@ for p in $files; do
 
   LogStep Step11-mdrun-npt
 
-  gmx grompp -f ../../md.2.mdp -c ${prot}-npt.gro -t ${prot}-npt.cpt -p $top -o ${prot}-md_0_1.tpr
+  gmx grompp -f ../../md.2.100.mdp -c ${prot}-npt.gro -t ${prot}-npt.cpt -p $top -o ${prot}-md_0_1.100.tpr
+
+  gmx grompp -f ../../md.2.1000.mdp -c ${prot}-npt.gro -t ${prot}-npt.cpt -p $top -o ${prot}-md_0_1.1000.tpr
+
+  gmx grompp -f ../../md.2.1000.mdp -c ${prot}-npt.gro -t ${prot}-npt.cpt -p $top -o ${prot}-md_0_1.10000.tpr
 
   LogStep Step12-grompp
 
-  gmx mdrun -deffnm ${prot}-md_0_1
+  gmx mdrun -deffnm ${prot}-md_0_1.100
    
-  LogStep Step13-mdrun-prod
+  LogStep Step13-mdrun-prod-100
+
+  gmx mdrun -deffnm ${prot}-md_0_1.1000
+   
+  LogStep Step13-mdrun-prod-1000
+
+  gmx mdrun -deffnm ${prot}-md_0_1.10000
+ 
+  LogStep Step13-mdrun-prod-10000
 
   cd ..
 done
