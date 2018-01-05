@@ -9,6 +9,7 @@ FFTW_CONFIGURE_FLAGS="${FFTW_CONFIGURE_FLAGS} --enable-$feature"
   fi
 done
 
+export CC=`which mpicc`
 if [ ! -x "$CC" ]; then
   export CC=`which gcc`
 fi
@@ -24,6 +25,14 @@ if [ "$HPCHUB_TEST_STATE" == "install" ]; then
 fi
 
 export FFTW_CONFIGURE_FLAGS
-export HPCHUB_LINKER=`which gcc`
+export HPCHUB_LINKER=`which mpif77`
 export HPCHUB_LAPACK_DIR="/usr/lib"
 
+HPCHUB_PWD=`pwd`
+export HPCHUB_MPIRUN="mpirun.mpich -np 4 -machinefile machinefile "
+
+if [ ! -f machinefile ]; then 
+    for i in `seq 1 $NCPU`; do
+      echo localhost >> machinefile
+    done
+fi
