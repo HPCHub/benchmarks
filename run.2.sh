@@ -6,6 +6,10 @@ if [ -f ../platform.sh ]; then
   . ../platform.sh
 fi
 
+if [ -f "${HPCHUB_PLATFORM}" ]; then
+  . ${HPCHUB_PLATFORM}
+fi
+
 mkdir molmod || echo "molmod already exists."
 cd molmod
 rm \#*
