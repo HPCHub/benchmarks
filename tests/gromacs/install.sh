@@ -31,5 +31,4 @@ fi
   make
   make check
   make install
-  source /usr/local/gromacs/bin/GMXRC
 
