@@ -39,6 +39,13 @@ for p in $files; do
   top=${prot}.top
   mkdir ${prot}
   cd ${prot}
+
+if [ -f "${HPCHUB_MACHINEFILE}" ];then
+  cp "${HPCHUB_MACHINEFILE}" ./machinefile
+else
+  cp ../../machinefile ./
+fi
+
   rm \#*
   StepCntr=0
   LogStep $p Start 
