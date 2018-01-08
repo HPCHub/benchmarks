@@ -32,7 +32,7 @@ if [ "$operation" = "install" ]; then
   ssh $remhost "mkdir hpchub_benchmark" || exit 3
   ssh $remhost "cd hpchub_benchmark; tar -xvzf ../hpchub_benchmark.tar.gz" || exit 4
   for i in tests/*; do
-    if [ -d "$i" -a ! "$i" = "tests/include" ]; then 
+    if [ -d "$i" -a ! "$i" = "tests/include" -a ! -f "$i/.disable_install" ]; then 
       ssh $remhost "cd hpchub_benchmark/$i; HPCHUB_PLATFORM=../../platforms/${platform}.sh ./install.sh" || exit 5
     fi
   done
@@ -49,7 +49,7 @@ else
   now=`date +%Y-%m-%d_%H:%M:%S`
   
   for i in tests/*; do
-    if [ -x "$i/${operation}.sh" -a ! "$i" = "tests/include" ]; then 
+    if [ -x "$i/${operation}.sh" -a ! "$i" = "tests/include" -a ! -f "$i/.disable_run" ]; then 
        testname=${i##tests/}
        resdir="runs/${operation}/${testname}/${platform}/${now}"
        mkdir -p "$resdir"
