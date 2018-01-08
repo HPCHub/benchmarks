@@ -29,7 +29,7 @@ export HPCHUB_LINKER=`which mpif77`
 export HPCHUB_LAPACK_DIR="/usr/lib"
 
 HPCHUB_PWD=`pwd`
-export HPCHUB_MPIRUN="mpirun.mpich -np 4 -machinefile machinefile "
+export HPCHUB_MPIRUN="mpirun.mpich -np $NCPU -machinefile machinefile "
 
 if [ ! -f machinefile ]; then 
     for i in `seq 1 $NCPU`; do
