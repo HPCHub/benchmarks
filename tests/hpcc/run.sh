@@ -39,7 +39,7 @@ for i in 1000 5000 10000 50000 100000; do
 
   s=`printf "%-13d%s" $i Ns` 
 
-  cat hpccinf.txt | sed "s/1000         Ns/$s/"
+  cat ../hpccinf.txt | sed "s/1000         Ns/$s/" > hpccinf.txt
 
   ${HPCHUB_MPIRUN} `pwd`/hpcc 
 
