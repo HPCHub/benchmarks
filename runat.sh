@@ -51,7 +51,7 @@ else
   for i in tests/*; do
     if [ -x "$i/${operation}.sh" -a ! "$i" = "tests/include" -a ! -f "$i/.disable_run" ]; then 
        testname=${i##tests/}
-       resdir="runs/${operation}/${testname}/${platform}/${now}"
+       resdir="runs/${operation}/${testname}/${platform}/${remhost}/${now}"
        mkdir -p "$resdir"
        remreport=$remwd/hpchub_benchmark/${operation}_${testname}_${now}.log
 

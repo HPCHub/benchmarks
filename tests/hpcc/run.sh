@@ -49,12 +49,18 @@ for i in 1000 5000 10000 50000 100000; do
 
   NMPI=`grep -A 10 "Begin of MPIRandomAccess section." hpccoutf.txt | grep "GUP" | head -n 1 | awk '{print $1;};'` 
 
+  if [ "$NMPI" = "" ]; then NMPI="0.0"; fi
+
   LogStep hpcc-N-$i MPIRandomAccess $NMPI
 
   NStar=`grep -A 10 "Begin of StarRandomAccess section." hpccoutf.txt | grep "GUP" | head -n 1 | awk '{print $1;};'` 
 
-  LogStep hpcc-N-$i MPIRandomAccess $NStar
+  if [ "$NStar" = "" ]; then NStar="0.0"; fi
 
+
+  LogStep hpcc-N-$i StarRandomAccess $NStar
+
+  cat hpccoutf.txt
 done
 
 cd ..

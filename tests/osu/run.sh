@@ -12,6 +12,14 @@ if [ -f "${HPCHUB_PLATFORM}" ]; then
   . ${HPCHUB_PLATFORM}
 fi
 
+if [ "${HPCHUB_REPORT}" = "" ]; then
+  report_to=../report.time.txt
+else
+  report_to=${HPCHUB_REPORT}
+fi
+
+. ../include/logger.sh
+
 cd osu-micro-benchmarks-${osu_version}
 
 if [ -f "${HPCHUB_MACHINEFILE}" ];then

@@ -23,3 +23,10 @@ filename for a file to log the results (see corresponding run.sh in gromacs test
 
 doc directory contains documents, related to current discussion state of the project and all 
 other required documents.
+
+Results are to be stored in "runs" directory.
+
+Hints: 
+
+ - If you want to skip some operation (OP) on some test, you can create empty .disable_OP (e.g. .disable_run or .disable_install) in this test's directory.
+
