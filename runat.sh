@@ -29,7 +29,7 @@ fi
 
 if [ "$operation" = "install" ]; then
   git archive --format tar.gz master | ssh $remhost "cat > hpchub_benchmark.tar.gz"
-  ssh $remhost "mkdir hpchub_benchmark" || exit 3
+  ssh $remhost "mkdir hpchub_benchmark" 
   ssh $remhost "cd hpchub_benchmark; tar -xvzf ../hpchub_benchmark.tar.gz" || exit 4
   for i in tests/*; do
     if [ -d "$i" -a ! "$i" = "tests/include" -a ! -f "$i/.disable_install" ]; then 

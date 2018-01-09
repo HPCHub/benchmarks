@@ -12,6 +12,14 @@ if [ -f "${HPCHUB_PLATFORM}" ]; then
   . ${HPCHUB_PLATFORM}
 fi
 
+if [ "${HPCHUB_REPORT}" = "" ]; then
+  report_to=../report.time.txt
+else
+  report_to=${HPCHUB_REPORT}
+fi
+
+. ../include/logger.sh
+
 cd hpcc-${hpcc_version}
 
 cp ../hpccinf.txt ./
@@ -26,18 +34,26 @@ LogStep hpcc-noargs Start
 
 rm hpccoutf.txt 2>/dev/null  
 
-${HPCHUB_MPIRUN} `pwd`/hpcc
+for i in 1000 5000 10000 50000 100000; do
 
-${HPCHUB_MPIWAIT}
+  s=`printf "%-13d%s" $i Ns` 
 
-LogStep hpcc-noargs hpcc-all
+  cat hpccinf.txt | sed "s/1000         Ns/$s/"
 
-NMPI=`grep -A 10 "Begin of MPIRandomAccess section." hpccoutf.txt | grep "GUP" | head -n 1 | awk '{print $1;};'` 
+  ${HPCHUB_MPIRUN} `pwd`/hpcc 
 
-LogStep hpcc-noargs MPIRandomAccess $NMPI
+  ${HPCHUB_MPIWAIT}
 
-NStar=`grep -A 10 "Begin of StarRandomAccess section." hpccoutf.txt | grep "GUP" | head -n 1 | awk '{print $1;};'` 
+  LogStep hpcc-N-$i hpcc-all
 
-LogStep hpcc-noargs MPIRandomAccess $NStar
+  NMPI=`grep -A 10 "Begin of MPIRandomAccess section." hpccoutf.txt | grep "GUP" | head -n 1 | awk '{print $1;};'` 
+
+  LogStep hpcc-N-$i MPIRandomAccess $NMPI
+
+  NStar=`grep -A 10 "Begin of StarRandomAccess section." hpccoutf.txt | grep "GUP" | head -n 1 | awk '{print $1;};'` 
+
+  LogStep hpcc-N-$i MPIRandomAccess $NStar
+
+done
 
 cd ..

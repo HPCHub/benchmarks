@@ -9,7 +9,7 @@ FFTW_CONFIGURE_FLAGS="${FFTW_CONFIGURE_FLAGS} --enable-$feature"
   fi
 done
 
-export CC=`which mpicc`
+export CC=`which mpicc.mpich`
 if [ ! -x "$CC" ]; then
   export CC=`which gcc`
 fi
@@ -25,7 +25,7 @@ if [ "$HPCHUB_TEST_STATE" == "install" ]; then
 fi
 
 export FFTW_CONFIGURE_FLAGS
-export HPCHUB_LINKER=`which mpif77`
+export HPCHUB_LINKER=`which mpif77.mpich`
 export HPCHUB_LAPACK_DIR="/usr/lib"
 
 HPCHUB_PWD=`pwd`

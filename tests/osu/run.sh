@@ -23,5 +23,3 @@ fi
 LogStep osu-noargs Start 
 
 ${HPCHUB_MPIRUN} ${HOME}/usr/bin/osu
-
-
