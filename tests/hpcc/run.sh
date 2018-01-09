@@ -32,9 +32,10 @@ fi
 
 LogStep hpcc-noargs Start 
 
-rm hpccoutf.txt 2>/dev/null  
 
 for i in 1000 5000 10000 50000 100000; do
+  
+  rm hpccoutf.txt 2>/dev/null  
 
   s=`printf "%-13d%s" $i Ns` 
 
