@@ -1,0 +1,29 @@
+#!/bin/bash
+
+if [ "$1" = "list" ]; then
+  printf "TEST    \tRUN\tINSTALL\n"
+
+  for i in tests/*; do
+    if [ -d "$i" -a ! "$i" = "tests/include" ]; then 
+      testname=${i##tests/}
+      printf "%-8s\t" $testname
+      for op in run install; do
+        if [ -f $i/.disable_${op} ]; then
+           echo -ne "-\t"
+        else
+           echo -ne "+\t"
+        fi
+      done
+      echo -ne "\n"
+    fi
+  done
+elif [ "$1" = "enable" ]; then
+  rm -f tests/$2/.disable_$3
+elif [ "$1" = "disable" ]; then
+  echo > tests/$2/.disable_$3
+else
+  echo "Usage:"
+  echo "  test {list|enable|disable} [test] [operation]"
+  exit 1
+fi
+
