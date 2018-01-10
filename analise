@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ "$1" = "list" ]; then
+  for testdir in runs/run/*; do
+    testname=${testdir##runs/run/}
+    cat $testdir/*/*/*/report.time.txt | awk "{print \"$testname\t\" \$1 \"\t\" \$2; };" | sort -u
+  done
+elif [ "$1" = "join" ]; then
+    cd runs/run 
+    echo -e "test\tplatform\thost\tdatetime\tfile\telement\tstep\tdT\tTimeStamp\tNops"
+    for file in  */*/*/*/report.time.txt ; do
+      fp=`echo $file | tr '/' "\t"`
+      cat $file | awk "BEGIN{a=0};{if(a>0) { print \"$fp\t\" \$0; }; a=1;};"
+    done
+else
+  echo "Usage:"
+  echo "  analise {list|join}"
+fi
