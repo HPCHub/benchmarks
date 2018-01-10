@@ -8,15 +8,25 @@ if [ "$1" = "list" ]; then
       testname=${i##tests/}
       printf "%-8s\t" $testname
       for op in run install; do
+        if [ ! -x $i/${op}.sh ]; then
+          echo -ne "!\t"
+        else
         if [ -f $i/.disable_${op} ]; then
            echo -ne "-\t"
         else
            echo -ne "+\t"
         fi
+        fi
       done
       echo -ne "\n"
     fi
   done
+  echo "-----------------"
+  echo " Hint:"
+  echo "       + enabled"
+  echo "       - disabled"
+  echo "       ! not implemented"
+
 elif [ "$1" = "enable" ]; then
   rm -f tests/$2/.disable_$3
 elif [ "$1" = "disable" ]; then
