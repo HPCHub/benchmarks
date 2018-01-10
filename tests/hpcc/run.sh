@@ -32,6 +32,12 @@ fi
 
 LogStep hpcc-noargs Start 
 
+function getvalue {
+  value=`grep -A 20 "$1" hpccoutf.txt | awk "/$2/{print \$$3; };"`
+  if [ "$value" = "" ]; then
+    value="0.0"
+  fi
+}
 
 for i in 1000 5000 10000 50000 100000; do
   
@@ -61,6 +67,22 @@ for i in 1000 5000 10000 50000 100000; do
   LogStep hpcc-N-$i StarRandomAccess $NStar
 
   cat hpccoutf.txt
-done
 
+  getvalue "Begin of StarDGEMM section" "Average" "3"
+
+  LogStep hpcc-N-$i StarDGEMM_Average_Gflops $value
+
+  getvalue "Begin of MPIFFT section" "^Gflop" "2"
+
+  LogStep hpcc-N-$i MPIFFT_Gflops $value
+
+  getvalue "Begin of StarFFT section" "Average Gflop" "3"
+
+  LogStep hpcc-N-$i StarFFT_Average_Gflops $value
+
+  getvalue "WR11C2R4" "WR11C2R4" "7"
+
+  LogStep hpcc-N-$i "HPL_Gflops" $value
+
+done
 cd ..

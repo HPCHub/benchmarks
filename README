@@ -30,3 +30,15 @@ Hints:
 
  - If you want to skip some operation (OP) on some test, you can create empty .disable_OP (e.g. .disable_run or .disable_install) in this test's directory.
 
+ * Top-level tools
+
+Top-level tools are supposed to be used for high-level operations. 
+All of them output simple help when invoked without arguments.
+
+As for now, we have 3 of them:
+
+runat.sh - run enabled operation on some host assuming it operates some platform. Store results locally on success.
+
+test - enable/disable tests
+
+analise - obtain all the results gathered as a single table.
