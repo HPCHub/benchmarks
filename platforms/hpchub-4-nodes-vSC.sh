@@ -29,6 +29,7 @@ if [ "$HPCHUB_TEST_STATE" == "install" ]; then
 fi
 
 if [ "$HPCHUB_OPERATION" == "install_system" ]; then
+  echo YUM:
   sudo yum -y install atlas cmake
 fi
 export FFTW_CONFIGURE_FLAGS
