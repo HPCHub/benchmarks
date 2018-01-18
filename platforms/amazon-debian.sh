@@ -21,7 +21,7 @@ if [ ! -x "$CC" ]; then
 fi
 
 if [ "$HPCHUB_OPERATION" == "install_system" ]; then
-  sudo apt-get install build-essential gfortran mpich blas lapack 
+  sudo apt-get install build-essential gfortran mpich blas lapack cmake
 fi
 
 if [ "$HPCHUB_TEST_STATE" == "install" ]; then
