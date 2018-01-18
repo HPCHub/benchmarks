@@ -1,10 +1,6 @@
-NNODES=`cat /etc/hosts |  grep 'n.*\.vcluster' | wc -l`
+NCPU=`cat /proc/cpuinfo  | grep processor | wc -l`
 
-NODES=`cat /etc/hosts | grep 'n.*\.vcluster' | awk '{print $2;};'`
-
-NCPU=`for i in $NODES; do ssh \$i cat /proc/cpuinfo | grep processor; done | wc -l`
-
-export OMP_NUM_THREADS=`ssh n001 cat /proc/cpuinfo | grep processor | wc -l`
+export OMP_NUM_THREADS=$NCPU
 
 FFTW_CONFIGURE_FLAGS=""
 for feature in sse2 avx avx2; do
@@ -13,7 +9,7 @@ FFTW_CONFIGURE_FLAGS="${FFTW_CONFIGURE_FLAGS} --enable-$feature"
   fi
 done
 
-export CC=`which mpicc`
+export CC=`which mpicc.mpich`
 if [ ! -x "$CC" ]; then
   export CC=`which gcc`
 fi
@@ -24,20 +20,20 @@ if [ ! -x "$CC" ]; then
   fi
 fi
 
+if [ "$HPCHUB_OPERATION" == "install_system" ]; then
+  sudo apt-get install build-essential gfortran mpich blas lapack 
+fi
+
 if [ "$HPCHUB_TEST_STATE" == "install" ]; then
   echo "Platform: using $CC as compiler"
 fi
 
-if [ "$HPCHUB_OPERATION" == "install_system" ]; then
-  echo YUM:
-  sudo yum -y install atlas cmake blas-devel
-fi
 export FFTW_CONFIGURE_FLAGS
-export HPCHUB_LINKER=`which mpif77`
+export HPCHUB_LINKER=`which mpif77.mpich`
 export HPCHUB_LAPACK_DIR="/usr/lib"
 
 HPCHUB_PWD=`pwd`
-export HPCHUB_MPIRUN="mpirun -np $NCPU "
+export HPCHUB_MPIRUN="mpirun.mpich -np $NCPU -machinefile machinefile "
 
 if [ ! -f machinefile ]; then 
     for i in `seq 1 $NCPU`; do
