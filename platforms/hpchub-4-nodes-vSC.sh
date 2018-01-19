@@ -30,7 +30,11 @@ fi
 
 if [ "$HPCHUB_OPERATION" == "install_system" ]; then
   echo YUM:
+  
   sudo yum -y install atlas cmake blas-devel
+  for i in $NODES; do
+    ssh $i  sudo yum -y install atlas cmake blas-devel
+  done
 fi
 export FFTW_CONFIGURE_FLAGS
 export HPCHUB_LINKER=`which mpif77`
@@ -40,7 +44,9 @@ HPCHUB_PWD=`pwd`
 export HPCHUB_MPIRUN="mpirun -np $NCPU "
 
 if [ ! -f machinefile ]; then 
+   for h in $NODES; do
     for i in `seq 1 $NCPU`; do
-      echo localhost >> machinefile
+      echo $h >> machinefile
     done
+   done
 fi
