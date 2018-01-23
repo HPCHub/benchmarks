@@ -32,11 +32,16 @@ fi
 
 LogStep hpcc-noargs Start 
 
-function getvalue {
-  value=`grep -A 20 "$1" hpccoutf.txt | awk "/$2/{print \$$3; };"`
+function getvalue {  
+  local section=$1 
+  local pattern=$2 
+  local target=$3 
+  local line="grep -A 20 \"$section\" hpccoutf.txt | awk '/$pattern/{print \$$target; };'"
+  value=`bash -c "$line"`
+  echo "value: $value"
   if [ "$value" = "" ]; then
-    value="0.0"
-  fi
+    value="0.0";  
+  fi; 
 }
 
 for i in 1000 5000 10000 50000 100000; do
