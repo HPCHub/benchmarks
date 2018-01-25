@@ -20,6 +20,11 @@ fi
 remhost=$1
 platform=$2
 operation=$3
+
+if [ -f "local_platform_hooks/$platform.$operation.sh" ];then
+  . local_platform_hooks/$platform.$operation.sh
+fi
+
 remwd=`ssh $remhost pwd`
 
 if [ ! "$?" = "0" -o "$remwd" = "" ]; then
