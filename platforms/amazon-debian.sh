@@ -49,3 +49,7 @@ if [ ! -f machinefile ]; then
       echo localhost >> machinefile
     done
 fi
+
+if [ "$HPCHUB_BUILTIN_MPI" = "" ]; then
+  export HPCHUB_MPIRUN_OMP=""
+fi
