@@ -21,7 +21,7 @@ if [ ! -x "$CC" ]; then
 fi
 
 if [ "$HPCHUB_OPERATION" == "install_system" ]; then
-  sudo apt-get install build-essential gfortran mpich libblas-dev liblapack-dev cmake
+  sudo apt-get install build-essential gfortran mpich libblas-dev liblapack-dev cmake bc
 fi
 
 if [ "$HPCHUB_TEST_STATE" == "install" ]; then
@@ -35,6 +35,15 @@ export HPCHUB_LAPACK_DIR="/usr/lib"
 HPCHUB_PWD=`pwd`
 export HPCHUB_MPIRUN="mpirun.mpich -np $NCPU -machinefile machinefile "
 
+if [ ! "$HPCHUB_OPTIMAL_OMP" = "" ]; then
+  if [ "$OMP_NUM_THREADS" -gt $HPCHUB_OPTIMAL_OMP ]; then
+     export OMP_NUM_THREADS=$HPCHUB_OPTIMAL_OMP
+     NCPU=$((NCPU/OMP_NUM_THREADS))
+     export HPCHUB_MPIRUN_OMP="mpirun.mpich -np $NCPU -machinefile machinefile "
+  else
+     export HPCHUB_MPIRUN_OMP="mpirun.mpich -np $NCPU -machinefile machinefile " 
+  fi
+fi
 if [ ! -f machinefile ]; then 
     for i in `seq 1 $NCPU`; do
       echo localhost >> machinefile
