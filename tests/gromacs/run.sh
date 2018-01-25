@@ -9,6 +9,7 @@ fi
 ## Gromacs has notice that optimal performance is obtained on
 ## 6 OpenMP threads + as many MPI as possible.
 HPCHUB_OPTIMAL_OMP=6 
+HPCHUB_BUILTIN_MPI=1
 
 if [ -f "${HPCHUB_PLATFORM}" ]; then
   . ${HPCHUB_PLATFORM}
@@ -31,9 +32,6 @@ rm \#*
 # Gromacs refuses to run with > 6 OpenMP Cores,
 # 
 ###
-if [ ${OMP_NUM_THREADS} -gt 6 ]; then 
-   OMP_NUM_THREADS=1
-fi
 
 
 # http://www.bevanlab.biochem.vt.edu/Pages/Personal/justin/gmx-tutorials/lysozyme/01_pdb2gmx.html
