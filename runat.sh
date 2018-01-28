@@ -39,7 +39,7 @@ if [ "$operation" = "install" ]; then
   echo "tarballs sent."
   for i in tests/*; do
     if [ -d "$i" -a ! "$i" = "tests/include" -a ! -f "$i/.disable_install" ]; then 
-      ssh $remhost "cd hpchub_benchmark/$i; HPCHUB_PLATFORM=../../platforms/${platform}.sh ./install.sh" || exit 5
+      ssh $remhost "source /etc/profile; module add mpi/openmpi-1.10.3rc4-x86_64; cd hpchub_benchmark/$i; HPCHUB_PLATFORM=../../platforms/${platform}.sh ./install.sh" || exit 5
     fi
   done
   ssh $remhost "echo ok > hpchub_benchmark/install_ok"
