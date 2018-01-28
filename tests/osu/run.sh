@@ -31,9 +31,10 @@ fi
 mkdir -p ../../runs/run/osu
 
 MPIRUN=`echo $HPCHUB_MPIRUN | awk '{print $1}'`
-MPIRUN= "`which $MPIRUN`"
+MPIRUN="`which $MPIRUN`"
 if [ "`$MPIRUN --help | grep 'Open MPI'`" != "" ]; then
 	MPIRUN_BIND='--bind-to core'
+	PPN='--npernode'
 fi
 
 
@@ -41,7 +42,7 @@ LogStep osu Start
 cp machinefile machinefile_reserv
 cat machinefile_reserv | uniq | head -n 2 > machinefile
 
-runstr="$MPIRUN -np 2  -machinefile machinefile $MPIRUN_BIND ./osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072"
+runstr="$MPIRUN -np 2  -machinefile machinefile $MPIRUN_BIND $PPN 1 ./osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072"
 
 echo $runstr
 
