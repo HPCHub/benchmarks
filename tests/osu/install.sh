@@ -18,7 +18,8 @@ fi
 
 cd osu-micro-benchmarks-${osu_version}
 
-./configure --prefix=${HOME}/usr
+./configure  CC=$CC CXX=$CXX FC=$FC
+#--prefix=${HOME}/usr
 
 make
-make install
+#make install
