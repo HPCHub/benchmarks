@@ -40,7 +40,13 @@ fi
 LogStep osu Start 
 cp machinefile machinefile_reserv
 cat machinefile_reserv | uniq | head -n 2 > machinefile
-$MPIRUN -np 2  -machinefile machinefile $MPIRUN_BIND ./osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072
+
+runstr="$MPIRUN -np 2  -machinefile machinefile $MPIRUN_BIND ./osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072"
+
+echo $runstr
+
+eval $runstr
+
 mv machinefile_reserv  machinefile
 
 LogStep osu latency
