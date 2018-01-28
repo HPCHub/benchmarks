@@ -28,6 +28,22 @@ else
   cp ../machinefile ./
 fi
 
-LogStep osu-noargs Start 
+mkdir -p ../../runs/run/osu
 
-${HPCHUB_MPIRUN} ${HOME}/usr/bin/osu
+MPIRUN=`which mpirun`
+
+
+
+LogStep osu Start 
+iter=0
+for h in $NODES; do
+	if [ $iter -gt 1 ]; then 
+		break
+	fi
+    echo $h >> machinefile
+	let iter=iter+1
+done
+
+$MPIRUN -n 2  osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072 2>&1 | tee ../../runs/run/osu/osu_latency.out
+
+LogStep osu latency
