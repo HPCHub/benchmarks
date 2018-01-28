@@ -44,6 +44,6 @@ for h in $NODES; do
 	let iter=iter+1
 done
 
-$MPIRUN -n 2  osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072 2>&1 | tee ../../runs/run/osu/osu_latency.out
+$MPIRUN -n 2  ./osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072
 
 LogStep osu latency
