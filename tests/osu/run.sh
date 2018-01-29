@@ -43,16 +43,16 @@ fi
 #save base machinefile
 mv machinefile machinefile_reserv
 
+NODES=`cat machinefile_reserv | uniq`
+TWO_NODES=`cat machinefile_reserv | uniq | head -n 2`
+
 #----------------------
 #Start OSU tests
 #----------------------
 
 LogStep osu Start
-
-if [ `wc -l machinefile` -eq 2]; then 
-	TWO_NODES=`cat machinefile_reserv | uniq | head -n 2`
-
-#	run osu_latency 
+if [ `echo $TWO_NODES | wc -w` -eq 2 ]; then
+#	run osu_latency
 	cat machinefile_reserv | uniq | head -n 2 > machinefile
 	runstr="$MPIRUN -np 2  -machinefile machinefile $MPIRUN_BIND $PPN 1 ./mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072"
 	echo $runstr
@@ -73,7 +73,7 @@ if [ `wc -l machinefile` -eq 2]; then
 			LogStep osu mbw_mr $i
 	done
 else 
-	echo cannot run OSU tests: cannot find \>1 nodes
+	echo cannot run osu_latency and osu_mbw_mr tests: cannot find \>1 nodes
 	exit 1
 fi 
 
