@@ -21,8 +21,8 @@ cd NPB${npb_version}/NPB3.3-MPI
 #generate config fo NPB
 cp make.def.template ./make.def
 
-sed -i 's/MPIF77 = .*/MPIF77 = $FC/' ./config/make.def
-sed -i 's/MPICC = .*/MPICC = $CC/' ./config/make.def
+sed -i 's/MPIF77 = .*/MPIF77 = '"$FC"'/' ./config/make.def
+sed -i 's/MPICC = .*/MPICC = '"$CC"'/' ./config/make.def
 sed -i 's/FMPI_LIB  = .*/FMPI_LIB  =' ./config/make.def
 sed -i 's/FMPI_INC  = .*/FMPI_INC  =' ./config/make.def
 
@@ -45,7 +45,7 @@ if [ -f suite.def ]; then
 	rm suite.def
 fi
 i=1
-while [ i -le $local_ncpus ]; do
+while [ $i -le $local_ncpus ]; do
 	echo is C $i >> suite.def
 	echo lu C $i >> suite.def
 	echo ft C $i >> suite.def
@@ -57,7 +57,7 @@ done
 
 i=1
 j=1
-while [ j -le $local_ncpus ]; do
+while [ $j -le $local_ncpus ]; do
 	echo sp $i >> suite.def
 	echo bt $i >> suite.def
 	let i = i + 1
