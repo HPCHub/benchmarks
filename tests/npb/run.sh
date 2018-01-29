@@ -63,8 +63,8 @@ for i in `seq 1 $NNODES`; do
 		echo '-----------------------'
 		echo machinefile:
 		cat machinefile
-		for test in "is lu ft mg cg ep dt sp"; do
-			if [ -f ./bin/${test}.C.$((i*j)) ]; then
+		for npb_test in "is lu ft mg cg ep dt sp"; do
+			if [ -f ./bin/${npb_test}.C.$((i*j)) ]; then
 				echo Start IS
 				echo nnodes=$i
 				echo ppn=$j
