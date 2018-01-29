@@ -37,7 +37,7 @@ sed -i 's@FFLAGS = .*@FFLAGS = -O3 --mcmodel=medium'" $FFTW_CONFIGURE_FLAGS"'@' 
 if [ -f "${HPCHUB_MACHINEFILE}" ];then
 	cp "${HPCHUB_MACHINEFILE}" ./machinefile
 else
-	cp ../machinefile ./
+	cp ../../machinefile ./
 fi
 
 local_ncpus=`cat machinefile | wc -l`
