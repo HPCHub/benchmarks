@@ -45,7 +45,7 @@ fi
 local_ncpus=`cat machinefile | wc -l`
 
 if [ -f ./config/suite.def ]; then
-	rm suite.def
+	rm ./config/suite.def
 fi
 i=1
 while [ $i -le $local_ncpus ]; do
@@ -61,8 +61,8 @@ done
 i=1
 j=1
 while [ $j -le $local_ncpus ]; do
-	echo sp $i >> ./config/suite.def
-	echo bt $i >> ./config/suite.def
+	echo sp $j >> ./config/suite.def
+	echo bt $j >> ./config/suite.def
 	let i=i+1
 	let j=i*i
 done
