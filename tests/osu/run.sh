@@ -42,12 +42,20 @@ LogStep osu Start
 cp machinefile machinefile_reserv
 cat machinefile_reserv | uniq | head -n 2 > machinefile
 
-runstr="$MPIRUN -np 2  -machinefile machinefile $MPIRUN_BIND $PPN 1 ./osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072"
-
+runstr="$MPIRUN -np 2  -machinefile machinefile $MPIRUN_BIND $PPN 1 ./mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072"
 echo $runstr
-
 eval $runstr
-
-mv machinefile_reserv  machinefile
-
+rm machinefile
 LogStep osu latency
+
+for i in `seq 1 $NCPU`; do
+	for h in `echo $NODES | awk '{print $1 $2}'`; do
+		for ppn in `seq 1 $i`; do
+			echo $h >> machinefile
+		done
+	done
+	runstr="$MPIRUN -np $((2*i))  -machinefile machinefile $MPIRUN_BIND $PPN $i ./mpi/pt2pt/osu_mbw_mr -V"
+	echo $runstr
+	eval $runstr
+	LogStep osu mbw_mr $i
+done 
