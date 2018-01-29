@@ -61,8 +61,8 @@ done
 i=1
 j=1
 while [ $j -le $local_ncpus ]; do
-	echo sp $j >> ./config/suite.def
-	echo bt $j >> ./config/suite.def
+	echo sp C $j >> ./config/suite.def
+	echo bt C $j >> ./config/suite.def
 	let i=i+1
 	let j=i*i
 done
