@@ -29,10 +29,10 @@ sed -i 's/FMPI_INC.*/FMPI_INC  =/' ./config/make.def
 
 sed -i 's/CMPI_LIB.*/CMPI_LIB  =/' ./config/make.def
 sed -i 's/CMPI_INC.*/CMPI_INC  =/' ./config/make.def
-sed -i 's@CFLAGS.*@CFLAGS = -O3 -mcmodel=medium'" $FFTW_CONFIGURE_FLAGS"'@' ./config/make.def
-sed -i 's@FFLAGS.*@FFLAGS = -O3 -mcmodel=medium'" $FFTW_CONFIGURE_FLAGS"'@' ./config/make.def
-sed -i 's@FLINKFLAGS.*@FLINKFLAGS = -O3@' ./config/make.def
-sed -i 's@CLINKFLAGS.*@CLINKFLAGS = -O3@' ./config/make.def
+sed -i 's@CFLAGS.*@CFLAGS = -Ofast -mcmodel=medium@' ./config/make.def
+sed -i 's@FFLAGS.*@FFLAGS = -Ofast -mcmodel=medium@' ./config/make.def
+sed -i 's@FLINKFLAGS.*@FLINKFLAGS = -Ofast@' ./config/make.def
+sed -i 's@CLINKFLAGS.*@CLINKFLAGS = -Ofast@' ./config/make.def
 
 #generate build suit for NPB
 
