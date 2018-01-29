@@ -22,15 +22,15 @@ cd NPB${npb_version}/NPB3.3-MPI
 echo generate config for NPB
 cp ./config/make.def.template ./config/make.def
 
-sed -i 's/MPIF77 = .*/MPIF77 = '"$FC"'/' ./config/make.def
-sed -i 's/MPICC = .*/MPICC = '"$CC"'/' ./config/make.def
-#sed -i 's/FMPI_LIB  = .*/FMPI_LIB  =' ./config/make.def
-#sed -i 's/FMPI_INC  = .*/FMPI_INC  =' ./config/make.def
+sed -i 's@MPIF77 = .*@MPIF77 = '"$FC"'@' ./config/make.def
+sed -i 's@MPICC = .*@MPICC = '"$CC"'@' ./config/make.def
+sed -i 's/FMPI_LIB  = .*/FMPI_LIB  =/' ./config/make.def
+sed -i 's/FMPI_INC  = .*/FMPI_INC  =/' ./config/make.def
 
-#sed -i 's/CMPI_LIB  = .*/CMPI_LIB  =' ./config/make.def
-#sed -i 's/CMPI_INC  = .*/CMPI_INC  =' ./config/make.def
-#sed -i 's/CFLAGS = .*/CFLAGS = -O3 --mcmodel=medium $FFTW_CONFIGURE_FLAGS' ./config/make.def
-#sed -i 's/FFLAGS = .*/FFLAGS = -O3 --mcmodel=medium $FFTW_CONFIGURE_FLAGS' ./config/make.def
+sed -i 's/CMPI_LIB  = .*/CMPI_LIB  =/' ./config/make.def
+sed -i 's/CMPI_INC  = .*/CMPI_INC  =/' ./config/make.def
+sed -i 's@CFLAGS = .*@CFLAGS = -O3 --mcmodel=medium'" $FFTW_CONFIGURE_FLAGS"'@' ./config/make.def
+sed -i 's@FFLAGS = .*@FFLAGS = -O3 --mcmodel=medium'" $FFTW_CONFIGURE_FLAGS"'@' ./config/make.def
 
 #generate build suit for NPB
 
