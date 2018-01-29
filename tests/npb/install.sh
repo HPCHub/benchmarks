@@ -53,7 +53,7 @@ while [ $i -le $local_ncpus ]; do
 	echo mg C $i >> suite.def
 	echo cg C $i >> suite.def
 	echo ep C $i >> suite.def
-	let i = i * 2
+	let i=i*2
 done
 
 i=1
@@ -61,8 +61,8 @@ j=1
 while [ $j -le $local_ncpus ]; do
 	echo sp $i >> suite.def
 	echo bt $i >> suite.def
-	let i = i + 1
-	let j = i * i
+	let i=i+1
+	let j=i*i
 done
 
 make clean
