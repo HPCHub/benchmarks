@@ -1,2 +1,2 @@
 #!/bin/bash
-export osu_version=5.4
+export npb_version=3.3.1

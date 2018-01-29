@@ -11,14 +11,14 @@ if [ -f "${HPCHUB_PLATFORM}" ]; then
   . ${HPCHUB_PLATFORM}
 fi
 
-if [ ! -f osu-micro-benchmarks-${osu_version}.tar.gz ]; then
-  wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-${osu_version}.tar.gz 
-  tar -xvzf osu-micro-benchmarks-${osu_version}.tar.gz
+if [ ! -f NPB${npb_version}.tar.gz ]; then
+  wget https://www.nas.nasa.gov/assets/npb/NPB${npb_version}.tar.gz
+  tar -xvzf NPB${npb_version}.tar.gz
 fi
 
-cd osu-micro-benchmarks-${osu_version}
+cd NPB${npb_version}
 
-./configure  CC=$CC CXX=$CXX FC=$FC
+#./configure  CC=$CC CXX=$CXX FC=$FC
 #--prefix=${HOME}/usr
 
 make
