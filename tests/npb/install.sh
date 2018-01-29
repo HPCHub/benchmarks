@@ -42,25 +42,25 @@ fi
 
 local_ncpus=`cat machinefile | wc -l`
 
-if [ -f suite.def ]; then
+if [ -f ./config/suite.def ]; then
 	rm suite.def
 fi
 i=1
 while [ $i -le $local_ncpus ]; do
-	echo is C $i >> suite.def
-	echo lu C $i >> suite.def
-	echo ft C $i >> suite.def
-	echo mg C $i >> suite.def
-	echo cg C $i >> suite.def
-	echo ep C $i >> suite.def
+	echo is C $i >> ./config/suite.def
+	echo lu C $i >> ./config/suite.def
+	echo ft C $i >> ./config/suite.def
+	echo mg C $i >> ./config/suite.def
+	echo cg C $i >> ./config/suite.def
+	echo ep C $i >> ./config/suite.def
 	let i=i*2
 done
 
 i=1
 j=1
 while [ $j -le $local_ncpus ]; do
-	echo sp $i >> suite.def
-	echo bt $i >> suite.def
+	echo sp $i >> ./config/suite.def
+	echo bt $i >> ./config/suite.def
 	let i=i+1
 	let j=i*i
 done
