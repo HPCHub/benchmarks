@@ -49,7 +49,7 @@ rm machinefile
 LogStep osu latency
 
 for i in `seq 1 $NCPU`; do
-	for h in `echo $NODES | awk '{print $1 $2}'`; do
+	for h in `echo $NODES | awk '{print $1 " " $2}'`; do
 		for ppn in `seq 1 $i`; do
 			echo $h >> machinefile
 		done
