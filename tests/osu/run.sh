@@ -102,6 +102,7 @@ for i in `seq 1 $NNODES`; do
 		echo '-----------------------'
 		echo machinefile:
 		cat machinefile
+		echo '-----------------------'
 		runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND $PPN $j ./mpi/collective/osu_alltoall"
 		echo $runstr
 		echo nnodes=$i
