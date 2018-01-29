@@ -30,32 +30,52 @@ fi
 
 mkdir -p ../../runs/run/osu
 
+#find mpirun command frim hpchub env
 MPIRUN=`echo $HPCHUB_MPIRUN | awk '{print $1}'`
 MPIRUN="`which $MPIRUN`"
+
+#define bind and ppn for mpi (Open MPI)
 if [ "`$MPIRUN --help | grep 'Open MPI'`" != "" ]; then
 	MPIRUN_BIND='--bind-to core'
 	PPN='--npernode'
 fi
 
+#save base machinefile
+mv machinefile machinefile_reserv
 
-LogStep osu Start 
-cp machinefile machinefile_reserv
-cat machinefile_reserv | uniq | head -n 2 > machinefile
+#----------------------
+#Start OSU tests
+#----------------------
 
-runstr="$MPIRUN -np 2  -machinefile machinefile $MPIRUN_BIND $PPN 1 ./mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072"
-echo $runstr
-eval $runstr
-rm machinefile
-LogStep osu latency
+LogStep osu Start
 
-for i in `seq 1 $NCPU`; do
-	for h in `echo $NODES | awk '{print $1 " " $2}'`; do
-		for ppn in `seq 1 $i`; do
-			echo $h >> machinefile
-		done
-	done
-	runstr="$MPIRUN -np $((2*i))  -machinefile machinefile $MPIRUN_BIND $PPN $i ./mpi/pt2pt/osu_mbw_mr -V"
+if [ `wc -l machinefile` -eq 2]; then 
+	TWO_NODES=`cat machinefile_reserv | uniq | head -n 2`
+
+#	run osu_latency 
+	cat machinefile_reserv | uniq | head -n 2 > machinefile
+	runstr="$MPIRUN -np 2  -machinefile machinefile $MPIRUN_BIND $PPN 1 ./mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072"
 	echo $runstr
 	eval $runstr
-	LogStep osu mbw_mr $i
-done 
+	rm machinefile
+	LogStep osu latency
+	
+#	run osu_mbw_mr 
+	for i in `seq 1 $NCPU`; do
+			for h in $TWO_NODES; do
+				for ppn in `seq 1 $i`; do
+					echo $h >> machinefile
+				done
+			done
+			runstr="$MPIRUN -np $((2*i))  -machinefile machinefile $MPIRUN_BIND $PPN $i ./mpi/pt2pt/osu_mbw_mr -V"
+			echo $runstr
+			eval $runstr
+			LogStep osu mbw_mr $i
+	done
+else 
+	echo cannot run OSU tests: cannot find \>1 nodes
+	exit 1
+fi 
+
+#revert macninefile
+mv machinefile_reserv machinefile
