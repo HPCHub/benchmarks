@@ -63,7 +63,7 @@ else
 
        ssh $remhost "cd hpchub_benchmark/$i; HPCHUB_OPERATION=${operation} HPCHUB_REPORT=${remreport} HPCHUB_RESDIR=${resdir} HPCHUB_PLATFORM=../../platforms/${platform}.sh ./${operation}.sh" | tee $resdir/out.log
        scp $remhost:$remreport $resdir/report.time.txt || echo "report time not logged"
-       if [ $testname == 'npb' ]; then
+       if [ $testname == 'npb' -o $testname == 'osu' ]; then
            scp $remhost:$remwd/hpchub_benchmark/$resdir/* $resdir
        fi
     fi
