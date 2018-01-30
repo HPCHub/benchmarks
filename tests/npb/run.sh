@@ -91,8 +91,8 @@ for i in `seq 1 $NNODES`; do
 					let iter=iter+1
 				done
 			fi
-			rm machinefile
 		done
+		rm machinefile
 	done
 done
 
