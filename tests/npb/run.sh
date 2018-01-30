@@ -82,13 +82,16 @@ for i in `seq 1 $NNODES`; do
 				while [ $iter -le $maxiter ]; do
 					echo nnodes=$i
 					echo ppn=$j
-					runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND $PPN $j ./bin/${npb_test}.C.$((i*j)) | tee -a $NPB_RESULTS/${npb_test}.C.${i}.$j.$iter.out"
-					echo $runstr
-					eval $runstr
-					LogStep npb $test_$i $j
+					runstr="$MPIRUN -np $((j*i))  -machinefile machinefile ${MPIRUN_BIND} ${PPN} ${j} ./bin/${npb_test}.C.$((i*j)) | tee -a ${NPB_RESULTS}/${npb_test}.C.${i}.${j}.${iter}.out"
+					echo  machinefile: | tee $NPB_RESULTS/${npb_test}.C.${i}.$j.${iter}.out
+					cat machinefile | tee -a $NPB_RESULTS/${npb_test}.C.${i}.$j.${iter}.out
+					echo ${runstr} | tee -a $NPB_RESULTS/${npb_test}.C.${i}.$j.${iter}.out
+					eval ${runstr}
+					LogStep npb ${test}_${i}_${j} ${iter}
 					let iter=iter+1
 				done
 			fi
+			rm machinefile
 		done
 	done
 done
