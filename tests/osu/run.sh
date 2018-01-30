@@ -66,7 +66,7 @@ NODES_ARRAY=($(cat machinefile_reserv | uniq))
 #----------------------
 
 LogStep osu Start
-if [ `echo $TWO_NODES | wc -w` -eq 2 ]; then
+if [ `echo ${NODES_ARRAY[@]:0:2} | wc -w` -eq 2 ]; then
 #	run osu_latency
 	for h in ${NODES_ARRAY[@]:0:2}; do
 		echo $h slots=1 >> machinefile
