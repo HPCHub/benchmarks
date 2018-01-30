@@ -38,7 +38,7 @@ MPIRUN=`echo $HPCHUB_MPIRUN | awk '{print $1}'`
 
 #define bind and ppn for mpi (Open MPI)
 if [ "`$MPIRUN --help | grep 'Open MPI'`" != "" ]; then
-	MPIRUN_BIND='--bind-to core'
+	MPIRUN_BIND='--bind-to core --map-by socket'
 	PPN='--npernode'
 fi
 
