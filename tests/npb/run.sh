@@ -28,7 +28,10 @@ else
   cp ../../machinefile ./
 fi
 
-mkdir -p ../../../runs/run/npb
+NPB_RESULTS=../../../../$HPCHUB_RESDIR
+
+mkdir -p $NPB_RESULTS
+
 
 #find mpirun command frim hpchub env
 MPIRUN=`echo $HPCHUB_MPIRUN | awk '{print $1}'`
@@ -42,12 +45,17 @@ fi
 #save base machinefile
 mv machinefile machinefile_reserv
 
+#Is it good idea?
 NODES=`cat machinefile_reserv | uniq`
+
 #----------------------
 #Start NPB is  lu ft mg cg tests
 #----------------------
+
 NNODES=`cat machinefile_reserv | uniq | wc -l`
 NODES_ARRAY=($(cat machinefile_reserv | uniq))
+
+maxiter=3
 
 for i in `seq 1 $NNODES`; do
 	for j in  `seq 1 $NCPU`; do
@@ -61,13 +69,25 @@ for i in `seq 1 $NNODES`; do
 		cat machinefile
 		echo '-----------------------'
 		for npb_test in "is" "lu" "ft" "mg" "cg" "ep" "dt" "sp"; do
+			prg_nprocs=$((i*j))
+			if [ $prg_nprocs -ge 256 ]; then
+				maxiter=10
+			elif [ $prg_nprocs -ge 32 ]; then
+				maxiter=5
+			else
+				maxiter=3
+			fi
 			if [ -f ./bin/${npb_test}.C.$((i*j)) ]; then
-				echo nnodes=$i
-				echo ppn=$j
-				runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND $PPN $j ./bin/${npb_test}.C.$((i*j))"
-				echo $runstr
-				eval $runstr
-				LogStep npb $test_$i $j
+				iter=1
+				while [ $iter -le $maxiter ]; do
+					echo nnodes=$i
+					echo ppn=$j
+					runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND $PPN $j ./bin/${npb_test}.C.$((i*j)) | tee -a $NPB_RESULTS/${npb_test}.C.${i}.$j.$iter.out"
+					echo $runstr
+					eval $runstr
+					LogStep npb $test_$i $j
+					let iter=iter+1
+				done
 			fi
 		done
 	done
