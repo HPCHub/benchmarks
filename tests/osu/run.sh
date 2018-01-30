@@ -73,7 +73,7 @@ if [ `echo $TWO_NODES | wc -w` -eq 2 ]; then
 			done
 			echo nnodes=2
 			echo ppn=$i
-			runstr="$MPIRUN  -np $((2*$i)) -machinefile machinefile $MPIRUN_BIND  $PPN 1 ./mpi/pt2pt/osu_mbw_mr -V | tee -a ${OSU_RESULTS}/osu_mbw_mr.2.$i.out"
+			runstr="$MPIRUN  -np $((2*$i)) -machinefile machinefile $MPIRUN_BIND  $PPN $i ./mpi/pt2pt/osu_mbw_mr -V | tee -a ${OSU_RESULTS}/osu_mbw_mr.2.$i.out"
 			echo  machinefile: | tee ${OSU_RESULTS}/osu_mbw_mr.2.$i.out
 			cat machinefile | tee -a  ${OSU_RESULTS}/osu_mbw_mr.2.$i.out
 			echo $runstr | tee -a  ${OSU_RESULTS}/osu_mbw_mr.2.$i.out
