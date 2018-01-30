@@ -38,7 +38,7 @@ MPIRUN=`echo $HPCHUB_MPIRUN | awk '{print $1}'`
 
 #define bind and ppn for mpi (Open MPI)
 if [ "`$MPIRUN --help | grep 'Open MPI'`" != "" ]; then
-	MPIRUN_BIND='--bind-to core --map-by socket'
+	MPIRUN_BIND='--bind-to core'
 	PPN='--npernode'
 fi
 
@@ -64,10 +64,6 @@ for i in `seq 1 $NNODES`; do
 				echo $h >> machinefile
 			done
 		done
-		echo '-----------------------'
-		echo machinefile:
-		cat machinefile
-		echo '-----------------------'
 		for npb_test in "is" "lu" "ft" "mg" "cg" "ep" "dt" "sp"; do
 			prg_nprocs=$((i*j))
 			if [ $prg_nprocs -ge 256 ]; then
@@ -78,11 +74,15 @@ for i in `seq 1 $NNODES`; do
 				maxiter=3
 			fi
 			if [ -f ./bin/${npb_test}.C.$((i*j)) ]; then
+				echo '-----------------------'
+				echo machinefile:
+				cat machinefile
+				echo '-----------------------'
 				iter=1
 				while [ $iter -le $maxiter ]; do
 					echo nnodes=$i
 					echo ppn=$j
-					runstr="$MPIRUN -np $((j*i))  -machinefile machinefile ${MPIRUN_BIND} ${PPN} ${j} ./bin/${npb_test}.C.$((i*j)) | tee -a ${NPB_RESULTS}/${npb_test}.C.${i}.${j}.${iter}.out"
+					runstr="$MPIRUN -np $((j*i))  -machinefile machinefile ${MPIRUN_BIND} ./bin/${npb_test}.C.$((i*j)) | tee -a ${NPB_RESULTS}/${npb_test}.C.${i}.${j}.${iter}.out"
 					echo  machinefile: | tee $NPB_RESULTS/${npb_test}.C.${i}.$j.${iter}.out
 					cat machinefile | tee -a $NPB_RESULTS/${npb_test}.C.${i}.$j.${iter}.out
 					echo ${runstr} | tee -a $NPB_RESULTS/${npb_test}.C.${i}.$j.${iter}.out
