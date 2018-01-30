@@ -28,7 +28,7 @@ else
   cp ../machinefile ./
 fi
 
-OSU_RESULTS=../../$HPCHUB_RESDIR
+OSU_RESULTS=../../../$HPCHUB_RESDIR
 mkdir -p $OSU_RESULTS
 
 #find mpirun command frim hpchub env
