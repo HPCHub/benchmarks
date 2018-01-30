@@ -48,7 +48,7 @@ TWO_NODES=`cat machinefile_reserv | uniq | head -n 2`
 
 #generate round robin cpuset
 i=0
-j=$((NCPU/2))
+j=$((NCPU/NNODES/2))
 rr_cpuset=$i,$j
 let i=i+1
 let j=j+1
@@ -78,7 +78,7 @@ if [ `echo $TWO_NODES | wc -w` -eq 2 ]; then
 	LogStep osu latency
 
 #	run osu_mbw_mr 
-	for i in `seq 1 $NCPU`; do
+	for i in `seq 1 $((NCPU/NNODES))`; do
 			for h in $TWO_NODES; do
 				for k in `seq 1 $i`; do
 					echo $h >> machinefile
@@ -105,7 +105,7 @@ NNODES=`cat machinefile_reserv | uniq | wc -l`
 NODES_ARRAY=($(cat machinefile_reserv | uniq))
 
 for i in `seq 1 $NNODES`; do
-	for j in  `seq 1 $NCPU`; do
+	for j in  `seq 1 $((NCPU/NNODES))`; do
 		if [ $((i*j)) -eq 1 ]; then
 			continue
 		fi

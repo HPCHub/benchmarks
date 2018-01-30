@@ -50,12 +50,12 @@ NODES=`cat machinefile_reserv | uniq`
 
 #generate round robin cpuset
 i=0
-j=$((NCPU/2))
+j=$((NCPU/NNODES/2))
 rr_cpuset=$i,$j
 let i=i+1
 let j=j+1
 
-while [ $j -le $NCPU ]; do
+while [ $j -le $((NCPU/NNODES)) ]; do
 	rr_cpuset=${rr_cpuset},$i,$j
 	let i=i+1
 	let j=j+1
@@ -70,7 +70,7 @@ NODES_ARRAY=($(cat machinefile_reserv | uniq))
 
 
 for i in `seq 1 $NNODES`; do
-	for j in  `seq 1 $NCPU`; do
+	for j in  `seq 1 $((NCPU/NNODES))`; do
 		for h in ${NODES_ARRAY[@]:0:$i}; do
 			echo $h slots=$j >> machinefile
 		done
