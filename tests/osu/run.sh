@@ -28,7 +28,8 @@ else
   cp ../machinefile ./
 fi
 
-mkdir -p ../../runs/run/osu
+OSU_RESULTS=../../$HPCHUB_RESDIR
+mkdir -p $OSU_RESULTS
 
 #find mpirun command frim hpchub env
 MPIRUN=`echo $HPCHUB_MPIRUN | awk '{print $1}'`
@@ -53,14 +54,16 @@ LogStep osu Start
 if [ `echo $TWO_NODES | wc -w` -eq 2 ]; then
 #	run osu_latency
 	cat machinefile_reserv | uniq | head -n 2 > machinefile
-	runstr="$MPIRUN -np 2  -machinefile machinefile $MPIRUN_BIND $PPN 1 ./mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072"
-	echo $runstr
 	echo nnodes=2
 	echo ppn=1
+	runstr="$MPIRUN -np 2  -machinefile machinefile $MPIRUN_BIND $PPN 1 ./mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072 | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out"
+	echo  machinefile: | tee ${OSU_RESULTS}/osu_latency.2.1.out
+	cat machinefile | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out
+	echo $runstr | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out
 	eval $runstr
 	rm machinefile
 	LogStep osu latency
-	
+
 #	run osu_mbw_mr 
 	for i in `seq 1 $NCPU`; do
 			for h in $TWO_NODES; do
@@ -68,16 +71,18 @@ if [ `echo $TWO_NODES | wc -w` -eq 2 ]; then
 					echo $h >> machinefile
 				done
 			done
-			runstr="$MPIRUN -np $((2*i))  -machinefile machinefile $MPIRUN_BIND $PPN $i ./mpi/pt2pt/osu_mbw_mr -V"
-			echo $runstr
 			echo nnodes=2
 			echo ppn=$i
+			runstr="$MPIRUN -np $((2*i))  -machinefile machinefile $MPIRUN_BIND $PPN $i ./mpi/pt2pt/osu_mbw_mr -V | tee -a ${OSU_RESULTS}/osu_mbw_mr.2.$i.out"
+			echo  machinefile: | tee ${OSU_RESULTS}/osu_mbw_mr.2.$i.out
+			cat machinefile | tee -a  ${OSU_RESULTS}/osu_mbw_mr.2.$i.out
+			echo $runstr | tee -a  ${OSU_RESULTS}/osu_mbw_mr.2.$i.out
 			eval $runstr
-			LogStep osu mbw_mr $i
+			LogStep osu mbw_mr_2_$i 1
 			rm machinefile
 	done
 else 
-	echo WARNING: cannot run osu_latency and osu_mbw_mr tests: cannot find \>1 nodes
+	echo WARNING: fail to run osu_latency and osu_mbw_mr tests: can not find 2 nodes
 fi 
 
 #----------------------
@@ -103,22 +108,28 @@ for i in `seq 1 $NNODES`; do
 		echo machinefile:
 		cat machinefile
 		echo '-----------------------'
-		runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND $PPN $j ./mpi/collective/osu_alltoall"
-		echo $runstr
 		echo nnodes=$i
 		echo ppn=$j
+		runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND $PPN $j ./mpi/collective/osu_alltoall | tee -a ${OSU_RESULTS}/osu_alltoall.$i.$j.out"
+		echo machinefile: | tee ${OSU_RESULTS}/osu_alltoall.$i.$j.out
+		cat machinefile | tee -a ${OSU_RESULTS}/osu_alltoall.$i.$j.out
+		echo $runstr | tee -a ${OSU_RESULTS}/osu_alltoall.$i.$j.out
 		eval $runstr
 		LogStep osu alltoall_$i $j
-		runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND $PPN $j ./mpi/collective/osu_barrier -i 400000"
-		echo $runstr
 		echo nnodes=$i
 		echo ppn=$j
+		runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND $PPN $j ./mpi/collective/osu_barrier -i 400000 | tee -a ${OSU_RESULTS}/osu_barrier.$i.$j.out"
+		echo machinefile: | tee ${OSU_RESULTS}/osu_barrier.$i.$j.out
+		cat machinefile | tee -a ${OSU_RESULTS}/osu_barrier.$i.$j.out
+		echo $runstr | tee -a ${OSU_RESULTS}/osu_barrier.$i.$j.out
 		eval $runstr
 		LogStep osu barrier_$i $j
-		runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND $PPN $j ./mpi/collective/osu_allreduce"
-		echo $runstr
 		echo nnodes=$i
 		echo ppn=$j
+		runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND $PPN $j ./mpi/collective/osu_allreduce | tee -a ${OSU_RESULTS}/osu_allreduce.$i.$j.out"
+		echo machinefile: | tee ${OSU_RESULTS}/osu_allreduce.$i.$j.out
+		cat machinefile | tee -a ${OSU_RESULTS}/osu_allreduce.$i.$j.out
+		echo $runstr | tee -a ${OSU_RESULTS}/osu_allreduce.$i.$j.out
 		eval $runstr
 		LogStep osu  allreduce_$i $j
 		rm machinefile
