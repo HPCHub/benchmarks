@@ -46,6 +46,19 @@ mv machinefile machinefile_reserv
 NODES=`cat machinefile_reserv | uniq`
 TWO_NODES=`cat machinefile_reserv | uniq | head -n 2`
 
+#generate round robin cpuset
+i=0
+j=$((NCPU/2))
+rr_cpuset=$i,$j
+let i=i+1
+let j=j+1
+
+while [ $j -le $NCPU ]; do
+	rr_cpuset=${rr_cpuset},$i,$j
+	let i=i+1
+	let j=j+1
+done
+
 #----------------------
 #Start OSU p2p tests
 #----------------------
@@ -56,7 +69,7 @@ if [ `echo $TWO_NODES | wc -w` -eq 2 ]; then
 	cat machinefile_reserv | uniq | head -n 2 > machinefile
 	echo nnodes=2
 	echo ppn=1
-	runstr="$MPIRUN -np 2  -machinefile machinefile $MPIRUN_BIND $PPN 1 ./mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072 | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out"
+	runstr="$MPIRUN -np 2  -machinefile machinefile $MPIRUN_BIND --cpu-set $rr_cpuset ./mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072 | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out"
 	echo  machinefile: | tee ${OSU_RESULTS}/osu_latency.2.1.out
 	cat machinefile | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out
 	echo $runstr | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out
@@ -73,7 +86,7 @@ if [ `echo $TWO_NODES | wc -w` -eq 2 ]; then
 			done
 			echo nnodes=2
 			echo ppn=$i
-			runstr="$MPIRUN  -np $((2*$i)) -machinefile machinefile $MPIRUN_BIND  $PPN $i ./mpi/pt2pt/osu_mbw_mr -V | tee -a ${OSU_RESULTS}/osu_mbw_mr.2.$i.out"
+			runstr="$MPIRUN  -np $((2*$i)) -machinefile machinefile $MPIRUN_BIND   --cpu-set $rr_cpuset ./mpi/pt2pt/osu_mbw_mr -V | tee -a ${OSU_RESULTS}/osu_mbw_mr.2.$i.out"
 			echo  machinefile: | tee ${OSU_RESULTS}/osu_mbw_mr.2.$i.out
 			cat machinefile | tee -a  ${OSU_RESULTS}/osu_mbw_mr.2.$i.out
 			echo $runstr | tee -a  ${OSU_RESULTS}/osu_mbw_mr.2.$i.out
@@ -92,17 +105,12 @@ NNODES=`cat machinefile_reserv | uniq | wc -l`
 NODES_ARRAY=($(cat machinefile_reserv | uniq))
 
 for i in `seq 1 $NNODES`; do
-	echo i=$i
 	for j in  `seq 1 $NCPU`; do
 		if [ $((i*j)) -eq 1 ]; then
 			continue
 		fi
-		echo j=$j
 		for h in ${NODES_ARRAY[@]:0:$i}; do
-			echo h=$h
-			for k in `seq 1 $j`; do
-				echo $h >> machinefile
-			done
+			echo $h slots=$j >> machinefile
 		done
 		echo '-----------------------'
 		echo machinefile:
@@ -110,7 +118,7 @@ for i in `seq 1 $NNODES`; do
 		echo '-----------------------'
 		echo nnodes=$i
 		echo ppn=$j
-		runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND  $PPN $j ./mpi/collective/osu_alltoall | tee -a ${OSU_RESULTS}/osu_alltoall.$i.$j.out"
+		runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND   --cpu-set $rr_cpuset ./mpi/collective/osu_alltoall | tee -a ${OSU_RESULTS}/osu_alltoall.$i.$j.out"
 		echo machinefile: | tee ${OSU_RESULTS}/osu_alltoall.$i.$j.out
 		cat machinefile | tee -a ${OSU_RESULTS}/osu_alltoall.$i.$j.out
 		echo $runstr | tee -a ${OSU_RESULTS}/osu_alltoall.$i.$j.out
@@ -118,7 +126,7 @@ for i in `seq 1 $NNODES`; do
 		LogStep osu alltoall_$i $j
 		echo nnodes=$i
 		echo ppn=$j
-		runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND  $PPN $j ./mpi/collective/osu_barrier -i 400000 | tee -a ${OSU_RESULTS}/osu_barrier.$i.$j.out"
+		runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND    --cpu-set $rr_cpuset ./mpi/collective/osu_barrier -i 400000 | tee -a ${OSU_RESULTS}/osu_barrier.$i.$j.out"
 		echo machinefile: | tee ${OSU_RESULTS}/osu_barrier.$i.$j.out
 		cat machinefile | tee -a ${OSU_RESULTS}/osu_barrier.$i.$j.out
 		echo $runstr | tee -a ${OSU_RESULTS}/osu_barrier.$i.$j.out
@@ -126,7 +134,7 @@ for i in `seq 1 $NNODES`; do
 		LogStep osu barrier_$i $j
 		echo nnodes=$i
 		echo ppn=$j
-		runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND $PPN $j ./mpi/collective/osu_allreduce | tee -a ${OSU_RESULTS}/osu_allreduce.$i.$j.out"
+		runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND   --cpu-set $rr_cpuset ./mpi/collective/osu_allreduce | tee -a ${OSU_RESULTS}/osu_allreduce.$i.$j.out"
 		echo machinefile: | tee ${OSU_RESULTS}/osu_allreduce.$i.$j.out
 		cat machinefile | tee -a ${OSU_RESULTS}/osu_allreduce.$i.$j.out
 		echo $runstr | tee -a ${OSU_RESULTS}/osu_allreduce.$i.$j.out

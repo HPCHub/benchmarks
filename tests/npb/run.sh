@@ -48,6 +48,19 @@ mv machinefile machinefile_reserv
 #Is it good idea?
 NODES=`cat machinefile_reserv | uniq`
 
+#generate round robin cpuset
+i=0
+j=$((NCPU/2))
+rr_cpuset=$i,$j
+let i=i+1
+let j=j+1
+
+while [ $j -le $NCPU ]; do
+	rr_cpuset=${rr_cpuset},$i,$j
+	let i=i+1
+	let j=j+1
+done
+
 #----------------------
 #Start NPB is  lu ft mg cg tests
 #----------------------
@@ -55,23 +68,22 @@ NODES=`cat machinefile_reserv | uniq`
 NNODES=`cat machinefile_reserv | uniq | wc -l`
 NODES_ARRAY=($(cat machinefile_reserv | uniq))
 
-maxiter=3
 
 for i in `seq 1 $NNODES`; do
 	for j in  `seq 1 $NCPU`; do
 		for h in ${NODES_ARRAY[@]:0:$i}; do
-			for k in `seq 1 $j`; do
-				echo $h >> machinefile
-			done
+			echo $h slots=$j >> machinefile
 		done
 		for npb_test in "is" "lu" "ft" "mg" "cg" "ep" "dt" "sp"; do
 			prg_nprocs=$((i*j))
 			if [ $prg_nprocs -ge 256 ]; then
-				maxiter=10
-			elif [ $prg_nprocs -ge 32 ]; then
-				maxiter=5
-			else
+				maxiter=7
+			elif [ $prg_nprocs -ge 16 ]; then
 				maxiter=3
+			elif [ $prg_nprocs -ge 4 ]; then
+				maxiter=2
+			else
+				maxiter=1
 			fi
 			if [ -f ./bin/${npb_test}.C.$((i*j)) ]; then
 				echo '-----------------------'
@@ -82,7 +94,7 @@ for i in `seq 1 $NNODES`; do
 				while [ $iter -le $maxiter ]; do
 					echo nnodes=$i
 					echo ppn=$j
-					runstr="$MPIRUN -np $((j*i))  -machinefile machinefile ${MPIRUN_BIND} ${PPN} $j ./bin/${npb_test}.C.$((i*j)) | tee -a ${NPB_RESULTS}/${npb_test}.C.${i}.${j}.${iter}.out"
+					runstr="$MPIRUN -np $((j*i))  -machinefile machinefile ${MPIRUN_BIND} --cpu-set $rr_cpuset ./bin/${npb_test}.C.$((i*j)) | tee -a ${NPB_RESULTS}/${npb_test}.C.${i}.${j}.${iter}.out"
 					echo  machinefile: | tee $NPB_RESULTS/${npb_test}.C.${i}.$j.${iter}.out
 					cat machinefile | tee -a $NPB_RESULTS/${npb_test}.C.${i}.$j.${iter}.out
 					echo ${runstr} | tee -a $NPB_RESULTS/${npb_test}.C.${i}.$j.${iter}.out
