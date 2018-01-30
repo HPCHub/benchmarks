@@ -43,8 +43,6 @@ fi
 #save base machinefile
 mv machinefile machinefile_reserv
 
-NODES=`cat machinefile_reserv | uniq`
-TWO_NODES=`cat machinefile_reserv | uniq | head -n 2`
 
 #generate round robin cpuset
 i=0
@@ -59,6 +57,10 @@ while [ $j -le $NCPU ]; do
 	let j=j+1
 done
 
+NODES=`cat machinefile_reserv | uniq`
+NNODES=`cat machinefile_reserv | uniq | wc -l`
+NODES_ARRAY=($(cat machinefile_reserv | uniq))
+
 #----------------------
 #Start OSU p2p tests
 #----------------------
@@ -66,7 +68,9 @@ done
 LogStep osu Start
 if [ `echo $TWO_NODES | wc -w` -eq 2 ]; then
 #	run osu_latency
-	cat machinefile_reserv | uniq | head -n 2 > machinefile
+	for h in ${NODES_ARRAY[@]:0:2}; do
+		echo $h slots=1 >> machinefile
+	done
 	echo nnodes=2
 	echo ppn=1
 	runstr="$MPIRUN -np 2  -machinefile machinefile $MPIRUN_BIND --cpu-set $rr_cpuset ./mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072 | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out"
@@ -79,10 +83,8 @@ if [ `echo $TWO_NODES | wc -w` -eq 2 ]; then
 
 #	run osu_mbw_mr 
 	for i in `seq 1 $((NCPU/NNODES))`; do
-			for h in $TWO_NODES; do
-				for k in `seq 1 $i`; do
-					echo $h >> machinefile
-				done
+			for h in  ${NODES_ARRAY[@]:0:2}; do
+				echo $h  slots=$i >> machinefile
 			done
 			echo nnodes=2
 			echo ppn=$i
@@ -101,8 +103,6 @@ fi
 #----------------------
 #Start OSU coll tests
 #----------------------
-NNODES=`cat machinefile_reserv | uniq | wc -l`
-NODES_ARRAY=($(cat machinefile_reserv | uniq))
 
 for i in `seq 1 $NNODES`; do
 	for j in  `seq 1 $((NCPU/NNODES))`; do
