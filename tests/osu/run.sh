@@ -145,4 +145,5 @@ for i in `seq 1 $NNODES`; do
 done
 
 #revert macninefile
-mv machinefile_reserv machinefile
+rm machinefile_reserv 
+rm ../machinefile
