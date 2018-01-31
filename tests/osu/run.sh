@@ -34,6 +34,7 @@ mkdir -p $OSU_RESULTS
 #find mpirun command frim hpchub env
 MPIRUN=`echo $HPCHUB_MPIRUN | awk '{print $1}'`
 
+#FIXME:add Intel MPI, MPICH, ...
 #define bind and ppn for mpi (Open MPI)
 if [ "`$MPIRUN --help | grep 'Open MPI'`" != "" ]; then
 	MPIRUN_BIND=' --bind-to core'
@@ -44,17 +45,16 @@ fi
 mv machinefile machinefile_reserv
 
 
+#FIXME:it's not portable
 #generate round robin cpuset
 i=0
 j=$((NCPU/NNODES/2))
 rr_cpuset=$i,$j
-let i=i+1
-let j=j+1
-
-while [ $j -le $((NCPU/NNODES)) ]; do
-	rr_cpuset=${rr_cpuset},$i,$j
+while [ $j -le $(((NCPU/NNODES)-2)) ]; do
 	let i=i+1
 	let j=j+1
+	rr_cpuset=${rr_cpuset},$i,$j
+	echo $rr_cpuset
 done
 
 NODES=`cat machinefile_reserv | uniq`

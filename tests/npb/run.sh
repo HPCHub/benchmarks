@@ -55,7 +55,7 @@ rr_cpuset=$i,$j
 let i=i+1
 let j=j+1
 
-while [ $j -le $((NCPU/NNODES)) ]; do
+while [ $j -le $(((NCPU/NNODES)-2)) ]; do
 	rr_cpuset=${rr_cpuset},$i,$j
 	let i=i+1
 	let j=j+1
@@ -74,7 +74,7 @@ for i in `seq 1 $NNODES`; do
 		for h in ${NODES_ARRAY[@]:0:$i}; do
 			echo $h slots=$j >> machinefile
 		done
-		for npb_test in "is" "lu" "ft" "mg" "cg" "ep" "dt" "sp"; do
+		for npb_test in "is" "lu" "ft" "mg" "cg" "ep" "bt" "sp"; do
 			prg_nprocs=$((i*j))
 			if [ $prg_nprocs -ge 256 ]; then
 				maxiter=7
