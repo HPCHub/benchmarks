@@ -51,7 +51,7 @@ rr_cpuset=$i,$j
 let i=i+1
 let j=j+1
 
-while [ $j -le $NCPU ]; do
+while [ $j -le $((NCPU/NNODES)) ]; do
 	rr_cpuset=${rr_cpuset},$i,$j
 	let i=i+1
 	let j=j+1
