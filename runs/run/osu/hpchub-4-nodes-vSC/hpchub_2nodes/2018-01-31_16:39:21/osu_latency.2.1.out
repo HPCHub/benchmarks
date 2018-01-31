@@ -1,0 +1,25 @@
+machinefile:
+n002.vcluster slots=1
+n001.vcluster slots=1
+mpirun -np 2 -machinefile machinefile --bind-to core --cpu-set 0,10,1,11,2,12,3,13,4,14,5,15,6,16,7,17,8,18,9,19 ./mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072 | tee -a ../../../runs/run/osu/hpchub-4-nodes-vSC/hpchub/2018-01-31_16:39:21/osu_latency.2.1.out
+# OSU MPI Latency Test v5.4.0
+# Size          Latency (us)
+0                       1.45
+1                       1.46
+2                       1.46
+4                       1.47
+8                       1.46
+16                      1.50
+32                      1.50
+64                      1.53
+128                     1.64
+256                     2.01
+512                     2.17
+1024                    2.47
+2048                    3.11
+4096                    4.37
+8192                    5.57
+16384                   7.71
+32768                  11.93
+65536                  21.35
+131072                 33.38

@@ -1,0 +1,28 @@
+machinefile:
+n002.vcluster slots=20
+n001.vcluster slots=20
+mpirun -np 40 -machinefile machinefile --bind-to core --cpu-set 0,10,1,11,2,12,3,13,4,14,5,15,6,16,7,17,8,18,9,19 ./mpi/collective/osu_alltoall | tee -a ../../../runs/run/osu/hpchub-4-nodes-vSC/hpchub/2018-01-31_16:39:21/osu_alltoall.2.20.out
+
+# OSU MPI All-to-All Personalized Exchange Latency Test v5.4.0
+# Size       Avg Latency(us)
+1                      20.92
+2                      22.17
+4                      21.81
+8                      22.30
+16                     24.15
+32                     26.41
+64                     32.09
+128                    48.45
+256                    77.57
+512                   138.65
+1024                  173.72
+2048                  456.24
+4096                  817.25
+8192                 1297.91
+16384                2209.48
+32768                3891.33
+65536                7716.95
+131072              14099.24
+262144              28229.65
+524288              52748.95
+1048576            103867.07
