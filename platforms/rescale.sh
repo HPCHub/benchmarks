@@ -40,6 +40,7 @@ export FFTW_CONFIGURE_FLAGS
 export HPCHUB_LINKER=`which mpif77`
 export HPCHUB_LAPACK_DIR="/usr/lib"
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/program/mpi/platformmpi/9.1.4/lib/linux_amd64
+export MPI_F77=gfortran
 
 HPCHUB_PWD=`pwd`
 export HPCHUB_MPIRUN="mpirun -np $NCPU "

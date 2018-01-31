@@ -13,6 +13,8 @@ FFTW_CONFIGURE_FLAGS="${FFTW_CONFIGURE_FLAGS} --enable-$feature"
   fi
 done
 
+HPCHUB_HAS_CPUSET=1
+
 export CC=`which mpicc`
 if [ ! -x "$CC" ]; then
   export CC=`which gcc`

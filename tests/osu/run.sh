@@ -48,14 +48,19 @@ mv machinefile machinefile_reserv
 
 #FIXME: not portable
 #generate round robin cpuset
-i=0
-j=$((NCPU/NNODES/2))
-rr_cpuset=$i,$j
-while [ $j -le $(((NCPU/NNODES)-2)) ]; do
+if [ "$HPCHUB_HAS_CPUSET" = "1" ]; then
+  i=0
+  j=$((NCPU/NNODES/2))
+  rr_cpuset=$i,$j
+  while [ $j -le $(((NCPU/NNODES)-2)) ]; do
 	let i=i+1
 	let j=j+1
 	rr_cpuset=${rr_cpuset},$i,$j
-done
+  done
+  HPCHUB_CPUSET="--cpu-set $rr_cpuset"
+else
+  HPCHUB_CPUSET=""
+fi
 
 #FIXME: not portable
 NODES=`cat machinefile_reserv | uniq`
@@ -87,7 +92,7 @@ if [ `echo ${NODES_ARRAY[@]:0:2} | wc -w` -eq 2 ]; then
 	done
 	echo nnodes=2
 	echo ppn=1
-	runstr="$MPIRUN -np 2  -machinefile machinefile $MPIRUN_BIND --cpu-set $rr_cpuset ./mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072 | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out"
+	runstr="$MPIRUN -np 2  -machinefile machinefile $MPIRUN_BIND ${HPCHUB_CPUSET} ./mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072 | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out"
 	echo  machinefile: | tee ${OSU_RESULTS}/osu_latency.2.1.out
 	cat machinefile | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out
 	echo $runstr | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out
@@ -102,7 +107,7 @@ if [ `echo ${NODES_ARRAY[@]:0:2} | wc -w` -eq 2 ]; then
 			done
 			echo nnodes=2
 			echo ppn=$i
-			runstr="$MPIRUN  -np $((2*$i)) -machinefile machinefile $MPIRUN_BIND   --cpu-set $rr_cpuset ./mpi/pt2pt/osu_mbw_mr -V | tee -a ${OSU_RESULTS}/osu_mbw_mr.2.$i.out"
+			runstr="$MPIRUN  -np $((2*$i)) -machinefile machinefile $MPIRUN_BIND ${HPCHUB_CPUSET} ./mpi/pt2pt/osu_mbw_mr -V | tee -a ${OSU_RESULTS}/osu_mbw_mr.2.$i.out"
 			echo  machinefile: | tee ${OSU_RESULTS}/osu_mbw_mr.2.$i.out
 			cat machinefile | tee -a  ${OSU_RESULTS}/osu_mbw_mr.2.$i.out
 			echo $runstr | tee -a  ${OSU_RESULTS}/osu_mbw_mr.2.$i.out
@@ -132,7 +137,7 @@ for i in `seq 1 $NNODES`; do
 		echo '-----------------------'
 		echo nnodes=$i
 		echo ppn=$j
-		runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND   --cpu-set $rr_cpuset ./mpi/collective/osu_alltoall | tee -a ${OSU_RESULTS}/osu_alltoall.$i.$j.out"
+		runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND ${HPCHUB_CPUSET} ./mpi/collective/osu_alltoall | tee -a ${OSU_RESULTS}/osu_alltoall.$i.$j.out"
 		echo machinefile: | tee ${OSU_RESULTS}/osu_alltoall.$i.$j.out
 		cat machinefile | tee -a ${OSU_RESULTS}/osu_alltoall.$i.$j.out
 		echo $runstr | tee -a ${OSU_RESULTS}/osu_alltoall.$i.$j.out
@@ -140,7 +145,7 @@ for i in `seq 1 $NNODES`; do
 		LogStep osu alltoall_$i $j
 		echo nnodes=$i
 		echo ppn=$j
-		runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND    --cpu-set $rr_cpuset ./mpi/collective/osu_barrier -i 400000 | tee -a ${OSU_RESULTS}/osu_barrier.$i.$j.out"
+		runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND ${HPCHUB_CPUSET} ./mpi/collective/osu_barrier -i 400000 | tee -a ${OSU_RESULTS}/osu_barrier.$i.$j.out"
 		echo machinefile: | tee ${OSU_RESULTS}/osu_barrier.$i.$j.out
 		cat machinefile | tee -a ${OSU_RESULTS}/osu_barrier.$i.$j.out
 		echo $runstr | tee -a ${OSU_RESULTS}/osu_barrier.$i.$j.out
@@ -148,7 +153,7 @@ for i in `seq 1 $NNODES`; do
 		LogStep osu barrier_$i $j
 		echo nnodes=$i
 		echo ppn=$j
-		runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND   --cpu-set $rr_cpuset ./mpi/collective/osu_allreduce | tee -a ${OSU_RESULTS}/osu_allreduce.$i.$j.out"
+		runstr="$MPIRUN -np $((j*i))  -machinefile machinefile $MPIRUN_BIND ${HPCHUB_CPUSET} ./mpi/collective/osu_allreduce | tee -a ${OSU_RESULTS}/osu_allreduce.$i.$j.out"
 		echo machinefile: | tee ${OSU_RESULTS}/osu_allreduce.$i.$j.out
 		cat machinefile | tee -a ${OSU_RESULTS}/osu_allreduce.$i.$j.out
 		echo $runstr | tee -a ${OSU_RESULTS}/osu_allreduce.$i.$j.out
