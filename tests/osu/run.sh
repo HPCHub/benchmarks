@@ -91,7 +91,7 @@ if [ `echo ${NODES_ARRAY[@]:0:2} | wc -w` -eq 2 ]; then
 	echo  machinefile: | tee ${OSU_RESULTS}/osu_latency.2.1.out
 	cat machinefile | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out
 	echo $runstr | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out
-	#eval $runstr
+	eval $runstr
 	rm machinefile
 	LogStep osu latency
 
@@ -106,7 +106,7 @@ if [ `echo ${NODES_ARRAY[@]:0:2} | wc -w` -eq 2 ]; then
 			echo  machinefile: | tee ${OSU_RESULTS}/osu_mbw_mr.2.$i.out
 			cat machinefile | tee -a  ${OSU_RESULTS}/osu_mbw_mr.2.$i.out
 			echo $runstr | tee -a  ${OSU_RESULTS}/osu_mbw_mr.2.$i.out
-			#eval $runstr
+			eval $runstr
 			LogStep osu mbw_mr_2_$i 1
 			rm machinefile
 	done
