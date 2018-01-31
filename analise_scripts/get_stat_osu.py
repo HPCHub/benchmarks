@@ -102,9 +102,18 @@ def read_data(dir_path):
 		elif name in ['osu_latency', 'osu_barrier', 'osu_alltoall', 'osu_allreduce']:
 			file_perf=mteps[name][nnodes][ppn]
 			for line in f:
-				if line.find('# Size          Latency (us)') != -1:
-					find=True
-					continue
+				if name in ['osu_latency']:
+					if line.find('# Size          Latency (us)') != -1:
+						find=True
+						continue
+				elif name in ['osu_alltoall', 'osu_allreduce']:
+					if line.find('# Size       Avg Latency(us)') != -1:
+						find=True
+						continue
+				elif name in ['osu_barrier']:
+					if line.find('# Avg Latency(us)') != -1:
+						find=True
+						continue
 				if find:
 					str_list=line.split(' ')
 					if len(str_list) == 1:
@@ -112,12 +121,20 @@ def read_data(dir_path):
 					str_list[-1]=str_list[-1].strip()
 					str_list=filter(None,str_list)
 					try:
-						msg_size=int(str_list[0])
+						if name in ['osu_barrier']:
+							msg_size=-1
+						else:
+							msg_size=int(str_list[0])
 						if not msg_size in file_perf.keys():
 							file_perf[msg_size]=[]
-						file_perf[msg_size] =  [float(str_list[1])]
+						if name in ['osu_barrier']:
+							file_perf[msg_size] =  [float(str_list[-1])]
+						else:
+							file_perf[msg_size] =  [float(str_list[1])]
 					except:
 						pass
+
+
 		f.close()
 	os.chdir(pwd)
 
@@ -148,14 +165,14 @@ def print_osu(mteps, separator, list_ppn, name , list_msg_sizes, list_nodes):
 	else:
 		for ppn in list_ppn:
 			print "test = %s, ppn=%d " % (name,ppn)
-			if len(list_msg_sizes) != 1 and list_msg_sizes[0] != '-1':
+			if len(list_msg_sizes) != 1:
 				print "%8s" % ('msg_size;'),
 			for nnodes in list_nodes:
 				print "%7s;" % (str(nnodes)),
 			print
 			try:
 				for msg_size in list_msg_sizes:
-					if len(list_msg_sizes) != 1 and list_msg_sizes[0] != '-1':
+					if len(list_msg_sizes) != 1:
 						print "%7s;" % (str(msg_size)),
 					for nodes in list_nodes:
 						try:
