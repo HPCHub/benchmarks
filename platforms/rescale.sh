@@ -1,10 +1,10 @@
 NNODES=$RESCALE_NNODES
 
-NODES=`cat /etc/hosts | grep -v localhost | awk '{print $2;};'`
+NODES=`cat $HOME/machinefile`
 
 NCPU=`for i in $NODES; do ssh \$i cat /proc/cpuinfo | grep processor; done | wc -l`
 
-export OMP_NUM_THREADS=`ssh n001 cat /proc/cpuinfo | grep processor | wc -l`
+export OMP_NUM_THREADS=6
 
 FFTW_CONFIGURE_FLAGS=""
 for feature in sse2 avx avx2; do
@@ -39,9 +39,11 @@ fi
 export FFTW_CONFIGURE_FLAGS
 export HPCHUB_LINKER=`which mpif77`
 export HPCHUB_LAPACK_DIR="/usr/lib"
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/program/mpi/platformmpi/9.1.4/lib/linux_amd64
 
 HPCHUB_PWD=`pwd`
 export HPCHUB_MPIRUN="mpirun -np $NCPU "
+
 
 if [ ! -f machinefile ]; then 
    for h in $NODES; do
