@@ -31,6 +31,7 @@ fi
 OSU_RESULTS=../../../$HPCHUB_RESDIR
 mkdir -p $OSU_RESULTS
 
+#FIXME: not portable
 #find mpirun command frim hpchub env
 MPIRUN=`echo $HPCHUB_MPIRUN | awk '{print $1}'`
 
@@ -45,7 +46,7 @@ fi
 mv machinefile machinefile_reserv
 
 
-#FIXME:it's not portable
+#FIXME: not portable
 #generate round robin cpuset
 i=0
 j=$((NCPU/NNODES/2))
@@ -54,12 +55,25 @@ while [ $j -le $(((NCPU/NNODES)-2)) ]; do
 	let i=i+1
 	let j=j+1
 	rr_cpuset=${rr_cpuset},$i,$j
-	echo $rr_cpuset
 done
 
+#FIXME: not portable
 NODES=`cat machinefile_reserv | uniq`
 NNODES=`cat machinefile_reserv | uniq | wc -l`
 NODES_ARRAY=($(cat machinefile_reserv | uniq))
+
+i=2
+LOG_PPN='1'
+while [ $i -le $((NCPU/NNODES)) ]; do
+	LOG_PPN="$LOG_PPN $i"
+	let i=i*2
+done
+let i=i/2
+if [ $i -ne $((NCPU/NNODES)) ]; then
+	LOG_PPN="$LOG_PPN $((NCPU/NNODES))"
+fi
+echo LOG_PPN=$LOG_PPN
+
 
 #----------------------
 #Start OSU p2p tests
@@ -77,12 +91,12 @@ if [ `echo ${NODES_ARRAY[@]:0:2} | wc -w` -eq 2 ]; then
 	echo  machinefile: | tee ${OSU_RESULTS}/osu_latency.2.1.out
 	cat machinefile | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out
 	echo $runstr | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out
-	eval $runstr
+	#eval $runstr
 	rm machinefile
 	LogStep osu latency
 
 #	run osu_mbw_mr 
-	for i in `seq 1 $((NCPU/NNODES))`; do
+	for i in `echo ${LOG_PPN}`; do
 			for h in  ${NODES_ARRAY[@]:0:2}; do
 				echo $h  slots=$i >> machinefile
 			done
@@ -92,7 +106,7 @@ if [ `echo ${NODES_ARRAY[@]:0:2} | wc -w` -eq 2 ]; then
 			echo  machinefile: | tee ${OSU_RESULTS}/osu_mbw_mr.2.$i.out
 			cat machinefile | tee -a  ${OSU_RESULTS}/osu_mbw_mr.2.$i.out
 			echo $runstr | tee -a  ${OSU_RESULTS}/osu_mbw_mr.2.$i.out
-			eval $runstr
+			#eval $runstr
 			LogStep osu mbw_mr_2_$i 1
 			rm machinefile
 	done
@@ -105,7 +119,7 @@ fi
 #----------------------
 
 for i in `seq 1 $NNODES`; do
-	for j in  `seq 1 $((NCPU/NNODES))`; do
+	for j in  `echo $LOG_PPN`; do
 		if [ $((i*j)) -eq 1 ]; then
 			continue
 		fi
@@ -145,5 +159,4 @@ for i in `seq 1 $NNODES`; do
 done
 
 #revert macninefile
-rm machinefile_reserv 
-rm ../machinefile
+mv machinefile_reserv ./machinefile

@@ -33,9 +33,10 @@ NPB_RESULTS=../../../../$HPCHUB_RESDIR
 mkdir -p $NPB_RESULTS
 
 
-#find mpirun command frim hpchub env
+#FIXME: don't portable
 MPIRUN=`echo $HPCHUB_MPIRUN | awk '{print $1}'`
 
+#FIXME: don't portable
 #define bind and ppn for mpi (Open MPI)
 if [ "`$MPIRUN --help | grep 'Open MPI'`" != "" ]; then
 	MPIRUN_BIND='--bind-to core'
@@ -45,7 +46,7 @@ fi
 #save base machinefile
 mv machinefile machinefile_reserv
 
-#Is it good idea?
+#FIXME: don't portable
 NODES=`cat machinefile_reserv | uniq`
 
 #generate round robin cpuset
@@ -94,6 +95,7 @@ for i in `seq 1 $NNODES`; do
 				while [ $iter -le $maxiter ]; do
 					echo nnodes=$i
 					echo ppn=$j
+					#FIXME: don't portable
 					runstr="$MPIRUN -np $((j*i))  -machinefile machinefile ${MPIRUN_BIND} --cpu-set $rr_cpuset ./bin/${npb_test}.C.$((i*j)) | tee -a ${NPB_RESULTS}/${npb_test}.C.${i}.${j}.${iter}.out"
 					echo  machinefile: | tee $NPB_RESULTS/${npb_test}.C.${i}.$j.${iter}.out
 					cat machinefile | tee -a $NPB_RESULTS/${npb_test}.C.${i}.$j.${iter}.out
