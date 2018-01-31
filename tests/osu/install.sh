@@ -18,7 +18,11 @@ fi
 
 cd osu-micro-benchmarks-${osu_version}
 
-./configure --prefix=${HOME}/usr
+sed -i 's@{8, 16, 32, 64, 128}@{8, 16, 32, 64, 128, 256, 512}@' ./util/osu_util.h
+sed -i 's@WINDOW_SIZES_COUNT   (5)@WINDOW_SIZES_COUNT   (7)@' ./util/osu_util.h
+
+./configure  CC=$CC CXX=$CXX FC=$FC
+#--prefix=${HOME}/usr
 
 make
-make install
+#make install
