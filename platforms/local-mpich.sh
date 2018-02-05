@@ -28,6 +28,11 @@ export FFTW_CONFIGURE_FLAGS
 export HPCHUB_LINKER=`which mpif77.mpich`
 export HPCHUB_LAPACK_DIR="/usr/lib"
 
+
+export MPICC=`which mpicc`
+export MPIF77=`which mpif77`
+export MPIF90=`which mpif90`
+
 HPCHUB_PWD=`pwd`
 export HPCHUB_MPIRUN="mpirun.mpich -np $NCPU -machinefile machinefile "
 

@@ -42,6 +42,11 @@ export HPCHUB_LAPACK_DIR="/usr/lib"
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/program/mpi/platformmpi/9.1.4/lib/linux_amd64
 export MPI_F77=gfortran
 
+### TBD - double check on next run!
+export MPICC=`which mpicc`
+export MPIF77=`which mpif77`
+export MPIF90=`which mpif90`
+
 HPCHUB_PWD=`pwd`
 export HPCHUB_MPIRUN="mpirun -np $NCPU "
 

@@ -38,6 +38,11 @@ if [ ! -x "$CXX" ]; then
 fi
 
 export FC=`which mpif90`
+
+export MPICC=`which mpicc`
+export MPIF77=`which mpif77`
+export MPIF90=`which mpif90`
+
 if [ ! -x "$FC" ]; then
   export FC=`which mpif90`
 fi
