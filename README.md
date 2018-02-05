@@ -1,9 +1,9 @@
 # HPCHub benchmarks set.
 
-Purpose: arrange set of different general and task-oriented tests to be able to compare
+- Purpose: arrange set of different general and task-oriented tests to be able to compare
 performance of different cloud HPC solutions/configurations.
 
-Idea: separate platform-specific setups from task/test-specific code. Thus we have two 
+- Idea: separate platform-specific setups from task/test-specific code. Thus we have two 
 directories: platforms and tests.
 
 platforms contain one include .sh file for platform, which set environment variables, needed 
@@ -43,3 +43,6 @@ As for now, we have 3 of them:
 
  analise - obtain all the results gathered as a single table.
 
+## WiKi
+
+Full documentation on this project is maintained in wiki: https://github.com/HPCHub/benchmarks/wiki
