@@ -7,9 +7,10 @@ if [ "$1" = "list" ]; then
   done
 elif [ "$1" = "join" ]; then
     cd runs/run 
-    echo -e "test\tplatform\thost\tdatetime\tfile\telement\tstep\tdT\tTimeStamp\tNops"
+    echo -e "test\tplatform\thost\tdatetime\telement\tstep\tdT\tTimeStamp\tNops"
     for file in  */*/*/*/report.time.txt ; do
-      fp=`echo $file | tr '/' "\t"`
+      wd=${file%%/report.time.txt}
+      fp=`echo $wd | tr '/' "\t"`
       cat $file | awk "BEGIN{a=0};{if(a>0) { print \"$fp\t\" \$0; }; a=1;};"
     done
 else
