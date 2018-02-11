@@ -1,0 +1,25 @@
+machinefile:
+n002.vcluster slots=4
+mpirun -np 4 -machinefile machinefile --bind-to core --cpu-set 0,10,1,11,2,12,3,13,4,14,5,15,6,16,7,17,8,18,9,19 ./mpi/collective/osu_allreduce | tee -a ../../../runs/run/osu/hpchub-4-nodes-vSC/hpchub/2018-01-31_16:39:21/osu_allreduce.1.4.out
+
+# OSU MPI Allreduce Latency Test v5.4.0
+# Size       Avg Latency(us)
+4                       1.51
+8                       1.47
+16                      1.48
+32                      1.51
+64                      1.50
+128                     1.63
+256                     1.98
+512                     2.24
+1024                    3.02
+2048                    4.00
+4096                    6.05
+8192                    9.40
+16384                  17.62
+32768                  40.19
+65536                  68.67
+131072                120.87
+262144                220.50
+524288                432.23
+1048576               862.97

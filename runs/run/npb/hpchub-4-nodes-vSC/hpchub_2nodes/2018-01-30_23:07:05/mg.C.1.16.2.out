@@ -1,0 +1,56 @@
+machinefile:
+n002.vcluster slots=16
+mpirun -np 16 -machinefile machinefile --bind-to core --cpu-set 0,10,1,11,2,12,3,13,4,14,5,15,6,16,7,17,8,18,9,19,10,20 ./bin/mg.C.16 | tee -a ../../../../runs/run/npb/hpchub-4-nodes-vSC/hpchub/2018-01-30_23:07:05/mg.C.1.16.2.out
+
+
+ NAS Parallel Benchmarks 3.3 -- MG Benchmark
+
+ No input file. Using compiled defaults 
+ Size:  512x 512x 512  (class C)
+ Iterations:   20
+ Number of processes:     16
+
+ Initialization time:           0.692 seconds
+
+  iter    1
+  iter    5
+  iter   10
+  iter   15
+  iter   20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.5706732285740E-06
+ Error is    0.5194943738290E-14
+
+
+ MG Benchmark Completed.
+ Class           =                        C
+ Size            =            512x 512x 512
+ Iterations      =                       20
+ Time in seconds =                     6.23
+ Total processes =                       16
+ Compiled procs  =                       16
+ Mop/s total     =                 25004.99
+ Mop/s/process   =                  1562.81
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+ Compile date    =              30 Jan 2018
+
+ Compile options:
+    MPIF77       = /usr/mpi/gcc/openmpi-1.10.3rc4/bin/mpif90
+    FLINK        = $(MPIF77)
+    FMPI_LIB     = (none)
+    FMPI_INC     = (none)
+    FFLAGS       = -Ofast -mcmodel=medium
+    FLINKFLAGS   = -Ofast
+    RAND         = randi8
+
+
+ Please send feedbacks and/or the results of this run to:
+
+ NPB Development Team 
+ Internet: npb@nas.nasa.gov
+
+
