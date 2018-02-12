@@ -90,7 +90,7 @@ EOF
     cat $HPCHUB_PWD/_mpirun_hpchub.stderr
 }
 
-function hpchub_mpirun_install {
+function hpchub_mpirun_compile {
     L=`qstat | wc -l`
     HPCHUB_PPN=$((NCPU/NNODES))
     WD=`pwd`
