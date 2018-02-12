@@ -67,5 +67,5 @@ while [ $j -le $local_ncpus ]; do
 	let j=i*i
 done
 
-make clean
-make suite
+${HPCHUB_COMPILE_PREFIX} make clean
+${HPCHUB_COMPILE_PREFIX} make suite

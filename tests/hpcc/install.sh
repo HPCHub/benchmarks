@@ -20,5 +20,5 @@ cd hpcc-${hpcc_version}
 
 cp ../Make.hpchub hpl/Make.hpchub
 
-make arch=hpchub
+${HPCHUB_COMPILE_PREFIX} make arch=hpchub
 

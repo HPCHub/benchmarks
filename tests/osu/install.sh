@@ -21,8 +21,8 @@ cd osu-micro-benchmarks-${osu_version}
 sed -i 's@{8, 16, 32, 64, 128}@{8, 16, 32, 64, 128, 256, 512}@' ./util/osu_util.h
 sed -i 's@WINDOW_SIZES_COUNT   (5)@WINDOW_SIZES_COUNT   (7)@' ./util/osu_util.h
 
-./configure  CC=$CC CXX=$CXX FC=$FC
+${HPCHUB_COMPILE_PREFIX} ./configure  CC=$CC CXX=$CXX FC=$FC
 #--prefix=${HOME}/usr
 
-make
+${HPCHUB_COMPILE_PREFIX} make
 #make install

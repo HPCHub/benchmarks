@@ -68,6 +68,7 @@ HPCHUB_PWD=`pwd`
 function hpchub_mpirun {
     L=`qstat | wc -l`
     HPCHUB_PPN=$((NCPU/NNODES))
+    WD=`pwd`
     cat > _mpirun_hpchub.pbs <<EOF
 #PBS -q FREE
 #PBS -l nodes=$NODES:ppn=$HPCHUB_PPN
@@ -76,6 +77,7 @@ function hpchub_mpirun {
 #PBS -o $HPCHUB_PWD/_mpirun_hpchub.stdout
 #PBS -e $HPCHUB_PWD/_mpirun_hpchub.stderr
 module load openmpi/1.5.5/gcc.4.4.6
+cd $WD
 mpirun $@
 EOF
     qsub _mpirun_hpchub.pbs
@@ -87,6 +89,38 @@ EOF
     echo "hpchub_mpirun stderr:"
     cat $HPCHUB_PWD/_mpirun_hpchub.stderr
 }
+
+function hpchub_mpirun_install {
+    L=`qstat | wc -l`
+    HPCHUB_PPN=$((NCPU/NNODES))
+    WD=`pwd`
+    cat > _mpirun_hpchub.pbs <<EOF
+#PBS -q FREE
+#PBS -l nodes=1:ppn=$HPCHUB_PPN
+#PBS -l walltime=00:30:00
+#PBS -S /bin/bash
+#PBS -o $HPCHUB_PWD/_mpirun_hpchub.stdout
+#PBS -e $HPCHUB_PWD/_mpirun_hpchub.stderr
+module load openmpi/1.5.5/gcc.4.4.6
+cd $WD
+mpirun $@
+EOF
+    qsub _mpirun_hpchub.pbs
+    while [ `qstat | wc -l` -gt "$L" ]; do
+      sleep 1
+    done
+    echo "hpchub_mpirun stdout:"
+    cat $HPCHUB_PWD/_mpirun_hpchub.stdout
+    echo "hpchub_mpirun stderr:"
+    cat $HPCHUB_PWD/_mpirun_hpchub.stderr
+}
+
+
+
+
+export HPCHUB_COMPILE_PREFIX="hpchub_mpirun_compile"
+
+
 
 export HPCHUB_MPIRUN="hpchub_mpirun"
 
