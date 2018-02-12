@@ -103,7 +103,7 @@ function hpchub_mpirun_compile {
     cat > _mpirun_hpchub.pbs <<EOF
 #PBS -q FREE
 #PBS -l nodes=1:ppn=$HPCHUB_PPN
-#PBS -l walltime=00:30:00
+#PBS -l walltime=00:05:00
 #PBS -S /bin/bash
 #PBS -o $HPCHUB_PWD/_mpirun_hpchub.stdout
 #PBS -e $HPCHUB_PWD/_mpirun_hpchub.stderr
