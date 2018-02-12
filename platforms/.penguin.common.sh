@@ -102,6 +102,18 @@ function hpchub_mpirun_install {
 #PBS -o $HPCHUB_PWD/_mpirun_hpchub.stdout
 #PBS -e $HPCHUB_PWD/_mpirun_hpchub.stderr
 module load openmpi/1.5.5/gcc.4.4.6
+export CC=\`which mpicc\`
+export CXX=\`which g++\`
+export FC=\`which mpif90\`
+export HPCHUB_LINKER=\`which mpif77\`
+FFTW_CONFIGURE_FLAGS=""
+for feature in sse2 avx avx2; do
+  if grep \$feature /proc/cpuinfo > /dev/null; then
+FFTW_CONFIGURE_FLAGS="\${FFTW_CONFIGURE_FLAGS} --enable-\$feature"
+  fi
+done
+export FFTW_CONFIGURE_FLAGS
+
 cd $WD
 mpirun $@
 EOF
