@@ -12,6 +12,10 @@ FFTW_CONFIGURE_FLAGS="${FFTW_CONFIGURE_FLAGS} --enable-$feature"
   fi
 done
 
+module load openmpi/2.0.1/gcc.4.9.0
+module load fftw/3.3.4/gcc.4.9.0
+module load cmake/3.3.1
+
 HPCHUB_HAS_CPUSET=1
 
 export CC=`which mpicc`
