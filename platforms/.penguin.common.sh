@@ -76,7 +76,9 @@ function hpchub_mpirun {
 #PBS -S /bin/bash
 #PBS -o $HPCHUB_PWD/_mpirun_hpchub.stdout
 #PBS -e $HPCHUB_PWD/_mpirun_hpchub.stderr
-module load openmpi/1.5.5/gcc.4.4.6
+module load openmpi/2.0.1/gcc.4.9.0
+module load fftw/3.3.4/gcc.4.9.0
+module load cmake/3.3.1
 cd $WD
 mpirun $@
 EOF
@@ -101,7 +103,9 @@ function hpchub_mpirun_compile {
 #PBS -S /bin/bash
 #PBS -o $HPCHUB_PWD/_mpirun_hpchub.stdout
 #PBS -e $HPCHUB_PWD/_mpirun_hpchub.stderr
-module load openmpi/1.5.5/gcc.4.4.6
+module load openmpi/2.0.1/gcc.4.9.0
+module load fftw/3.3.4/gcc.4.9.0
+module load cmake/3.3.1
 export CC=\`which mpicc\`
 export CXX=\`which g++\`
 export FC=\`which mpif90\`
