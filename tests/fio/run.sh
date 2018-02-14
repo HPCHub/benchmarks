@@ -31,7 +31,7 @@ fi
 LogStep fio-noargs Start 
 
 function getbw { 
-  value=`cat job* | perl -e '$S=0;$N=0;while(<>){if(s/.*bw.?\d*).*/$1/) { $S+=$_; $N++;} ; }; print $S/$N; '`
+  value=`cat job* | perl -e '$S=0;$N=0;while(<>){if(s/.*bw=(\d+.?\d*).*/$1/) { $S+=$_; $N++;} ; }; print $S/$N; '`
   echo "getbw.value: $value"
   if [ "$value" = "" ]; then
     value="0.0";  
@@ -50,9 +50,12 @@ function getlat {
 
 HPCHUB_PPN=1
 
+cp ../fiorun.sh ./
+chmod a+x fiorun.sh
+
 for op in "read" "write" "randread" "randwrite" ; do
   rm job*
- 
+   
   ${HPCHUB_MPIRUN} `pwd`/fiorun.sh $op  
   ${HPCHUB_MPIWAIT}
 
