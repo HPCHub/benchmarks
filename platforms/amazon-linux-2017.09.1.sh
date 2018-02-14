@@ -14,7 +14,7 @@ done
 export CC=`which mpicc.mpich`
 if [ ! -x "$CC" ]; then
   export CC=`which mpicc`
-  if [ ! -x "$CC" ] then
+  if [ ! -x "$CC" ]; then
     export CC=`which gcc`
   fi
 fi
