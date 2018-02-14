@@ -75,7 +75,7 @@ function hpchub_mpirun {
     WD=`pwd`
     cat > _mpirun_hpchub.pbs <<EOF
 #PBS -q FREE
-#PBS -l nodes=$NODES:ppn=$HPCHUB_PPN
+#PBS -l nodes=$NNODES:ppn=$HPCHUB_PPN
 #PBS -l walltime=00:15:00
 #PBS -S /bin/bash
 #PBS -o $HPCHUB_PWD/_mpirun_hpchub.stdout
