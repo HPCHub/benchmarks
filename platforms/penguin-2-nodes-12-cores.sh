@@ -1,6 +1,6 @@
 
 NNODES=2
-NCPU=48
+NCPU=24
 
 if [ -f "$HPCHUB_PLATFORM" ]; then
   HPCHUB_PLATFORM_COMMON=${HPCHUB_PLATFORM%%penguin-2-nodes-12-cores.sh}.penguin.common.sh

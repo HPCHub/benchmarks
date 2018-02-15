@@ -71,14 +71,19 @@ export HPCHUB_LAPACK_DIR="/usr/lib"
 
 HPCHUB_PWD=`pwd`
 
+HPCHUB_PPN=$((NCPU/NNODES))
+
+
 function hpchub_mpirun {
     L=`qstat | wc -l`
-    HPCHUB_PPN=$((NCPU/NNODES))
     WD=`pwd`
+    rm _mpirun_hpchub.pbs
+    rm $HPCHUB_PWD/_mpirun_hpchub.stdout
+    rm $HPCHUB_PWD/_mpirun_hpchub.stderr
     cat > _mpirun_hpchub.pbs <<EOF
-#PBS -q FREE
+#PBS -q M40
 #PBS -l nodes=$NNODES:ppn=$HPCHUB_PPN
-#PBS -l walltime=00:15:00
+#PBS -l walltime=00:05:00
 #PBS -S /bin/bash
 #PBS -o $HPCHUB_PWD/_mpirun_hpchub.stdout
 #PBS -e $HPCHUB_PWD/_mpirun_hpchub.stderr
@@ -100,12 +105,11 @@ EOF
 
 function hpchub_mpirun_compile {
     L=`qstat | wc -l`
-    HPCHUB_PPN=$((NCPU/NNODES))
     WD=`pwd`
     cat > _mpirun_hpchub.pbs <<EOF
 #PBS -q FREE
 #PBS -l nodes=1:ppn=1
-#PBS -l walltime=00:05:00
+#PBS -l walltime=00:15:00
 #PBS -S /bin/bash
 #PBS -o $HPCHUB_PWD/_mpirun_hpchub.stdout
 #PBS -e $HPCHUB_PWD/_mpirun_hpchub.stderr

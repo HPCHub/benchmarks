@@ -48,8 +48,6 @@ function getlat {
   fi; 
 }
 
-HPCHUB_PPN=1
-
 cp ../fiorun.sh ./
 chmod a+x fiorun.sh
 
