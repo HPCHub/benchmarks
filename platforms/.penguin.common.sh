@@ -1,7 +1,7 @@
 
-NNODES=4
+#NNODES=4
 
-NCPU=48
+#NCPU=48
 
 export OMP_NUM_THREADS=12
 
@@ -12,8 +12,10 @@ FFTW_CONFIGURE_FLAGS="${FFTW_CONFIGURE_FLAGS} --enable-$feature"
   fi
 done
 
-module load openmpi/2.0.1/gcc.4.9.0
-module load fftw/3.3.4/gcc.4.9.0
+module load blas/3.5.0/gcc.4.4.7
+module load lapack/3.7.0/gcc.4.4.7
+module load openmpi/1.10.7/gcc.4.4.7
+module load fftw/3.3.4/gcc.4.4.7
 module load cmake/3.3.1
 
 HPCHUB_HAS_CPUSET=1
