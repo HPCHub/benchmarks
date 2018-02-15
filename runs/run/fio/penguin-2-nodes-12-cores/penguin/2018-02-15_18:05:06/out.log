@@ -1,0 +1,20 @@
+17061064.pod
+hpchub_mpirun stdout:
+hpchub_mpirun stderr:
+getbw.value: 569
+getlat.value: 5965.93
+17061066.pod
+hpchub_mpirun stdout:
+hpchub_mpirun stderr:
+getbw.value: 1422
+getlat.value: 2292.45
+17061067.pod
+hpchub_mpirun stdout:
+Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1): [r(1)][60.0%][r=25.4MiB/s,w=0KiB/s][r=6514,w=0 IOPS][eta 00m:02s]Jobs: 1 (f=1): [r(1)][60.0%][r=25.3MiB/s,w=0KiB/s][r=6488,w=0 IOPS][eta 00m:02s]Jobs: 1 (f=1): [r(1)][80.0%][r=25.3MiB/s,w=0KiB/s][r=6474,w=0 IOPS][eta 00m:01s]Jobs: 1 (f=1): [r(1)][80.0%][r=25.2MiB/s,w=0KiB/s][r=6440,w=0 IOPS][eta 00m:01s]Jobs: 1 (f=1): [r(1)][100.0%][r=25.2MiB/s,w=0KiB/s][r=6463,w=0 IOPS][eta 00m:00s]Jobs: 1 (f=1): [r(1)][100.0%][r=25.3MiB/s,w=0KiB/s][r=6467,w=0 IOPS][eta 00m:00s]hpchub_mpirun stderr:
+getbw.value: 25.2
+getlat.value: 153.34
+17061068.pod
+hpchub_mpirun stdout:
+hpchub_mpirun stderr:
+getbw.value: 1153
+getlat.value: 2397.69
