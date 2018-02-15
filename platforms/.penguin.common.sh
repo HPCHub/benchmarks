@@ -108,8 +108,8 @@ function hpchub_mpirun_compile {
     WD=`pwd`
     cat > _mpirun_hpchub.pbs <<EOF
 #PBS -q FREE
-#PBS -l nodes=1:ppn=1
-#PBS -l walltime=00:15:00
+#PBS -l nodes=1
+#PBS -l walltime=00:05:00
 #PBS -S /bin/bash
 #PBS -o $HPCHUB_PWD/_mpirun_hpchub.stdout
 #PBS -e $HPCHUB_PWD/_mpirun_hpchub.stderr
@@ -129,7 +129,7 @@ done
 export FFTW_CONFIGURE_FLAGS
 
 cd $WD
-mpirun $@
+$@
 EOF
     qsub _mpirun_hpchub.pbs
     while [ `qstat | wc -l` -gt "$L" ]; do
