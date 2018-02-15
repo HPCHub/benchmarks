@@ -25,7 +25,7 @@ cd ${fio_dir}
 if [ -f "${HPCHUB_MACHINEFILE}" ];then
   cp "${HPCHUB_MACHINEFILE}" ./machinefile
 else
-  cp ../machinefile ./
+  if [ -f ../machinefile ]; then cp ../machinefile ./ ; fi
 fi
 
 LogStep fio-noargs Start 
