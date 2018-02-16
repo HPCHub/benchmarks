@@ -36,7 +36,7 @@ fi
 ${HPCHUB_COMPILE_PREFIX} ./configure  CC=$MPICC CXX=$MPICXX FC=$MPIFC
 
 ${HPCHUB_COMPILE_PREFIX} make
-if [ $HPCHUB_PATFORM == 'azure' ]; then
+if [ $HPCHUB_PLATFORM == 'azure' ]; then
 	for i in $NODES; do
 		scp -r ../osu-micro-benchmarks-${osu_version}/  $i:$HPCHUB_PWD
 	done 

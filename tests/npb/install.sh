@@ -83,7 +83,7 @@ done
 ${HPCHUB_COMPILE_PREFIX} make clean
 ${HPCHUB_COMPILE_PREFIX} make suite
 
-if [ $HPCHUB_PATFORM == 'azure' ]; then
+if [ $HPCHUB_PLATFORM == 'azure' ]; then
 	for i in $NODES; do
 		scp -r ../NPB${npb_version}/  $i:$HPCHUB_PWDi
 	done
