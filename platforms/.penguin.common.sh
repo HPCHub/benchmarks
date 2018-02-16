@@ -5,6 +5,42 @@
 
 export OMP_NUM_THREADS=12
 
+if [ "$HPCHUB_PENGUIN_PHASE" = "" ]; then
+#
+# We are running externally.
+# We have to prepare pbs file to run our selves and 
+# submit it
+#
+L=`qstat | wc -l`
+HPCHUB_PWD=`pwd`
+rm _mpirun_penguin_hpchub.pbs
+rm _mpirun_penguin_hpchub.stdout
+rm _mpirun_penguin_hpchub.stderr
+cat > _mpirun_penguin_hpchub.pbs <<EOF
+#PBS -q M40
+#PBS -l nodes=$NNODES:ppn=$HPCHUB_PPN
+#PBS -l walltime=00:40:00
+#PBS -S /bin/bash
+#PBS -o $HPCHUB_PWD/_mpirun_penguin_hpchub.stdout
+#PBS -e $HPCHUB_PWD/_mpirun_penguin_hpchub.stderr
+cd $HPCHUB_PWD
+export HPCHUB_PENGUIN_PHASE=internal
+export HPCHUB_PLATFORM=${HPCHUB_PLATFORM} 
+export HPCHUB_REPORT=${HPCHUB_REPORT}
+export HPCHUB_MACHINEFILE=${HPCHUB_MACHINEFILE}
+./${HPCHUB_TEST_STATE}.sh
+
+EOF
+qsub run_penguin_hpchub.pbs
+
+while [ `qstat | wc -l` -gt "$L" ]; do
+   echo -ne '.'
+   sleep 10
+done
+
+exit 0
+fi
+
 FFTW_CONFIGURE_FLAGS=""
 for feature in sse2 avx avx2; do
   if grep $feature /proc/cpuinfo > /dev/null; then
@@ -144,9 +180,11 @@ EOF
 
 
 
-export HPCHUB_COMPILE_PREFIX="hpchub_mpirun_compile"
+#export HPCHUB_COMPILE_PREFIX="hpchub_mpirun_compile"
+export HPCHUB_COMPILE_PREFIX=""
 
 
 
-export HPCHUB_MPIRUN="hpchub_mpirun"
+#export HPCHUB_MPIRUN="hpchub_mpirun"
+export HPCHUB_MPIRUN="mpirun"
 
