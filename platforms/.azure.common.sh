@@ -4,7 +4,7 @@ NNODES=2
 
 NCPU=$(($NNODES*8))
 
-NODES=`echo hpchub-centos{1..$NNODES}`
+NODES=`eval "echo hpchub-centos{1..$NNODES}"`
 
 export OMP_NUM_THREADS=8
 
