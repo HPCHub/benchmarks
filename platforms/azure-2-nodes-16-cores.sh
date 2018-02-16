@@ -1,6 +1,6 @@
 
 NNODES=2
-NCPU=16
+NCPU=$(($NNODES*8))
 HPCHUB_PWD=`pwd`
 
 if [ -f "$HPCHUB_PLATFORM" ]; then
