@@ -109,7 +109,7 @@ function hpchub_mpirun_compile {
 
 
 
-export HPCHUB_COMPILE_PREFIX="hpchub_mpirun_compile"
+export HPCHUB_COMPILE_PREFIX=""
 
 
 
