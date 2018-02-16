@@ -31,42 +31,6 @@ fi
 OSU_RESULTS=../../../$HPCHUB_RESDIR
 mkdir -p $OSU_RESULTS
 
-#FIXME: not portable
-#find mpirun command frim hpchub env
-MPIRUN=`echo $HPCHUB_MPIRUN | awk '{print $1}'`
-
-#FIXME:add Intel MPI, MPICH, ...
-#define bind and ppn for mpi (Open MPI)
-#if [ "`$MPIRUN --help | grep 'Open MPI'`" != "" ]; then
-#	MPIRUN_BIND=' --bind-to core'
-#	PPN='--npernode'
-#fi
-
-#save base machinefile
-#mv machinefile machinefile_reserv
-
-
-#FIXME: not portable
-#generate round robin cpuset
-#if [ "$HPCHUB_HAS_CPUSET" -eq "1" ]; then
-#  i=0
-#  j=$((NCPU/NNODES/2))
-#  rr_cpuset=$i,$j
-#  while [ $j -le $(((NCPU/NNODES)-2)) ]; do
-#	let i=i+1
-#	let j=j+1
-#	rr_cpuset=${rr_cpuset},$i,$j
-#  done
-#  HPCHUB_CPUSET="--cpu-set $rr_cpuset"
-#else
-#  HPCHUB_CPUSET=""
-#fi
-
-#FIXME: not portable
-#NODES=`cat machinefile_reserv | uniq`
-#NNODES=`cat machinefile_reserv | uniq | wc -l`
-#NODES_ARRAY=($(cat machinefile_reserv | uniq))
-
 i=2
 LOG_PPN='1'
 while [ $i -le $((NCPU/NNODES)) ]; do
@@ -87,7 +51,7 @@ echo LOG_PPN=$LOG_PPN
 local_NCPU=$NPCU
 local_NNODES=$NNODES
 LogStep osu Start
-if [ $NNODES -le 2 ]; then
+if [ $NNODES -lt 2 ]; then
 	echo WARNING: fail to run osu_latency and osu_mbw_mr tests: can not find 2 nodes
 else
 #	run osu_latency
