@@ -67,7 +67,7 @@ else
 	for i in `echo ${LOG_PPN}`; do
 			export NNODES=2
 			export NCPU=$(($NNODES*$i))
-			runstr="hpchub_mpirun $PWD/mpi/pt2pt/osu_mbw_mr -V | tee -a ${OSU_RESULTS}/osu_mbw_mr.2.$i.out"
+			runstr="hpchub_mpirun $PWD/mpi/pt2pt/osu_mbw_mr -V -m 2097152 | tee -a ${OSU_RESULTS}/osu_mbw_mr.2.$i.out"
 			echo $runstr | tee -a  ${OSU_RESULTS}/osu_mbw_mr.2.$i.out
 			eval $runstr
 			LogStep osu mbw_mr_2_$i 1
