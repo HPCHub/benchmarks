@@ -37,10 +37,10 @@ MPIRUN=`echo $HPCHUB_MPIRUN | awk '{print $1}'`
 
 #FIXME:add Intel MPI, MPICH, ...
 #define bind and ppn for mpi (Open MPI)
-if [ "`$MPIRUN --help | grep 'Open MPI'`" != "" ]; then
-	MPIRUN_BIND=' --bind-to core'
-	PPN='--npernode'
-fi
+#if [ "`$MPIRUN --help | grep 'Open MPI'`" != "" ]; then
+#	MPIRUN_BIND=' --bind-to core'
+#	PPN='--npernode'
+#fi
 
 #save base machinefile
 #mv machinefile machinefile_reserv
