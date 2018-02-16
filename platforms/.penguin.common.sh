@@ -5,6 +5,8 @@
 
 export OMP_NUM_THREADS=12
 
+HPCHUB_PPN=$((NCPU/NNODES))
+
 if [ "$HPCHUB_PENGUIN_PHASE" = "" ]; then
 #
 # We are running externally.
@@ -107,7 +109,6 @@ export HPCHUB_LAPACK_DIR="/usr/lib"
 
 HPCHUB_PWD=`pwd`
 
-HPCHUB_PPN=$((NCPU/NNODES))
 
 
 function hpchub_mpirun {
