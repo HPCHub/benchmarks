@@ -39,9 +39,9 @@ if [ "$HPCHUB_OPERATION" == "install_system" ]; then
   done
 fi
 
-export MPICC=${HPCHUB_PWD}/install/bin/mpicc
-export MPICXX=${HPCHUB_PWD}/install/bin/mpicxx
-export MPIFC=${HPCHUB_PWD}/install/bin/mpif90
+export MPICC=$HOME/hpchub_benchmarks/install/bin/mpicc
+export MPICXX=$HOME/hpchub_benchmarks/install/bin/mpicxx
+export MPIFC=$HOME/hpchub_benchmarks/install/bin/mpif90
 
 if [ ! -x "$CC" ]; then
   export CC=`which gcc`
