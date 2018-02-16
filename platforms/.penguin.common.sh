@@ -31,7 +31,7 @@ export HPCHUB_MACHINEFILE=${HPCHUB_MACHINEFILE}
 ./${HPCHUB_TEST_STATE}.sh
 
 EOF
-qsub run_penguin_hpchub.pbs
+qsub _mpirun_penguin_hpchub.pbs
 
 while [ `qstat | wc -l` -gt "$L" ]; do
    echo -ne '.'
