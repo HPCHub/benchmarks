@@ -85,7 +85,7 @@ echo LOG_PPN=$LOG_PPN
 #----------------------
 
 LogStep osu Start
-if [ `echo ${NODES_ARRAY[@]:0:2} | wc -w` -eq 2 ]; then
+#if [ `echo ${NODES_ARRAY[@]:0:2} | wc -w` -eq 2 ]; then
 #	run osu_latency
 #	for h in ${NODES_ARRAY[@]:0:2}; do
 #		echo $h slots=1 >> machinefile
@@ -115,9 +115,9 @@ if [ `echo ${NODES_ARRAY[@]:0:2} | wc -w` -eq 2 ]; then
 #			LogStep osu mbw_mr_2_$i 1
 #			rm machinefile
 #	done
-else 
-	echo WARNING: fail to run osu_latency and osu_mbw_mr tests: can not find 2 nodes
-fi 
+#else 
+#	echo WARNING: fail to run osu_latency and osu_mbw_mr tests: can not find 2 nodes
+#fi 
 
 #----------------------
 #Start OSU coll tests
