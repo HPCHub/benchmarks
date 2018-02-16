@@ -38,7 +38,7 @@ ${HPCHUB_COMPILE_PREFIX} ./configure  CC=$MPICC CXX=$MPICXX FC=$MPIFC
 ${HPCHUB_COMPILE_PREFIX} make
 if [ $HPCHUB_PLATFORM == 'azure' ]; then
 	for i in $NODES; do
-		scp -r ../../tests/  $i:$HOME/hpchub_benchmark/
+		scp -r ../../../tests/  $i:$HOME/hpchub_benchmark/
 	done
 fi
 #make install
