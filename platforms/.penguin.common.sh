@@ -7,7 +7,7 @@ export OMP_NUM_THREADS=12
 
 HPCHUB_PPN=$((NCPU/NNODES))
 
-if [ "$HPCHUB_PENGUIN_PHASE" = "" -a "${HPCHUB_TEST_STATE}" -ne "install" ]; then
+if [ "$HPCHUB_PENGUIN_PHASE" = "" -a "${HPCHUB_TEST_STATE}" != "install" ]; then
 #
 # We are running externally.
 # We have to prepare pbs file to run our selves and 
