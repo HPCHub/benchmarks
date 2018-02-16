@@ -21,8 +21,24 @@ cd osu-micro-benchmarks-${osu_version}
 sed -i 's@{8, 16, 32, 64, 128}@{8, 16, 32, 64, 128, 256, 512}@' ./util/osu_util.h
 sed -i 's@WINDOW_SIZES_COUNT   (5)@WINDOW_SIZES_COUNT   (7)@' ./util/osu_util.h
 
-${HPCHUB_COMPILE_PREFIX} ./configure  CC=$CC CXX=$CXX FC=$FC
-#--prefix=${HOME}/usr
+if [ ! -x $MPICC ]; then
+	echo no MPICC
+	exit 1
+fi
+if [ ! -x $MPICXX ]; then
+	echo no MPICXX
+	exit 1
+fi
+if [ ! -x $MPIFC ]; then
+	echo no MPIFC
+	exit 1
+fi
+${HPCHUB_COMPILE_PREFIX} ./configure  CC=$MPICC CXX=$MPICXX FC=$MPIFC
 
 ${HPCHUB_COMPILE_PREFIX} make
+if [ $HPCHUB_PATFORM == 'azure' ]; then
+	for i in $NODES; do
+		scp -r ../osu-micro-benchmarks-${osu_version}/  $i:$HPCHUB_PWD
+	done 
+fi
 #make install

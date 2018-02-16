@@ -11,6 +11,19 @@ if [ -f "${HPCHUB_PLATFORM}" ]; then
   . ${HPCHUB_PLATFORM}
 fi
 
+if [ ! -x $MPICC ]; then
+	echo no MPICC
+	exit 1
+fi
+if [ ! -x $MPICXX ]; then
+	echo no MPICXX
+	exit 1
+fi
+if [ ! -x $MPIFC ]; then
+	echo no MPIFC
+	exit 1
+fi
+
 if [ ! -f NPB${npb_version}.tar.gz ]; then
   wget https://www.nas.nasa.gov/assets/npb/NPB${npb_version}.tar.gz
   tar -xvzf NPB${npb_version}.tar.gz
@@ -22,8 +35,8 @@ cd NPB${npb_version}/NPB3.3-MPI
 echo generate config for NPB
 cp ./config/make.def.template ./config/make.def
 
-sed -i 's@MPIF77 = .*@MPIF77 = '"$FC"'@' ./config/make.def
-sed -i 's@MPICC = .*@MPICC = '"$CC"'@' ./config/make.def
+sed -i 's@MPIF77 = .*@MPIF77 = '"$MPIFC"'@' ./config/make.def
+sed -i 's@MPICC = .*@MPICC = '"$MPICC"'@' ./config/make.def
 sed -i 's/FMPI_LIB.*/FMPI_LIB  =/' ./config/make.def
 sed -i 's/FMPI_INC.*/FMPI_INC  =/' ./config/make.def
 
@@ -69,3 +82,9 @@ done
 
 ${HPCHUB_COMPILE_PREFIX} make clean
 ${HPCHUB_COMPILE_PREFIX} make suite
+
+if [ $HPCHUB_PATFORM == 'azure' ]; then
+	for i in $NODES; do
+		scp -r ../NPB${npb_version}/  $i:$HPCHUB_PWDi
+	done
+fi

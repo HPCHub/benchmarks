@@ -1,5 +1,6 @@
 #!/bin/bash
 
+HPCHUB_PLATFORM='azure'
 NNODES=2
 
 NCPU=$(($NNODES*8))
@@ -17,6 +18,30 @@ done
 
 HPCHUB_PWD=`pwd`
 HPCHUB_HAS_CPUSET=1
+
+if [ "$HPCHUB_OPERATION" == "install_system" ]; then
+  echo YUM:
+  sudo yum -y install atlas cmake blas-devel gcc gcc-c++ gcc-gfortran
+  for i in $NODES; do
+    ssh $i  sudo yum -y install atlas cmake blas-devel gcc gcc-c++ gcc-gfortran
+  done
+  echo Install MPICH 3.2
+  wget http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz
+  tar -xf mpich-3.2.1.tar.gz
+  cd ./mpich-3.2.1
+  ./configure --prefix=$HPCHUB_PWD/install
+  make -j2
+  make install
+  echo Copying MPICH 3.2 to the nodes
+  cd $HPCHUB_PWD
+  for i in $NODES; do
+	scp -r ./install/ $i:$HPCHUB_PWD
+  done
+fi
+
+export MPICC=${HPCHUB_PWD}/install/bin/mpicc
+export MPICXX=${HPCHUB_PWD}/install/bin/mpicxx
+export MPIFC=${HPCHUB_PWD}/install/bin/mpif90
 
 if [ ! -x "$CC" ]; then
   export CC=`which gcc`
@@ -52,27 +77,7 @@ if [ "$HPCHUB_TEST_STATE" == "install" ]; then
   echo "Platform: using $CC as compiler"
 fi
 
-if [ "$HPCHUB_OPERATION" == "install_system" ]; then
-  echo YUM:
-  sudo yum -y install atlas cmake blas-devel gcc gcc-c++ gcc-gfortran
-  for i in $NODES; do
-    ssh $i  sudo yum -y install atlas cmake blas-devel gcc gcc-c++ gcc-gfortran
-  done
-  wget http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz
-  tar -xf mpich-3.2.1.tar.gz
-  cd ./mpich-3.2.1
-  ./configure --prefix=$HPCHUB_PWD/install
-  make -j2
-  make install
-  cd $HPCHUB_PWD
-  for i in $NODES; do
-	scp -r ./install $i:$HPCHUB_PWD
-  done
-fi
 
-export MPICC=${HPCHUB_PWD}/install/bin/mpicc
-export MPICXX=${HPCHUB_PWD}/install/bin/mpicc
-export MPIFC=${HPCHUB_PWD}/install/bin/mpif90
 
 export FFTW_CONFIGURE_FLAGS
 #export HPCHUB_LINKER=`which mpif77`
