@@ -92,6 +92,8 @@ LogStep osu Start
 #	done
 	echo nnodes=2
 	echo ppn=1
+	resbv_NCPU=$NPCU
+	NCPU=$(($NNODES*2))
 	runstr="hpchub_mpirun ./mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072 | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out"
 #	echo  machinefile: | tee ${OSU_RESULTS}/osu_latency.2.1.out
 #	cat machinefile | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out
