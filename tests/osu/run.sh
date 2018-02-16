@@ -96,7 +96,7 @@ LogStep osu Start
 #	echo  machinefile: | tee ${OSU_RESULTS}/osu_latency.2.1.out
 #	cat machinefile | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out
 	echo $runstr | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out
-#	eval $runstr
+	eval $runstr
 #	rm machinefile
 	LogStep osu latency
 
