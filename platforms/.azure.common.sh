@@ -100,7 +100,7 @@ function hpchub_mpirun {
 	fi
 }
 
-#function hpchub_mpirun_compile {
+function hpchub_mpirun_compile {
 #    L=`qstat | wc -l`
 #    HPCHUB_PPN=$((NCPU/NNODES))
 #    WD=`pwd`
@@ -137,7 +137,7 @@ function hpchub_mpirun {
 #    cat $HPCHUB_PWD/_mpirun_hpchub.stdout
 #    echo "hpchub_mpirun stderr:"
 #    cat $HPCHUB_PWD/_mpirun_hpchub.stderr
-#}
+}
 
 
 
