@@ -74,11 +74,15 @@ else
 	done
 fi
 
+export NCPU=$local_NCPU
+export NNODES=$local_NNODES
+
+
 #----------------------
 #Start OSU coll tests
 #----------------------
 
-for i in `seq 1 $NNODES`; do
+for i in `seq 1 $local_NNODES`; do
 	for j in  `echo $LOG_PPN`; do
 		if [ $((i*j)) -eq 1 ]; then
 			continue
@@ -99,6 +103,9 @@ for i in `seq 1 $NNODES`; do
 		LogStep osu  allreduce_$i $j
 	done
 done
+
+export NCPU=$local_NCPU
+export NNODES=$local_NNODES
 
 #revert macninefile
 #mv machinefile_reserv ./machinefile
