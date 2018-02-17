@@ -74,12 +74,13 @@ while [ $j -le $local_ncpus ]; do
 	let j=i*i
 done
 
-${HPCHUB_COMPILE_PREFIX} make clean
-${HPCHUB_COMPILE_PREFIX} make suite
+#${HPCHUB_COMPILE_PREFIX} make clean
+#${HPCHUB_COMPILE_PREFIX} make suite
 
 if [ $HPCHUB_PLATFORM == 'azure' ]; then
 	for i in $NODES; do
 		echo copying tests to $i:$HOME/hpchub_benchmark/
-		scp -r ../../../../tests/  $i:$HOME/hpchub_benchmark/
+		echo PWD=$PWD
+		echo scp -r ../../../../tests/  $i:$HOME/hpchub_benchmark/
 	done
 fi
