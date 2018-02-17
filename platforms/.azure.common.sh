@@ -28,7 +28,7 @@ if [ "$HPCHUB_OPERATION" == "install_system" ]; then
   tar -xf mpich-3.2.1.tar.gz
   cd ./mpich-3.2.1
   ./configure --prefix=$HPCHUB_PWD/install
-  make -j2
+  make -j8
   make install
   echo Copying MPICH 3.2 to the nodes
   cd $HPCHUB_PWD
