@@ -7,7 +7,7 @@ if [ "$1" = "" -o ! -f ../platforms/${2}.sh ]; then
 	echo "  HOST - some HOST, that current user can log in into using 'ssh HOST' command"
 	echo "         (hint: use ~/.ssh/config to set it up accordingly)"
 	echo "  PLATFORM - platform, expected to exist on host. One of:"
-	ls ../platforms/azure* | sed  's/..\/platforms\// /'#| awk '{print $1;};'
+	ls ../platforms/azure* | sed  's/..\/platforms\// /'
 	exit 1
 fi
 
@@ -18,6 +18,7 @@ git archive --format tar.gz master | ssh $remhost "cat > hpchub_benchmark.tar.gz
 ssh $remhost "mkdir hpchub_benchmark"
 ssh $remhost "cd hpchub_benchmark; tar -xvzf ../hpchub_benchmark.tar.gz" || exit 4
 echo "tarballs sent."
+exit 1
 
 operation="install_system"
 
