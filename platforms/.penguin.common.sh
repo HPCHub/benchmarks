@@ -58,39 +58,39 @@ module load cmake/3.3.1
 
 HPCHUB_HAS_CPUSET=1
 
-export CC=`which mpicc`
-if [ ! -x "$CC" ]; then
-  export CC=`which gcc`
-fi
-if [ ! -x "$CC" ]; then
-  if [ "$HPCHUB_TEST_STATE" == "install" ]; then
-    echo "Platform error: no C compiler installed!"
-    exit 1
-  fi
-fi
-
-export CXX=`which mpicxx`
-if [ ! -x "$CXX" ]; then
-  export CXX=`which g++`
-fi
-if [ ! -x "$CXX" ]; then
-  if [ "$HPCHUB_TEST_STATE" == "install" ]; then
-    echo "Platform error: no CXX compiler installed!"
-    exit 1
-  fi
-fi
-
-export FC=`which mpif90`
-if [ ! -x "$FC" ]; then
-  export FC=`which mpif90`
-fi
-if [ ! -x "$FC" ]; then
-  if [ "$HPCHUB_TEST_STATE" == "install" ]; then
-    echo "Platform error: no FC compiler installed!"
-    exit 1
-  fi
-fi
-
+#export CC=`which mpicc`
+#if [ ! -x "$CC" ]; then
+#  export CC=`which gcc`
+#fi
+#if [ ! -x "$CC" ]; then
+#  if [ "$HPCHUB_TEST_STATE" == "install" ]; then
+#    echo "Platform error: no C compiler installed!"
+#    exit 1
+#  fi
+#fi
+#
+#export CXX=`which mpicxx`
+#if [ ! -x "$CXX" ]; then
+#  export CXX=`which g++`
+#fi
+#if [ ! -x "$CXX" ]; then
+#  if [ "$HPCHUB_TEST_STATE" == "install" ]; then
+#    echo "Platform error: no CXX compiler installed!"
+#    exit 1
+#  fi
+#fi
+#
+#export FC=`which mpif90`
+#if [ ! -x "$FC" ]; then
+#  export FC=`which mpif90`
+#fi
+#if [ ! -x "$FC" ]; then
+#  if [ "$HPCHUB_TEST_STATE" == "install" ]; then
+#    echo "Platform error: no FC compiler installed!"
+#    exit 1
+#  fi
+#fi
+#
 if [ "$HPCHUB_TEST_STATE" == "install" ]; then
   echo "Platform: using $CC as compiler"
 fi
