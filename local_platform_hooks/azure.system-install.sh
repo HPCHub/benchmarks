@@ -13,15 +13,13 @@ fi
 
 remhost=$1
 platform=$2 
-set -x
-git archive --format tar.gz master | ssh $remhost "cat > hpchub_benchmark.tar.gz"
+
+git archive --format tar.gz master ../ | ssh $remhost "cat > hpchub_benchmark.tar.gz"
 ssh $remhost "mkdir hpchub_benchmark"
 ssh $remhost "cd hpchub_benchmark; tar -xvzf ../hpchub_benchmark.tar.gz" || exit 4
-set +x
 echo "tarballs sent."
-exit 1
-operation="install_system"
 
+operation="install_system"
 
 if [ "$operation" = "install_system" ]; then
 	ssh $remhost "cd hpchub_benchmark/; chmod +x ./platforms/${platform}.sh"
