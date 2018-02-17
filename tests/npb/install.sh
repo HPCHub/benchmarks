@@ -79,6 +79,6 @@ ${HPCHUB_COMPILE_PREFIX} make suite
 
 if [ $HPCHUB_PLATFORM == 'azure' ]; then
 	for i in $NODES; do
-		scp -r ../../../../tests/  $i:$HPCHUB_PWDi
+		scp -r ../../../../tests/  $i:$HPCHUB_PWD
 	done
 fi
