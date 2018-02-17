@@ -33,7 +33,7 @@ if [ "$HPCHUB_OPERATION" == "install_system" ]; then
   echo Copying MPICH 3.2 to the nodes
   cd $HPCHUB_PWD
   for i in $NODES; do
-	scp -oStrictHostKeyChecking=no -r ./install/ $i:$HPCHUB_PWD
+	scp -oStrictHostKeyChecking=no -r ./install $i:$HPCHUB_PWD/
   done
 fi
 
