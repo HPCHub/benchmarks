@@ -79,6 +79,7 @@ ${HPCHUB_COMPILE_PREFIX} make suite
 
 if [ $HPCHUB_PLATFORM == 'azure' ]; then
 	for i in $NODES; do
-		scp -r ../../../../tests/  $i:$HPCHUB_PWD
+		echo copying tests to $i:$HOME/hpchub_benchmark/
+		scp -r ../../../../tests/  $i:$HOME/hpchub_benchmark/
 	done
 fi
