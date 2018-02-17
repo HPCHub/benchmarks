@@ -52,7 +52,8 @@ done
 
 local_NCPU=$NPCU 
 local_NNODES=$NNODES
-
+echo local_NCPU=$NPCU 
+echo local_NNODES=$NNODES
 for i in `seq 1 $local_NNODES`; do
 	for j in  `seq 1 $((local_NCPU/local_NNODES))`; do
 		for npb_test in "is" "lu" "ft" "mg" "cg" "ep" "bt" "sp"; do
@@ -86,5 +87,3 @@ done
 export NCPU=$local_NCPU 
 export NNODES=$local_NNODES 
 
-#revert macninefile
-mv machinefile_reserv machinefile
