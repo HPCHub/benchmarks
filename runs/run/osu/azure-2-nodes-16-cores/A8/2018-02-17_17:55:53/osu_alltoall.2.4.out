@@ -1,0 +1,26 @@
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall | tee -a ../../../runs/run/osu/azure-2-nodes-16-cores/ismagilov@52.168.64.108/2018-02-17_17:55:53/osu_alltoall.2.4.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 8 -ppn 4 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall
+
+# OSU MPI All-to-All Personalized Exchange Latency Test v5.4.0
+# Size       Avg Latency(us)
+1                      13.80
+2                      12.92
+4                      14.27
+8                      14.03
+16                     10.81
+32                     11.31
+64                     12.03
+128                    12.61
+256                    14.67
+512                    20.15
+1024                   22.49
+2048                   29.32
+4096                   35.27
+8192                   46.44
+16384                  89.06
+32768                 172.25
+65536                 302.49
+131072                662.18
+262144               1387.25
+524288               2631.21
+1048576              5877.41

@@ -1,0 +1,52 @@
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/is.C.2 | tee -a ../../../../runs/run/npb/azure-2-nodes-16-cores/ismagilov@52.168.64.108/2018-02-17_17:55:53/is.C.1.2.1.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 2 -ppn 2 /home/ismagilov/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/is.C.2
+
+
+ NAS Parallel Benchmarks 3.3 -- IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:   10
+ Number of processes:     2
+
+   iteration
+        1
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     9.70
+ Total processes =                        2
+ Compiled procs  =                        2
+ Mop/s total     =                   138.35
+ Mop/s/process   =                    69.17
+ Operation type  =              keys ranked
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+ Compile date    =              17 Feb 2018
+
+ Compile options:
+    MPICC        = /home/ismagilov/hpchub_benchmark/install/bi...
+    CLINK        = $(MPICC)
+    CMPI_LIB     = (none)
+    CMPI_INC     = (none)
+    CFLAGS       = -Ofast -mcmodel=medium
+    CLINKFLAGS   = -Ofast
+
+
+ Please send feedbacks and/or the results of this run to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
