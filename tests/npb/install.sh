@@ -74,8 +74,8 @@ while [ $j -le $local_ncpus ]; do
 	let j=i*i
 done
 
-#${HPCHUB_COMPILE_PREFIX} make clean
-#${HPCHUB_COMPILE_PREFIX} make suite
+${HPCHUB_COMPILE_PREFIX} make clean
+${HPCHUB_COMPILE_PREFIX} make suite
 
 if [ $HPCHUB_PLATFORM == 'azure' ]; then
 	for i in $NODES; do
