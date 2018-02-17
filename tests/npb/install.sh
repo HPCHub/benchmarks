@@ -49,13 +49,7 @@ sed -i 's@CLINKFLAGS.*@CLINKFLAGS = -Ofast@' ./config/make.def
 
 #generate build suit for NPB
 
-if [ -f "${HPCHUB_MACHINEFILE}" ];then
-	cp "${HPCHUB_MACHINEFILE}" ./machinefile
-else
-	cp ../../machinefile ./
-fi
-
-local_ncpus=`cat machinefile | wc -l`
+local_ncpus=$(($NCPU/$NNODES))
 
 if [ -f ./config/suite.def ]; then
 	rm ./config/suite.def
@@ -85,6 +79,6 @@ ${HPCHUB_COMPILE_PREFIX} make suite
 
 if [ $HPCHUB_PLATFORM == 'azure' ]; then
 	for i in $NODES; do
-		scp -r ../NPB${npb_version}/  $i:$HPCHUB_PWDi
+		scp -r ../../../../tests/  $i:$HPCHUB_PWDi
 	done
 fi

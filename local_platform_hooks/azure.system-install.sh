@@ -13,11 +13,14 @@ fi
 
 remhost=$1
 platform=$2 
+_pwd=`pwd`
 
-git archive --format tar.gz master ../ | ssh $remhost "cat > hpchub_benchmark.tar.gz"
+cd ..
+git archive --format tar.gz  master | ssh $remhost "cat > hpchub_benchmark.tar.gz"
 ssh $remhost "mkdir hpchub_benchmark"
 ssh $remhost "cd hpchub_benchmark; tar -xvzf ../hpchub_benchmark.tar.gz" || exit 4
 echo "tarballs sent."
+cd $_pwd
 
 operation="install_system"
 
