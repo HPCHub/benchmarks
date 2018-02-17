@@ -32,6 +32,8 @@ NPB_RESULTS=../../../../$HPCHUB_RESDIR
 
 mkdir -p $NPB_RESULTS
 
+echo npb NCPU=$NCPU 
+echo npb NNODES=$NNODES
 
 #generate round robin cpuset
 i=0
@@ -50,10 +52,8 @@ done
 #Start NPB is  lu ft mg cg tests
 #----------------------
 
-local_NCPU=$NPCU 
+local_NCPU=$NCPU 
 local_NNODES=$NNODES
-echo local_NCPU=$NPCU 
-echo local_NNODES=$NNODES
 for i in `seq 1 $local_NNODES`; do
 	for j in  `seq 1 $((local_NCPU/local_NNODES))`; do
 		for npb_test in "is" "lu" "ft" "mg" "cg" "ep" "bt" "sp"; do
@@ -80,7 +80,6 @@ for i in `seq 1 $local_NNODES`; do
 				done
 			fi
 		done
-		rm machinefile
 	done
 done
 
