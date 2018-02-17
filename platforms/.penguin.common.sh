@@ -56,9 +56,16 @@ module load openmpi/1.10.7/gcc.4.4.7
 module load fftw/3.3.4/gcc.4.4.7
 module load cmake/3.3.1
 
-HPCHUB_HAS_CPUSET=1
+export LAlib="/public/apps/lapack/3.7.0/gcc.4.4.7/lib64/liblapack.a /public/apps/lapack/3.7.0/gcc.4.4.7/lib64/libblas.a"
 
-if [ `basename $HPCHUB_PWD` != 'fio' ]; then
+
+HPCHUB_HAS_CPUSET=1
+WD=`pwd`
+bwd=`basename $WD`
+
+echo "current test, patform thinks : $bwd"
+if [ "$bwd" != 'fio' ]; then
+  echo "CC redefining: "
   export CC=`which mpicc`
   if [ ! -x "$CC" ]; then
     export CC=`which gcc`
