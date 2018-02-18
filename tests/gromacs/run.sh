@@ -36,6 +36,9 @@ rm \#*
 
 # http://www.bevanlab.biochem.vt.edu/Pages/Personal/justin/gmx-tutorials/lysozyme/01_pdb2gmx.html
 #
+if [ "$OMP_NUM_THREADS" -gt 6 ]; then
+  OMP_NUM_THREADS=6
+fi
 
 files="1AKI.pdb"
 for p in $files; do 
