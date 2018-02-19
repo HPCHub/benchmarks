@@ -1,10 +1,8 @@
 #!/bin/bash
 
 HPCHUB_PLATFORM='azure'
-#NNODES=4
 
-#NCPU=$(($NNODES*8))
-
+OMP_NUM_THREADS=$(($NCPU/$NNODES))
 NODES=`eval "echo hpchub-centos-h-{1..$NNODES}"`
 
 FFTW_CONFIGURE_FLAGS=""
@@ -90,7 +88,7 @@ fi
 function hpchub_mpirun {
     HPCHUB_PPN=$((NCPU/NNODES))
     WD=`pwd`
-	if [ -z $OMP_NUM_THREADS ]; then
+	if [ -z $OMP_NUM_THREADS ] || [ $OMP_NUM_THREADS -eq 1 ]; then
 		echo  mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n $NCPU -ppn $HPCHUB_PPN $@
 		mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n $NCPU -ppn $HPCHUB_PPN $@
 	else
