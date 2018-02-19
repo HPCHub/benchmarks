@@ -42,7 +42,7 @@ export MPICXX=$HOME/hpchub_benchmark/install/bin/mpicxx
 export MPIFC=$HOME/hpchub_benchmark/install/bin/mpif90
 
 if [ ! -x "$CC" ]; then
-  export CC=`which gcc`
+  export CC=$MPICC
 fi
 if [ ! -x "$CC" ]; then
   if [ "$HPCHUB_TEST_STATE" == "install" ]; then
@@ -52,7 +52,7 @@ if [ ! -x "$CC" ]; then
 fi
 
 if [ ! -x "$CXX" ]; then
-  export CXX=`which g++`
+  export CXX=$MPICXX
 fi
 if [ ! -x "$CXX" ]; then
   if [ "$HPCHUB_TEST_STATE" == "install" ]; then
@@ -62,7 +62,7 @@ if [ ! -x "$CXX" ]; then
 fi
 
 if [ ! -x "$FC" ]; then
-  export FC=`which gfortran`
+  export FC=$MPIFC
 fi
 if [ ! -x "$FC" ]; then
   if [ "$HPCHUB_TEST_STATE" == "install" ]; then
