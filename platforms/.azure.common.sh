@@ -3,9 +3,9 @@
 HPCHUB_PLATFORM='azure'
 #NNODES=4
 
-NCPU=$(($NNODES*8))
+#NCPU=$(($NNODES*8))
 
-NODES=`eval "echo hpchub-centos{1..$NNODES}"`
+NODES=`eval "echo hpchub-centos-h-{1..$NNODES}"`
 
 FFTW_CONFIGURE_FLAGS=""
 for feature in sse2 avx avx2; do
