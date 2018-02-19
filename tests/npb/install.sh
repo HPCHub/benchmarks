@@ -51,13 +51,12 @@ sed -i 's@CLINKFLAGS.*@CLINKFLAGS = -Ofast@' ./config/make.def
 
 echo NCPU=$NCPU
 echo NNOCES=$NNODES
-local_ncpus=$(($NCPU/$NNODES))
 
 if [ -f ./config/suite.def ]; then
 	rm ./config/suite.def
 fi
 i=1
-while [ $i -le $local_ncpus ]; do
+while [ $i -le $NCPU ]; do
 	echo is C $i >> ./config/suite.def
 	echo lu C $i >> ./config/suite.def
 	echo ft C $i >> ./config/suite.def
@@ -69,7 +68,7 @@ done
 
 i=1
 j=1
-while [ $j -le $local_ncpus ]; do
+while [ $j -le $NCPU ]; do
 	echo sp C $j >> ./config/suite.def
 	echo bt C $j >> ./config/suite.def
 	let i=i+1
@@ -83,5 +82,6 @@ if [ $HPCHUB_PLATFORM == 'azure' ]; then
 	for i in $NODES; do
 		echo copying tests to $i:$HOME/hpchub_benchmark/
 		scp -r ../../../../tests/  $i:$HOME/hpchub_benchmark/
+		echo done
 	done
 fi
