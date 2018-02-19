@@ -29,7 +29,7 @@ cd $HPCHUB_PWD
 export HPCHUB_PENGUIN_PHASE=internal
 export HPCHUB_PLATFORM=${HPCHUB_PLATFORM} 
 export HPCHUB_REPORT=${HPCHUB_REPORT}
-export HPCHUB_MACHINEFILE=${HPCHUB_MACHINEFILE}
+export HPCHUB_MACHINEFILE=\$PBS_NODEFILE
 
 #module load blas/3.5.0/gcc.4.4.7
 #module load lapack/3.7.0/gcc.4.4.7
