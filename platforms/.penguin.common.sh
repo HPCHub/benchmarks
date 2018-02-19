@@ -30,6 +30,13 @@ export HPCHUB_PENGUIN_PHASE=internal
 export HPCHUB_PLATFORM=${HPCHUB_PLATFORM} 
 export HPCHUB_REPORT=${HPCHUB_REPORT}
 export HPCHUB_MACHINEFILE=${HPCHUB_MACHINEFILE}
+
+module load blas/3.5.0/gcc.4.4.7
+module load lapack/3.7.0/gcc.4.4.7
+module load openmpi/2.0.0/gcc.4.9.0
+module load fftw/3.3.4/gcc.4.4.7
+module load cmake/3.3.1
+
 ./${HPCHUB_TEST_STATE}.sh
 
 EOF
@@ -135,9 +142,14 @@ function hpchub_mpirun {
 #PBS -S /bin/bash
 #PBS -o $HPCHUB_PWD/_mpirun_hpchub.stdout
 #PBS -e $HPCHUB_PWD/_mpirun_hpchub.stderr
-module load openmpi/2.0.1/gcc.4.9.0
-module load fftw/3.3.4/gcc.4.9.0
+module load blas/3.5.0/gcc.4.4.7
+module load lapack/3.7.0/gcc.4.4.7
+module load openmpi/2.0.0/gcc.4.9.0
+module load fftw/3.3.4/gcc.4.4.7
 module load cmake/3.3.1
+
+
+
 cd $WD
 mpirun $@
 EOF
