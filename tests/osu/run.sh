@@ -50,6 +50,8 @@ echo LOG_PPN=$LOG_PPN
 
 local_NCPU=$NPCU
 local_NNODES=$NNODES
+local_OMP_NUM_THREADS=$OMP_NUM_THREADS
+export OMP_NUM_THREADS=1
 LogStep osu Start
 if [ $NNODES -lt 2 ]; then
 	echo WARNING: fail to run osu_latency and osu_mbw_mr tests: can not find 2 nodes
@@ -106,6 +108,7 @@ done
 
 export NCPU=$local_NCPU
 export NNODES=$local_NNODES
+export OMP_NUM_THREADS=$local_OMP_NUM_THREADS
 
 #revert macninefile
 #mv machinefile_reserv ./machinefile

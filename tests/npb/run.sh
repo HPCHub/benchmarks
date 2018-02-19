@@ -54,6 +54,7 @@ done
 
 local_NCPU=$NCPU 
 local_NNODES=$NNODES
+local_OMP_NUM_THREADS=$OMP_NUM_THREADS
 for i in `seq 1 $local_NNODES`; do
 	for j in  `seq 1 $((local_NCPU/local_NNODES))`; do
 		for npb_test in "is" "lu" "ft" "mg" "cg" "ep" "bt" "sp"; do
@@ -72,7 +73,7 @@ for i in `seq 1 $local_NNODES`; do
 			if [ -f ./bin/${npb_test}.C.$(($i*$j)) ]; then
 				iter=1
 				while [ $iter -le $maxiter ]; do
-					runstr="hpchub_mpirun $PWD/bin/${npb_test}.C.$((i*j)) | tee -a ${NPB_RESULTS}/${npb_test}.C.${i}.${j}.${iter}.out"
+					runstr="OMP_NUM_THREADS=1 hpchub_mpirun $PWD/bin/${npb_test}.C.$((i*j)) | tee -a ${NPB_RESULTS}/${npb_test}.C.${i}.${j}.${iter}.out"
 					echo ${runstr} | tee -a $NPB_RESULTS/${npb_test}.C.${i}.$j.${iter}.out
 					eval ${runstr}
 					LogStep npb ${test}_${i}_${j} ${iter}
@@ -82,7 +83,7 @@ for i in `seq 1 $local_NNODES`; do
 		done
 	done
 done
-
+export OMP_NUM_THREADS=$local_OMP_NUM_THREADS
 export NCPU=$local_NCPU 
 export NNODES=$local_NNODES 
 
