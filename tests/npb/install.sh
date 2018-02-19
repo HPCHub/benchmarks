@@ -51,7 +51,7 @@ sed -i 's@CLINKFLAGS.*@CLINKFLAGS = -Ofast@' ./config/make.def
 
 echo NCPU=$NCPU
 echo NNOCES=$NNODES
-local_ncpos=$(($NCPU/$NNODES))
+local_ncpus=$(($NCPU/$NNODES))
 
 if [ -f ./config/suite.def ]; then
 	rm ./config/suite.def
