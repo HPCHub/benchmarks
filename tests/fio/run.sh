@@ -51,7 +51,7 @@ function getlat {
 cp ../fiorun.sh ./
 chmod a+x fiorun.sh
 
-for size in 128m 4096m; do
+for size in 128m 1024m; do
 for op in "read" "write" "randread" "randwrite" ; do
   rm job*
    
