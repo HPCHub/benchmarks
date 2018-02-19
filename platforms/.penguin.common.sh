@@ -52,7 +52,7 @@ done
 
 module load blas/3.5.0/gcc.4.4.7
 module load lapack/3.7.0/gcc.4.4.7
-module load openmpi/1.10.7/gcc.4.4.7
+module load openmpi/2.0.0/gcc.4.9.0
 module load fftw/3.3.4/gcc.4.4.7
 module load cmake/3.3.1
 
