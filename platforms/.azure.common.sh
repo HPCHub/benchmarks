@@ -76,7 +76,7 @@ if [ "$HPCHUB_TEST_STATE" == "install" ]; then
 fi
 
 export FFTW_CONFIGURE_FLAGS
-#export HPCHUB_LINKER=`which mpif77`
+export HPCHUB_LINKER=$MPICC
 export HPCHUB_LAPACK_DIR="/usr/lib"
 
 source /opt/intel/impi/2017.2.174/bin64/mpivars.sh
