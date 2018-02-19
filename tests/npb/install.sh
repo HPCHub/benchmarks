@@ -49,7 +49,9 @@ sed -i 's@CLINKFLAGS.*@CLINKFLAGS = -Ofast@' ./config/make.def
 
 #generate build suit for NPB
 
-local_ncpus=$(($NCPU/$NNODES))
+echo NCPU=$NCPU
+echo NNOCES=$NNODES
+local_ncpos=$(($NCPU/$NNODES))
 
 if [ -f ./config/suite.def ]; then
 	rm ./config/suite.def
