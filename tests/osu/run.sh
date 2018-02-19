@@ -89,15 +89,15 @@ for i in `seq 1 $local_NNODES`; do
 		fi
 		export NNODES=$i
 		export NCPU=$(($NNODES*$j))
-		runstr="OMP_NUM_THREADS=1 hpchub_mpirun  $PWD/mpi/collective/osu_alltoall | tee -a ${OSU_RESULTS}/osu_alltoall.$i.$j.out"
+		runstr="hpchub_mpirun  $PWD/mpi/collective/osu_alltoall | tee -a ${OSU_RESULTS}/osu_alltoall.$i.$j.out"
 		echo $runstr | tee -a ${OSU_RESULTS}/osu_alltoall.$i.$j.out
 		eval $runstr
 		LogStep osu alltoall_$i $j
-		runstr="OMP_NUM_THREADS=1 hpchub_mpirun $PWD/mpi/collective/osu_barrier -i 400000 | tee -a ${OSU_RESULTS}/osu_barrier.$i.$j.out"
+		runstr="hpchub_mpirun $PWD/mpi/collective/osu_barrier -i 400000 | tee -a ${OSU_RESULTS}/osu_barrier.$i.$j.out"
 		echo $runstr | tee -a ${OSU_RESULTS}/osu_barrier.$i.$j.out
 		eval $runstr
 		LogStep osu barrier_$i $j
-		runstr="OMP_NUM_THREADS=1 hpchub_mpirun $PWD/mpi/collective/osu_allreduce | tee -a ${OSU_RESULTS}/osu_allreduce.$i.$j.out"
+		runstr="hpchub_mpirun $PWD/mpi/collective/osu_allreduce | tee -a ${OSU_RESULTS}/osu_allreduce.$i.$j.out"
 		echo $runstr | tee -a ${OSU_RESULTS}/osu_allreduce.$i.$j.out
 		eval $runstr
 		LogStep osu  allreduce_$i $j
