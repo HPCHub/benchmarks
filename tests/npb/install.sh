@@ -11,6 +11,19 @@ if [ -f "${HPCHUB_PLATFORM}" ]; then
   . ${HPCHUB_PLATFORM}
 fi
 
+if [ ! -x $MPICC ]; then
+	echo no MPICC
+	exit 1
+fi
+if [ ! -x $MPICXX ]; then
+	echo no MPICXX
+	exit 1
+fi
+if [ ! -x $MPIFC ]; then
+	echo no MPIFC
+	exit 1
+fi
+
 if [ ! -f NPB${npb_version}.tar.gz ]; then
   wget https://www.nas.nasa.gov/assets/npb/NPB${npb_version}.tar.gz
   tar -xvzf NPB${npb_version}.tar.gz
@@ -22,8 +35,8 @@ cd NPB${npb_version}/NPB3.3-MPI
 echo generate config for NPB
 cp ./config/make.def.template ./config/make.def
 
-sed -i 's@MPIF77 = .*@MPIF77 = '"$FC"'@' ./config/make.def
-sed -i 's@MPICC = .*@MPICC = '"$CC"'@' ./config/make.def
+sed -i 's@MPIF77 = .*@MPIF77 = '"$MPIFC"'@' ./config/make.def
+sed -i 's@MPICC = .*@MPICC = '"$MPICC"'@' ./config/make.def
 sed -i 's/FMPI_LIB.*/FMPI_LIB  =/' ./config/make.def
 sed -i 's/FMPI_INC.*/FMPI_INC  =/' ./config/make.def
 
@@ -36,19 +49,14 @@ sed -i 's@CLINKFLAGS.*@CLINKFLAGS = -Ofast@' ./config/make.def
 
 #generate build suit for NPB
 
-if [ -f "${HPCHUB_MACHINEFILE}" ];then
-	cp "${HPCHUB_MACHINEFILE}" ./machinefile
-else
-	cp ../../machinefile ./
-fi
-
-local_ncpus=`cat machinefile | wc -l`
+echo NCPU=$NCPU
+echo NNOCES=$NNODES
 
 if [ -f ./config/suite.def ]; then
 	rm ./config/suite.def
 fi
 i=1
-while [ $i -le $local_ncpus ]; do
+while [ $i -le $NCPU ]; do
 	echo is C $i >> ./config/suite.def
 	echo lu C $i >> ./config/suite.def
 	echo ft C $i >> ./config/suite.def
@@ -60,7 +68,7 @@ done
 
 i=1
 j=1
-while [ $j -le $local_ncpus ]; do
+while [ $j -le $NCPU ]; do
 	echo sp C $j >> ./config/suite.def
 	echo bt C $j >> ./config/suite.def
 	let i=i+1
@@ -69,3 +77,11 @@ done
 
 ${HPCHUB_COMPILE_PREFIX} make clean
 ${HPCHUB_COMPILE_PREFIX} make suite
+
+if [ $HPCHUB_PLATFORM == 'azure' ]; then
+	for i in $NODES; do
+		echo copying tests to $i:$HOME/hpchub_benchmark/
+		scp -r ../../../../tests/  $i:$HOME/hpchub_benchmark/
+		echo done
+	done
+fi

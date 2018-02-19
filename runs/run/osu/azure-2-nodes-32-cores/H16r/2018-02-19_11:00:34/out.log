@@ -1,0 +1,798 @@
+LOG_PPN=1 2 4 8 16
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072 | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_latency.2.1.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 2 -ppn 1 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072
+# OSU MPI Latency Test v5.4.0
+# Size          Latency (us)
+0                       3.34
+1                       3.49
+2                       3.25
+4                       3.27
+8                       3.24
+16                      3.25
+32                      2.62
+64                      2.61
+128                     2.68
+256                     2.81
+512                     2.91
+1024                    3.25
+2048                    3.84
+4096                    5.01
+8192                    6.19
+16384                   8.01
+32768                  10.71
+65536                  16.58
+131072                 29.10
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_mbw_mr -V -m 2097152 | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_mbw_mr.2.1.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 2 -ppn 1 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_mbw_mr -V -m 2097152
+# OSU MPI Multiple Bandwidth / Message Rate Test v5.4.0
+# [ pairs: 1 ] [ window size: varied ]
+
+# Uni-directional Bandwidth (MB/sec)
+#                 8          16          32          64         128         256         512
+1              0.38        0.43        0.45        0.47        0.47        0.47        3.62
+2              0.77        0.85        0.91        0.95        0.93        0.94        4.90
+4              1.53        1.72        1.82        1.90        1.89        1.88       13.25
+8              3.07        3.42        3.62        3.73        3.74        3.82       21.30
+16             6.13        6.41        7.23        7.47        7.64        7.69       62.13
+32            29.09       42.42       70.13      100.89      131.96      154.77      165.90
+64            59.00       75.13      136.26      191.68      269.21      299.91      318.63
+128          119.90      155.84      258.42      364.56      525.46      595.36      641.56
+256          208.14      300.29      474.84      712.05      962.93     1095.22      929.40
+512          414.57      568.49      892.46     1317.60     1700.87     1917.40     2076.55
+1024         756.49      982.83     1577.58     2214.79     2599.56     2918.18     3134.74
+2048        1341.92     1797.29     2584.17     3378.95     3692.61     3841.22     4116.75
+4096        2172.95     2934.85     4042.92     4549.45     4730.91     4742.34     4861.63
+8192        3359.13     4119.26     4802.83     5234.52     5328.38     5370.58     5320.23
+16384       4129.78     4214.46     5097.65     5299.87     5276.25     5145.76     5033.64
+32768       4815.45     5251.27     5392.80     5326.22     5404.96     5657.92     5599.05
+65536       5231.78     5489.32     5631.45     5726.18     5666.29     5735.27     5666.36
+131072      5413.11     5565.39     5666.67     5734.78     5693.00     5681.24     5651.21
+262144      4853.07     4870.86     4836.05     4833.78     4824.01     4865.04     4824.66
+524288      5449.13     5429.63     5485.19     5477.41     5474.81     5358.40     5478.21
+1048576     5858.01     5858.09     5860.17     5816.54     5841.95     5817.34     5847.81
+2097152     6079.10     6048.85     6013.12     5942.57     6006.73     6027.92     6010.25
+
+# Message Rate Profile
+#                 8          16          32          64         128         256         512
+1         377907.78   430681.97   447675.95   467453.99   474779.28   466785.42  3617362.88
+2         383172.68   426901.17   454805.76   475376.24   465573.05   472385.56  2448000.15
+4         383347.79   429167.13   454543.92   474460.39   472585.15   469079.54  3311564.96
+8         384093.77   427935.62   452673.62   466844.27   467665.74   477415.92  2662488.87
+16        382954.03   400602.10   452170.36   467047.34   477269.50   480552.56  3883193.46
+32        909087.84  1325738.13  2191667.67  3152871.22  4123749.23  4836457.02  5184278.42
+64        921825.05  1173847.54  2129088.32  2994928.66  4206463.31  4686168.66  4978517.79
+128       936751.31  1217504.79  2018918.89  2848121.55  4105145.37  4651253.30  5012215.31
+256       813046.57  1173026.81  1854860.81  2781426.34  3761444.07  4278196.76  3630449.77
+512       809711.20  1110338.58  1743087.38  2573439.33  3322015.42  3744914.29  4055758.65
+1024      738758.96   959794.97  1540607.53  2162883.38  2538636.81  2849784.55  3061273.91
+2048      655232.02   877584.20  1261800.58  1649879.88  1803032.35  1875597.09  2010131.37
+4096      530504.85   716515.74   987040.21  1110706.12  1155008.20  1157797.96  1186920.64
+8192      410050.49   502838.78   586282.83   638979.90   650437.26   655588.08   649441.93
+16384     252061.54   257230.50   311135.72   323478.57   322036.89   314072.55   307228.86
+32768     146955.86   160256.15   164575.29   162543.34   164946.42   172666.17   170869.44
+65536      79830.68    83760.44    85929.04    87374.51    86460.72    87513.30    86461.83
+131072     41298.78    42460.53    43233.28    43752.91    43434.15    43344.42    43115.32
+262144     18512.99    18580.86    18448.06    18439.40    18402.12    18558.65    18404.63
+524288     10393.39    10356.19    10462.16    10447.33    10442.37    10220.34    10448.85
+1048576     5586.63     5586.71     5588.70     5547.08     5571.31     5547.84     5576.91
+2097152     2898.74     2884.32     2867.28     2833.64     2864.23     2874.34     2865.91
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_mbw_mr -V -m 2097152 | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_mbw_mr.2.2.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 4 -ppn 2 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_mbw_mr -V -m 2097152
+# OSU MPI Multiple Bandwidth / Message Rate Test v5.4.0
+# [ pairs: 2 ] [ window size: varied ]
+
+# Uni-directional Bandwidth (MB/sec)
+#                 8          16          32          64         128         256         512
+1              0.81        1.02        1.09        1.13        1.15        1.15        8.65
+2              1.83        2.04        2.18        2.26        2.30        2.32       15.46
+4              3.43        4.07        4.36        4.50        4.57        4.70       31.03
+8              7.28        8.15        8.71        9.07        9.08        9.75       69.72
+16            14.39       16.29       17.46       18.03       17.82       18.91      138.86
+32            58.12       78.81      139.22      204.66      260.85      308.47      335.14
+64           116.10      161.65      268.94      398.56      528.00      604.58      660.24
+128          229.34      294.71      519.26      743.56     1042.39     1178.82     1276.44
+256          428.00      576.12      948.18     1445.74     1869.54     2140.13     2292.85
+512          832.96     1069.48     1757.53     2536.12     3171.36     3384.26     3646.47
+1024        1555.80     2021.46     3058.28     4005.94     4437.54     4809.08     5004.89
+2048        2739.74     3484.98     4484.87     5081.74     5512.10     5682.60     5680.87
+4096        4058.14     4886.07     5663.21     5898.90     5993.56     6064.01     6082.23
+8192        5006.66     5745.63     6002.52     6105.09     6176.79     6210.14     6198.13
+16384       5769.14     6060.42     6133.44     6219.42     6183.80     6328.41     6224.37
+32768       6152.15     6173.17     6216.36     6232.61     6232.32     6238.90     6222.86
+65536       6203.87     6215.07     6229.42     6246.45     6238.52     6252.77     6249.02
+131072      6282.18     6233.49     6243.76     6221.59     6223.56     6192.95     6282.19
+262144      6338.11     6308.89     6250.23     6127.75     6138.23     6139.76     6215.56
+524288      6571.94     6570.06     6585.74     6395.18     6391.54     6404.82     6414.21
+1048576     6503.73     6590.14     6518.51     6509.90     6484.00     6475.45     6511.34
+2097152     6571.22     6562.61     6534.29     6517.04     6527.33     6511.71     6531.44
+
+# Message Rate Profile
+#                 8          16          32          64         128         256         512
+1         809369.40  1018305.28  1092711.29  1134086.57  1149708.84  1151777.64  8648658.99
+2         914850.58  1021210.74  1089849.80  1127749.76  1150565.05  1161244.50  7730670.56
+4         857237.84  1017649.01  1090868.46  1125869.59  1142369.68  1174232.65  7758460.39
+8         909889.01  1018459.82  1088259.20  1133990.75  1135279.66  1218178.16  8715260.03
+16        899341.52  1017957.74  1091134.51  1127063.18  1113961.40  1181845.20  8678980.94
+32       1816207.42  2462710.61  4350655.69  6395507.92  8151699.24  9639697.67  10472975.61
+64       1813998.22  2525738.20  4202183.09  6227478.39  8250033.22  9446547.52  10316257.05
+128      1791719.77  2302388.34  4056754.66  5809033.89  8143661.92  9209553.34  9972178.21
+256      1671870.05  2250464.92  3703835.20  5647408.74  7302875.77  8359870.94  8956431.78
+512      1626881.55  2088829.32  3432678.47  4953369.12  6194068.79  6609879.18  7122015.90
+1024     1519331.31  1974080.42  2986598.31  3912055.32  4333535.76  4696365.67  4887587.25
+2048     1337762.66  1701651.07  2189879.72  2481320.51  2691453.27  2774705.92  2773863.67
+4096      990756.09  1192887.42  1382618.88  1440162.32  1463272.20  1480471.86  1484919.84
+8192      611164.01   701370.30   732729.51   745250.37   754003.06   758074.09   756607.11
+16384     352120.39   369898.66   374355.64   379603.20   377428.90   386255.78   379905.23
+32768     187748.61   188390.30   189708.38   190204.05   190195.29   190396.13   189906.59
+65536      94663.52    94834.42    95053.37    95313.33    95192.24    95409.62    95352.54
+131072     47929.25    47557.75    47636.07    47466.93    47482.01    47248.47    47929.32
+262144     24177.97    24066.49    23842.73    23375.51    23415.50    23421.33    23710.47
+524288     12534.97    12531.40    12561.30    12197.84    12190.89    12216.22    12234.14
+1048576     6202.44     6284.85     6216.54     6208.32     6183.62     6175.47     6209.69
+2097152     3133.40     3129.30     3115.79     3107.57     3112.47     3105.02     3114.43
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_mbw_mr -V -m 2097152 | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_mbw_mr.2.4.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 8 -ppn 4 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_mbw_mr -V -m 2097152
+# OSU MPI Multiple Bandwidth / Message Rate Test v5.4.0
+# [ pairs: 4 ] [ window size: varied ]
+
+# Uni-directional Bandwidth (MB/sec)
+#                 8          16          32          64         128         256         512
+1              1.76        1.96        2.10        2.20        2.28        2.52       15.39
+2              3.54        4.02        4.30        4.44        4.56        4.65       32.93
+4              7.13        8.06        8.46        8.92        9.01        9.23       59.39
+8             14.22       16.03       17.07       17.82       18.25       18.63      133.82
+16            26.45       32.42       28.19       32.59       34.34       38.63      266.66
+32           116.37      152.06      266.42      395.92      523.73      612.26      610.13
+64           197.69      299.42      521.73      561.00      744.21      971.82     1152.49
+128          440.62      532.11      888.51     1302.86     1970.70     2158.66     2153.98
+256          862.61     1067.16     1809.66     2736.40     3395.02     3661.26     3997.39
+512         1667.14     2099.59     3043.88     4122.73     4895.91     4729.95     5409.30
+1024        2912.61     3524.41     4564.56     5311.71     5558.53     5764.66     5882.73
+2048        4862.51     5214.04     5475.93     5871.85     6041.56     6057.66     6095.29
+4096        5209.60     5417.31     6004.45     6100.05     6151.32     6175.04     6185.95
+8192        5743.97     5956.99     6264.64     6234.44     6233.26     6239.09     6238.37
+16384       6284.40     6255.51     6233.17     6250.76     6253.25     6299.36     6255.46
+32768       6243.70     6250.20     6246.29     6269.22     6281.25     6281.07     6267.39
+65536       6293.99     6318.22     6267.40     6280.87     6290.23     6285.92     6270.36
+131072      6260.94     6292.16     6287.14     6296.90     6325.07     6269.47     6277.19
+262144      6520.91     6524.75     6563.39     6406.28     6434.02     6470.67     6504.36
+524288      6536.33     6547.85     6535.43     6496.81     6520.61     6510.29     6536.26
+1048576     6528.38     6540.49     6534.44     6527.46     6544.95     6534.93     6534.20
+2097152     6494.20     6506.71     6523.05     6524.64     6526.87     6524.30     6521.59
+
+# Message Rate Profile
+#                 8          16          32          64         128         256         512
+1        1755570.16  1955137.25  2096414.98  2201000.99  2278370.33  2515582.55  15391389.70
+2        1769631.85  2008758.77  2148106.60  2221630.57  2280487.37  2325510.17  16463856.08
+4        1783268.82  2015924.42  2115580.69  2229866.05  2253422.68  2307735.70  14847735.39
+8        1777600.53  2003174.93  2133127.70  2227495.28  2281607.97  2328195.25  16727067.47
+16       1653182.18  2026386.77  1761994.49  2036996.93  2146222.74  2414354.30  16666054.72
+32       3636597.66  4751911.06  8325516.20  12372435.61  16366456.31  19133175.02  19066605.09
+64       3088837.88  4678409.76  8152008.69  8765597.16  11628290.66  15184611.26  18007587.96
+128      3442362.86  4157117.29  6941473.47  10178612.42  15396079.42  16864502.98  16827995.79
+256      3369553.20  4168576.07  7068974.12  10689050.29  13261802.31  14301779.15  15614797.98
+512      3256131.20  4100755.51  5945085.12  8052208.13  9562327.70  9238177.51  10565042.96
+1024     2844349.20  3441811.15  4457579.81  5187221.22  5428250.24  5629550.84  5744853.40
+2048     2374274.33  2545920.15  2673793.08  2867115.24  2949982.00  2957844.23  2976216.79
+4096     1271874.42  1322586.47  1465929.19  1489270.68  1501786.70  1507577.36  1510241.16
+8192      701168.78   727171.76   764727.08   761040.00   760896.41   761608.15   761519.36
+16384     383569.64   381806.09   380442.48   381516.12   381668.17   384482.22   381803.04
+32768     190542.60   190740.95   190621.58   191321.52   191688.44   191683.18   191265.70
+65536      96038.73    96408.40    95632.94    95838.40    95981.30    95915.52    95678.04
+131072     47767.16    48005.37    47967.03    48041.52    48256.43    47832.27    47891.14
+262144     24875.29    24889.96    25037.34    24438.00    24543.84    24683.65    24812.17
+524288     12467.07    12489.04    12465.34    12391.68    12437.07    12417.39    12466.94
+1048576     6225.94     6237.50     6231.73     6225.08     6241.75     6232.19     6231.50
+2097152     3096.67     3102.64     3110.43     3111.19     3112.25     3111.03     3109.73
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_mbw_mr -V -m 2097152 | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_mbw_mr.2.8.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 16 -ppn 8 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_mbw_mr -V -m 2097152
+# OSU MPI Multiple Bandwidth / Message Rate Test v5.4.0
+# [ pairs: 8 ] [ window size: varied ]
+
+# Uni-directional Bandwidth (MB/sec)
+#                 8          16          32          64         128         256         512
+1              3.52        4.02        4.32        4.46        4.53        4.66       32.52
+2              7.16        8.11        8.53        8.89        9.12        9.53       63.56
+4             14.19       16.26       16.71       17.58       18.13       18.84      126.41
+8             28.17       32.38       34.50       35.40       36.29       37.79      262.40
+16            56.96       62.68       69.02       71.28       72.35       74.69      496.62
+32           243.28      282.77      451.98      684.54      960.95     1117.53     1265.52
+64           459.00      599.71      872.39     1389.47     1865.44     2201.25     2445.85
+128          941.62     1129.26     1610.63     2345.55     3164.61     3652.51     3979.36
+256         1783.65     2096.54     2753.46     3529.39     4118.04     4395.38     4825.68
+512         3149.38     3342.49     3830.25     4465.48     5104.88     5264.65     5393.75
+1024        4565.13     4660.63     4824.11     5308.04     5559.92     5686.01     5742.15
+2048        5412.78     5381.26     5621.71     5726.68     5891.20     5883.96     5937.33
+4096        6200.50     5793.59     5898.33     5973.76     5969.58     6011.51     6004.91
+8192        6121.77     5995.88     6091.78     6055.45     6059.81     6090.89     6073.03
+16384       6167.04     6107.01     6149.07     6078.86     6082.53     6071.01     6090.39
+32768       6125.72     6067.35     6099.88     6093.09     6104.91     6152.72     6088.96
+65536       6055.27     6174.43     6153.90     6075.42     6100.47     6068.91     6086.29
+131072      6076.86     6069.36     6068.53     6161.15     6060.81     6061.58     6059.43
+262144      6513.16     6512.89     6565.87     6523.84     6525.29     6531.01     6528.82
+524288      6538.74     6542.46     6533.85     6536.60     6528.66     6534.69     6533.99
+1048576     6419.64     6431.17     6450.64     6456.52     6462.05     6460.47     6463.67
+2097152     6059.36     6065.47     6059.44     6059.35     6060.06     6058.82     6058.36
+
+# Message Rate Profile
+#                 8          16          32          64         128         256         512
+1        3524567.36  4018682.85  4317200.88  4459581.60  4529015.49  4656737.60  32518384.83
+2        3579079.76  4054380.37  4263291.04  4445917.30  4560333.08  4766929.02  31778233.56
+4        3548328.10  4064355.75  4178674.78  4396212.06  4531727.39  4710924.24  31601772.66
+8        3521099.95  4047121.57  4312887.34  4425018.59  4535861.22  4723468.55  32799624.24
+16       3559974.88  3917479.02  4313515.41  4454886.59  4522005.91  4668391.97  31038747.57
+32       7602519.38  8836653.97  14124232.68  21391942.70  30029748.88  34922869.64  39547591.41
+64       7171905.45  9370496.99  13631138.57  21710394.26  29147569.92  34394476.79  38216446.62
+128      7356411.51  8822314.35  12583034.88  18324607.41  24723505.04  28535263.13  31088736.91
+256      6967372.81  8189625.69  10755702.93  13786689.23  16086095.14  17169438.75  18850313.26
+512      6151133.27  6528298.06  7480957.46  8721631.22  9970470.92  10282528.81  10534667.05
+1024     4458135.04  4551392.76  4711046.96  5183637.08  5429605.54  5552743.53  5607567.40
+2048     2642959.21  2627566.28  2744975.63  2796229.97  2876562.90  2873028.35  2899088.09
+4096     1513794.24  1414451.32  1440022.29  1458437.54  1457418.06  1467654.27  1466043.65
+8192      747286.14   731919.12   743625.21   739190.62   739723.41   743517.16   741336.78
+16384     376406.15   372742.25   375309.21   371024.16   371248.09   370545.09   371727.97
+32768     186942.04   185160.94   186153.43   185946.49   186307.18   187766.22   185820.29
+65536      92396.04    94214.33    93901.09    92703.61    93085.84    92604.24    92869.42
+131072     46362.80    46305.56    46299.25    47005.82    46240.30    46246.19    46229.76
+262144     24845.75    24844.71    25046.81    24886.48    24892.00    24913.84    24905.47
+524288     12471.65    12478.76    12462.33    12467.57    12452.43    12463.94    12462.59
+1048576     6122.25     6133.24     6151.81     6157.42     6162.69     6161.18     6164.24
+2097152     2889.33     2892.24     2889.37     2889.32     2889.66     2889.07     2888.85
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_mbw_mr -V -m 2097152 | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_mbw_mr.2.16.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 32 -ppn 16 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_mbw_mr -V -m 2097152
+# OSU MPI Multiple Bandwidth / Message Rate Test v5.4.0
+# [ pairs: 16 ] [ window size: varied ]
+
+# Uni-directional Bandwidth (MB/sec)
+#                 8          16          32          64         128         256         512
+1              6.90        7.84        8.33        8.65        8.89        9.38       49.92
+2             13.65       15.52       16.69       17.18       17.35       18.92       90.54
+4             27.89       29.43       33.31       33.40       35.18       36.58      191.36
+8             55.57       62.60       61.13       69.13       70.85       72.69      389.50
+16           111.45      125.66      133.99      138.62      140.65      145.59      769.20
+32           384.67      410.50      538.33      928.46     1300.59     1699.61     2028.90
+64           784.09      829.80     1038.23     1667.13     2198.35     2714.12     3031.03
+128         1479.55     1456.78     1869.37     2636.99     3299.84     3789.25     4034.91
+256         2512.37     2464.97     2936.35     3596.80     4251.04     4717.60     4847.79
+512         3804.60     3673.18     3878.79     4608.80     5184.12     5267.69     5396.03
+1024        4830.68     4740.60     4811.92     5374.44     5567.47     5676.26     5738.24
+2048        5604.12     5345.68     5527.91     5728.31     5839.95     5888.08     5938.29
+4096        5962.01     5858.88     5970.93     5977.83     5985.16     6006.69     6013.56
+8192        6120.24     6036.09     6073.87     6063.56     6067.72     6175.47     6075.93
+16384       6155.12     6096.77     6067.12     6065.33     6092.35     6158.00     6084.25
+32768       6136.56     6066.90     6081.56     6106.45     6095.06     6103.46     6123.54
+65536       6063.06     6073.66     6099.74     6084.21     6123.13     6073.30     6102.79
+131072      6075.39     6067.06     6065.12     6101.98     6063.34     6071.70     6058.49
+262144      6535.12     6635.89     6527.85     6541.86     6530.75     6537.79     6530.52
+524288      6407.64     6460.34     6342.42     6331.31     6346.94     6348.37     6355.32
+1048576     6001.94     6011.97     6003.52     6006.62     6008.82     6003.23     6004.53
+2097152     6002.24     6011.31     6003.04     6015.98     6004.53     6006.33     6005.61
+
+# Message Rate Profile
+#                 8          16          32          64         128         256         512
+1        6902206.95  7840822.42  8334866.83  8647723.00  8886257.97  9380829.39  49921072.77
+2        6827215.76  7757689.65  8345819.38  8589451.44  8673317.70  9458629.95  45270530.36
+4        6972745.69  7356632.02  8328422.14  8350991.84  8795546.99  9145592.19  47839672.34
+8        6946076.20  7825072.85  7641576.71  8641383.23  8856064.88  9085668.54  48687235.43
+16       6965621.35  7853762.19  8374357.69  8664000.97  8790877.57  9099296.13  48074824.88
+32       12020955.80  12828073.52  16822805.14  29014290.55  40643413.28  53112911.58  63403051.61
+64       12251382.88  12965645.45  16222268.66  26048950.85  34349261.84  42408108.17  47359835.66
+128      11558972.19  11381090.01  14604447.83  20601463.20  25780019.11  29603525.02  31522731.90
+256      9813927.65  9628784.11  11470107.18  14050017.12  16605605.82  18428108.64  18936697.64
+512      7430867.83  7174181.60  7575766.70  9001564.90  10125236.92  10288463.45  10539124.21
+1024     4717463.31  4629494.57  4699140.36  5248473.96  5436981.47  5543226.57  5603752.04
+2048     2736388.70  2610196.43  2699174.72  2797024.38  2851540.02  2875038.39  2899557.36
+4096     1455568.33  1430391.06  1457747.63  1459430.55  1461221.45  1466476.56  1468154.04
+8192      747099.60   736827.78   741439.52   740180.28   740688.71   753841.29   741690.09
+16384     375678.86   372117.35   370307.56   370198.58   371847.60   375854.38   371352.85
+32768     187272.98   185147.13   185594.55   186354.19   186006.47   186262.78   186875.63
+65536      92514.97    92676.75    93074.71    92837.63    93431.52    92671.27    93121.23
+131072     46351.56    46287.96    46273.20    46554.45    46259.62    46323.39    46222.63
+262144     24929.49    25313.91    24901.77    24955.23    24912.82    24939.67    24911.95
+524288     12221.61    12322.12    12097.20    12076.01    12105.83    12108.56    12121.82
+1048576     5723.89     5733.46     5725.40     5728.36     5730.46     5725.13     5726.36
+2097152     2862.09     2866.41     2862.47     2868.64     2863.18     2864.04     2863.70
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_alltoall.1.2.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 2 -ppn 2 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall
+
+# OSU MPI All-to-All Personalized Exchange Latency Test v5.4.0
+# Size       Avg Latency(us)
+1                       0.79
+2                       0.81
+4                       0.82
+8                       0.80
+16                      0.81
+32                      0.82
+64                      0.93
+128                     1.06
+256                     1.03
+512                     1.12
+1024                    1.35
+2048                    1.53
+4096                    1.96
+8192                    2.95
+16384                   4.81
+32768                   8.59
+65536                   9.96
+131072                 19.82
+262144                 37.50
+524288                 71.69
+1048576               139.83
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_barrier -i 400000 | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_barrier.1.2.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 2 -ppn 2 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_barrier -i 400000
+
+# OSU MPI Barrier Latency Test v5.4.0
+# Avg Latency(us)
+             0.70
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_allreduce.1.2.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 2 -ppn 2 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce
+
+# OSU MPI Allreduce Latency Test v5.4.0
+# Size       Avg Latency(us)
+4                       0.86
+8                       0.79
+16                      0.90
+32                      0.85
+64                      0.93
+128                     1.07
+256                     1.14
+512                     1.22
+1024                    1.41
+2048                    1.60
+4096                    2.19
+8192                    3.15
+16384                   6.52
+32768                  10.53
+65536                  18.45
+131072                 52.91
+262144                100.40
+524288                191.83
+1048576               379.12
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_alltoall.1.4.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 4 -ppn 4 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall
+
+# OSU MPI All-to-All Personalized Exchange Latency Test v5.4.0
+# Size       Avg Latency(us)
+1                       2.18
+2                       1.99
+4                       2.00
+8                       1.96
+16                      1.94
+32                      2.00
+64                      2.07
+128                     2.52
+256                     2.31
+512                     2.48
+1024                    3.18
+2048                    3.79
+4096                    4.94
+8192                    7.25
+16384                  11.95
+32768                  22.37
+65536                  31.61
+131072                 59.24
+262144                104.89
+524288                191.56
+1048576               454.06
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_barrier -i 400000 | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_barrier.1.4.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 4 -ppn 4 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_barrier -i 400000
+
+# OSU MPI Barrier Latency Test v5.4.0
+# Avg Latency(us)
+             1.03
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_allreduce.1.4.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 4 -ppn 4 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce
+
+# OSU MPI Allreduce Latency Test v5.4.0
+# Size       Avg Latency(us)
+4                       1.25
+8                       1.74
+16                      1.30
+32                      1.27
+64                      1.42
+128                     1.56
+256                     1.58
+512                     1.70
+1024                    2.32
+2048                    2.55
+4096                    3.44
+8192                    6.23
+16384                  10.23
+32768                  15.44
+65536                  25.81
+131072                 92.78
+262144                139.76
+524288                267.77
+1048576               467.53
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_alltoall.1.8.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 8 -ppn 8 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall
+
+# OSU MPI All-to-All Personalized Exchange Latency Test v5.4.0
+# Size       Avg Latency(us)
+1                       4.23
+2                       4.28
+4                       4.22
+8                       4.20
+16                      4.21
+32                      4.28
+64                      4.56
+128                     4.90
+256                     5.35
+512                     5.50
+1024                    6.04
+2048                    7.79
+4096                   10.87
+8192                   18.43
+16384                  34.30
+32768                  62.52
+65536                  65.50
+131072                106.80
+262144                272.27
+524288               1112.89
+1048576              2259.57
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_barrier -i 400000 | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_barrier.1.8.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 8 -ppn 8 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_barrier -i 400000
+
+# OSU MPI Barrier Latency Test v5.4.0
+# Avg Latency(us)
+             1.49
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_allreduce.1.8.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 8 -ppn 8 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce
+
+# OSU MPI Allreduce Latency Test v5.4.0
+# Size       Avg Latency(us)
+4                       1.73
+8                       1.77
+16                      1.77
+32                      1.79
+64                      1.93
+128                     2.01
+256                     2.14
+512                     2.42
+1024                    3.07
+2048                    3.70
+4096                   11.11
+8192                   16.37
+16384                  29.13
+32768                  46.92
+65536                  97.46
+131072                 90.80
+262144                176.29
+524288                321.16
+1048576              1700.85
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_alltoall.1.16.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 16 -ppn 16 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall
+
+# OSU MPI All-to-All Personalized Exchange Latency Test v5.4.0
+# Size       Avg Latency(us)
+1                       5.83
+2                       5.40
+4                       5.56
+8                       5.79
+16                      9.24
+32                      8.26
+64                      9.78
+128                     7.68
+256                    10.32
+512                    11.12
+1024                   13.15
+2048                   18.38
+4096                   29.32
+8192                   53.22
+16384                 102.45
+32768                 197.86
+65536                 192.86
+131072                867.73
+262144               1820.87
+524288               4685.27
+1048576              7139.89
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_barrier -i 400000 | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_barrier.1.16.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 16 -ppn 16 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_barrier -i 400000
+
+# OSU MPI Barrier Latency Test v5.4.0
+# Avg Latency(us)
+             2.08
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_allreduce.1.16.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 16 -ppn 16 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce
+
+# OSU MPI Allreduce Latency Test v5.4.0
+# Size       Avg Latency(us)
+4                       2.30
+8                       2.35
+16                      2.30
+32                      2.15
+64                      2.27
+128                     4.60
+256                     2.88
+512                    10.14
+1024                   18.31
+2048                    7.34
+4096                    7.62
+8192                   10.74
+16384                  51.11
+32768                  32.47
+65536                 150.55
+131072                143.27
+262144                555.12
+524288               1156.82
+1048576              1099.71
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_alltoall.2.1.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 2 -ppn 1 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall
+
+# OSU MPI All-to-All Personalized Exchange Latency Test v5.4.0
+# Size       Avg Latency(us)
+1                       3.54
+2                       3.48
+4                       3.60
+8                       3.48
+16                      3.56
+32                      2.80
+64                      2.89
+128                     2.91
+256                     3.25
+512                     3.15
+1024                    3.71
+2048                    4.18
+4096                    5.48
+8192                    6.80
+16384                   9.11
+32768                  13.20
+65536                  22.39
+131072                 47.54
+262144                 77.91
+524288                135.32
+1048576               252.29
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_barrier -i 400000 | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_barrier.2.1.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 2 -ppn 1 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_barrier -i 400000
+
+# OSU MPI Barrier Latency Test v5.4.0
+# Avg Latency(us)
+             3.47
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_allreduce.2.1.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 2 -ppn 1 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce
+
+# OSU MPI Allreduce Latency Test v5.4.0
+# Size       Avg Latency(us)
+4                       3.66
+8                       3.68
+16                      3.67
+32                      3.07
+64                      3.03
+128                     3.14
+256                     3.26
+512                     3.54
+1024                    3.80
+2048                    4.57
+4096                    5.76
+8192                    7.28
+16384                   9.80
+32768                  14.46
+65536                  27.83
+131072                 62.70
+262144                164.58
+524288                317.44
+1048576               716.74
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_alltoall.2.2.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 4 -ppn 2 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall
+
+# OSU MPI All-to-All Personalized Exchange Latency Test v5.4.0
+# Size       Avg Latency(us)
+1                       6.23
+2                       6.44
+4                       6.41
+8                       6.29
+16                      6.28
+32                      4.28
+64                      4.00
+128                     4.28
+256                     4.52
+512                     4.49
+1024                    4.94
+2048                    6.28
+4096                    8.49
+8192                   11.06
+16384                  17.28
+32768                  30.48
+65536                  58.17
+131072                126.32
+262144                254.71
+524288                498.27
+1048576               994.85
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_barrier -i 400000 | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_barrier.2.2.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 4 -ppn 2 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_barrier -i 400000
+
+# OSU MPI Barrier Latency Test v5.4.0
+# Avg Latency(us)
+             4.46
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_allreduce.2.2.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 4 -ppn 2 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce
+
+# OSU MPI Allreduce Latency Test v5.4.0
+# Size       Avg Latency(us)
+4                       4.66
+8                       6.28
+16                      4.58
+32                      4.03
+64                      4.25
+128                     4.25
+256                     4.34
+512                     4.71
+1024                    5.17
+2048                    6.65
+4096                    8.45
+8192                   10.82
+16384                  18.29
+32768                  26.07
+65536                  40.84
+131072                 76.36
+262144                201.66
+524288                319.46
+1048576              1141.21
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_alltoall.2.4.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 8 -ppn 4 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall
+
+# OSU MPI All-to-All Personalized Exchange Latency Test v5.4.0
+# Size       Avg Latency(us)
+1                      11.96
+2                      12.08
+4                      12.51
+8                      12.02
+16                     12.03
+32                      6.11
+64                      6.62
+128                     6.57
+256                     6.67
+512                     7.23
+1024                    8.47
+2048                   11.21
+4096                   17.31
+8192                   27.09
+16384                  46.39
+32768                  86.48
+65536                 176.76
+131072                414.23
+262144                889.28
+524288               1772.73
+1048576              3576.75
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_barrier -i 400000 | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_barrier.2.4.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 8 -ppn 4 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_barrier -i 400000
+
+# OSU MPI Barrier Latency Test v5.4.0
+# Avg Latency(us)
+             5.07
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_allreduce.2.4.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 8 -ppn 4 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce
+
+# OSU MPI Allreduce Latency Test v5.4.0
+# Size       Avg Latency(us)
+4                       4.96
+8                       4.98
+16                      7.59
+32                      4.56
+64                      4.86
+128                     5.57
+256                     5.37
+512                     5.26
+1024                    6.24
+2048                    7.72
+4096                   10.04
+8192                   13.92
+16384                  18.48
+32768                  28.16
+65536                  45.33
+131072                111.31
+262144                172.46
+524288                496.01
+1048576               918.08
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_alltoall.2.8.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 16 -ppn 8 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall
+
+# OSU MPI All-to-All Personalized Exchange Latency Test v5.4.0
+# Size       Avg Latency(us)
+1                      12.42
+2                      13.74
+4                      10.65
+8                      10.72
+16                     10.80
+32                     11.44
+64                     12.13
+128                    13.63
+256                    15.58
+512                    20.99
+1024                   33.79
+2048                   46.06
+4096                   74.56
+8192                  114.73
+16384                 185.28
+32768                 464.68
+65536                 716.57
+131072               1903.50
+262144               3489.12
+524288               7339.92
+1048576             14603.23
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_barrier -i 400000 | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_barrier.2.8.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 16 -ppn 8 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_barrier -i 400000
+
+# OSU MPI Barrier Latency Test v5.4.0
+# Avg Latency(us)
+             5.34
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_allreduce.2.8.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 16 -ppn 8 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce
+
+# OSU MPI Allreduce Latency Test v5.4.0
+# Size       Avg Latency(us)
+4                       5.55
+8                       5.33
+16                      5.56
+32                      5.02
+64                      5.95
+128                     5.72
+256                     5.94
+512                    10.18
+1024                   10.76
+2048                   11.40
+4096                   12.81
+8192                   16.11
+16384                  22.26
+32768                  31.35
+65536                  82.26
+131072                175.44
+262144                203.71
+524288                478.48
+1048576               962.90
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_alltoall.2.16.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 32 -ppn 16 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall
+
+# OSU MPI All-to-All Personalized Exchange Latency Test v5.4.0
+# Size       Avg Latency(us)
+1                      15.81
+2                      14.04
+4                      13.70
+8                      23.60
+16                     17.61
+32                     15.39
+64                     17.55
+128                    22.04
+256                    38.65
+512                    56.52
+1024                   71.73
+2048                  279.17
+4096                  312.39
+8192                  434.36
+16384                 731.37
+32768                2049.10
+65536                4095.29
+131072               7666.87
+262144              14488.34
+524288              28457.24
+1048576             56544.43
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_barrier -i 400000 | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_barrier.2.16.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 32 -ppn 16 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_barrier -i 400000
+
+# OSU MPI Barrier Latency Test v5.4.0
+# Avg Latency(us)
+             7.58
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_allreduce.2.16.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 32 -ppn 16 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce
+
+# OSU MPI Allreduce Latency Test v5.4.0
+# Size       Avg Latency(us)
+4                       7.32
+8                       9.00
+16                      9.44
+32                      6.89
+64                      8.58
+128                     8.00
+256                     7.80
+512                     8.55
+1024                   15.71
+2048                   15.06
+4096                   15.92
+8192                   18.90
+16384                  26.57
+32768                  44.70
+65536                  79.89
+131072                182.51
+262144                308.21
+524288                549.96
+1048576              1674.87

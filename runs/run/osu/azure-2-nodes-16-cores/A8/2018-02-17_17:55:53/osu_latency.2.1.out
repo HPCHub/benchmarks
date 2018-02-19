@@ -1,0 +1,23 @@
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072 | tee -a ../../../runs/run/osu/azure-2-nodes-16-cores/ismagilov@52.168.64.108/2018-02-17_17:55:53/osu_latency.2.1.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 2 -ppn 1 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072
+# OSU MPI Latency Test v5.4.0
+# Size          Latency (us)
+0                       2.93
+1                       2.94
+2                       2.93
+4                       2.94
+8                       2.94
+16                      2.98
+32                      2.45
+64                      2.47
+128                     2.65
+256                     2.81
+512                     3.19
+1024                    3.90
+2048                    4.81
+4096                    6.47
+8192                    7.65
+16384                  10.32
+32768                  14.67
+65536                  25.88
+131072                 47.49
