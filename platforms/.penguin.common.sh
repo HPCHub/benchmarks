@@ -75,6 +75,8 @@ if [ "$bwd" != 'fio' ]; then
       echo "Platform error: no C compiler installed!"
       exit 1
     fi
+  else
+    echo "Platform CC: $CC"
   fi
   
   export CXX=`which mpicxx`
