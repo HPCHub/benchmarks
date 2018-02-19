@@ -1,0 +1,55 @@
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/mg.C.8 | tee -a ../../../../runs/run/npb/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_12:06:26/mg.C.1.8.2.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 8 -ppn 8 /home/ismagilov/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/mg.C.8
+
+
+ NAS Parallel Benchmarks 3.3 -- MG Benchmark
+
+ No input file. Using compiled defaults 
+ Size:  512x 512x 512  (class C)
+ Iterations:   20
+ Number of processes:      8
+
+ Initialization time:           0.792 seconds
+
+  iter    1
+  iter    5
+  iter   10
+  iter   15
+  iter   20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.5706732285739E-06
+ Error is    0.1204113745054E-12
+
+
+ MG Benchmark Completed.
+ Class           =                        C
+ Size            =            512x 512x 512
+ Iterations      =                       20
+ Time in seconds =                     7.03
+ Total processes =                        8
+ Compiled procs  =                        8
+ Mop/s total     =                 22143.51
+ Mop/s/process   =                  2767.94
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+ Compile date    =              19 Feb 2018
+
+ Compile options:
+    MPIF77       = /home/ismagilov/hpchub_benchmark/install/bi...
+    FLINK        = $(MPIF77)
+    FMPI_LIB     = (none)
+    FMPI_INC     = (none)
+    FFLAGS       = -Ofast -mcmodel=medium
+    FLINKFLAGS   = -Ofast
+    RAND         = randi8
+
+
+ Please send feedbacks and/or the results of this run to:
+
+ NPB Development Team 
+ Internet: npb@nas.nasa.gov
+
+

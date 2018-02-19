@@ -1,0 +1,79 @@
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/sp.C.9 | tee -a ../../../../runs/run/npb/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_12:06:26/sp.C.1.9.1.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 9 -ppn 9 /home/ismagilov/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/sp.C.9
+
+
+ NAS Parallel Benchmarks 3.3 -- SP Benchmark
+
+ No input file inputsp.data. Using compiled defaults
+ Size:  162x 162x 162
+ Iterations:  400    dt:   0.0006700
+ Number of active processes:     9
+
+ Time step    1
+ Time step   20
+ Time step   40
+ Time step   60
+ Time step   80
+ Time step  100
+ Time step  120
+ Time step  140
+ Time step  160
+ Time step  180
+ Time step  200
+ Time step  220
+ Time step  240
+ Time step  260
+ Time step  280
+ Time step  300
+ Time step  320
+ Time step  340
+ Time step  360
+ Time step  380
+ Time step  400
+ Verification being performed for class C
+ accuracy setting for epsilon =  0.1000000000000E-07
+ Comparison of RMS-norms of residual
+           1 0.5881691581829E+03 0.5881691581829E+03 0.7132377231217E-13
+           2 0.2454417603569E+03 0.2454417603569E+03 0.4631927246460E-13
+           3 0.3293829191851E+03 0.3293829191851E+03 0.3347964516885E-13
+           4 0.3081924971891E+03 0.3081924971891E+03 0.1366709889437E-12
+           5 0.4597223799176E+03 0.4597223799176E+03 0.3919618571127E-13
+ Comparison of RMS-norms of solution error
+           1 0.2598120500183E+00 0.2598120500183E+00 0.3674932710436E-13
+           2 0.2590888922314E-01 0.2590888922315E-01 0.2550976379785E-12
+           3 0.5132886416321E-01 0.5132886416320E-01 0.1849331173658E-12
+           4 0.4806073419455E-01 0.4806073419454E-01 0.1058287876123E-12
+           5 0.5483377491301E+00 0.5483377491301E+00 0.5102260470839E-13
+ Verification Successful
+
+
+ SP Benchmark Completed.
+ Class           =                        C
+ Size            =            162x 162x 162
+ Iterations      =                      400
+ Time in seconds =                   108.59
+ Total processes =                        9
+ Compiled procs  =                        9
+ Mop/s total     =                 13354.19
+ Mop/s/process   =                  1483.80
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+ Compile date    =              19 Feb 2018
+
+ Compile options:
+    MPIF77       = /home/ismagilov/hpchub_benchmark/install/bi...
+    FLINK        = $(MPIF77)
+    FMPI_LIB     = (none)
+    FMPI_INC     = (none)
+    FFLAGS       = -Ofast -mcmodel=medium
+    FLINKFLAGS   = -Ofast
+    RAND         = (none)
+
+
+ Please send feedbacks and/or the results of this run to:
+
+ NPB Development Team 
+ Internet: npb@nas.nasa.gov
+
+

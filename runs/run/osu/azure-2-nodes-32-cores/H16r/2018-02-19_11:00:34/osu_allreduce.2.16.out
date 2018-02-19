@@ -1,0 +1,24 @@
+hpchub_mpirun /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce | tee -a ../../../runs/run/osu/azure-2-nodes-32-cores/ismagilov@52.226.130.111/2018-02-19_11:00:34/osu_allreduce.2.16.out
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 32 -ppn 16 /home/ismagilov/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce
+
+# OSU MPI Allreduce Latency Test v5.4.0
+# Size       Avg Latency(us)
+4                       7.32
+8                       9.00
+16                      9.44
+32                      6.89
+64                      8.58
+128                     8.00
+256                     7.80
+512                     8.55
+1024                   15.71
+2048                   15.06
+4096                   15.92
+8192                   18.90
+16384                  26.57
+32768                  44.70
+65536                  79.89
+131072                182.51
+262144                308.21
+524288                549.96
+1048576              1674.87
