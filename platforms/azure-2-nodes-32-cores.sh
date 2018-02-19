@@ -4,7 +4,7 @@ export NCPU=$(($NNODES*16))
 HPCHUB_PWD=`pwd`
 
 if [ -f "$HPCHUB_PLATFORM" ]; then
-  HPCHUB_PLATFORM_COMMON=${HPCHUB_PLATFORM%%azure-2-nodes-16-cores.sh}.azure.common.sh
+  HPCHUB_PLATFORM_COMMON=${HPCHUB_PLATFORM%%azure-2-nodes-32-cores.sh}.azure.common.sh
 else
   HPCHUB_PLATFORM_COMMON=${HPCHUB_PWD}/platform/.azure.common.sh
 fi
