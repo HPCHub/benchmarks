@@ -3,7 +3,7 @@
 
 #NCPU=48
 
-export OMP_NUM_THREADS=12
+export OMP_NUM_THREADS=1
 
 HPCHUB_PPN=$((NCPU/NNODES))
 
@@ -31,10 +31,11 @@ export HPCHUB_PLATFORM=${HPCHUB_PLATFORM}
 export HPCHUB_REPORT=${HPCHUB_REPORT}
 export HPCHUB_MACHINEFILE=${HPCHUB_MACHINEFILE}
 
-module load blas/3.5.0/gcc.4.4.7
-module load lapack/3.7.0/gcc.4.4.7
+#module load blas/3.5.0/gcc.4.4.7
+#module load lapack/3.7.0/gcc.4.4.7
+module load atlas/3.11.38/gcc.4.9.0
 module load openmpi/2.0.0/gcc.4.9.0
-module load fftw/3.3.4/gcc.4.4.7
+#module load fftw/3.3.4/gcc.4.4.7
 module load cmake/3.3.1
 
 ./${HPCHUB_TEST_STATE}.sh
@@ -57,10 +58,11 @@ FFTW_CONFIGURE_FLAGS="${FFTW_CONFIGURE_FLAGS} --enable-$feature"
   fi
 done
 
-module load blas/3.5.0/gcc.4.4.7
-module load lapack/3.7.0/gcc.4.4.7
+#module load blas/3.5.0/gcc.4.4.7
+#module load lapack/3.7.0/gcc.4.4.7
 module load openmpi/2.0.0/gcc.4.9.0
-module load fftw/3.3.4/gcc.4.4.7
+module load atlas/3.11.38/gcc.4.9.0
+#module load fftw/3.3.4/gcc.4.4.7
 module load cmake/3.3.1
 
 export LAlib="/public/apps/lapack/3.7.0/gcc.4.4.7/lib64/liblapack.a /public/apps/lapack/3.7.0/gcc.4.4.7/lib64/libblas.a"
