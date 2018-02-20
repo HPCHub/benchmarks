@@ -32,3 +32,8 @@ fi
   make check
   make install
 
+  if [ $HPCHUB_PLATFORM == 'azure' ]; then
+    for i in $NODES; do
+      scp -r ../../../../tests/  $i:$HOME/hpchub_benchmark/
+	done
+  fi
