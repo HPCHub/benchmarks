@@ -51,20 +51,22 @@ function getlat {
 cp ../fiorun.sh ./
 chmod a+x fiorun.sh
 
+for size in 128m 1024m; do
 for op in "read" "write" "randread" "randwrite" ; do
   rm job*
    
-  ${HPCHUB_MPIRUN} `pwd`/fiorun.sh $op  
+  ${HPCHUB_MPIRUN} `pwd`/fiorun.sh $op $size  
   ${HPCHUB_MPIWAIT}
 
 
   getbw
 
-  LogStep fio-$op BW $value
+  LogStep fio-${size}-${op} BW $value
 
   getlat
   
-  LogStep fio-$op Latency.avg $value
+  LogStep fio-${size}-${op} Latency.avg $value
 
+done
 done
 cd ..

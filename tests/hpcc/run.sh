@@ -18,6 +18,22 @@ else
   report_to=${HPCHUB_REPORT}
 fi
 
+####
+#### Ps*Qs == NCPU
+#### Ps>Qs
+#### Ps поближе к Qs
+#### 
+Qst=1
+for Ps in `seq 1 $NCPU`; do
+  Qst=$((NCPU/Ps))
+  if [ $((Qst*Ps)) = $NCPU ]; then 
+    if [ $Ps -ge $Qst ]; then
+       Qs=$Qst
+       break
+    fi
+  fi
+done
+Ps=$((NCPU/Qs))
 . ../include/logger.sh
 
 cd hpcc-${hpcc_version}
@@ -44,13 +60,15 @@ function getvalue {
   fi; 
 }
 
-for i in 1000 5000 10000 50000 100000; do
+for i in 1000 10000 30000; do
   
   rm hpccoutf.txt 2>/dev/null  
 
   s=`printf "%-13d%s" $i Ns` 
+  Pss=`printf "%-13ds" $Ps Ps`
+  Qss=`printf "%-13ds" $Qs Qs`
 
-  cat ../hpccinf.txt | sed "s/1000         Ns/$s/" > hpccinf.txt
+  cat ../hpccinf.txt | sed "s/1000         Ns/$s/" | sed "s/2            Ps/$Pss/" | sed "s/2            Qs/$Qss/" > hpccinf.txt
 
   ${HPCHUB_MPIRUN} `pwd`/hpcc 
 

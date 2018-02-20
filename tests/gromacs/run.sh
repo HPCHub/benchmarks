@@ -8,8 +8,8 @@ fi
 
 ## Gromacs has notice that optimal performance is obtained on
 ## 6 OpenMP threads + as many MPI as possible.
-HPCHUB_OPTIMAL_OMP=6 
-HPCHUB_BUILTIN_MPI=1
+#HPCHUB_OPTIMAL_OMP=6 
+#HPCHUB_BUILTIN_MPI=1
 
 if [ -f "${HPCHUB_PLATFORM}" ]; then
   . ${HPCHUB_PLATFORM}
@@ -36,6 +36,11 @@ rm \#*
 
 # http://www.bevanlab.biochem.vt.edu/Pages/Personal/justin/gmx-tutorials/lysozyme/01_pdb2gmx.html
 #
+#if [ "$OMP_NUM_THREADS" -gt 6 ]; then
+#  OMP_NUM_THREADS=6
+#fi
+
+OMP_NUM_THREADS=1
 
 files="1AKI.pdb"
 for p in $files; do 
@@ -92,7 +97,7 @@ fi
 
   LogStep $p Step6-grompp
 
-  ${HPCHUB_MPIRUN_OMP} gmx mdrun -v -deffnm ${prot}-em 
+  ${HPCHUB_MPIRUN} gmx mdrun -v -deffnm ${prot}-em 
   
   LogStep $p Step7-mdrun-em
 
@@ -100,7 +105,7 @@ fi
 
   LogStep $p Step8-grompp
  
-  ${HPCHUB_MPIRUN_OMP}  gmx mdrun -deffnm ${prot}-nvt
+  ${HPCHUB_MPIRUN}  gmx mdrun -deffnm ${prot}-nvt
 
   LogStep $p Step9-mdrun-nvt
 
@@ -108,7 +113,7 @@ fi
 
   LogStep $p Step10-npt
 
-  ${HPCHUB_MPIRUN_OMP}   gmx mdrun -deffnm ${prot}-npt
+  ${HPCHUB_MPIRUN}   gmx mdrun -deffnm ${prot}-npt
 
   LogStep $p Step11-mdrun-npt
 
@@ -120,15 +125,15 @@ fi
 
   LogStep $p Step12-grompp
 
-  ${HPCHUB_MPIRUN_OMP}  gmx mdrun -deffnm ${prot}-md_0_1.100
+  ${HPCHUB_MPIRUN}  gmx mdrun -deffnm ${prot}-md_0_1.100
    
   LogStep $p Step13-mdrun-prod-100 100
 
-  ${HPCHUB_MPIRUN_OMP}  gmx mdrun -deffnm ${prot}-md_0_1.1000
+  ${HPCHUB_MPIRUN}  gmx mdrun -deffnm ${prot}-md_0_1.1000
    
   LogStep $p Step13-mdrun-prod-1000 1000
 
-  ${HPCHUB_MPIRUN_OMP}  gmx mdrun -deffnm ${prot}-md_0_1.10000
+  ${HPCHUB_MPIRUN}  gmx mdrun -deffnm ${prot}-md_0_1.10000
  
   LogStep $p Step13-mdrun-prod-10000 10000
 
