@@ -4,7 +4,7 @@ HPCHUB_PLATFORM='azure'
 
 NODES=`eval "echo hpchub-centos-h-{1..$NNODES}"`
 
-OMP_NUM_THREADS=$(($NCPU/$NNODES))
+#OMP_NUM_THREADS=$(($NCPU/$NNODES))
 FFTW_CONFIGURE_FLAGS=""
 for feature in sse2 avx avx2; do
   if grep $feature /proc/cpuinfo > /dev/null; then
