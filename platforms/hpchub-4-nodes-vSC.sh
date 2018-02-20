@@ -77,7 +77,7 @@ function hpchub_mpirun {
 	NODES_ARRAY=($NODES)
 	rm machinefile
 	if [ -z $OMP_NUM_THREADS ] || [ $OMP_NUM_THREADS -eq 1 ]; then
-		for _h in  ${NODES_ARRAY[@]:0:$i}; do
+		for _h in  ${NODES_ARRAY[@]:0:$NNODES}; do
 			echo $_h slots=$HPCHUB_PPN >> machinefile
 		done
 		echo cat machinefile
@@ -85,10 +85,10 @@ function hpchub_mpirun {
 		mpirun -np $NCPU -machinefile machinefile --map-by socket --bind-to core  $@
 	else
 		cpu_cores=`for i in $NODES; do ssh \$i cat /proc/cpuinfo | grep processor; done | wc -l`
-		if [ $((cpu_cores/$NNODES)) -lt $(($HPCHUB_PPN*$OMP_NUM_THREADS)) ]; then
+		if [ $(($cpu_cores/$NNODES)) -lt $(($HPCHUB_PPN*$OMP_NUM_THREADS)) ]; then
 			echo ERROR: not enough cores cpu cores=$cpu_cores ppn=$HPCHUB_PPN OMP_NUM_THREADS=$OMP_NUM_THREADS
 		fi
-		for _h in  ${NODES_ARRAY[@]:0:$i}; do
+		for _h in  ${NODES_ARRAY[@]:0:$NNODES}; do
 			echo $h slots=$(($HPCHUB_PPN*$OMP_NUM_THREADS)) >> machinefile
 		done
 		mpirun -np $NCPU -machinefile machinefile -n $NCPU --map-by socket:pe=$OMP_NUM_THREADS --bind-to core $@
