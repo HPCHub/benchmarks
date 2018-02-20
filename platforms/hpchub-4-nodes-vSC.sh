@@ -80,8 +80,10 @@ function hpchub_mpirun {
 	rm machinefile
 	if [ -z $OMP_NUM_THREADS ] || [ $OMP_NUM_THREADS -eq 1 ]; then
 		for _h in  ${NODES_ARRAY[@]:0:$i}; do
-			echo $_h slots=$j >> machinefile
+			echo $_h slots=$HPCHUB_PPN >> machinefile
 		done
+		echo cat machinefile
+		cat machinefie
 		mpirun -np $NCPU -machinefile machinefile --map-by socket --bind-to core  $@
 	else
 		cpu_cores=`for i in $NODES; do ssh \$i cat /proc/cpuinfo | grep processor; done | wc -l`
