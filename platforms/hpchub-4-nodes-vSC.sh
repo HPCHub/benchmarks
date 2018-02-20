@@ -80,7 +80,7 @@ function hpchub_mpirun {
 	rm machinefile
 	if [ -z $OMP_NUM_THREADS ] || [ $OMP_NUM_THREADS -eq 1 ]; then
 		for _h in  ${NODES_ARRAY[@]:0:$i}; do
-			echo $h slots=$j >> machinefile
+			echo $_h slots=$j >> machinefile
 		done
 		mpirun -np $NCPU -machinefile machinefile --map-by socket --bind-to core  $@
 	else
