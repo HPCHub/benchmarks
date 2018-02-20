@@ -34,6 +34,7 @@ fi
 
   if [ $HPCHUB_PLATFORM == 'azure' ]; then
     for i in $NODES; do
+      scp -r $HOME/hpchub_benchmark/tests/  $i:$HOME/hpchub_benchmark/
       scp -r $HOME/usr/  $i:$HOME/
 	done
   fi
