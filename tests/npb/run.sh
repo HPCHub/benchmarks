@@ -73,7 +73,7 @@ for i in `seq 1 $local_NNODES`; do
 			if [ -f ./bin/${npb_test}.C.$(($i*$j)) ]; then
 				iter=1
 				while [ $iter -le $maxiter ]; do
-					runstr="OMP_NUM_THREADS=1 hpchub_mpirun $PWD/bin/${npb_test}.C.$((i*j)) | tee -a ${NPB_RESULTS}/${npb_test}.C.${i}.${j}.${iter}.out"
+					runstr="$HPCHUB_MPIRUN $PWD/bin/${npb_test}.C.$((i*j)) | tee -a ${NPB_RESULTS}/${npb_test}.C.${i}.${j}.${iter}.out"
 					echo ${runstr} | tee -a $NPB_RESULTS/${npb_test}.C.${i}.$j.${iter}.out
 					eval ${runstr}
 					LogStep npb ${test}_${i}_${j} ${iter}
