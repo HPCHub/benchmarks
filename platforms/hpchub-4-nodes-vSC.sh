@@ -72,8 +72,6 @@ export HPCHUB_LAPACK_DIR="/usr/lib"
 
 HPCHUB_PWD=`pwd`
 
-echo NCPU=$NCPU
-echo NNODES=$NNODES
 function hpchub_mpirun {
 	HPCHUB_PPN=$(($NCPU/$NNODES))
 	NODES_ARRAY=($NODES)
@@ -83,7 +81,7 @@ function hpchub_mpirun {
 			echo $_h slots=$HPCHUB_PPN >> machinefile
 		done
 		echo cat machinefile
-		cat machinefie
+		cat machinefile
 		mpirun -np $NCPU -machinefile machinefile --map-by socket --bind-to core  $@
 	else
 		cpu_cores=`for i in $NODES; do ssh \$i cat /proc/cpuinfo | grep processor; done | wc -l`
