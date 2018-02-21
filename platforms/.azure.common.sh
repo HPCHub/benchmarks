@@ -1,12 +1,10 @@
 #!/bin/bash
 
 HPCHUB_PLATFORM='azure'
-#NNODES=4
-
-#NCPU=$(($NNODES*8))
 
 NODES=`eval "echo hpchub-centos-h-{1..$NNODES}"`
 
+#OMP_NUM_THREADS=$(($NCPU/$NNODES))
 FFTW_CONFIGURE_FLAGS=""
 for feature in sse2 avx avx2; do
   if grep $feature /proc/cpuinfo > /dev/null; then
@@ -42,7 +40,7 @@ export MPICXX=$HOME/hpchub_benchmark/install/bin/mpicxx
 export MPIFC=$HOME/hpchub_benchmark/install/bin/mpif90
 
 if [ ! -x "$CC" ]; then
-  export CC=`which gcc`
+  export CC=$MPICC
 fi
 if [ ! -x "$CC" ]; then
   if [ "$HPCHUB_TEST_STATE" == "install" ]; then
@@ -52,7 +50,7 @@ if [ ! -x "$CC" ]; then
 fi
 
 if [ ! -x "$CXX" ]; then
-  export CXX=`which g++`
+  export CXX=$MPICXX
 fi
 if [ ! -x "$CXX" ]; then
   if [ "$HPCHUB_TEST_STATE" == "install" ]; then
@@ -62,7 +60,7 @@ if [ ! -x "$CXX" ]; then
 fi
 
 if [ ! -x "$FC" ]; then
-  export FC=`which gfortran`
+  export FC=$MPIFC
 fi
 if [ ! -x "$FC" ]; then
   if [ "$HPCHUB_TEST_STATE" == "install" ]; then
@@ -76,7 +74,7 @@ if [ "$HPCHUB_TEST_STATE" == "install" ]; then
 fi
 
 export FFTW_CONFIGURE_FLAGS
-#export HPCHUB_LINKER=`which mpif77`
+export HPCHUB_LINKER=$MPICC
 export HPCHUB_LAPACK_DIR="/usr/lib"
 
 source /opt/intel/impi/2017.2.174/bin64/mpivars.sh
@@ -90,11 +88,11 @@ fi
 function hpchub_mpirun {
     HPCHUB_PPN=$((NCPU/NNODES))
     WD=`pwd`
-	if [ -z $OMP_NUM_THREADS ]; then
+	if [ -z $OMP_NUM_THREADS ] || [ $OMP_NUM_THREADS -eq 1 ]; then
 		echo  mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n $NCPU -ppn $HPCHUB_PPN $@
 		mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n $NCPU -ppn $HPCHUB_PPN $@
 	else
-		echo  mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 --hostfile machinefile -n $NCPU -ppn $HPCHUB_PPN $@
+		echo  mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_DOMAIN=omp --hostfile machinefile -n $NCPU -ppn $HPCHUB_PPN $@
 		mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_DOMAIN=omp --hostfile machinefile -n $NCPU -ppn $HPCHUB_PPN $@
 	fi
 }

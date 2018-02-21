@@ -64,7 +64,7 @@ else
        echo "Runing test: $testname"
        echo "expecting remote host $remhost to generate report at: ${remreport}"
 
-       ssh $remhost "cd hpchub_benchmark/$i; HPCHUB_OPERATION=${operation} HPCHUB_REPORT=${remreport} HPCHUB_RESDIR=${resdir} HPCHUB_PLATFORM=../../platforms/${platform}.sh ./${operation}.sh" | tee $resdir/out.log
+       ssh $remhost "cd hpchub_benchmark/$i; HPCHUB_OPERATION=${operation} HPCHUB_REPORT=${remreport} HPCHUB_RESDIR=${resdir} HPCHUB_PLATFORM=../../platforms/${platform}.sh ./${operation}.sh" 2>&1 | tee $resdir/out.log
        scp $remhost:$remreport $resdir/report.time.txt || echo "report time not logged"
        if [ $testname == 'npb' -o $testname == 'osu' ]; then
            echo "Also fetching additional files: "

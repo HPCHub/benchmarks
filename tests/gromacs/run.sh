@@ -40,7 +40,7 @@ rm \#*
 #  OMP_NUM_THREADS=6
 #fi
 
-OMP_NUM_THREADS=1
+export OMP_NUM_THREADS=1
 
 files="1AKI.pdb"
 for p in $files; do 

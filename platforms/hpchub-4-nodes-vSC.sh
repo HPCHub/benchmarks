@@ -4,7 +4,7 @@ NODES=`cat /etc/hosts | grep 'n.*\.vcluster' | awk '{print $2;};'`
 
 NCPU=`for i in $NODES; do ssh \$i cat /proc/cpuinfo | grep processor; done | wc -l`
 
-export OMP_NUM_THREADS=`ssh n001 cat /proc/cpuinfo | grep processor | wc -l`
+#export OMP_NUM_THREADS=`ssh n001 cat /proc/cpuinfo | grep processor | wc -l`
 
 FFTW_CONFIGURE_FLAGS=""
 for feature in sse2 avx avx2; do
@@ -40,6 +40,7 @@ fi
 export FC=`which mpif90`
 
 export MPICC=`which mpicc`
+export MPICXX=`which mpicxx`
 export MPIF77=`which mpif77`
 export MPIF90=`which mpif90`
 
@@ -70,12 +71,38 @@ export HPCHUB_LINKER=`which mpif77`
 export HPCHUB_LAPACK_DIR="/usr/lib"
 
 HPCHUB_PWD=`pwd`
-export HPCHUB_MPIRUN="mpirun -np $NCPU "
+
+function hpchub_mpirun {
+	HPCHUB_PPN=$(($NCPU/$NNODES))
+	NODES_ARRAY=($NODES)
+	rm machinefile
+	if [ -z $OMP_NUM_THREADS ] || [ $OMP_NUM_THREADS -eq 1 ]; then
+		for _h in  ${NODES_ARRAY[@]:0:$NNODES}; do
+			echo $_h slots=$HPCHUB_PPN >> machinefile
+		done
+		echo cat machinefile
+		cat machinefile
+		mpirun -np $NCPU -machinefile machinefile --map-by socket --bind-to core  $@
+	else
+		cpu_cores=`for i in $NODES; do ssh \$i cat /proc/cpuinfo | grep processor; done | wc -l`
+		if [ $(($cpu_cores/$NNODES)) -lt $(($HPCHUB_PPN*$OMP_NUM_THREADS)) ]; then
+			echo ERROR: not enough cores cpu cores=$cpu_cores ppn=$HPCHUB_PPN OMP_NUM_THREADS=$OMP_NUM_THREADS
+		fi
+		for _h in  ${NODES_ARRAY[@]:0:$NNODES}; do
+			echo $h slots=$(($HPCHUB_PPN*$OMP_NUM_THREADS)) >> machinefile
+		done
+		mpirun -np $NCPU -machinefile machinefile -n $NCPU --map-by socket:pe=$OMP_NUM_THREADS --bind-to core $@
+	fi
+}
+
 
 if [ ! -f machinefile ]; then 
    for h in $NODES; do
-    for i in `seq 1 $NCPU`; do
+    for i in `seq 1 $(($NCPU/$NNODES))`; do
       echo $h >> machinefile
     done
    done
 fi
+
+export HPCHUB_MPIRUN="hpchub_mpirun"
+export HPCHUB_COMPILE_PREFIX=""
