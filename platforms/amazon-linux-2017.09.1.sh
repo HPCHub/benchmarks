@@ -46,7 +46,6 @@ export MPIF90=`which mpif90`
 HPCHUB_PWD=`pwd`
 export HPCHUB_MPIRUN="mpirun -np $NCPU -machinefile machinefile "
 
-export MPinc=/usr/include/openmpi-x86_64
 
 if [ ! -f machinefile ]; then 
     for i in `seq 1 $NCPU`; do
