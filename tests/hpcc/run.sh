@@ -65,8 +65,8 @@ for i in 1000 10000 30000; do
   rm hpccoutf.txt 2>/dev/null  
 
   s=`printf "%-13d%s" $i Ns` 
-  Pss=`printf "%-13ds" $Ps Ps`
-  Qss=`printf "%-13ds" $Qs Qs`
+  Pss=`printf "%-13d%s" $Ps Ps`
+  Qss=`printf "%-13d%s" $Qs Qs`
 
   cat ../hpccinf.txt | sed "s/1000         Ns/$s/" | sed "s/2            Ps/$Pss/" | sed "s/2            Qs/$Qss/" > hpccinf.txt
 
