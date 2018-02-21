@@ -13,7 +13,10 @@ fi
 
 if [ ! -f osu-micro-benchmarks-${osu_version}.tar.gz ]; then
   wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-${osu_version}.tar.gz 
-  tar -xvzf osu-micro-benchmarks-${osu_version}.tar.gz
+fi
+
+if [ ! -d osu-micro-benchmarks-${osu_version} ]; then
+  tar -xvzf osu-micro-benchmarks-${osu_version}.tar.gz || exit 10
 fi
 
 cd osu-micro-benchmarks-${osu_version}
