@@ -26,6 +26,11 @@ fi
 mkdir molmod || echo "molmod already exists."
 cd molmod
 rm \#*
+if [ $HPCHUB_PLATFORM == 'azure' ]; then
+  for i in $NODES; do
+    ssh $i rm ${PWD}/\#*
+  done
+fi
 
 ### 
 #
@@ -47,6 +52,11 @@ for p in $files; do
   if [ ! -f $p ] ; then
     wget https://files.rcsb.org/download/${p}.gz
     gzip -d ${p}.gz
+  fi
+  if [ $HPCHUB_PLATFORM == 'azure' ]; then
+    for i in $NODES; do
+      scp -r $PWD/../* $i:$PWD/..
+    done
   fi
 done
 
