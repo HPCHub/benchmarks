@@ -1,0 +1,1 @@
+hpchub_mpirun /home/ec2-user/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall | tee -a ../../../runs/run/osu/amazon-linux-2017.09.1/amazon-c5.9xlarge/2018-02-21_17:12:14/osu_alltoall.1.16.out
