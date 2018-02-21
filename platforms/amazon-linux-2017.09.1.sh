@@ -11,10 +11,11 @@ FFTW_CONFIGURE_FLAGS="${FFTW_CONFIGURE_FLAGS} --enable-$feature"
   fi
 done
 
-if [ "$HPCHUB_OPERATION" == "install_system" ]; then
+if [ "$HPCHUB_TEST_STATE" == "install_system" ]; then
   sudo yum install openmpi-devel blas-devel lapack-devel cmake
 fi
 
+export PATH=$PATH:/usr/lib64/openmpi/bin
 export CC=`which mpicc.mpich`
 if [ ! -x "$CC" ]; then
   export CC=`which mpicc`
@@ -44,6 +45,8 @@ export MPIF90=`which mpif90`
 
 HPCHUB_PWD=`pwd`
 export HPCHUB_MPIRUN="mpirun -np $NCPU -machinefile machinefile "
+
+export MPinc=/usr/include/openmpi-x86_64
 
 if [ ! -f machinefile ]; then 
     for i in `seq 1 $NCPU`; do
