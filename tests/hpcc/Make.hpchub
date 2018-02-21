@@ -95,7 +95,7 @@ HPLlib       = $(LIBdir)/libhpl.a
 LAdir        = $(HPCHUB_LAPACK_DIR)
 LAinc        =
 #LAlib        = $(LAdir)/libf77blas.a $(LAdir)/libatlas.a
-LAlib        = -lblas
+LAlib        ?= -lblas
 #
 # ----------------------------------------------------------------------
 # - F77 / C interface --------------------------------------------------
