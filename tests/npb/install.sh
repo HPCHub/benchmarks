@@ -26,6 +26,9 @@ fi
 
 if [ ! -f NPB${npb_version}.tar.gz ]; then
   wget https://www.nas.nasa.gov/assets/npb/NPB${npb_version}.tar.gz
+fi
+
+if [ ! -d NPB${npb_version} ]; then
   tar -xvzf NPB${npb_version}.tar.gz
 fi
 
