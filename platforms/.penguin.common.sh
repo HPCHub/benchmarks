@@ -43,6 +43,7 @@ module load cmake/3.3.1
 EOF
 qsub _mpirun_penguin_hpchub.pbs
 
+echo "penguin: job file ${HPCHUB_PWD}/_mpirun_penguin_hpchub.pbs submitted to pbs, waiting for it to disapear from qstat output"
 while [ `qstat | wc -l` -gt "$L" ]; do
    echo -ne '.'
    sleep 10
