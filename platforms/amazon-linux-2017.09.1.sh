@@ -1,5 +1,5 @@
-NNODES=`cat /etc/hosts |  grep 'n.*\.vcluster' | wc -l`
-NODES=`cat /etc/hosts | grep 'n.*\.vcluster' | awk '{print $2;};'`
+NNODES=1
+NODES=localhost
 NCPU=`for i in $NODES; do ssh \$i cat /proc/cpuinfo | grep processor; done | wc -l`
 
 export OMP_NUM_THREADS=$NCPU
@@ -12,7 +12,7 @@ FFTW_CONFIGURE_FLAGS="${FFTW_CONFIGURE_FLAGS} --enable-$feature"
 done
 
 if [ "$HPCHUB_TEST_STATE" == "install_system" ]; then
-  sudo yum install openmpi-devel blas-devel lapack-devel cmake
+  sudo yum install openmpi-devel blas-devel lapack-devel cmake gcc-c++
 fi
 
 export PATH=$PATH:/usr/lib64/openmpi/bin
