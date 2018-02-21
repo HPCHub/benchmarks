@@ -7,7 +7,7 @@ if [ "$1" = "" -o ! -f platforms/${2}.sh -o "$3" = "" ]; then
   echo "  HOST - some HOST, that current user can log in into using 'ssh HOST' command"
   echo "         (hint: use ~/.ssh/config to set it up accordingly)"
   echo "  PLATFORM - platform, expected to exist on host. One of:"
-  ls platforms/ | tr '.' ' '| awk '{print $1;};'
+  ls platforms/ | sed 's/.sh$//' | awk '{print $1;};'
   echo "  OPERATION - one of: install run clean"
   echo "              (hint: after install one can call run multiple times)"
   exit 1
@@ -61,9 +61,13 @@ else
        mkdir -p "$resdir"
        remreport=$remwd/hpchub_benchmark/${operation}_${testname}_${now}.log
 
+       echo "Runing test: $testname"
+       echo "expecting remote host $remhost to generate report at: ${remreport}"
+
        ssh $remhost "cd hpchub_benchmark/$i; HPCHUB_OPERATION=${operation} HPCHUB_REPORT=${remreport} HPCHUB_RESDIR=${resdir} HPCHUB_PLATFORM=../../platforms/${platform}.sh ./${operation}.sh" | tee $resdir/out.log
        scp $remhost:$remreport $resdir/report.time.txt || echo "report time not logged"
        if [ $testname == 'npb' -o $testname == 'osu' ]; then
+           echo "Also fetching additional files: "
            scp $remhost:$remwd/hpchub_benchmark/$resdir/* $resdir
        fi
     fi

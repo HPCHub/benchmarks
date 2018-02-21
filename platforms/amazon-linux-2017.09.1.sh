@@ -11,6 +11,10 @@ FFTW_CONFIGURE_FLAGS="${FFTW_CONFIGURE_FLAGS} --enable-$feature"
   fi
 done
 
+if [ "$HPCHUB_OPERATION" == "install_system" ]; then
+  sudo yum install openmpi-devel blas-devel lapack-devel cmake
+fi
+
 export CC=`which mpicc.mpich`
 if [ ! -x "$CC" ]; then
   export CC=`which mpicc`
@@ -23,10 +27,6 @@ if [ ! -x "$CC" ]; then
     echo "Platform error: no C compiler installed!"
     exit 1
   fi
-fi
-
-if [ "$HPCHUB_OPERATION" == "install_system" ]; then
-  sudo yum install openmpi-devel blas-devel lapack-devel cmake
 fi
 
 if [ "$HPCHUB_TEST_STATE" == "install" ]; then
