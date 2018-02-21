@@ -1,0 +1,14 @@
+npb NCPU=36
+npb NNODES=1
+hpchub_mpirun /home/ec2-user/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/is.C.1 | tee -a ../../../../runs/run/npb/amazon-linux-2017.09.1/amazon-c5.9xlarge/2018-02-21_17:12:14/is.C.1.1.1.out
+hpchub_mpirun /home/ec2-user/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/is.C.2 | tee -a ../../../../runs/run/npb/amazon-linux-2017.09.1/amazon-c5.9xlarge/2018-02-21_17:12:14/is.C.1.2.1.out
+hpchub_mpirun /home/ec2-user/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/is.C.4 | tee -a ../../../../runs/run/npb/amazon-linux-2017.09.1/amazon-c5.9xlarge/2018-02-21_17:12:14/is.C.1.4.1.out
+hpchub_mpirun /home/ec2-user/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/is.C.4 | tee -a ../../../../runs/run/npb/amazon-linux-2017.09.1/amazon-c5.9xlarge/2018-02-21_17:12:14/is.C.1.4.2.out
+hpchub_mpirun /home/ec2-user/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/is.C.8 | tee -a ../../../../runs/run/npb/amazon-linux-2017.09.1/amazon-c5.9xlarge/2018-02-21_17:12:14/is.C.1.8.1.out
+hpchub_mpirun /home/ec2-user/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/is.C.8 | tee -a ../../../../runs/run/npb/amazon-linux-2017.09.1/amazon-c5.9xlarge/2018-02-21_17:12:14/is.C.1.8.2.out
+hpchub_mpirun /home/ec2-user/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/is.C.16 | tee -a ../../../../runs/run/npb/amazon-linux-2017.09.1/amazon-c5.9xlarge/2018-02-21_17:12:14/is.C.1.16.1.out
+hpchub_mpirun /home/ec2-user/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/is.C.16 | tee -a ../../../../runs/run/npb/amazon-linux-2017.09.1/amazon-c5.9xlarge/2018-02-21_17:12:14/is.C.1.16.2.out
+hpchub_mpirun /home/ec2-user/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/is.C.16 | tee -a ../../../../runs/run/npb/amazon-linux-2017.09.1/amazon-c5.9xlarge/2018-02-21_17:12:14/is.C.1.16.3.out
+hpchub_mpirun /home/ec2-user/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/is.C.32 | tee -a ../../../../runs/run/npb/amazon-linux-2017.09.1/amazon-c5.9xlarge/2018-02-21_17:12:14/is.C.1.32.1.out
+hpchub_mpirun /home/ec2-user/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/is.C.32 | tee -a ../../../../runs/run/npb/amazon-linux-2017.09.1/amazon-c5.9xlarge/2018-02-21_17:12:14/is.C.1.32.2.out
+hpchub_mpirun /home/ec2-user/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/is.C.32 | tee -a ../../../../runs/run/npb/amazon-linux-2017.09.1/amazon-c5.9xlarge/2018-02-21_17:12:14/is.C.1.32.3.out

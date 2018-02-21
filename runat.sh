@@ -2,7 +2,7 @@
 
 if [ "$1" = "" -o ! -f platforms/${2}.sh -o "$3" = "" ]; then
   echo "Usage:"
-  echo "  runat.sh [user@]HOST PLATFORM OPERATION"
+  echo "  runat.sh [user@]HOST PLATFORM OPERATION [test]"
   echo "where"
   echo "  HOST - some HOST, that current user can log in into using 'ssh HOST' command"
   echo "         (hint: use ~/.ssh/config to set it up accordingly)"
@@ -10,6 +10,7 @@ if [ "$1" = "" -o ! -f platforms/${2}.sh -o "$3" = "" ]; then
   ls platforms/ | sed 's/.sh$//' | awk '{print $1;};'
   echo "  OPERATION - one of: install run clean"
   echo "              (hint: after install one can call run multiple times)"
+  echo "  test - optional test name. If present, only this test will be executed, if enabled"
   exit 1
 fi
 
@@ -20,6 +21,7 @@ fi
 remhost=$1
 platform=$2
 operation=$3
+testopt=$4
 
 if [ -f "local_platform_hooks/$platform.$operation.sh" ];then
   . local_platform_hooks/$platform.$operation.sh
@@ -32,12 +34,18 @@ if [ ! "$?" = "0" -o "$remwd" = "" ]; then
   exit 2
 fi
 
+if [ "$testopt" = "" ]; then
+  testset=tests/*
+else
+  testset=tests/$testopt
+fi
+
 if [ "$operation" = "install" ]; then
   git archive --format tar.gz master | ssh $remhost "cat > hpchub_benchmark.tar.gz"
   ssh $remhost "mkdir hpchub_benchmark" 
   ssh $remhost "cd hpchub_benchmark; tar -xvzf ../hpchub_benchmark.tar.gz" || exit 4
   echo "tarballs sent."
-  for i in tests/*; do
+  for i in $testset; do
     if [ -d "$i" -a ! "$i" = "tests/include" -a ! -f "$i/.disable_install" ]; then 
       ssh $remhost "cd hpchub_benchmark/$i; HPCHUB_PLATFORM=../../platforms/${platform}.sh ./install.sh" || exit 5
     fi
@@ -45,7 +53,7 @@ if [ "$operation" = "install" ]; then
   ssh $remhost "echo ok > hpchub_benchmark/install_ok"
 
 elif [ "$operation" = "clean" ];then
-  for i in tests/*; do
+  for i in $testset; do
     if [ -x "$i/clean.sh" -a ! "$i" = "tests/include" ]; then 
        ssh $remhost "cd hpchub_benchmark/$i; HPCHUB_PLATFORM=../../platforms/${platform}.sh ./clean.sh"
     fi
@@ -54,7 +62,7 @@ elif [ "$operation" = "clean" ];then
 else
   now=`date +%Y-%m-%d_%H:%M:%S`
   
-  for i in tests/*; do
+  for i in $testset; do
     if [ -x "$i/${operation}.sh" -a ! "$i" = "tests/include" -a ! -f "$i/.disable_run" ]; then 
        testname=${i##tests/}
        resdir="runs/${operation}/${testname}/${platform}/${remhost}/${now}"

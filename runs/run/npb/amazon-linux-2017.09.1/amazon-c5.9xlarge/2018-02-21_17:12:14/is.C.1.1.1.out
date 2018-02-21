@@ -1,0 +1,1 @@
+hpchub_mpirun /home/ec2-user/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/is.C.1 | tee -a ../../../../runs/run/npb/amazon-linux-2017.09.1/amazon-c5.9xlarge/2018-02-21_17:12:14/is.C.1.1.1.out
