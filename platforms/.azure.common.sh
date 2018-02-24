@@ -17,9 +17,9 @@ HPCHUB_HAS_CPUSET=1
 
 if [ "$HPCHUB_OPERATION" == "install_system" ]; then
   echo YUM:
-  sudo yum -y install atlas cmake blas-devel gcc gcc-c++ gcc-gfortran
+  sudo yum -y install atlas cmake blas-devel gcc gcc-c++ gcc-gfortran rsync
   for i in $NODES; do
-    ssh -oStrictHostKeyChecking=no $i  sudo yum -y install atlas cmake blas-devel gcc gcc-c++ gcc-gfortran
+    ssh -oStrictHostKeyChecking=no $i  sudo yum -y install atlas cmake blas-devel gcc gcc-c++ gcc-gfortran rsync
   done
   echo Install MPICH 3.2
   wget http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz
