@@ -21,7 +21,7 @@ rm _mpirun_penguin_hpchub.stderr
 cat > _mpirun_penguin_hpchub.pbs <<EOF
 #PBS -q M40
 #PBS -l nodes=$NNODES:ppn=$HPCHUB_PPN
-#PBS -l walltime=00:40:00
+#PBS -l walltime=02:40:00
 #PBS -S /bin/bash
 #PBS -o $HPCHUB_PWD/_mpirun_penguin_hpchub.stdout
 #PBS -e $HPCHUB_PWD/_mpirun_penguin_hpchub.stderr
@@ -214,4 +214,7 @@ export HPCHUB_COMPILE_PREFIX=""
 
 #export HPCHUB_MPIRUN="hpchub_mpirun"
 export HPCHUB_MPIRUN="mpirun"
-
+export MPICC=`which mpicc`
+export MPICXX=`which mpicxx`
+export MPIFC=`which mpif90`
+export CC=$MPICC

@@ -43,6 +43,8 @@ sed -i 's@MPICC = .*@MPICC = '"$MPICC"'@' ./config/make.def
 sed -i 's/FMPI_LIB.*/FMPI_LIB  =/' ./config/make.def
 sed -i 's/FMPI_INC.*/FMPI_INC  =/' ./config/make.def
 
+echo "CC=$MPICC -g" >> ./config/make.def
+
 sed -i 's/CMPI_LIB.*/CMPI_LIB  =/' ./config/make.def
 sed -i 's/CMPI_INC.*/CMPI_INC  =/' ./config/make.def
 sed -i 's@CFLAGS.*@CFLAGS = -Ofast -mcmodel=medium@' ./config/make.def
