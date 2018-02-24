@@ -74,6 +74,11 @@ else
 fi
 
   rm \#*
+  if [ $HPCHUB_PLATFORM == 'azure' ]; then
+    for i in $NODES; do
+      ssh $i rm ${PWD}/\#*
+    done
+  fi
   StepCntr=0
   LogStep $p Start 
 
