@@ -24,6 +24,12 @@ fi
 . ../include/logger.sh
 
 mkdir molmod || echo "molmod already exists."
+if [ $HPCHUB_PLATFORM == 'azure' ]; then
+  for i in $NODES; do
+    ssh $i cd $PWD; mkdir -p molmod
+ done
+fi
+
 cd molmod
 rm \#*
 if [ $HPCHUB_PLATFORM == 'azure' ]; then
