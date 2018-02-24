@@ -31,10 +31,11 @@ fi
   make
   make check
   make install
+#   for compatibility with run.sh
+  ln -s  ~/usr/bin/gmx_mpi ~/usr/bin/gmx
 
   if [ $HPCHUB_PLATFORM == 'azure' ]; then
     for i in $NODES; do
-      scp -r $HOME/hpchub_benchmark/tests/  $i:$HOME/hpchub_benchmark/
-      scp -r $HOME/usr/  $i:$HOME/
+		rsync -azP --delete ~/ $i:~/
 	done
   fi
