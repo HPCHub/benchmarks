@@ -29,6 +29,7 @@ cd $HPCHUB_PWD
 export HPCHUB_PENGUIN_PHASE=internal
 export HPCHUB_PLATFORM=${HPCHUB_PLATFORM} 
 export HPCHUB_REPORT=${HPCHUB_REPORT}
+export HPCHUB_RESDIR=${HPCHUB_RESDIR}
 export HPCHUB_MACHINEFILE=\$PBS_NODEFILE
 
 #module load blas/3.5.0/gcc.4.4.7
@@ -133,37 +134,8 @@ HPCHUB_PWD=`pwd`
 
 
 function hpchub_mpirun {
-    L=`qstat | wc -l`
-    WD=`pwd`
-    rm _mpirun_hpchub.pbs
-    rm $HPCHUB_PWD/_mpirun_hpchub.stdout
-    rm $HPCHUB_PWD/_mpirun_hpchub.stderr
-    cat > _mpirun_hpchub.pbs <<EOF
-#PBS -q M40
-#PBS -l nodes=$NNODES:ppn=$HPCHUB_PPN
-#PBS -l walltime=00:05:00
-#PBS -S /bin/bash
-#PBS -o $HPCHUB_PWD/_mpirun_hpchub.stdout
-#PBS -e $HPCHUB_PWD/_mpirun_hpchub.stderr
-module load blas/3.5.0/gcc.4.4.7
-module load lapack/3.7.0/gcc.4.4.7
-module load openmpi/2.0.0/gcc.4.9.0
-module load fftw/3.3.4/gcc.4.4.7
-module load cmake/3.3.1
-
-
-
-cd $WD
-mpirun $@
-EOF
-    qsub _mpirun_hpchub.pbs
-    while [ `qstat | wc -l` -gt "$L" ]; do
-      sleep 1
-    done
-    echo "hpchub_mpirun stdout:"
-    cat $HPCHUB_PWD/_mpirun_hpchub.stdout
-    echo "hpchub_mpirun stderr:"
-    cat $HPCHUB_PWD/_mpirun_hpchub.stderr
+  PPN=$((NCPU/NNODES))
+  mpirun -N $PPN -n $NCPU $@
 }
 
 function hpchub_mpirun_compile {
@@ -212,8 +184,8 @@ export HPCHUB_COMPILE_PREFIX=""
 
 
 
-#export HPCHUB_MPIRUN="hpchub_mpirun"
-export HPCHUB_MPIRUN="mpirun"
+export HPCHUB_MPIRUN="hpchub_mpirun"
+#export HPCHUB_MPIRUN="mpirun"
 export MPICC=`which mpicc`
 export MPICXX=`which mpicxx`
 export MPIFC=`which mpif90`

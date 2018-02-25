@@ -55,8 +55,11 @@ done
 local_NCPU=$NCPU 
 local_NNODES=$NNODES
 local_OMP_NUM_THREADS=$OMP_NUM_THREADS
-for i in `seq 1 $local_NNODES`; do
-	for j in  `seq 1 $((local_NCPU/local_NNODES))`; do
+local_PPN=$((local_NCPU/local_NNODES))
+# Run no more than two tests of each kind
+declare -A tests_done
+for i in `seq $local_NNODES -1 1`; do
+	for j in  `seq $local_PPN -1 1`; do
 		for npb_test in "is" "lu" "ft" "mg" "cg" "ep" "bt" "sp"; do
 			prg_nprocs=$(($i*$j))
 			export NNODES=$i
@@ -70,15 +73,29 @@ for i in `seq 1 $local_NNODES`; do
 			else
 				maxiter=1
 			fi
+                        maxiter=1
 			if [ -f ./bin/${npb_test}.C.$(($i*$j)) ]; then
-				iter=1
-				while [ $iter -le $maxiter ]; do
-					runstr="$HPCHUB_MPIRUN $PWD/bin/${npb_test}.C.$((i*j)) | tee -a ${NPB_RESULTS}/${npb_test}.C.${i}.${j}.${iter}.out"
-					echo ${runstr} | tee -a $NPB_RESULTS/${npb_test}.C.${i}.$j.${iter}.out
-					eval ${runstr}
-					LogStep npb ${test}_${i}_${j} ${iter}
-					let iter=iter+1
-				done
+                                if [ "${tests_done[${npb_test}_$i]}" = "" ]; then
+                                     tests_done[${npb_test}_$i]=1
+                                else
+                                     tests_done[${npb_test}_$i]=$((tests_done[${npb_test}_$i]+1))
+                                fi
+                                if [ "${tests_done[${npb_test}_$i]}" -le 2 ]; then
+  					iter=1
+					while [ $iter -le $maxiter ]; do
+                                	        outfile=${NPB_RESULTS}/${npb_test}.C.${i}.${j}.${iter}.out
+						runstr="$HPCHUB_MPIRUN $PWD/bin/${npb_test}.C.$((i*j)) | tee -a ${outfile}"
+						echo ${runstr} | tee -a $outfile
+						eval ${runstr}
+                	                        Vtotal=`grep "Mop/s total" $outfile  | awk '{print $4; };'
+                        	                Vperprocess=`grep "Mop/s/process" $outfile  | awk '{print $3; };'
+						LogStep npb ${npb_test}_${i}_${j} ${iter}
+						LogStep npb ${npb_test}_${i}_${j}_total $Vtotal
+						LogStep npb ${npb_test}_${i}_${j}_perprocess $Vperprocess
+						let iter=iter+1
+                	                        echo "RunStr: $runstr"
+					done
+				fi
 			fi
 		done
 	done
