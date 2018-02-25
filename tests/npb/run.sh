@@ -87,8 +87,8 @@ for i in `seq $local_NNODES -1 1`; do
 						runstr="$HPCHUB_MPIRUN $PWD/bin/${npb_test}.C.$((i*j)) | tee -a ${outfile}"
 						echo ${runstr} | tee -a $outfile
 						eval ${runstr}
-                	                        Vtotal=`grep "Mop/s total" $outfile  | awk '{print $4; };'
-                        	                Vperprocess=`grep "Mop/s/process" $outfile  | awk '{print $3; };'
+                	                        Vtotal=`grep "Mop/s total" $outfile  | awk '{print $4; };'`
+                        	                Vperprocess=`grep "Mop/s/process" $outfile  | awk '{print $3; };'`
 						LogStep npb ${npb_test}_${i}_${j} ${iter}
 						LogStep npb ${npb_test}_${i}_${j}_total $Vtotal
 						LogStep npb ${npb_test}_${i}_${j}_perprocess $Vperprocess
