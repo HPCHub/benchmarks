@@ -43,6 +43,7 @@ export MPICC=`which mpicc`
 export MPICXX=`which mpicxx`
 export MPIF77=`which mpif77`
 export MPIF90=`which mpif90`
+export MPIFC=`which mpif90`
 
 if [ ! -x "$FC" ]; then
   export FC=`which mpif90`
