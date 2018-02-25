@@ -27,14 +27,15 @@ fi
   cd gromacs-${version}
   mkdir build
   cd build 
-  cmake .. -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON -DGMX_BUILD_OWN_FFTW=ON -DCMAKE_INSTALL_PREFIX=${HOME}/usr -DCMAKE_PREFIX_PATH=${HOME}/usr -DREGRESSIONTEST_DOWNLOAD=ON
+  CC=$MPICC CXX=$MPICXX cmake .. -DGMX_MPI=ON -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON -DGMX_BUILD_OWN_FFTW=ON -DCMAKE_INSTALL_PREFIX=${HOME}/usr -DCMAKE_PREFIX_PATH=${HOME}/usr -DREGRESSIONTEST_DOWNLOAD=ON
   make
   make check
   make install
+#   for compatibility with run.sh
+  ln -s  ~/usr/bin/gmx_mpi ~/usr/bin/gmx
 
   if [ $HPCHUB_PLATFORM == 'azure' ]; then
     for i in $NODES; do
-      scp -r $HOME/hpchub_benchmark/tests/  $i:$HOME/hpchub_benchmark/
-      scp -r $HOME/usr/  $i:$HOME/
+		rsync -azP --delete ~/ $i:~/
 	done
   fi

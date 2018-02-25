@@ -24,11 +24,17 @@ fi
 . ../include/logger.sh
 
 mkdir molmod || echo "molmod already exists."
+if [ $HPCHUB_PLATFORM == 'azure' ]; then
+  for i in $NODES; do
+    rsync -azP --delete ~/ $i:~/
+  done
+fi
+
 cd molmod
 rm \#*
 if [ $HPCHUB_PLATFORM == 'azure' ]; then
   for i in $NODES; do
-    ssh $i rm ${PWD}/\#*
+    rsync -azP --delete ~/ $i:~/
   done
 fi
 
@@ -55,7 +61,7 @@ for p in $files; do
   fi
   if [ $HPCHUB_PLATFORM == 'azure' ]; then
     for i in $NODES; do
-      scp -r $PWD/../* $i:$PWD/..
+      rsync -azP --delete ~/ $i:~/
     done
   fi
 done
@@ -74,6 +80,11 @@ else
 fi
 
   rm \#*
+  if [ $HPCHUB_PLATFORM == 'azure' ]; then
+    for i in $NODES; do
+      rsync -azP --delete ~/ $i:~/
+    done
+  fi
   StepCntr=0
   LogStep $p Start 
 
@@ -104,6 +115,11 @@ fi
   LogStep $p Step5-genion
 
   gmx grompp -f ../../minim.2.mdp -c ${prot}_solv_ions.gro -p $top -o ${prot}-em.tpr 
+  if [ $HPCHUB_PLATFORM == 'azure' ]; then
+    for i in $NODES; do
+      rsync -azP --delete ~/ $i:~/
+    done
+  fi
 
   LogStep $p Step6-grompp
 
@@ -112,6 +128,11 @@ fi
   LogStep $p Step7-mdrun-em
 
   gmx grompp -f ../../nvt.2.mdp -c ${prot}-em.gro -p $top -o ${prot}-nvt.tpr 
+  if [ $HPCHUB_PLATFORM == 'azure' ]; then
+    for i in $NODES; do
+      rsync -azP --delete ~/ $i:~/
+    done
+  fi
 
   LogStep $p Step8-grompp
  
@@ -120,6 +141,11 @@ fi
   LogStep $p Step9-mdrun-nvt
 
   gmx grompp -f ../../npt.mdp -c ${prot}-nvt.gro -t ${prot}-nvt.cpt -p $top -o ${prot}-npt.tpr
+  if [ $HPCHUB_PLATFORM == 'azure' ]; then
+    for i in $NODES; do
+      rsync -azP --delete ~/ $i:~/
+    done
+  fi
 
   LogStep $p Step10-npt
 
@@ -132,6 +158,11 @@ fi
   gmx grompp -f ../../md.2.1000.mdp -c ${prot}-npt.gro -t ${prot}-npt.cpt -p $top -o ${prot}-md_0_1.1000.tpr
 
   gmx grompp -f ../../md.2.1000.mdp -c ${prot}-npt.gro -t ${prot}-npt.cpt -p $top -o ${prot}-md_0_1.10000.tpr
+  if [ $HPCHUB_PLATFORM == 'azure' ]; then
+    for i in $NODES; do
+      rsync -azP --delete ~/ $i:~/
+    done
+  fi
 
   LogStep $p Step12-grompp
 
