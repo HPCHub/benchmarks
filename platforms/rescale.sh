@@ -46,9 +46,15 @@ export MPI_F77=gfortran
 export MPICC=`which mpicc`
 export MPIF77=`which mpif77`
 export MPIF90=`which mpif90`
+export MPIFC=`which mpif90`
 
 HPCHUB_PWD=`pwd`
-export HPCHUB_MPIRUN="mpirun -np $NCPU "
+
+function hpchub_mpirun {
+  PPN=$((NCPU/NNODES))
+  mpirun -np $NCPU -ppn $PPN $@
+}
+export HPCHUB_MPIRUN="hpchub_mpirun"
 
 
 if [ ! -f machinefile ]; then 
