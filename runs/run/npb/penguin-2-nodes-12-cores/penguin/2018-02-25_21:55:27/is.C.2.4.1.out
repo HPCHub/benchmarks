@@ -1,0 +1,51 @@
+hpchub_mpirun /home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/is.C.8 | tee -a ../../../../runs/run/npb/penguin-2-nodes-12-cores/penguin/2018-02-25_21:55:27/is.C.2.4.1.out
+
+
+ NAS Parallel Benchmarks 3.3 -- IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:   10
+ Number of processes:     8
+
+   iteration
+        1
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     2.27
+ Total processes =                        8
+ Compiled procs  =                        8
+ Mop/s total     =                   590.81
+ Mop/s/process   =                    73.85
+ Operation type  =              keys ranked
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+ Compile date    =              25 Feb 2018
+
+ Compile options:
+    MPICC        = /public/apps/openmpi/2.0.0/gcc.4.9.0/bin/mpicc
+    CLINK        = $(MPICC)
+    CMPI_LIB     = (none)
+    CMPI_INC     = (none)
+    CFLAGS       = -Ofast -mcmodel=medium
+    CLINKFLAGS   = -Ofast
+
+
+ Please send feedbacks and/or the results of this run to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
