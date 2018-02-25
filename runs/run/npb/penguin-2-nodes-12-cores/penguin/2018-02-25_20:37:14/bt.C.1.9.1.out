@@ -1,0 +1,68 @@
+hpchub_mpirun /home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/bt.C.9 | tee -a ../../../../runs/run/npb/penguin-2-nodes-12-cores/penguin/2018-02-25_20:37:14/bt.C.1.9.1.out
+
+
+ NAS Parallel Benchmarks 3.3 -- BT Benchmark 
+
+ No input file inputbt.data. Using compiled defaults
+ Size:  162x 162x 162
+ Iterations:  200    dt:   0.0001000
+ Number of active processes:     9
+
+ Time step    1
+ Time step   20
+ Time step   40
+ Time step   60
+ Time step   80
+ Time step  100
+ Time step  120
+ Time step  140
+ Time step  160
+ Time step  180
+ Time step  200
+ Verification being performed for class C
+ accuracy setting for epsilon =  0.1000000000000E-07
+ Comparison of RMS-norms of residual
+           1 0.6239811655176E+04 0.6239811655176E+04 0.2623621598952E-14
+           2 0.5079323919042E+03 0.5079323919042E+03 0.6714683264956E-15
+           3 0.1542353009301E+04 0.1542353009301E+04 0.1769039959636E-14
+           4 0.1330238792929E+04 0.1330238792929E+04 0.0000000000000E+00
+           5 0.1160408742844E+05 0.1160408742844E+05 0.5172888491853E-14
+ Comparison of RMS-norms of solution error
+           1 0.1646200836909E+03 0.1646200836909E+03 0.1381202526115E-14
+           2 0.1149710790382E+02 0.1149710790382E+02 0.4635140039373E-14
+           3 0.4120744620746E+02 0.4120744620746E+02 0.1034583990742E-14
+           4 0.3708765105969E+02 0.3708765105969E+02 0.3640109738337E-14
+           5 0.3621105305184E+03 0.3621105305184E+03 0.1883737060486E-14
+ Verification Successful
+
+
+ BT Benchmark Completed.
+ Class           =                        C
+ Size            =            162x 162x 162
+ Iterations      =                      200
+ Time in seconds =                   187.21
+ Total processes =                        9
+ Compiled procs  =                        9
+ Mop/s total     =                 15310.77
+ Mop/s/process   =                  1701.20
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+ Compile date    =              24 Feb 2018
+
+ Compile options:
+    MPIF77       = /public/apps/openmpi/2.0.0/gcc.4.9.0/bin/mp...
+    FLINK        = $(MPIF77)
+    FMPI_LIB     = (none)
+    FMPI_INC     = (none)
+    FFLAGS       = -Ofast -mcmodel=medium
+    FLINKFLAGS   = -Ofast
+    RAND         = (none)
+
+
+ Please send feedbacks and/or the results of this run to:
+
+ NPB Development Team 
+ Internet: npb@nas.nasa.gov
+
+
