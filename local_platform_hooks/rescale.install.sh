@@ -5,19 +5,30 @@ echo "Thus you will have to do some stuff in your web browser."
 echo "First, I'll create a tarball for you:"
 git archive --format tar master > master.tar
 tar -rf master.tar `find -name '.disable*'`
+now=`date +%Y-%m-%d_%H:%M:%S`
 cat > rescale.sh << EOF
 #!/bin/bash
+
+tar -pcf rescale_result.tar rescale.sh
+
 for i in tests/*; do
   cd \$i 
   testname=\${i##tests/}
+  export HPCHUB_RESDIR="runs/install/\${testname}/rescake/rescale/${now}"
   if [ ! -f \$i/.disable_install ]; then
-    HPCHUB_PLATFORM=../../platforms/rescale.sh ./install.sh
+    HPCHUB_PLATFORM=../../platforms/rescale.sh ./install.sh > \${HPCHUB_RESDIR}/stdout.txt 2> \${HPCHUB_RESDIR}/stderr.txt
+    tar -rf rescale_result.tar \${HPCHUB_RESDIR}/stdout.txt \${HPCHUB_RESDIR}/stderr.txt
   fi
+  export HPCHUB_RESDIR="runs/run/\${testname}/rescake/rescale/${now}"
   if [ ! -f \$i/.disable_run ]; then 
-    HPCHUB_OPERATION=run HPCHUB_REPORT=\`pwd\`/report.\$testname.txt HPCHUB_PLATFORM=../../platforms/rescale.sh ./run.sh
+    HPCHUB_OPERATION=run HPCHUB_REPORT=\`pwd\`/report.\$testname.txt HPCHUB_PLATFORM=../../platforms/rescale.sh ./run.sh > \${HPCHUB_RESDIR}/stdout.txt 2> \${HPCHUB_RESDIR}/stderr.txt
+    tar -rf rescale_result.tar \${HPCHUB_RESDIR}/stdout.txt \${HPCHUB_RESDIR}/stderr.txt
+    tar -rf rescale_result.tar report.\$testname.txt
   fi
   cd ../..
 done
+
+gzip rescale_result.tar
 
 EOF
 chmod a+x rescale.sh
@@ -37,12 +48,11 @@ echo
 echo "tar -xvzf master.tar.gz"
 echo "./rescale.sh"
 echo
-echo "When the job will be done, drop the files report.TESTNAME.txt in current directory:"
+echo "When the job will be done, drop the files report.TESTNAME.txt in current directory (or just unpack rescale_result.tar.gz):"
 pwd
 echo "And press enter (press Ctrl-C now to exit)"
 read a
 
-now=`date +%Y-%m-%d_%H:%M:%S`
 for i in tests/*; do
   testname=${i##tests/}
   if [ -f report.$testname.txt ]; then
