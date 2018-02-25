@@ -1,0 +1,57 @@
+hpchub_mpirun /shared/admin/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/mg.C.32 | tee -a ../../../../runs/run/npb/hpchub-4-nodes-vSC/hpchub-2-nodes-vSC-torque-n001/2018-02-25_21:47:20/mg.C.2.16.1.out
+cat machinefile
+n002.vcluster slots=16
+n001.vcluster slots=16
+
+
+ NAS Parallel Benchmarks 3.3 -- MG Benchmark
+
+ No input file. Using compiled defaults 
+ Size:  512x 512x 512  (class C)
+ Iterations:   20
+ Number of processes:     32
+
+ Initialization time:           0.380 seconds
+
+  iter    1
+  iter    5
+  iter   10
+  iter   15
+  iter   20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.5706732285740E-06
+ Error is    0.4230168472607E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        C
+ Size            =            512x 512x 512
+ Iterations      =                       20
+ Time in seconds =                     3.35
+ Total processes =                       32
+ Compiled procs  =                       32
+ Mop/s total     =                 46492.23
+ Mop/s/process   =                  1452.88
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+ Compile date    =              25 Feb 2018
+
+ Compile options:
+    MPIF77       = /usr/mpi/gcc/openmpi-1.10.3rc4/bin/mpif90
+    FLINK        = $(MPIF77)
+    FMPI_LIB     = (none)
+    FMPI_INC     = (none)
+    FFLAGS       = -Ofast -mcmodel=medium
+    FLINKFLAGS   = -Ofast
+    RAND         = randi8
+
+
+ Please send feedbacks and/or the results of this run to:
+
+ NPB Development Team 
+ Internet: npb@nas.nasa.gov
+
+
