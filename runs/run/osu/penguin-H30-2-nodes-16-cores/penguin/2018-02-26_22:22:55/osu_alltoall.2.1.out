@@ -1,0 +1,25 @@
+hpchub_mpirun /home/lenaan/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall | tee -a ../../../runs/run/osu/penguin-H30-2-nodes-16-cores/penguin/2018-02-26_22:22:55/osu_alltoall.2.1.out
+
+# OSU MPI All-to-All Personalized Exchange Latency Test v5.4.0
+# Size       Avg Latency(us)
+1                       1.79
+2                       1.80
+4                       1.78
+8                       1.79
+16                      1.95
+32                      1.94
+64                      1.93
+128                     1.98
+256                     2.10
+512                     2.34
+1024                    2.70
+2048                    3.46
+4096                    5.74
+8192                    9.97
+16384                  13.91
+32768                  21.84
+65536                  49.72
+131072                 87.84
+262144                143.02
+524288                256.71
+1048576               487.24

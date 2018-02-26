@@ -1,0 +1,22 @@
+hpchub_mpirun /home/lenaan/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072 | tee -a ../../../runs/run/osu/penguin-H30-2-nodes-16-cores/penguin/2018-02-26_22:22:55/osu_latency.2.1.out
+# OSU MPI Latency Test v5.4.0
+# Size          Latency (us)
+0                       1.53
+1                       1.52
+2                       1.53
+4                       1.53
+8                       1.53
+16                      1.68
+32                      1.68
+64                      1.68
+128                     1.72
+256                     1.83
+512                     2.04
+1024                    2.40
+2048                    3.14
+4096                    4.07
+8192                    5.70
+16384                   8.92
+32768                  15.35
+65536                  42.85
+131072                 72.76

@@ -1,0 +1,23 @@
+hpchub_mpirun /home/lenaan/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce | tee -a ../../../runs/run/osu/penguin-H30-2-nodes-16-cores/penguin/2018-02-26_22:22:55/osu_allreduce.2.1.out
+
+# OSU MPI Allreduce Latency Test v5.4.0
+# Size       Avg Latency(us)
+4                       1.91
+8                       1.89
+16                      2.05
+32                      2.03
+64                      2.04
+128                     2.09
+256                     2.27
+512                     2.55
+1024                    3.07
+2048                    3.98
+4096                    6.63
+8192                   11.85
+16384                  17.98
+32768                  27.71
+65536                  48.05
+131072                115.68
+262144                202.95
+524288                339.25
+1048576               622.96

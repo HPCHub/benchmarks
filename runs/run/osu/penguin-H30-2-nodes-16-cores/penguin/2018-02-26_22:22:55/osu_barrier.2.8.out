@@ -1,0 +1,5 @@
+hpchub_mpirun /home/lenaan/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_barrier -i 400000 | tee -a ../../../runs/run/osu/penguin-H30-2-nodes-16-cores/penguin/2018-02-26_22:22:55/osu_barrier.2.8.out
+
+# OSU MPI Barrier Latency Test v5.4.0
+# Avg Latency(us)
+             4.42
