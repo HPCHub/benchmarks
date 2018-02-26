@@ -53,7 +53,8 @@ HPCHUB_PWD=`pwd`
 
 function hpchub_mpirun {
   PPN=$((NCPU/NNODES))
-  mpirun -np $NCPU -ppn $PPN $@
+  echo "WARNING! PPN should be $PPN but rescale's mpi implementation doesn't support it!"
+  mpirun -np $NCPU $@
 }
 export HPCHUB_MPIRUN="hpchub_mpirun"
 
