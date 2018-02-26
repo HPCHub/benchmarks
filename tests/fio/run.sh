@@ -73,6 +73,8 @@ for op in "randread" "randwrite" "read" "write" ; do
   LogStep fio-${size}-${op} Latency.avg $value
   for i in job*; do
      mv $i log-${size}-${op}-$i
+     echo "log-${size}-${op}-$i: "
+     cat log-${size}-${op}-$i
   done
 done
 done
