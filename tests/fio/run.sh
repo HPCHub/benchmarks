@@ -57,7 +57,7 @@ fi
 
 
 for size in 128m 1024m; do
-for op in "read" "write" "randread" "randwrite" ; do
+for op in "randread" "randwrite" "read" "write" ; do
   rm job*
    
   ${HPCHUB_MPIRUN} `pwd`/fiorun.sh $op $size  
@@ -71,7 +71,9 @@ for op in "read" "write" "randread" "randwrite" ; do
   getlat
   
   LogStep fio-${size}-${op} Latency.avg $value
-
+  for i in job*; do
+     mv $i log-${size}-${op}-$i
+  done
 done
 done
 cd ..
