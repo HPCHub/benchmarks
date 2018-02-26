@@ -48,6 +48,7 @@ export MPICC=`which mpicc`
 export MPIF77=`which mpif77`
 export MPIF90=`which mpif90`
 export MPIFC=`which mpif90`
+export MPICXX=`which mpiCC`
 
 HPCHUB_PWD=`pwd`
 
