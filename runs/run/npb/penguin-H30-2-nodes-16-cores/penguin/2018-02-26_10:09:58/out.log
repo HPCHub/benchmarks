@@ -1,0 +1,5 @@
+rm: невозможно удалить «_mpirun_penguin_hpchub.stdout»: Нет такого файла или каталога
+rm: невозможно удалить «_mpirun_penguin_hpchub.stderr»: Нет такого файла или каталога
+17065889.pod
+penguin: job file /home/lenaan/hpchub_benchmark/tests/npb/_mpirun_penguin_hpchub.pbs submitted to pbs, waiting for it to disapear from qstat output
+........................................................................................................................................................................................................................................
