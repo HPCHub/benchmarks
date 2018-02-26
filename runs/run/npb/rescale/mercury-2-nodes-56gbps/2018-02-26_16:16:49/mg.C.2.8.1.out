@@ -1,0 +1,56 @@
+hpchub_mpirun /enc/uprod_dSTAp/work/shared/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/mg.C.16 | tee -a ../../../../runs/run/npb/rescale/rescale/2018-02-26_16:16:49/mg.C.2.8.1.out
+WARNING! PPN should be 8 but rescale's mpi implementation doesn't support it!
+Using default -machinefile setting (/enc/uprod_dSTAp/hosts)
+
+
+ NAS Parallel Benchmarks 3.3 -- MG Benchmark
+
+ No input file. Using compiled defaults 
+ Size:  512x 512x 512  (class C)
+ Iterations:   20
+ Number of processes:     16
+
+ Initialization time:           0.591 seconds
+
+  iter    1
+  iter    5
+  iter   10
+  iter   15
+  iter   20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.5706732285740E-06
+ Error is    0.5194943738290E-14
+
+
+ MG Benchmark Completed.
+ Class           =                        C
+ Size            =            512x 512x 512
+ Iterations      =                       20
+ Time in seconds =                     4.93
+ Total processes =                       16
+ Compiled procs  =                       16
+ Mop/s total     =                 31598.41
+ Mop/s/process   =                  1974.90
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+ Compile date    =              26 Feb 2018
+
+ Compile options:
+    MPIF77       = /program/mpi/platformmpi/9.1.4/bin/mpif90
+    FLINK        = $(MPIF77)
+    FMPI_LIB     = (none)
+    FMPI_INC     = (none)
+    FFLAGS       = -Ofast -mcmodel=medium
+    FLINKFLAGS   = -Ofast
+    RAND         = randi8
+
+
+ Please send feedbacks and/or the results of this run to:
+
+ NPB Development Team 
+ Internet: npb@nas.nasa.gov
+
+
