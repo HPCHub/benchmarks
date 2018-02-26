@@ -1,6 +1,7 @@
-NNODES=$RESCALE_NNODES
+## NNODES=$RESCALE_NNODES
 
 NODES=`cat $HOME/machinefile`
+NNODES=`cat $HOME/machinefile | sort -u | wc -l`
 
 NCPU=`for i in $NODES; do ssh \$i cat /proc/cpuinfo | grep processor; done | wc -l`
 
