@@ -60,7 +60,7 @@ for size in 128m 1024m; do
 for op in "randread" "randwrite" "read" "write" ; do
   rm job*
    
-  ${HPCHUB_MPIRUN} `pwd`/fiorun.sh $op $size  
+  ${HPCHUB_MPIRUN} `pwd`/fiorun.sh $op $size `pwd`/fio 
   ${HPCHUB_MPIWAIT}
 
 
