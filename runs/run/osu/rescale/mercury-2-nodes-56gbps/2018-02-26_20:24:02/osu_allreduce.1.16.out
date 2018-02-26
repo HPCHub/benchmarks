@@ -1,0 +1,25 @@
+hpchub_mpirun /enc/uprod_wooKp/work/shared/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce | tee -a ../../../runs/run/osu/rescale/rescale/2018-02-26_20:24:02/osu_allreduce.1.16.out
+WARNING! PPN should be 16 but rescale's mpi implementation doesn't support it!
+Using default -machinefile setting (/enc/uprod_wooKp/hosts)
+
+# OSU MPI Allreduce Latency Test v5.4.0
+# Size       Avg Latency(us)
+4                       4.35
+8                       4.11
+16                      3.93
+32                      5.15
+64                      4.59
+128                     3.82
+256                     5.27
+512                     5.63
+1024                    5.45
+2048                    6.26
+4096                    9.10
+8192                   23.76
+16384                  29.23
+32768                  40.46
+65536                  68.96
+131072                133.05
+262144                251.15
+524288                494.56
+1048576              3317.59

@@ -1,0 +1,27 @@
+hpchub_mpirun /enc/uprod_wooKp/work/shared/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall | tee -a ../../../runs/run/osu/rescale/rescale/2018-02-26_20:24:02/osu_alltoall.2.8.out
+WARNING! PPN should be 8 but rescale's mpi implementation doesn't support it!
+Using default -machinefile setting (/enc/uprod_wooKp/hosts)
+
+# OSU MPI All-to-All Personalized Exchange Latency Test v5.4.0
+# Size       Avg Latency(us)
+1                       8.52
+2                       8.82
+4                      11.90
+8                      11.91
+16                      9.86
+32                     11.80
+64                     12.15
+128                    29.91
+256                    15.56
+512                    19.16
+1024                  109.69
+2048                  184.30
+4096                  351.48
+8192                   68.05
+16384                1387.91
+32768                 309.55
+65536                 641.14
+131072               1619.36
+262144               2996.63
+524288              22174.92
+1048576             44206.56

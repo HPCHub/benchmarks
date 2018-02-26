@@ -1,0 +1,24 @@
+hpchub_mpirun /enc/uprod_wooKp/work/shared/tests/osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072 | tee -a ../../../runs/run/osu/rescale/rescale/2018-02-26_20:24:02/osu_latency.2.1.out
+WARNING! PPN should be 1 but rescale's mpi implementation doesn't support it!
+Using default -machinefile setting (/enc/uprod_wooKp/hosts)
+# OSU MPI Latency Test v5.4.0
+# Size          Latency (us)
+0                       0.25
+1                       0.25
+2                       0.25
+4                       0.25
+8                       0.25
+16                      0.25
+32                      0.25
+64                      0.47
+128                     0.80
+256                     0.81
+512                     0.89
+1024                    0.81
+2048                    1.11
+4096                    1.50
+8192                    2.35
+16384                   4.00
+32768                   6.04
+65536                   9.24
+131072                 18.97

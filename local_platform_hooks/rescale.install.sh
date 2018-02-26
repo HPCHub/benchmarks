@@ -14,16 +14,16 @@ WD=\`pwd\`
 for i in tests/*; do
   cd \$i 
   testname=\${i##tests/}
-  export HPCHUB_RESDIR_ABS="\${WD}/runs/install/\${testname}/rescale/rescale/${now}"
-  export HPCHUB_RESDIR="runs/install/\${testname}/rescale/rescale/${now}"
+  export HPCHUB_RESDIR_ABS="\${WD}/runs/install/\${testname}/rescale/${remhost}/${now}"
+  export HPCHUB_RESDIR="runs/install/\${testname}/rescale/${remhost}/${now}"
   mkdir -p \${HPCHUB_RESDIR_ABS}
   if [ ! -f .disable_install ]; then
     HPCHUB_PLATFORM=../../platforms/rescale.sh ./install.sh > \${HPCHUB_RESDIR_ABS}/stdout.txt 2> \${HPCHUB_RESDIR_ABS}/stderr.txt
     (cd ../..;tar -rf rescale_result.tar \${HPCHUB_RESDIR})
   fi
-  export HPCHUB_RESDIR_ABS="\${WD}/runs/run/\${testname}/rescale/rescale/${now}"
+  export HPCHUB_RESDIR_ABS="\${WD}/runs/run/\${testname}/rescale/${remhost}/${now}"
   mkdir -p \${HPCHUB_RESDIR_ABS}
-  export HPCHUB_RESDIR="runs/run/\${testname}/rescale/rescale/${now}"
+  export HPCHUB_RESDIR="runs/run/\${testname}/rescale/${remhost}/${now}"
   if [ ! -f .disable_run ]; then 
     HPCHUB_OPERATION=run HPCHUB_REPORT=\`pwd\`/report.\$testname.txt HPCHUB_PLATFORM=../../platforms/rescale.sh ./run.sh > \${HPCHUB_RESDIR_ABS}/stdout.txt 2> \${HPCHUB_RESDIR_ABS}/stderr.txt
     (cd ../..;tar -rf rescale_result.tar \${HPCHUB_RESDIR})
