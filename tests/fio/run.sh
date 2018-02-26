@@ -51,7 +51,7 @@ function getlat {
 cp ../fiorun.sh ./
 chmod a+x fiorun.sh
 if [ $HPCHUB_PLATFORM == 'azure' ]; then
-	cp ../fio ~/nfs
+	cp -r ../fio ~/nfs
 	cd ~/nfs/fio
 fi
 
