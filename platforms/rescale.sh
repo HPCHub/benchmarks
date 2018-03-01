@@ -60,6 +60,7 @@ function hpchub_mpirun {
      hostlist=$hostlist,$i:$PPN
   done
   hostlist=${hostlist##,}
+  echo mpirun -np $NCPU -hostlist $hostlist $@
   mpirun -np $NCPU -hostlist $hostlist $@
 }
 export HPCHUB_MPIRUN="hpchub_mpirun"
