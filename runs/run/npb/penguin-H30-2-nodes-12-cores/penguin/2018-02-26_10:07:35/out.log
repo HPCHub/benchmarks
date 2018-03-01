@@ -1,0 +1,8 @@
+
+* ERROR: Multinode jobs in H30 must be ppn=16 (full node)
+* Documentation: https://pod.penguincomputing.com/documentation
+* Help & Support: pod@penguinguincomputing.com
+
+penguin: job file /home/lenaan/hpchub_benchmark/tests/npb/_mpirun_penguin_hpchub.pbs submitted to pbs, waiting for it to disapear from qstat output
+qsub: Your job has been administratively rejected by the queueing system.
+qsub: There may be a more detailed explanation prior to this notice.

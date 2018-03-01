@@ -1,0 +1,40 @@
+cp: невозможно выполнить stat для «../../machinefile»: Нет такого файла или каталога
+npb NCPU=
+npb NNODES=
+./run.sh: line 40: NCPU/NNODES/2: деление на 0 (error token is "/2")
+./run.sh: line 45: (NCPU/NNODES)-2: деление на 0 (error token is ")-2")
+./run.sh: line 54: local_NCPU/local_NNODES: деление на 0 (error token is "local_NNODES")
+/home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/is.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/is.C.-1.-1.1.out
+RunStr:  /home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/is.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/is.C.-1.-1.1.out
+/home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/lu.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/lu.C.-1.-1.1.out
+RunStr:  /home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/lu.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/lu.C.-1.-1.1.out
+/home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/ft.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/ft.C.-1.-1.1.out
+RunStr:  /home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/ft.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/ft.C.-1.-1.1.out
+/home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/mg.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/mg.C.-1.-1.1.out
+RunStr:  /home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/mg.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/mg.C.-1.-1.1.out
+/home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/cg.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/cg.C.-1.-1.1.out
+RunStr:  /home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/cg.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/cg.C.-1.-1.1.out
+/home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/ep.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/ep.C.-1.-1.1.out
+/home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/ep.C.1: error while loading shared libraries: libgfortran.so.3: cannot open shared object file: No such file or directory
+RunStr:  /home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/ep.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/ep.C.-1.-1.1.out
+/home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/bt.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/bt.C.-1.-1.1.out
+RunStr:  /home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/bt.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/bt.C.-1.-1.1.out
+/home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/sp.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/sp.C.-1.-1.1.out
+RunStr:  /home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/sp.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/sp.C.-1.-1.1.out
+/home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/is.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/is.C.1.1.1.out
+RunStr:  /home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/is.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/is.C.1.1.1.out
+/home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/lu.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/lu.C.1.1.1.out
+RunStr:  /home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/lu.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/lu.C.1.1.1.out
+/home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/ft.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/ft.C.1.1.1.out
+RunStr:  /home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/ft.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/ft.C.1.1.1.out
+/home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/mg.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/mg.C.1.1.1.out
+RunStr:  /home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/mg.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/mg.C.1.1.1.out
+/home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/cg.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/cg.C.1.1.1.out
+RunStr:  /home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/cg.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/cg.C.1.1.1.out
+/home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/ep.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/ep.C.1.1.1.out
+/home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/ep.C.1: error while loading shared libraries: libgfortran.so.3: cannot open shared object file: No such file or directory
+RunStr:  /home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/ep.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/ep.C.1.1.1.out
+/home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/bt.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/bt.C.1.1.1.out
+RunStr:  /home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/bt.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/bt.C.1.1.1.out
+/home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/sp.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/sp.C.1.1.1.out
+RunStr:  /home/lenaan/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/sp.C.1 | tee -a ../../../../runs/run/npb/penguin-H30-2-nodes-12-cores/penguin/2018-02-26_10:01:29/sp.C.1.1.1.out
