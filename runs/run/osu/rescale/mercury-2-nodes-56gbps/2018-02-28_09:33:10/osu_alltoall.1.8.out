@@ -1,0 +1,26 @@
+hpchub_mpirun /enc/uprod_xwKwp/work/shared/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_alltoall | tee -a ../../../runs/run/osu/rescale/mercury-2-nodes-56gbps/2018-02-28_09:33:10/osu_alltoall.1.8.out
+Using default -machinefile setting (/enc/uprod_xwKwp/hosts)
+
+# OSU MPI All-to-All Personalized Exchange Latency Test v5.4.0
+# Size       Avg Latency(us)
+1                       3.14
+2                       3.10
+4                       3.05
+8                       2.93
+16                      3.23
+32                      3.15
+64                      3.39
+128                     3.60
+256                     3.61
+512                     4.34
+1024                    6.35
+2048                    9.54
+4096                   11.51
+8192                   24.75
+16384                  44.62
+32768                  77.60
+65536                 150.53
+131072                291.54
+262144                742.59
+524288               5592.69
+1048576             11240.42

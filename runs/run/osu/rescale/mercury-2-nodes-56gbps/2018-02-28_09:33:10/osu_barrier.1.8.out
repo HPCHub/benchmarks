@@ -1,0 +1,6 @@
+hpchub_mpirun /enc/uprod_xwKwp/work/shared/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_barrier -i 400000 | tee -a ../../../runs/run/osu/rescale/mercury-2-nodes-56gbps/2018-02-28_09:33:10/osu_barrier.1.8.out
+Using default -machinefile setting (/enc/uprod_xwKwp/hosts)
+
+# OSU MPI Barrier Latency Test v5.4.0
+# Avg Latency(us)
+             1.19

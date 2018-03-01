@@ -1,0 +1,24 @@
+hpchub_mpirun /enc/uprod_xwKwp/work/shared/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce | tee -a ../../../runs/run/osu/rescale/mercury-2-nodes-56gbps/2018-02-28_09:33:10/osu_allreduce.1.2.out
+Using default -machinefile setting (/enc/uprod_xwKwp/hosts)
+
+# OSU MPI Allreduce Latency Test v5.4.0
+# Size       Avg Latency(us)
+4                       0.87
+8                       0.88
+16                      0.88
+32                      0.88
+64                      1.21
+128                     0.78
+256                     0.85
+512                     0.94
+1024                    1.06
+2048                    2.14
+4096                    3.40
+8192                    4.33
+16384                   6.39
+32768                  10.53
+65536                  20.94
+131072                 44.45
+262144                 84.95
+524288                161.30
+1048576               501.30
