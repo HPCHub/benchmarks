@@ -53,7 +53,6 @@ def read_data(dir_path):
 		files=list(filter(lambda x: x not in ['out.log','report.time.txt'], files))
 		if (len(files) == 0):
 			continue
-		print files
 
 		for k in files:
 			j=k.split('.')
