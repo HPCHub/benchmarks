@@ -54,8 +54,13 @@ HPCHUB_PWD=`pwd`
 
 function hpchub_mpirun {
   PPN=$((NCPU/NNODES))
-  echo "WARNING! PPN should be $PPN but rescale's mpi implementation doesn't support it!"
-  mpirun -np $NCPU $@
+#  echo "WARNING! PPN should be $PPN but rescale's mpi implementation doesn't support it!"
+  hostlist=""
+  for i in $NODES; do
+     hostlist=$hostlist,$i:$PPN
+  done
+  hostlist=${hostlist##,}
+  mpirun -np $NCPU -hostlist $hostlist $@
 }
 export HPCHUB_MPIRUN="hpchub_mpirun"
 

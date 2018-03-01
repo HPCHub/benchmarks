@@ -32,11 +32,8 @@ export HPCHUB_REPORT=${HPCHUB_REPORT}
 export HPCHUB_RESDIR=${HPCHUB_RESDIR}
 export HPCHUB_MACHINEFILE=\$PBS_NODEFILE
 
-#module load blas/3.5.0/gcc.4.4.7
-#module load lapack/3.7.0/gcc.4.4.7
 module load atlas/3.11.38/gcc.4.9.0
 module load openmpi/2.0.0/gcc.4.9.0
-#module load fftw/3.3.4/gcc.4.4.7
 module load cmake/3.3.1
 
 ./${HPCHUB_TEST_STATE}.sh
@@ -49,7 +46,10 @@ while [ `qstat | wc -l` -gt "$L" ]; do
    echo -ne '.'
    sleep 10
 done
-
+echo "Stdout:"
+cat $HPCHUB_PWD/_mpirun_penguin_hpchub.stdout
+echo "Stderr:"
+cat $HPCHUB_PWD/_mpirun_penguin_hpchub.stderr
 exit 0
 fi
 

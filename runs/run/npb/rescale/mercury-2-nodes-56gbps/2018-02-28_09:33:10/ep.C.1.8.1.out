@@ -1,0 +1,57 @@
+hpchub_mpirun /enc/uprod_xwKwp/work/shared/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/ep.C.8 | tee -a ../../../../runs/run/npb/rescale/mercury-2-nodes-56gbps/2018-02-28_09:33:10/ep.C.1.8.1.out
+Using default -machinefile setting (/enc/uprod_xwKwp/hosts)
+
+ NAS Parallel Benchmarks 3.3 -- EP Benchmark
+
+ Number of random numbers generated:      8589934592
+ Number of active processes:                       8
+
+EP Benchmark Results:
+
+CPU Time =   20.2705
+N = 2^   32
+No. Gaussian Pairs =    3373275903.
+Sums =     4.764367927995972D+04   -8.084072988049158D+04
+Counts:
+  0    1572172634.
+  1    1501108549.
+  2     281805648.
+  3      17761221.
+  4        424017.
+  5          3821.
+  6            13.
+  7             0.
+  8             0.
+  9             0.
+
+
+ EP Benchmark Completed.
+ Class           =                        C
+ Size            =               8589934592
+ Iterations      =                        0
+ Time in seconds =                    20.27
+ Total processes =                        8
+ Compiled procs  =                        8
+ Mop/s total     =                   423.76
+ Mop/s/process   =                    52.97
+ Operation type  = Random numbers generated
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+ Compile date    =              28 Feb 2018
+
+ Compile options:
+    MPIF77       = /program/mpi/platformmpi/9.1.4/bin/mpif90
+    FLINK        = $(MPIF77)
+    FMPI_LIB     = (none)
+    FMPI_INC     = (none)
+    FFLAGS       = -Ofast -mcmodel=medium
+    FLINKFLAGS   = -Ofast
+    RAND         = randi8
+
+
+ Please send feedbacks and/or the results of this run to:
+
+ NPB Development Team 
+ Internet: npb@nas.nasa.gov
+
+

@@ -49,7 +49,8 @@ while [ `qstat | wc -l` -gt "$L" ]; do
    echo -ne '.'
    sleep 10
 done
-
+cat $HPCHUB_PWD/_mpirun_penguin_hpchub.stdout
+cat $HPCHUB_PWD/_mpirun_penguin_hpchub.stderr
 exit 0
 fi
 
