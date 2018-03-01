@@ -65,15 +65,14 @@ for i in `seq $local_NNODES -1 1`; do
 			export NNODES=$i
 			export NCPU=$(($i*$j))
 			if [ $prg_nprocs -ge 256 ]; then
-				maxiter=7
+				maxiter=8
 			elif [ $prg_nprocs -ge 16 ]; then
-				maxiter=3
+				maxiter=5
 			elif [ $prg_nprocs -ge 4 ]; then
 				maxiter=2
 			else
 				maxiter=1
 			fi
-                        maxiter=1
 			if [ -f ./bin/${npb_test}.C.$(($i*$j)) ]; then
                                 if [ "${tests_done[${npb_test}_$i]}" = "" ]; then
                                      tests_done[${npb_test}_$i]=1

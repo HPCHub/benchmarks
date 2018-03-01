@@ -5,6 +5,7 @@ import numpy
 import sys
 import argparse
 import shelve
+from math import sqrt
 
 npb = ('is', 'ft','cg', 'mg', 'lu', 'ep', 'sp', 'bt')
 #osu = ('osu_latency', 'osu_mbw_mr', 'osu_barrier', 'osu_alltoall', 'osu_allreduce')
@@ -47,47 +48,56 @@ def read_data(dir_path):
 	except:
 		print "no dir: %s" %(dir_path)
 		exit(1)
-	files = os.listdir('./')
-	filter(lambda x: x not in ['out.log','report.time.txt'], files)
-
-	if (len(files) == 0):
-		print 'no files in '+ os.getcwd()
-		exit(1)
-
 	mteps = {}
-	for k in files:
-		j=k.split('.')
+	for path, subdirs, files in os.walk('./'):
+		files=list(filter(lambda x: x not in ['out.log','report.time.txt'], files))
+		if (len(files) == 0):
+			continue
+		print files
 
-		name=j[0]
+		for k in files:
+			j=k.split('.')
 
-		if (name in npb):
-			npb_class=j[1]
-			if (not npb_class in mteps.keys()):
-				mteps[npb_class]={}
-			if (not name in mteps[npb_class].keys()):
-				mteps[npb_class][name]={}
-			nnodes=int(j[2])
-			if (not nnodes in mteps[npb_class][name].keys()):
-				mteps[npb_class][name][nnodes] = {}
-			ppn=int(j[3])
-			if (not ppn in mteps[npb_class][name][nnodes].keys()):
-				mteps[npb_class][name][nnodes][ppn]=[]
-			iter=int(j[4])
+			name=j[0]
+
+			if (name in npb):
+				npb_class=j[1]
+				if (not npb_class in mteps.keys()):
+					mteps[npb_class]={}
+				if (not name in mteps[npb_class].keys()):
+					mteps[npb_class][name]={}
+				nnodes=int(j[2])
+				if (not nnodes in mteps[npb_class][name].keys()):
+					mteps[npb_class][name][nnodes] = {}
+				ppn=int(j[3])
+				if (not ppn in mteps[npb_class][name][nnodes].keys()):
+					mteps[npb_class][name][nnodes][ppn]=[]
+				iter=int(j[4])
 
 
-		f=open(k,'r')
+			f=open(os.path.join(path,k),'r')
 
-		find=False
-		if (name in npb):
-			for line in f:
-				if line.find('Mop/s total') != -1:
-					ind=line.find('=')
-					val=float(line[ind+1:])
-					mteps[npb_class][name][nnodes][ppn].append(val)
-		f.close()
+			find=False
+			if (name in npb):
+				for line in f:
+					if line.find('Mop/s total') != -1:
+						ind=line.find('=')
+						val=float(line[ind+1:])
+						mteps[npb_class][name][nnodes][ppn].append(val)
+			f.close()
 	os.chdir(pwd)
-
 	return mteps
+
+# Calculates the sample standard deviation for a list of numbers.
+def sample_standard_deviation(lst):
+	num_items = len(lst)
+	mean = sum(lst) / num_items
+	differences = [x - mean for x in lst]
+	sq_differences = [d ** 2 for d in differences]
+	ssd = sum(sq_differences)
+	variance = ssd / (num_items - 1)
+	sd = sqrt(variance)
+	return sd
 
 #FIXME: don't support for sp and bt tests
 def print_npb(mteps, separator, list_name, npb_class, ppn, list_nnodes):
@@ -102,9 +112,9 @@ def print_npb(mteps, separator, list_name, npb_class, ppn, list_nnodes):
 	
 		print "%s;%s; "%("name", "ppn"),
 		for nnodes in list_nnodes:
-			print "%s;%s;%s; " % ("niters","max","avg"),
+			print "%5s;%3s;%6s;%7s;%5s; " % ("niters","max","min","avg","ssd(%)"),
 		print
-		for name in (set(list_name) & {'is','lu','ft','mg','cg'}):
+		for name in (set(list_name) & {'is','lu','ft','mg','cg','ep','sp','dt'}):
 			print "%4s;" % (name),
 			print "%2d;" % (ppn),
 			for nnodes in list_nnodes:
@@ -112,7 +122,8 @@ def print_npb(mteps, separator, list_name, npb_class, ppn, list_nnodes):
 					min_val=min(mteps[npb_class][name][nnodes][ppn])
 					max_val=max(mteps[npb_class][name][nnodes][ppn])
 					avg_val=average(mteps[npb_class][name][nnodes][ppn])
-					print ("%2d;%7.0f;%7.0f;" % (len(mteps[npb_class][name][nnodes][ppn][:]), max_val, avg_val )).replace('.', separator),
+					dev=sample_standard_deviation(mteps[npb_class][name][nnodes][ppn])/avg_val*100
+					print ("%2d;%7.0f;%7.0f;%7.0f;%6.2f;" % (len(mteps[npb_class][name][nnodes][ppn][:]), max_val,min_val, avg_val, dev)).replace('.', separator),
 				except:
 					print ";;;",
 			print
