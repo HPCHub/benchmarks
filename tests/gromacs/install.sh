@@ -39,3 +39,19 @@ fi
 		rsync -azP --delete ~/ $i:~/
 	done
   fi
+
+files="1AKI.pdb"
+
+for p in $files; do 
+  if [ ! -f $p ] ; then
+    wget https://files.rcsb.org/download/${p}.gz
+    gzip -d ${p}.gz
+  fi
+  if [ $HPCHUB_PLATFORM == 'azure' ]; then
+    for i in $NODES; do
+      rsync -azP --delete ~/ $i:~/
+    done
+  fi
+done
+
+
