@@ -2,6 +2,8 @@
 op=$1
 size=$2
 fio=$3
+cd `dirname $fio`
+
 (
  if flock -n 200; then
   $fio --name=global --rw=$op --size=$size --output=job.${HOSTNAME} --name=box.${HOSTNAME} 
