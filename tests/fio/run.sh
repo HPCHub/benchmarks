@@ -56,26 +56,28 @@ if [ $HPCHUB_PLATFORM == 'azure' ]; then
 fi
 
 
-for size in 128m 1024m; do
+for size in 128m 512m; do
+for blocksize in 4096 1024k; do 
 for op in "randread" "randwrite" "read" "write" ; do
   rm job*
    
-  ${HPCHUB_MPIRUN} `pwd`/fiorun.sh $op $size `pwd`/fio 
+  ${HPCHUB_MPIRUN} `pwd`/fiorun.sh $op $size `pwd`/fio $blocksize
   ${HPCHUB_MPIWAIT}
 
 
   getbw
 
-  LogStep fio-${size}-${op} BW $value
+  LogStep fio-${size}-${op}-bs-${blocksize} BW $value
 
   getlat
   
-  LogStep fio-${size}-${op} Latency.avg $value
+  LogStep fio-${size}-${op}-bs-${blocksize} Latency.avg $value
   for i in job*; do
      mv $i log-${size}-${op}-$i
      echo "log-${size}-${op}-$i: "
      cat log-${size}-${op}-$i
   done
+done
 done
 done
 cd ..

@@ -30,6 +30,8 @@ if [ $HPCHUB_PLATFORM == 'azure' ]; then
   done
 fi
 
+gmx=`pwd`/gromacs-5.1.4/build/bin/gmx_mpi
+
 cd molmod
 rm \#*
 if [ $HPCHUB_PLATFORM == 'azure' ]; then
@@ -54,17 +56,6 @@ fi
 export OMP_NUM_THREADS=1
 
 files="1AKI.pdb"
-for p in $files; do 
-  if [ ! -f $p ] ; then
-    wget https://files.rcsb.org/download/${p}.gz
-    gzip -d ${p}.gz
-  fi
-  if [ $HPCHUB_PLATFORM == 'azure' ]; then
-    for i in $NODES; do
-      rsync -azP --delete ~/ $i:~/
-    done
-  fi
-done
 
 for p in $files; do
   prot=${p%%.pdb}
@@ -123,7 +114,7 @@ fi
 
   LogStep $p Step6-grompp
 
-  ${HPCHUB_MPIRUN} gmx mdrun -v -deffnm ${prot}-em 
+  ${HPCHUB_MPIRUN} $gmx mdrun -v -deffnm ${prot}-em 
   
   LogStep $p Step7-mdrun-em
 
@@ -136,7 +127,7 @@ fi
 
   LogStep $p Step8-grompp
  
-  ${HPCHUB_MPIRUN}  gmx mdrun -deffnm ${prot}-nvt
+  ${HPCHUB_MPIRUN}  $gmx mdrun -deffnm ${prot}-nvt
 
   LogStep $p Step9-mdrun-nvt
 
@@ -149,7 +140,7 @@ fi
 
   LogStep $p Step10-npt
 
-  ${HPCHUB_MPIRUN}   gmx mdrun -deffnm ${prot}-npt
+  ${HPCHUB_MPIRUN}   $gmx mdrun -deffnm ${prot}-npt
 
   LogStep $p Step11-mdrun-npt
 
@@ -166,15 +157,15 @@ fi
 
   LogStep $p Step12-grompp
 
-  ${HPCHUB_MPIRUN}  gmx mdrun -deffnm ${prot}-md_0_1.100
+  ${HPCHUB_MPIRUN}  $gmx mdrun -deffnm ${prot}-md_0_1.100
    
   LogStep $p Step13-mdrun-prod-100 100
 
-  ${HPCHUB_MPIRUN}  gmx mdrun -deffnm ${prot}-md_0_1.1000
+  ${HPCHUB_MPIRUN}  $gmx mdrun -deffnm ${prot}-md_0_1.1000
    
   LogStep $p Step13-mdrun-prod-1000 1000
 
-  ${HPCHUB_MPIRUN}  gmx mdrun -deffnm ${prot}-md_0_1.10000
+  ${HPCHUB_MPIRUN}  $gmx mdrun -deffnm ${prot}-md_0_1.10000
  
   LogStep $p Step13-mdrun-prod-10000 10000
 
