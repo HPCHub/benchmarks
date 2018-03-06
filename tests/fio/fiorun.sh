@@ -10,7 +10,7 @@ cd `dirname $fio`
   if [ -f box.${HOSTNAME} ]; then
     rm -f box.${HOSTNAME}
   fi
-  $fio --name=global --rw=$op --size=$size --output=job.${HOSTNAME} --name=box.${HOSTNAME} --blocksize
+  $fio --name=global --rw=$op --size=$size --output=job.${HOSTNAME} --name=box.${HOSTNAME} --blocksize=$blocksize
   rm -f box.${HOSTNAME}
   sleep 10
  else 
