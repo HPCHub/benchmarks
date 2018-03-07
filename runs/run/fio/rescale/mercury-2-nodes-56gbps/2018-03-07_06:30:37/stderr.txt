@@ -1,0 +1,32 @@
+rm: cannot remove ‘job*’: No such file or directory
+MPI Application rank 8 exited before MPI_Init() with status 0
+rm: cannot remove ‘job*’: No such file or directory
+MPI Application rank 2 exited before MPI_Init() with status 0
+rm: cannot remove ‘job*’: No such file or directory
+MPI Application rank 0 exited before MPI_Init() with status 0
+rm: cannot remove ‘job*’: No such file or directory
+MPI Application rank 1 exited before MPI_Init() with status 0
+rm: cannot remove ‘job*’: No such file or directory
+MPI Application rank 0 exited before MPI_Init() with status 0
+rm: cannot remove ‘job*’: No such file or directory
+MPI Application rank 2 exited before MPI_Init() with status 0
+rm: cannot remove ‘job*’: No such file or directory
+MPI Application rank 2 exited before MPI_Init() with status 0
+rm: cannot remove ‘job*’: No such file or directory
+MPI Application rank 0 exited before MPI_Init() with status 0
+rm: cannot remove ‘job*’: No such file or directory
+MPI Application rank 0 killed before MPI_Init() with signal 15
+rm: cannot remove ‘job*’: No such file or directory
+MPI Application rank 11 exited before MPI_Init() with status 0
+rm: cannot remove ‘job*’: No such file or directory
+MPI Application rank 3 exited before MPI_Init() with status 0
+rm: cannot remove ‘job*’: No such file or directory
+MPI Application rank 0 exited before MPI_Init() with status 0
+rm: cannot remove ‘job*’: No such file or directory
+MPI Application rank 1 exited before MPI_Init() with status 0
+rm: cannot remove ‘job*’: No such file or directory
+MPI Application rank 0 exited before MPI_Init() with status 0
+rm: cannot remove ‘job*’: No such file or directory
+MPI Application rank 3 exited before MPI_Init() with status 0
+rm: cannot remove ‘job*’: No such file or directory
+MPI Application rank 3 exited before MPI_Init() with status 0
