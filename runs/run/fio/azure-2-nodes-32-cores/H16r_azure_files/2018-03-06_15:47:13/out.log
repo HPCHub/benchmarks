@@ -1,0 +1,937 @@
+HPCHUB_PLATFORM=azure
+pwd=/home/ismagilov/nfs/fio/fio-3.3
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 32 -ppn 16 /home/ismagilov/nfs/fio/fio-3.3/fiorun.sh randread 128m /home/ismagilov/nfs/fio/fio-3.3/fio 4096
+getbw.value: 228
+getlat.value: 17769.94
+log-128m-randread-job.HPCHUB-CENTOS-H-1: 
+box.HPCHUB-CENTOS-H-1: (g=0): rw=randread, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-1: (groupid=0, jobs=1): err= 0: pid=12342: Tue Mar  6 12:58:25 2018
+   read: IOPS=50, BW=202KiB/s (207kB/s)(128MiB/648096msec)
+    clat (usec): min=1854, max=798154, avg=19775.48, stdev=25649.12
+     lat (usec): min=1854, max=798155, avg=19775.74, stdev=25649.13
+    clat percentiles (msec):
+     |  1.00th=[    3],  5.00th=[    3], 10.00th=[    3], 20.00th=[    3],
+     | 30.00th=[    4], 40.00th=[    6], 50.00th=[   13], 60.00th=[   18],
+     | 70.00th=[   24], 80.00th=[   31], 90.00th=[   46], 95.00th=[   64],
+     | 99.00th=[  121], 99.50th=[  153], 99.90th=[  239], 99.95th=[  275],
+     | 99.99th=[  338]
+   bw (  KiB/s): min=    8, max= 1128, per=99.99%, avg=201.97, stdev=127.78, samples=1296
+   iops        : min=    2, max=  282, avg=50.42, stdev=31.95, samples=1296
+  lat (msec)   : 2=0.13%, 4=35.38%, 10=11.05%, 20=17.90%, 50=27.17%
+  lat (msec)   : 100=6.66%, 250=1.64%, 500=0.07%, 1000=0.01%
+  cpu          : usr=0.00%, sys=0.10%, ctx=32772, majf=0, minf=31
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=32768,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=202KiB/s (207kB/s), 202KiB/s-202KiB/s (207kB/s-207kB/s), io=128MiB (134MB), run=648096-648096msec
+log-128m-randread-job.HPCHUB-CENTOS-H-2: 
+box.HPCHUB-CENTOS-H-2: (g=0): rw=randread, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+box.HPCHUB-CENTOS-H-2: Laying out IO file (1 file / 128MiB)
+
+box.HPCHUB-CENTOS-H-2: (groupid=0, jobs=1): err= 0: pid=2228: Tue Mar  6 12:56:18 2018
+   read: IOPS=63, BW=254KiB/s (260kB/s)(128MiB/516623msec)
+    clat (usec): min=1993, max=525173, avg=15763.90, stdev=22958.55
+     lat (usec): min=1993, max=525173, avg=15764.14, stdev=22958.56
+    clat percentiles (msec):
+     |  1.00th=[    3],  5.00th=[    3], 10.00th=[    3], 20.00th=[    3],
+     | 30.00th=[    4], 40.00th=[    4], 50.00th=[    7], 60.00th=[   11],
+     | 70.00th=[   17], 80.00th=[   25], 90.00th=[   39], 95.00th=[   56],
+     | 99.00th=[  112], 99.50th=[  144], 99.90th=[  230], 99.95th=[  259],
+     | 99.99th=[  330]
+   bw (  KiB/s): min=   16, max= 1096, per=100.00%, avg=253.38, stdev=140.15, samples=1033
+   iops        : min=    4, max=  274, avg=63.29, stdev=35.04, samples=1033
+  lat (msec)   : 2=0.01%, 4=41.40%, 10=16.44%, 20=16.68%, 50=19.28%
+  lat (msec)   : 100=4.90%, 250=1.24%, 500=0.05%, 750=0.01%
+  cpu          : usr=0.00%, sys=0.13%, ctx=32772, majf=0, minf=30
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=32768,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=254KiB/s (260kB/s), 254KiB/s-254KiB/s (260kB/s-260kB/s), io=128MiB (134MB), run=516623-516623msec
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 32 -ppn 16 /home/ismagilov/nfs/fio/fio-3.3/fiorun.sh randwrite 128m /home/ismagilov/nfs/fio/fio-3.3/fio 4096
+getbw.value: 1333.5
+getlat.value: 2106.55
+log-128m-randwrite-job.HPCHUB-CENTOS-H-1: 
+box.HPCHUB-CENTOS-H-1: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-1: (groupid=0, jobs=1): err= 0: pid=12479: Tue Mar  6 12:58:37 2018
+  write: IOPS=338k, BW=1320MiB/s (1384MB/s)(128MiB/97msec)
+    clat (nsec): min=1700, max=48300, avg=1977.30, stdev=671.94
+     lat (nsec): min=1800, max=57200, avg=2108.53, stdev=748.87
+    clat percentiles (nsec):
+     |  1.00th=[ 1704],  5.00th=[ 1800], 10.00th=[ 1800], 20.00th=[ 1800],
+     | 30.00th=[ 1800], 40.00th=[ 1800], 50.00th=[ 1800], 60.00th=[ 1896],
+     | 70.00th=[ 1896], 80.00th=[ 1896], 90.00th=[ 2288], 95.00th=[ 2416],
+     | 99.00th=[ 4384], 99.50th=[ 4704], 99.90th=[ 8256], 99.95th=[ 9920],
+     | 99.99th=[27008]
+  lat (usec)   : 2=81.87%, 4=16.17%, 10=1.91%, 20=0.03%, 50=0.02%
+  cpu          : usr=10.42%, sys=78.12%, ctx=11, majf=0, minf=29
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,32768,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1320MiB/s (1384MB/s), 1320MiB/s-1320MiB/s (1384MB/s-1384MB/s), io=128MiB (134MB), run=97-97msec
+log-128m-randwrite-job.HPCHUB-CENTOS-H-2: 
+box.HPCHUB-CENTOS-H-2: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-2: (groupid=0, jobs=1): err= 0: pid=2346: Tue Mar  6 12:58:38 2018
+  write: IOPS=345k, BW=1347MiB/s (1413MB/s)(128MiB/95msec)
+    clat (nsec): min=1700, max=37800, avg=1968.39, stdev=659.37
+     lat (nsec): min=1800, max=38000, avg=2104.57, stdev=666.61
+    clat percentiles (nsec):
+     |  1.00th=[ 1704],  5.00th=[ 1800], 10.00th=[ 1800], 20.00th=[ 1800],
+     | 30.00th=[ 1800], 40.00th=[ 1800], 50.00th=[ 1800], 60.00th=[ 1800],
+     | 70.00th=[ 1896], 80.00th=[ 1896], 90.00th=[ 2288], 95.00th=[ 2416],
+     | 99.00th=[ 4320], 99.50th=[ 4704], 99.90th=[ 7776], 99.95th=[ 9792],
+     | 99.99th=[21888]
+  lat (usec)   : 2=82.62%, 4=15.62%, 10=1.71%, 20=0.02%, 50=0.03%
+  cpu          : usr=14.89%, sys=76.60%, ctx=12, majf=0, minf=29
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,32768,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1347MiB/s (1413MB/s), 1347MiB/s-1347MiB/s (1413MB/s-1413MB/s), io=128MiB (134MB), run=95-95msec
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 32 -ppn 16 /home/ismagilov/nfs/fio/fio-3.3/fiorun.sh read 128m /home/ismagilov/nfs/fio/fio-3.3/fio 4096
+getbw.value: 76.35
+getlat.value: 49894.805
+log-128m-read-job.HPCHUB-CENTOS-H-1: 
+box.HPCHUB-CENTOS-H-1: (g=0): rw=read, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-1: (groupid=0, jobs=1): err= 0: pid=12580: Tue Mar  6 12:58:50 2018
+   read: IOPS=19.2k, BW=75.1MiB/s (78.8MB/s)(128MiB/1704msec)
+    clat (nsec): min=400, max=94327k, avg=50490.88, stdev=1186893.40
+     lat (nsec): min=500, max=94328k, avg=50607.46, stdev=1186895.13
+    clat percentiles (nsec):
+     |  1.00th=[     402],  5.00th=[     502], 10.00th=[     502],
+     | 20.00th=[     700], 30.00th=[     700], 40.00th=[     700],
+     | 50.00th=[     700], 60.00th=[     700], 70.00th=[     804],
+     | 80.00th=[     804], 90.00th=[     804], 95.00th=[     804],
+     | 99.00th=[    1004], 99.50th=[    1496], 99.90th=[18219008],
+     | 99.95th=[22151168], 99.99th=[44302336]
+   bw (  KiB/s): min=61088, max=90112, per=100.00%, avg=78389.33, stdev=15295.07, samples=3
+   iops        : min=15272, max=22528, avg=19597.33, stdev=3823.77, samples=3
+  lat (nsec)   : 500=1.54%, 750=62.19%, 1000=35.16%
+  lat (usec)   : 2=0.70%, 4=0.01%, 10=0.05%, 20=0.03%, 50=0.01%
+  lat (usec)   : 100=0.01%, 250=0.02%, 500=0.01%
+  lat (msec)   : 4=0.06%, 10=0.02%, 20=0.14%, 50=0.06%, 100=0.01%
+  cpu          : usr=0.59%, sys=6.58%, ctx=118, majf=0, minf=54
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=32768,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=75.1MiB/s (78.8MB/s), 75.1MiB/s-75.1MiB/s (78.8MB/s-78.8MB/s), io=128MiB (134MB), run=1704-1704msec
+log-128m-read-job.HPCHUB-CENTOS-H-2: 
+box.HPCHUB-CENTOS-H-2: (g=0): rw=read, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-2: (groupid=0, jobs=1): err= 0: pid=2441: Tue Mar  6 12:58:51 2018
+   read: IOPS=19.9k, BW=77.6MiB/s (81.3MB/s)(128MiB/1650msec)
+    clat (nsec): min=400, max=81396k, avg=49064.18, stdev=1132682.63
+     lat (nsec): min=500, max=81396k, avg=49182.15, stdev=1132682.90
+    clat percentiles (nsec):
+     |  1.00th=[     402],  5.00th=[     502], 10.00th=[     604],
+     | 20.00th=[     604], 30.00th=[     604], 40.00th=[     700],
+     | 50.00th=[     700], 60.00th=[     700], 70.00th=[     700],
+     | 80.00th=[     700], 90.00th=[     804], 95.00th=[     804],
+     | 99.00th=[    1004], 99.50th=[    2008], 99.90th=[17956864],
+     | 99.95th=[25821184], 99.99th=[44302336]
+   bw (  KiB/s): min=71328, max=90112, per=97.82%, avg=77706.67, stdev=10744.78, samples=3
+   iops        : min=17832, max=22528, avg=19426.67, stdev=2686.19, samples=3
+  lat (nsec)   : 500=1.63%, 750=82.54%, 1000=14.79%
+  lat (usec)   : 2=0.52%, 4=0.11%, 10=0.03%, 20=0.04%, 100=0.01%
+  lat (usec)   : 250=0.02%
+  lat (msec)   : 4=0.05%, 10=0.03%, 20=0.13%, 50=0.07%, 100=0.01%
+  cpu          : usr=0.61%, sys=6.00%, ctx=150, majf=0, minf=31
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=32768,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=77.6MiB/s (81.3MB/s), 77.6MiB/s-77.6MiB/s (81.3MB/s-81.3MB/s), io=128MiB (134MB), run=1650-1650msec
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 32 -ppn 16 /home/ismagilov/nfs/fio/fio-3.3/fiorun.sh write 128m /home/ismagilov/nfs/fio/fio-3.3/fio 4096
+getbw.value: 1334.5
+getlat.value: 2074.095
+log-128m-write-job.HPCHUB-CENTOS-H-1: 
+box.HPCHUB-CENTOS-H-1: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-1: (groupid=0, jobs=1): err= 0: pid=12704: Tue Mar  6 12:59:03 2018
+  write: IOPS=331k, BW=1293MiB/s (1356MB/s)(128MiB/99msec)
+    clat (nsec): min=1700, max=88200, avg=1957.50, stdev=1065.91
+     lat (nsec): min=1800, max=88300, avg=2084.31, stdev=1068.47
+    clat percentiles (nsec):
+     |  1.00th=[ 1704],  5.00th=[ 1704], 10.00th=[ 1704], 20.00th=[ 1800],
+     | 30.00th=[ 1800], 40.00th=[ 1800], 50.00th=[ 1800], 60.00th=[ 1800],
+     | 70.00th=[ 1800], 80.00th=[ 1896], 90.00th=[ 2288], 95.00th=[ 2416],
+     | 99.00th=[ 4320], 99.50th=[ 4704], 99.90th=[12864], 99.95th=[24192],
+     | 99.99th=[35072]
+  lat (usec)   : 2=85.98%, 4=12.23%, 10=1.58%, 20=0.15%, 50=0.06%
+  lat (usec)   : 100=0.01%
+  cpu          : usr=3.06%, sys=81.63%, ctx=12, majf=0, minf=30
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,32768,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1293MiB/s (1356MB/s), 1293MiB/s-1293MiB/s (1356MB/s-1356MB/s), io=128MiB (134MB), run=99-99msec
+log-128m-write-job.HPCHUB-CENTOS-H-2: 
+box.HPCHUB-CENTOS-H-2: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-2: (groupid=0, jobs=1): err= 0: pid=2553: Tue Mar  6 12:59:04 2018
+  write: IOPS=352k, BW=1376MiB/s (1443MB/s)(128MiB/93msec)
+    clat (nsec): min=1600, max=42000, avg=1935.41, stdev=734.77
+     lat (nsec): min=1800, max=42100, avg=2063.88, stdev=767.35
+    clat percentiles (nsec):
+     |  1.00th=[ 1704],  5.00th=[ 1704], 10.00th=[ 1704], 20.00th=[ 1800],
+     | 30.00th=[ 1800], 40.00th=[ 1800], 50.00th=[ 1800], 60.00th=[ 1800],
+     | 70.00th=[ 1800], 80.00th=[ 1896], 90.00th=[ 2288], 95.00th=[ 2416],
+     | 99.00th=[ 4384], 99.50th=[ 4704], 99.90th=[ 8896], 99.95th=[11200],
+     | 99.99th=[32384]
+  lat (usec)   : 2=85.42%, 4=12.72%, 10=1.80%, 20=0.03%, 50=0.03%
+  cpu          : usr=13.04%, sys=75.00%, ctx=10, majf=0, minf=29
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,32768,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1376MiB/s (1443MB/s), 1376MiB/s-1376MiB/s (1443MB/s-1443MB/s), io=128MiB (134MB), run=93-93msec
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 32 -ppn 16 /home/ismagilov/nfs/fio/fio-3.3/fiorun.sh randread 128m /home/ismagilov/nfs/fio/fio-3.3/fio 1024k
+getbw.value: 47.75
+getlat.value: 20878.655
+log-128m-randread-job.HPCHUB-CENTOS-H-1: 
+box.HPCHUB-CENTOS-H-1: (g=0): rw=randread, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-1: (groupid=0, jobs=1): err= 0: pid=12817: Tue Mar  6 12:59:18 2018
+   read: IOPS=46, BW=46.3MiB/s (48.6MB/s)(128MiB/2764msec)
+    clat (usec): min=14742, max=85106, avg=21484.33, stdev=9800.33
+     lat (usec): min=14743, max=85106, avg=21484.59, stdev=9800.35
+    clat percentiles (usec):
+     |  1.00th=[14877],  5.00th=[15270], 10.00th=[15664], 20.00th=[16188],
+     | 30.00th=[16712], 40.00th=[17171], 50.00th=[17695], 60.00th=[18482],
+     | 70.00th=[19792], 80.00th=[25297], 90.00th=[31851], 95.00th=[39584],
+     | 99.00th=[62129], 99.50th=[85459], 99.90th=[85459], 99.95th=[85459],
+     | 99.99th=[85459]
+   bw (  KiB/s): min=26624, max=55296, per=97.60%, avg=46284.80, stdev=11457.82, samples=5
+   iops        : min=   26, max=   54, avg=45.20, stdev=11.19, samples=5
+  lat (msec)   : 20=70.31%, 50=28.12%, 100=1.56%
+  cpu          : usr=0.00%, sys=0.87%, ctx=134, majf=0, minf=319
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=128,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=46.3MiB/s (48.6MB/s), 46.3MiB/s-46.3MiB/s (48.6MB/s-48.6MB/s), io=128MiB (134MB), run=2764-2764msec
+log-128m-randread-job.HPCHUB-CENTOS-H-2: 
+box.HPCHUB-CENTOS-H-2: (g=0): rw=randread, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-2: (groupid=0, jobs=1): err= 0: pid=2655: Tue Mar  6 12:59:18 2018
+   read: IOPS=49, BW=49.2MiB/s (51.6MB/s)(128MiB/2602msec)
+    clat (usec): min=15493, max=56822, avg=20272.36, stdev=7800.71
+     lat (usec): min=15494, max=56822, avg=20272.72, stdev=7800.98
+    clat percentiles (usec):
+     |  1.00th=[15664],  5.00th=[16057], 10.00th=[16188], 20.00th=[16450],
+     | 30.00th=[16712], 40.00th=[16909], 50.00th=[17171], 60.00th=[17433],
+     | 70.00th=[17957], 80.00th=[20841], 90.00th=[31589], 95.00th=[40633],
+     | 99.00th=[51119], 99.50th=[56886], 99.90th=[56886], 99.95th=[56886],
+     | 99.99th=[56886]
+   bw (  KiB/s): min=47104, max=53248, per=98.35%, avg=49541.80, stdev=2248.42, samples=5
+   iops        : min=   46, max=   52, avg=48.20, stdev= 2.28, samples=5
+  lat (msec)   : 20=78.91%, 50=19.53%, 100=1.56%
+  cpu          : usr=0.04%, sys=0.96%, ctx=132, majf=0, minf=287
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=128,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=49.2MiB/s (51.6MB/s), 49.2MiB/s-49.2MiB/s (51.6MB/s-51.6MB/s), io=128MiB (134MB), run=2602-2602msec
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 32 -ppn 16 /home/ismagilov/nfs/fio/fio-3.3/fiorun.sh randwrite 128m /home/ismagilov/nfs/fio/fio-3.3/fio 1024k
+getbw.value: 2248
+getlat.value: 379.14
+log-128m-randwrite-job.HPCHUB-CENTOS-H-1: 
+box.HPCHUB-CENTOS-H-1: (g=0): rw=randwrite, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-1: (groupid=0, jobs=1): err= 0: pid=12934: Tue Mar  6 12:59:32 2018
+  write: IOPS=1828, BW=1829MiB/s (1917MB/s)(128MiB/70msec)
+    clat (usec): min=297, max=15257, avg=424.86, stdev=1321.42
+     lat (usec): min=309, max=15269, avg=437.03, stdev=1321.41
+    clat percentiles (usec):
+     |  1.00th=[  297],  5.00th=[  302], 10.00th=[  302], 20.00th=[  302],
+     | 30.00th=[  302], 40.00th=[  306], 50.00th=[  306], 60.00th=[  306],
+     | 70.00th=[  310], 80.00th=[  314], 90.00th=[  318], 95.00th=[  326],
+     | 99.00th=[  367], 99.50th=[15270], 99.90th=[15270], 99.95th=[15270],
+     | 99.99th=[15270]
+  lat (usec)   : 500=99.22%
+  lat (msec)   : 20=0.78%
+  cpu          : usr=0.00%, sys=57.97%, ctx=8, majf=1, minf=61
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,128,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1829MiB/s (1917MB/s), 1829MiB/s-1829MiB/s (1917MB/s-1917MB/s), io=128MiB (134MB), run=70-70msec
+log-128m-randwrite-job.HPCHUB-CENTOS-H-2: 
+box.HPCHUB-CENTOS-H-2: (g=0): rw=randwrite, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-2: (groupid=0, jobs=1): err= 0: pid=2747: Tue Mar  6 12:59:33 2018
+  write: IOPS=2666, BW=2667MiB/s (2796MB/s)(128MiB/48msec)
+    clat (usec): min=299, max=425, avg=309.01, stdev=14.04
+     lat (usec): min=311, max=437, avg=321.25, stdev=14.23
+    clat percentiles (usec):
+     |  1.00th=[  302],  5.00th=[  302], 10.00th=[  302], 20.00th=[  302],
+     | 30.00th=[  306], 40.00th=[  306], 50.00th=[  306], 60.00th=[  306],
+     | 70.00th=[  310], 80.00th=[  314], 90.00th=[  318], 95.00th=[  326],
+     | 99.00th=[  367], 99.50th=[  424], 99.90th=[  424], 99.95th=[  424],
+     | 99.99th=[  424]
+  lat (usec)   : 500=100.00%
+  cpu          : usr=2.13%, sys=85.11%, ctx=8, majf=0, minf=29
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,128,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=2667MiB/s (2796MB/s), 2667MiB/s-2667MiB/s (2796MB/s-2796MB/s), io=128MiB (134MB), run=48-48msec
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 32 -ppn 16 /home/ismagilov/nfs/fio/fio-3.3/fiorun.sh read 128m /home/ismagilov/nfs/fio/fio-3.3/fio 1024k
+getbw.value: 52.35
+getlat.value: 19043.535
+log-128m-read-job.HPCHUB-CENTOS-H-1: 
+box.HPCHUB-CENTOS-H-1: (g=0): rw=read, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-1: (groupid=0, jobs=1): err= 0: pid=13065: Tue Mar  6 12:59:46 2018
+   read: IOPS=52, BW=52.9MiB/s (55.5MB/s)(128MiB/2419msec)
+    clat (usec): min=141, max=159936, avg=18833.31, stdev=24388.18
+     lat (usec): min=142, max=159936, avg=18833.67, stdev=24388.41
+    clat percentiles (usec):
+     |  1.00th=[   143],  5.00th=[   143], 10.00th=[   145], 20.00th=[   293],
+     | 30.00th=[  5276], 40.00th=[  7308], 50.00th=[  9503], 60.00th=[ 13173],
+     | 70.00th=[ 22414], 80.00th=[ 32375], 90.00th=[ 50070], 95.00th=[ 63701],
+     | 99.00th=[116917], 99.50th=[160433], 99.90th=[160433], 99.95th=[160433],
+     | 99.99th=[160433]
+   bw (  KiB/s): min=38912, max=67584, per=99.17%, avg=53735.25, stdev=12455.77, samples=4
+   iops        : min=   38, max=   66, avg=52.25, stdev=12.28, samples=4
+  lat (usec)   : 250=14.06%, 500=9.38%
+  lat (msec)   : 4=2.34%, 10=28.91%, 20=13.28%, 50=22.66%, 100=7.81%
+  lat (msec)   : 250=1.56%
+  cpu          : usr=0.04%, sys=1.65%, ctx=100, majf=0, minf=288
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=128,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=52.9MiB/s (55.5MB/s), 52.9MiB/s-52.9MiB/s (55.5MB/s-55.5MB/s), io=128MiB (134MB), run=2419-2419msec
+log-128m-read-job.HPCHUB-CENTOS-H-2: 
+box.HPCHUB-CENTOS-H-2: (g=0): rw=read, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-2: (groupid=0, jobs=1): err= 0: pid=2867: Tue Mar  6 12:59:47 2018
+   read: IOPS=51, BW=51.8MiB/s (54.3MB/s)(128MiB/2473msec)
+    clat (usec): min=97, max=157150, avg=19253.11, stdev=23322.04
+     lat (usec): min=98, max=157150, avg=19253.40, stdev=23322.04
+    clat percentiles (usec):
+     |  1.00th=[   115],  5.00th=[   119], 10.00th=[   121], 20.00th=[  6063],
+     | 30.00th=[  6587], 40.00th=[  6980], 50.00th=[  9372], 60.00th=[ 14222],
+     | 70.00th=[ 23462], 80.00th=[ 32113], 90.00th=[ 49021], 95.00th=[ 61604],
+     | 99.00th=[102237], 99.50th=[156238], 99.90th=[156238], 99.95th=[156238],
+     | 99.99th=[156238]
+   bw (  KiB/s): min=36864, max=61317, per=90.75%, avg=48097.25, stdev=11231.18, samples=4
+   iops        : min=   36, max=   59, avg=46.75, stdev=10.63, samples=4
+  lat (usec)   : 100=0.78%, 250=10.94%, 500=7.03%
+  lat (msec)   : 10=33.59%, 20=15.62%, 50=22.66%, 100=7.81%, 250=1.56%
+  cpu          : usr=0.00%, sys=1.09%, ctx=115, majf=0, minf=287
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=128,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=51.8MiB/s (54.3MB/s), 51.8MiB/s-51.8MiB/s (54.3MB/s-54.3MB/s), io=128MiB (134MB), run=2473-2473msec
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 32 -ppn 16 /home/ismagilov/nfs/fio/fio-3.3/fiorun.sh write 128m /home/ismagilov/nfs/fio/fio-3.3/fio 1024k
+getbw.value: 2465
+getlat.value: 325.635
+log-128m-write-job.HPCHUB-CENTOS-H-1: 
+box.HPCHUB-CENTOS-H-1: (g=0): rw=write, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-1: (groupid=0, jobs=1): err= 0: pid=13190: Tue Mar  6 13:00:03 2018
+  write: IOPS=2370, BW=2370MiB/s (2486MB/s)(128MiB/54msec)
+    clat (usec): min=297, max=351, avg=307.85, stdev= 9.26
+     lat (usec): min=309, max=362, avg=320.21, stdev= 9.23
+    clat percentiles (usec):
+     |  1.00th=[  297],  5.00th=[  302], 10.00th=[  302], 20.00th=[  302],
+     | 30.00th=[  306], 40.00th=[  306], 50.00th=[  306], 60.00th=[  306],
+     | 70.00th=[  310], 80.00th=[  314], 90.00th=[  318], 95.00th=[  322],
+     | 99.00th=[  351], 99.50th=[  351], 99.90th=[  351], 99.95th=[  351],
+     | 99.99th=[  351]
+  lat (usec)   : 500=100.00%
+  cpu          : usr=7.55%, sys=67.92%, ctx=6, majf=0, minf=29
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,128,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=2370MiB/s (2486MB/s), 2370MiB/s-2370MiB/s (2486MB/s-2486MB/s), io=128MiB (134MB), run=54-54msec
+log-128m-write-job.HPCHUB-CENTOS-H-2: 
+box.HPCHUB-CENTOS-H-2: (g=0): rw=write, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-2: (groupid=0, jobs=1): err= 0: pid=2970: Tue Mar  6 13:00:03 2018
+  write: IOPS=2560, BW=2560MiB/s (2684MB/s)(128MiB/50msec)
+    clat (usec): min=297, max=1163, avg=319.01, stdev=90.87
+     lat (usec): min=309, max=1175, avg=331.06, stdev=90.86
+    clat percentiles (usec):
+     |  1.00th=[  297],  5.00th=[  302], 10.00th=[  302], 20.00th=[  302],
+     | 30.00th=[  306], 40.00th=[  306], 50.00th=[  306], 60.00th=[  306],
+     | 70.00th=[  310], 80.00th=[  310], 90.00th=[  314], 95.00th=[  347],
+     | 99.00th=[  873], 99.50th=[ 1172], 99.90th=[ 1172], 99.95th=[ 1172],
+     | 99.99th=[ 1172]
+  lat (usec)   : 500=98.44%, 1000=0.78%
+  lat (msec)   : 2=0.78%
+  cpu          : usr=0.00%, sys=81.63%, ctx=7, majf=0, minf=30
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,128,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=2560MiB/s (2684MB/s), 2560MiB/s-2560MiB/s (2684MB/s-2684MB/s), io=128MiB (134MB), run=50-50msec
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 32 -ppn 16 /home/ismagilov/nfs/fio/fio-3.3/fiorun.sh randread 512m /home/ismagilov/nfs/fio/fio-3.3/fio 4096
+getbw.value: 173
+getlat.value: 23.115
+log-512m-randread-job.HPCHUB-CENTOS-H-1: 
+box.HPCHUB-CENTOS-H-1: (g=0): rw=randread, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+box.HPCHUB-CENTOS-H-1: Laying out IO file (1 file / 512MiB)
+
+box.HPCHUB-CENTOS-H-1: (groupid=0, jobs=1): err= 0: pid=13321: Tue Mar  6 13:50:44 2018
+   read: IOPS=43, BW=175KiB/s (179kB/s)(512MiB/2996715msec)
+    clat (msec): min=2, max=709, avg=22.86, stdev=22.02
+     lat (msec): min=2, max=709, avg=22.86, stdev=22.02
+    clat percentiles (msec):
+     |  1.00th=[    3],  5.00th=[    3], 10.00th=[    4], 20.00th=[    6],
+     | 30.00th=[   12], 40.00th=[   15], 50.00th=[   18], 60.00th=[   22],
+     | 70.00th=[   26], 80.00th=[   33], 90.00th=[   48], 95.00th=[   64],
+     | 99.00th=[  107], 99.50th=[  125], 99.90th=[  184], 99.95th=[  224],
+     | 99.99th=[  355]
+   bw (  KiB/s): min=    8, max=  926, per=100.00%, avg=174.90, stdev=69.78, samples=5991
+   iops        : min=    2, max=  231, avg=43.66, stdev=17.45, samples=5991
+  lat (msec)   : 4=15.21%, 10=11.28%, 20=30.11%, 50=34.52%, 100=7.63%
+  lat (msec)   : 250=1.23%, 500=0.03%, 750=0.01%
+  cpu          : usr=0.02%, sys=0.08%, ctx=131075, majf=0, minf=61
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=131072,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=175KiB/s (179kB/s), 175KiB/s-175KiB/s (179kB/s-179kB/s), io=512MiB (537MB), run=2996715-2996715msec
+log-512m-randread-job.HPCHUB-CENTOS-H-2: 
+box.HPCHUB-CENTOS-H-2: (g=0): rw=randread, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+box.HPCHUB-CENTOS-H-2: Laying out IO file (1 file / 512MiB)
+
+box.HPCHUB-CENTOS-H-2: (groupid=0, jobs=1): err= 0: pid=3087: Tue Mar  6 13:52:00 2018
+   read: IOPS=42, BW=171KiB/s (175kB/s)(512MiB/3063240msec)
+    clat (msec): min=2, max=587, avg=23.37, stdev=22.59
+     lat (msec): min=2, max=587, avg=23.37, stdev=22.59
+    clat percentiles (msec):
+     |  1.00th=[    3],  5.00th=[    4], 10.00th=[    4], 20.00th=[    6],
+     | 30.00th=[   12], 40.00th=[   16], 50.00th=[   19], 60.00th=[   22],
+     | 70.00th=[   26], 80.00th=[   34], 90.00th=[   48], 95.00th=[   65],
+     | 99.00th=[  110], 99.50th=[  132], 99.90th=[  203], 99.95th=[  232],
+     | 99.99th=[  296]
+   bw (  KiB/s): min=   24, max= 1176, per=100.00%, avg=171.12, stdev=73.68, samples=6125
+   iops        : min=    6, max=  294, avg=42.72, stdev=18.42, samples=6125
+  lat (msec)   : 4=15.32%, 10=10.69%, 20=29.22%, 50=35.65%, 100=7.68%
+  lat (msec)   : 250=1.41%, 500=0.03%, 750=0.01%
+  cpu          : usr=0.00%, sys=0.09%, ctx=131075, majf=0, minf=31
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=131072,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=171KiB/s (175kB/s), 171KiB/s-171KiB/s (175kB/s-175kB/s), io=512MiB (537MB), run=3063240-3063240msec
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 32 -ppn 16 /home/ismagilov/nfs/fio/fio-3.3/fiorun.sh randwrite 512m /home/ismagilov/nfs/fio/fio-3.3/fio 4096
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+getbw.value: 1280
+getlat.value: 2195.52
+log-512m-randwrite-job.HPCHUB-CENTOS-H-1: 
+box.HPCHUB-CENTOS-H-1: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-1: (groupid=0, jobs=1): err= 0: pid=13541: Tue Mar  6 13:52:17 2018
+  write: IOPS=291k, BW=1138MiB/s (1193MB/s)(512MiB/450msec)
+    clat (nsec): min=1700, max=1198.1k, avg=2115.49, stdev=5694.18
+     lat (nsec): min=1800, max=1198.2k, avg=2248.06, stdev=5713.88
+    clat percentiles (nsec):
+     |  1.00th=[  1800],  5.00th=[  1800], 10.00th=[  1800], 20.00th=[  1800],
+     | 30.00th=[  1896], 40.00th=[  1896], 50.00th=[  1896], 60.00th=[  1896],
+     | 70.00th=[  2008], 80.00th=[  2008], 90.00th=[  2416], 95.00th=[  2608],
+     | 99.00th=[  4512], 99.50th=[  4896], 99.90th=[ 11328], 99.95th=[ 31360],
+     | 99.99th=[187392]
+  lat (usec)   : 2=66.03%, 4=31.74%, 10=2.06%, 20=0.11%, 50=0.04%
+  lat (usec)   : 100=0.01%, 250=0.01%, 500=0.01%, 750=0.01%
+  lat (msec)   : 2=0.01%
+  cpu          : usr=12.47%, sys=69.49%, ctx=40, majf=0, minf=30
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,131072,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1138MiB/s (1193MB/s), 1138MiB/s-1138MiB/s (1193MB/s-1193MB/s), io=512MiB (537MB), run=450-450msec
+log-512m-randwrite-job.HPCHUB-CENTOS-H-2: 
+box.HPCHUB-CENTOS-H-2: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-2: (groupid=0, jobs=1): err= 0: pid=3286: Tue Mar  6 13:52:17 2018
+  write: IOPS=364k, BW=1422MiB/s (1491MB/s)(512MiB/360msec)
+    clat (nsec): min=1700, max=79000, avg=2014.62, stdev=843.23
+     lat (nsec): min=1800, max=79100, avg=2142.98, stdev=852.10
+    clat percentiles (nsec):
+     |  1.00th=[ 1704],  5.00th=[ 1800], 10.00th=[ 1800], 20.00th=[ 1800],
+     | 30.00th=[ 1800], 40.00th=[ 1800], 50.00th=[ 1896], 60.00th=[ 1896],
+     | 70.00th=[ 1896], 80.00th=[ 2008], 90.00th=[ 2416], 95.00th=[ 2512],
+     | 99.00th=[ 4384], 99.50th=[ 4832], 99.90th=[ 8256], 99.95th=[11328],
+     | 99.99th=[32640]
+  lat (usec)   : 2=75.12%, 4=22.95%, 10=1.87%, 20=0.03%, 50=0.03%
+  lat (usec)   : 100=0.01%
+  cpu          : usr=13.65%, sys=84.12%, ctx=36, majf=0, minf=29
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,131072,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1422MiB/s (1491MB/s), 1422MiB/s-1422MiB/s (1491MB/s-1491MB/s), io=512MiB (537MB), run=360-360msec
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 32 -ppn 16 /home/ismagilov/nfs/fio/fio-3.3/fiorun.sh read 512m /home/ismagilov/nfs/fio/fio-3.3/fio 4096
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+getbw.value: 85.4
+getlat.value: 45187.065
+log-512m-read-job.HPCHUB-CENTOS-H-1: 
+box.HPCHUB-CENTOS-H-1: (g=0): rw=read, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-1: (groupid=0, jobs=1): err= 0: pid=13652: Tue Mar  6 13:52:35 2018
+   read: IOPS=21.3k, BW=83.1MiB/s (87.1MB/s)(512MiB/6162msec)
+    clat (nsec): min=400, max=123487k, avg=46238.80, stdev=1130497.79
+     lat (nsec): min=500, max=123488k, avg=46354.78, stdev=1130497.95
+    clat percentiles (nsec):
+     |  1.00th=[     402],  5.00th=[     402], 10.00th=[     502],
+     | 20.00th=[     502], 30.00th=[     502], 40.00th=[     502],
+     | 50.00th=[     502], 60.00th=[     502], 70.00th=[     604],
+     | 80.00th=[     604], 90.00th=[     604], 95.00th=[     804],
+     | 99.00th=[     900], 99.50th=[    1496], 99.90th=[17170432],
+     | 99.95th=[22151168], 99.99th=[45875200]
+   bw (  KiB/s): min=67232, max=98304, per=99.72%, avg=84848.58, stdev=11597.07, samples=12
+   iops        : min=16808, max=24576, avg=21212.00, stdev=2899.21, samples=12
+  lat (nsec)   : 500=7.33%, 750=86.76%, 1000=5.19%
+  lat (usec)   : 2=0.30%, 4=0.05%, 10=0.03%, 20=0.03%, 50=0.01%
+  lat (usec)   : 100=0.01%, 250=0.02%, 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.04%, 10=0.06%, 20=0.12%, 50=0.06%
+  lat (msec)   : 100=0.01%, 250=0.01%
+  cpu          : usr=0.65%, sys=5.96%, ctx=753, majf=0, minf=32
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=131072,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=83.1MiB/s (87.1MB/s), 83.1MiB/s-83.1MiB/s (87.1MB/s-87.1MB/s), io=512MiB (537MB), run=6162-6162msec
+log-512m-read-job.HPCHUB-CENTOS-H-2: 
+box.HPCHUB-CENTOS-H-2: (g=0): rw=read, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-2: (groupid=0, jobs=1): err= 0: pid=3383: Tue Mar  6 13:52:35 2018
+   read: IOPS=22.4k, BW=87.7MiB/s (91.9MB/s)(512MiB/5839msec)
+    clat (nsec): min=400, max=107395k, avg=43903.04, stdev=1034753.26
+     lat (nsec): min=500, max=107395k, avg=44019.35, stdev=1034753.24
+    clat percentiles (nsec):
+     |  1.00th=[     402],  5.00th=[     502], 10.00th=[     604],
+     | 20.00th=[     604], 30.00th=[     604], 40.00th=[     604],
+     | 50.00th=[     604], 60.00th=[     700], 70.00th=[     700],
+     | 80.00th=[     700], 90.00th=[     700], 95.00th=[     804],
+     | 99.00th=[     900], 99.50th=[    1608], 99.90th=[16318464],
+     | 99.95th=[21364736], 99.99th=[39059456]
+   bw (  KiB/s): min=63136, max=112640, per=99.68%, avg=89503.91, stdev=12952.24, samples=11
+   iops        : min=15784, max=28160, avg=22375.91, stdev=3238.02, samples=11
+  lat (nsec)   : 500=1.09%, 750=92.57%, 1000=5.47%
+  lat (usec)   : 2=0.42%, 4=0.05%, 10=0.05%, 20=0.03%, 50=0.01%
+  lat (usec)   : 250=0.02%, 750=0.01%
+  lat (msec)   : 2=0.01%, 4=0.05%, 10=0.06%, 20=0.13%, 50=0.05%
+  lat (msec)   : 100=0.01%, 250=0.01%
+  cpu          : usr=0.72%, sys=6.89%, ctx=645, majf=0, minf=31
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=131072,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=87.7MiB/s (91.9MB/s), 87.7MiB/s-87.7MiB/s (91.9MB/s-91.9MB/s), io=512MiB (537MB), run=5839-5839msec
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 32 -ppn 16 /home/ismagilov/nfs/fio/fio-3.3/fiorun.sh write 512m /home/ismagilov/nfs/fio/fio-3.3/fio 4096
+getbw.value: 1492.5
+getlat.value: 2074.27
+log-512m-write-job.HPCHUB-CENTOS-H-1: 
+box.HPCHUB-CENTOS-H-1: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-1: (groupid=0, jobs=1): err= 0: pid=13776: Tue Mar  6 13:52:51 2018
+  write: IOPS=381k, BW=1488MiB/s (1561MB/s)(512MiB/344msec)
+    clat (nsec): min=1600, max=237700, avg=1947.28, stdev=1134.29
+     lat (nsec): min=1700, max=237800, avg=2075.75, stdev=1144.40
+    clat percentiles (nsec):
+     |  1.00th=[ 1704],  5.00th=[ 1704], 10.00th=[ 1704], 20.00th=[ 1800],
+     | 30.00th=[ 1800], 40.00th=[ 1800], 50.00th=[ 1800], 60.00th=[ 1800],
+     | 70.00th=[ 1800], 80.00th=[ 1896], 90.00th=[ 2288], 95.00th=[ 2416],
+     | 99.00th=[ 4384], 99.50th=[ 4832], 99.90th=[ 9792], 99.95th=[12224],
+     | 99.99th=[39680]
+  lat (usec)   : 2=86.26%, 4=11.79%, 10=1.86%, 20=0.06%, 50=0.03%
+  lat (usec)   : 100=0.01%, 250=0.01%
+  cpu          : usr=15.45%, sys=81.63%, ctx=34, majf=0, minf=29
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,131072,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1488MiB/s (1561MB/s), 1488MiB/s-1488MiB/s (1561MB/s-1561MB/s), io=512MiB (537MB), run=344-344msec
+log-512m-write-job.HPCHUB-CENTOS-H-2: 
+box.HPCHUB-CENTOS-H-2: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-2: (groupid=0, jobs=1): err= 0: pid=3494: Tue Mar  6 13:52:51 2018
+  write: IOPS=383k, BW=1497MiB/s (1570MB/s)(512MiB/342msec)
+    clat (nsec): min=1700, max=152800, avg=1945.13, stdev=964.20
+     lat (nsec): min=1800, max=152900, avg=2072.79, stdev=973.88
+    clat percentiles (nsec):
+     |  1.00th=[ 1704],  5.00th=[ 1704], 10.00th=[ 1800], 20.00th=[ 1800],
+     | 30.00th=[ 1800], 40.00th=[ 1800], 50.00th=[ 1800], 60.00th=[ 1800],
+     | 70.00th=[ 1800], 80.00th=[ 1896], 90.00th=[ 2288], 95.00th=[ 2416],
+     | 99.00th=[ 4384], 99.50th=[ 4832], 99.90th=[ 9024], 99.95th=[14912],
+     | 99.99th=[33536]
+  lat (usec)   : 2=86.25%, 4=11.85%, 10=1.82%, 20=0.04%, 50=0.04%
+  lat (usec)   : 100=0.01%, 250=0.01%
+  cpu          : usr=16.42%, sys=80.94%, ctx=34, majf=0, minf=29
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,131072,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1497MiB/s (1570MB/s), 1497MiB/s-1497MiB/s (1570MB/s-1570MB/s), io=512MiB (537MB), run=342-342msec
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 32 -ppn 16 /home/ismagilov/nfs/fio/fio-3.3/fiorun.sh randread 512m /home/ismagilov/nfs/fio/fio-3.3/fio 1024k
+getbw.value: 34.1
+getlat.value: 29.33
+log-512m-randread-job.HPCHUB-CENTOS-H-1: 
+box.HPCHUB-CENTOS-H-1: (g=0): rw=randread, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-1: (groupid=0, jobs=1): err= 0: pid=13891: Tue Mar  6 13:53:17 2018
+   read: IOPS=35, BW=35.5MiB/s (37.3MB/s)(512MiB/14405msec)
+    clat (msec): min=14, max=200, avg=28.10, stdev=17.36
+     lat (msec): min=14, max=200, avg=28.10, stdev=17.36
+    clat percentiles (msec):
+     |  1.00th=[   16],  5.00th=[   16], 10.00th=[   17], 20.00th=[   17],
+     | 30.00th=[   18], 40.00th=[   19], 50.00th=[   22], 60.00th=[   27],
+     | 70.00th=[   31], 80.00th=[   36], 90.00th=[   46], 95.00th=[   58],
+     | 99.00th=[  102], 99.50th=[  108], 99.90th=[  201], 99.95th=[  201],
+     | 99.99th=[  201]
+   bw (  KiB/s): min=18432, max=47009, per=100.00%, avg=36928.46, stdev=6786.88, samples=28
+   iops        : min=   18, max=   45, avg=35.96, stdev= 6.59, samples=28
+  lat (msec)   : 20=45.31%, 50=46.88%, 100=6.64%, 250=1.17%
+  cpu          : usr=0.03%, sys=0.65%, ctx=516, majf=0, minf=287
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=512,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=35.5MiB/s (37.3MB/s), 35.5MiB/s-35.5MiB/s (37.3MB/s-37.3MB/s), io=512MiB (537MB), run=14405-14405msec
+log-512m-randread-job.HPCHUB-CENTOS-H-2: 
+box.HPCHUB-CENTOS-H-2: (g=0): rw=randread, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-2: (groupid=0, jobs=1): err= 0: pid=3596: Tue Mar  6 13:53:18 2018
+   read: IOPS=32, BW=32.7MiB/s (34.3MB/s)(512MiB/15653msec)
+    clat (msec): min=15, max=156, avg=30.55, stdev=20.56
+     lat (msec): min=15, max=156, avg=30.56, stdev=20.56
+    clat percentiles (msec):
+     |  1.00th=[   16],  5.00th=[   17], 10.00th=[   17], 20.00th=[   18],
+     | 30.00th=[   18], 40.00th=[   21], 50.00th=[   25], 60.00th=[   28],
+     | 70.00th=[   32], 80.00th=[   39], 90.00th=[   50], 95.00th=[   70],
+     | 99.00th=[  121], 99.50th=[  148], 99.90th=[  157], 99.95th=[  157],
+     | 99.99th=[  157]
+   bw (  KiB/s): min=12288, max=51200, per=99.99%, avg=33489.77, stdev=8962.49, samples=31
+   iops        : min=   12, max=   50, avg=32.65, stdev= 8.73, samples=31
+  lat (msec)   : 20=39.65%, 50=50.59%, 100=7.81%, 250=1.95%
+  cpu          : usr=0.01%, sys=0.66%, ctx=517, majf=0, minf=287
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=512,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=32.7MiB/s (34.3MB/s), 32.7MiB/s-32.7MiB/s (34.3MB/s-34.3MB/s), io=512MiB (537MB), run=15653-15653msec
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 32 -ppn 16 /home/ismagilov/nfs/fio/fio-3.3/fiorun.sh randwrite 512m /home/ismagilov/nfs/fio/fio-3.3/fio 1024k
+getbw.value: 2968.5
+getlat.value: 321.49
+log-512m-randwrite-job.HPCHUB-CENTOS-H-1: 
+box.HPCHUB-CENTOS-H-1: (g=0): rw=randwrite, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-1: (groupid=0, jobs=1): err= 0: pid=14018: Tue Mar  6 13:53:55 2018
+  write: IOPS=2976, BW=2977MiB/s (3121MB/s)(512MiB/172msec)
+    clat (usec): min=296, max=702, avg=309.97, stdev=25.86
+     lat (usec): min=308, max=714, avg=322.13, stdev=25.93
+    clat percentiles (usec):
+     |  1.00th=[  297],  5.00th=[  302], 10.00th=[  302], 20.00th=[  302],
+     | 30.00th=[  302], 40.00th=[  306], 50.00th=[  306], 60.00th=[  306],
+     | 70.00th=[  310], 80.00th=[  314], 90.00th=[  318], 95.00th=[  326],
+     | 99.00th=[  379], 99.50th=[  408], 99.90th=[  701], 99.95th=[  701],
+     | 99.99th=[  701]
+  lat (usec)   : 500=99.61%, 750=0.39%
+  cpu          : usr=2.92%, sys=92.98%, ctx=18, majf=0, minf=30
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,512,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=2977MiB/s (3121MB/s), 2977MiB/s-2977MiB/s (3121MB/s-3121MB/s), io=512MiB (537MB), run=172-172msec
+log-512m-randwrite-job.HPCHUB-CENTOS-H-2: 
+box.HPCHUB-CENTOS-H-2: (g=0): rw=randwrite, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-2: (groupid=0, jobs=1): err= 0: pid=3699: Tue Mar  6 13:53:55 2018
+  write: IOPS=2959, BW=2960MiB/s (3103MB/s)(512MiB/173msec)
+    clat (usec): min=297, max=924, avg=308.81, stdev=30.91
+     lat (usec): min=308, max=936, avg=320.85, stdev=30.92
+    clat percentiles (usec):
+     |  1.00th=[  297],  5.00th=[  302], 10.00th=[  302], 20.00th=[  302],
+     | 30.00th=[  302], 40.00th=[  302], 50.00th=[  306], 60.00th=[  306],
+     | 70.00th=[  310], 80.00th=[  310], 90.00th=[  314], 95.00th=[  338],
+     | 99.00th=[  379], 99.50th=[  388], 99.90th=[  922], 99.95th=[  922],
+     | 99.99th=[  922]
+  lat (usec)   : 500=99.61%, 750=0.20%, 1000=0.20%
+  cpu          : usr=2.91%, sys=91.86%, ctx=19, majf=0, minf=30
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,512,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=2960MiB/s (3103MB/s), 2960MiB/s-2960MiB/s (3103MB/s-3103MB/s), io=512MiB (537MB), run=173-173msec
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 32 -ppn 16 /home/ismagilov/nfs/fio/fio-3.3/fiorun.sh read 512m /home/ismagilov/nfs/fio/fio-3.3/fio 1024k
+getbw.value: 37.95
+getlat.value: 26341.775
+log-512m-read-job.HPCHUB-CENTOS-H-1: 
+box.HPCHUB-CENTOS-H-1: (g=0): rw=read, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-1: (groupid=0, jobs=1): err= 0: pid=14125: Tue Mar  6 13:54:20 2018
+   read: IOPS=36, BW=36.4MiB/s (38.2MB/s)(512MiB/14048msec)
+    clat (usec): min=95, max=277599, avg=27408.39, stdev=35913.61
+     lat (usec): min=95, max=277600, avg=27408.65, stdev=35913.60
+    clat percentiles (usec):
+     |  1.00th=[   102],  5.00th=[   105], 10.00th=[   113], 20.00th=[   251],
+     | 30.00th=[  5342], 40.00th=[  8455], 50.00th=[ 12518], 60.00th=[ 19530],
+     | 70.00th=[ 31851], 80.00th=[ 48497], 90.00th=[ 73925], 95.00th=[105382],
+     | 99.00th=[145753], 99.50th=[173016], 99.90th=[278922], 99.95th=[278922],
+     | 99.99th=[278922]
+   bw (  KiB/s): min=16384, max=83968, per=100.00%, avg=37376.00, stdev=16256.69, samples=28
+   iops        : min=   16, max=   82, avg=36.50, stdev=15.88, samples=28
+  lat (usec)   : 100=0.20%, 250=19.73%, 500=3.52%
+  lat (msec)   : 4=1.56%, 10=19.34%, 20=16.21%, 50=20.31%, 100=13.48%
+  lat (msec)   : 250=5.47%, 500=0.20%
+  cpu          : usr=0.01%, sys=1.07%, ctx=548, majf=0, minf=288
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=512,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=36.4MiB/s (38.2MB/s), 36.4MiB/s-36.4MiB/s (38.2MB/s-38.2MB/s), io=512MiB (537MB), run=14048-14048msec
+log-512m-read-job.HPCHUB-CENTOS-H-2: 
+box.HPCHUB-CENTOS-H-2: (g=0): rw=read, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-2: (groupid=0, jobs=1): err= 0: pid=3804: Tue Mar  6 13:54:20 2018
+   read: IOPS=39, BW=39.5MiB/s (41.5MB/s)(512MiB/12950msec)
+    clat (usec): min=100, max=149728, avg=25274.64, stdev=31058.68
+     lat (usec): min=100, max=149728, avg=25274.90, stdev=31058.67
+    clat percentiles (usec):
+     |  1.00th=[   147],  5.00th=[   147], 10.00th=[   159], 20.00th=[  5407],
+     | 30.00th=[  6390], 40.00th=[  7963], 50.00th=[ 11731], 60.00th=[ 17433],
+     | 70.00th=[ 28443], 80.00th=[ 43254], 90.00th=[ 68682], 95.00th=[ 99091],
+     | 99.00th=[133694], 99.50th=[141558], 99.90th=[149947], 99.95th=[149947],
+     | 99.99th=[149947]
+   bw (  KiB/s): min=24576, max=79872, per=98.72%, avg=39967.76, stdev=15074.67, samples=25
+   iops        : min=   24, max=   78, avg=38.96, stdev=14.64, samples=25
+  lat (usec)   : 250=10.94%, 500=7.23%
+  lat (msec)   : 10=27.54%, 20=16.80%, 50=21.29%, 100=11.52%, 250=4.69%
+  cpu          : usr=0.00%, sys=0.88%, ctx=435, majf=0, minf=288
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=512,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=39.5MiB/s (41.5MB/s), 39.5MiB/s-39.5MiB/s (41.5MB/s-41.5MB/s), io=512MiB (537MB), run=12950-12950msec
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+mpirun -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 -env I_MPI_PIN_PROCESSOR_LIST=allcores:map=scatter --hostfile machinefile -n 32 -ppn 16 /home/ismagilov/nfs/fio/fio-3.3/fiorun.sh write 512m /home/ismagilov/nfs/fio/fio-3.3/fio 1024k
+getbw.value: 2968.5
+getlat.value: 320.23
+log-512m-write-job.HPCHUB-CENTOS-H-1: 
+box.HPCHUB-CENTOS-H-1: (g=0): rw=write, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-1: (groupid=0, jobs=1): err= 0: pid=14254: Tue Mar  6 13:54:55 2018
+  write: IOPS=2959, BW=2960MiB/s (3103MB/s)(512MiB/173msec)
+    clat (usec): min=298, max=578, avg=309.21, stdev=18.05
+     lat (usec): min=310, max=590, avg=321.32, stdev=18.12
+    clat percentiles (usec):
+     |  1.00th=[  302],  5.00th=[  302], 10.00th=[  302], 20.00th=[  302],
+     | 30.00th=[  302], 40.00th=[  306], 50.00th=[  306], 60.00th=[  306],
+     | 70.00th=[  310], 80.00th=[  314], 90.00th=[  314], 95.00th=[  330],
+     | 99.00th=[  383], 99.50th=[  416], 99.90th=[  578], 99.95th=[  578],
+     | 99.99th=[  578]
+  lat (usec)   : 500=99.80%, 750=0.20%
+  cpu          : usr=2.33%, sys=93.02%, ctx=17, majf=0, minf=30
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,512,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=2960MiB/s (3103MB/s), 2960MiB/s-2960MiB/s (3103MB/s-3103MB/s), io=512MiB (537MB), run=173-173msec
+log-512m-write-job.HPCHUB-CENTOS-H-2: 
+box.HPCHUB-CENTOS-H-2: (g=0): rw=write, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.HPCHUB-CENTOS-H-2: (groupid=0, jobs=1): err= 0: pid=3908: Tue Mar  6 13:54:55 2018
+  write: IOPS=2976, BW=2977MiB/s (3121MB/s)(512MiB/172msec)
+    clat (usec): min=295, max=597, avg=306.97, stdev=17.16
+     lat (usec): min=306, max=609, avg=319.14, stdev=17.53
+    clat percentiles (usec):
+     |  1.00th=[  297],  5.00th=[  297], 10.00th=[  302], 20.00th=[  302],
+     | 30.00th=[  302], 40.00th=[  302], 50.00th=[  306], 60.00th=[  306],
+     | 70.00th=[  310], 80.00th=[  310], 90.00th=[  314], 95.00th=[  318],
+     | 99.00th=[  363], 99.50th=[  392], 99.90th=[  594], 99.95th=[  594],
+     | 99.99th=[  594]
+  lat (usec)   : 500=99.80%, 750=0.20%
+  cpu          : usr=3.51%, sys=91.23%, ctx=18, majf=0, minf=29
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,512,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=2977MiB/s (3121MB/s), 2977MiB/s-2977MiB/s (3121MB/s-3121MB/s), io=512MiB (537MB), run=172-172msec
