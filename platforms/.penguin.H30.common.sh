@@ -52,6 +52,8 @@ echo "Stdout:"
 cat $HPCHUB_PWD/_mpirun_penguin_hpchub.stdout
 echo "Stderr:"
 cat $HPCHUB_PWD/_mpirun_penguin_hpchub.stderr
+### One need stderr in stderr - gromacs relies on this!
+cat $HPCHUB_PWD/_mpirun_penguin_hpchub.stderr > /dev/stderr
 exit 0
 fi
 
