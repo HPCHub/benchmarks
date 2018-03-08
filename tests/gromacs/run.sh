@@ -148,7 +148,7 @@ fi
 
   gmx grompp -f ../../md.2.1000.mdp -c ${prot}-npt.gro -t ${prot}-npt.cpt -p $top -o ${prot}-md_0_1.1000.tpr
 
-  gmx grompp -f ../../md.2.1000.mdp -c ${prot}-npt.gro -t ${prot}-npt.cpt -p $top -o ${prot}-md_0_1.10000.tpr
+  gmx grompp -f ../../md.2.10000.mdp -c ${prot}-npt.gro -t ${prot}-npt.cpt -p $top -o ${prot}-md_0_1.10000.tpr
   if [ $HPCHUB_PLATFORM == 'azure' ]; then
     for i in $NODES; do
       rsync -azP --delete ~/ $i:~/
@@ -157,17 +157,18 @@ fi
 
   LogStep $p Step12-grompp
 
-  ${HPCHUB_MPIRUN}  $gmx mdrun -deffnm ${prot}-md_0_1.100
-   
-  LogStep $p Step13-mdrun-prod-100 100
+  for nsteps in 100 1000 10000; do 
 
-  ${HPCHUB_MPIRUN}  $gmx mdrun -deffnm ${prot}-md_0_1.1000
-   
-  LogStep $p Step13-mdrun-prod-1000 1000
+    ${HPCHUB_MPIRUN}  $gmx mdrun -deffnm ${prot}-md_0_1.$nsteps 2>stderr.md.$nsteps.txt
 
-  ${HPCHUB_MPIRUN}  $gmx mdrun -deffnm ${prot}-md_0_1.10000
+    LogStep $p Step13-mdrun-prod-${nsteps} $nsteps
+
+    perf=`grep Performance: stderr.md.$nsteps.txt | awk '{print $2;}'`
+    imb=`grep "Average load imbalance:" stderr.md.$nsteps.txt | awk '{print $4;};'`
+  
+    LogStep $p Step13-mdrun-prod-${nsteps}-perf-ns_per_day $perf
+    LogStep $p Step13-mdrun-prod-${nsteps}-imbalance-percentage $imb
  
-  LogStep $p Step13-mdrun-prod-10000 10000
-
+  done
   cd ..
 done
