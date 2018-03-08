@@ -28,7 +28,7 @@ if [ ! -x "$CMAKE" ]; then
   make -j10
   make install
   cd ..
-  export PATH=${HOME}/usr/bin
+  export PATH=${HOME}/usr/bin:${PATH}
 fi
 
 version=5.1.4
