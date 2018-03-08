@@ -2,6 +2,8 @@
 
 source ${HOME}/usr/bin/GMXRC
 
+export HPCHUB_TEST_STATE=run
+
 if [ -f ../platform.sh ]; then
   . ../platform.sh
 fi
