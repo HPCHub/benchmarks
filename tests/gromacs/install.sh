@@ -24,10 +24,11 @@ if [ ! -x "$CMAKE" ]; then
   wget https://cmake.org/files/v3.11/cmake-3.11.0-rc2.tar.gz
   tar -xvzf cmake-3.11.0-rc2.tar.gz
   cd cmake*
-  ./configure --prefix=${HOME}/usr/bin
+  ./configure --prefix=${HOME}/usr
   make -j10
   make install
   cd ..
+  export PATH=${HOME}/usr/bin
 fi
 
 version=5.1.4
