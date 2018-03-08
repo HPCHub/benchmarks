@@ -43,7 +43,9 @@ fi
   cd build 
   CC=$MPICC CXX=$MPICXX cmake .. -DGMX_MPI=ON -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON -DGMX_BUILD_OWN_FFTW=ON -DCMAKE_INSTALL_PREFIX=${HOME}/usr -DCMAKE_PREFIX_PATH=${HOME}/usr -DREGRESSIONTEST_DOWNLOAD=ON
   make
-  make check
+  if [ -f ../.do_make_check ]; then
+    make check
+  fi
   make install
 #   for compatibility with run.sh
   ln -s  ~/usr/bin/gmx_mpi ~/usr/bin/gmx
