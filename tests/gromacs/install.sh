@@ -17,6 +17,7 @@ if [ ! -f fftw-${fftw_version}.tar.gz ]; then
   cd fftw-${fftw_version}
   ./configure --prefix=${HOME}/usr ${FFTW_CONFIGURE_FLAGS}
   make && make install
+  cd ..
 fi  
 
 CMAKE=`which cmake`
