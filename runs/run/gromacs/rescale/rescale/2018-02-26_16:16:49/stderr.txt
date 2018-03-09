@@ -1,0 +1,15 @@
+./run.sh: line 3: /enc/uprod_dSTAp/usr/bin/GMXRC: No such file or directory
+rm: cannot remove ‘#*’: No such file or directory
+--2018-02-26 13:27:06--  https://files.rcsb.org/download/1AKI.pdb.gz
+Resolving files.rcsb.org (files.rcsb.org)... 128.6.244.229
+Connecting to files.rcsb.org (files.rcsb.org)|128.6.244.229|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 27017 (26K) [application/octet-stream]
+Saving to: ‘1AKI.pdb.gz’
+
+     0K .......... .......... ......                          100%  962K=0.03s
+
+2018-02-26 13:27:06 (962 KB/s) - ‘1AKI.pdb.gz’ saved [27017/27017]
+
+rm: cannot remove ‘#*’: No such file or directory
+./run.sh: line 91: gmx: command not found
