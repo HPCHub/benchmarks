@@ -32,3 +32,4 @@ LogStep cpuinfo cache_KB $cache
 LogStep cpuinfo cpu_family $family
 LogStep cpuinfo cpu_model $model
 
+lspci
