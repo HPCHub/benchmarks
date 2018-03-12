@@ -1,0 +1,1520 @@
+molmod already exists.
+mkdir: невозможно создать каталог «molmod»: Файл существует
+rm: невозможно удалить «#*»: Нет такого файла или каталога
+rm: невозможно удалить «#*»: Нет такого файла или каталога
+                  :-) GROMACS - gmx pdb2gmx, VERSION 5.1.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx pdb2gmx, VERSION 5.1.4
+Executable:   /home/admin/usr/bin/gmx_mpi
+Data prefix:  /home/admin/usr
+Command line:
+  gmx pdb2gmx -f ../1AKI.pdb -o 1AKI.gro -p 1AKI.top -water spce -ff oplsaa
+
+Opening force field file /home/admin/usr/share/gromacs/top/oplsaa.ff/aminoacids.r2b
+WARNING: all CONECT records are ignored
+
+WARNING: there were 0 atoms with zero occupancy and 74 atoms with
+         occupancy unequal to one (out of 1079 atoms). Check your pdb file.
+
+Opening force field file /home/admin/usr/share/gromacs/top/oplsaa.ff/atomtypes.atp
+Atomtype 1Atomtype 2Atomtype 3Atomtype 4Atomtype 5Atomtype 6Atomtype 7Atomtype 8Atomtype 9Atomtype 10Atomtype 11Atomtype 12Atomtype 13Atomtype 14Atomtype 15Atomtype 16Atomtype 17Atomtype 18Atomtype 19Atomtype 20Atomtype 21Atomtype 22Atomtype 23Atomtype 24Atomtype 25Atomtype 26Atomtype 27Atomtype 28Atomtype 29Atomtype 30Atomtype 31Atomtype 32Atomtype 33Atomtype 34Atomtype 35Atomtype 36Atomtype 37Atomtype 38Atomtype 39Atomtype 40Atomtype 41Atomtype 42Atomtype 43Atomtype 44Atomtype 45Atomtype 46Atomtype 47Atomtype 48Atomtype 49Atomtype 50Atomtype 51Atomtype 52Atomtype 53Atomtype 54Atomtype 55Atomtype 56Atomtype 57Atomtype 58Atomtype 59Atomtype 60Atomtype 61Atomtype 62Atomtype 63Atomtype 64Atomtype 65Atomtype 66Atomtype 67Atomtype 68Atomtype 69Atomtype 70Atomtype 71Atomtype 72Atomtype 73Atomtype 74Atomtype 75Atomtype 76Atomtype 77Atomtype 78Atomtype 79Atomtype 80Atomtype 81Atomtype 82Atomtype 83Atomtype 84Atomtype 85Atomtype 86Atomtype 87Atomtype 88Atomtype 89Atomtype 90Atomtype 91Atomtype 92Atomtype 93Atomtype 94Atomtype 95Atomtype 96Atomtype 97Atomtype 98Atomtype 99Atomtype 100Atomtype 101Atomtype 102Atomtype 103Atomtype 104Atomtype 105Atomtype 106Atomtype 107Atomtype 108Atomtype 109Atomtype 110Atomtype 111Atomtype 112Atomtype 113Atomtype 114Atomtype 115Atomtype 116Atomtype 117Atomtype 118Atomtype 119Atomtype 120Atomtype 121Atomtype 122Atomtype 123Atomtype 124Atomtype 125Atomtype 126Atomtype 127Atomtype 128Atomtype 129Atomtype 130Atomtype 131Atomtype 132Atomtype 133Atomtype 134Atomtype 135Atomtype 136Atomtype 137Atomtype 138Atomtype 139Atomtype 140Atomtype 141Atomtype 142Atomtype 143Atomtype 144Atomtype 145Atomtype 146Atomtype 147Atomtype 148Atomtype 149Atomtype 150Atomtype 151Atomtype 152Atomtype 153Atomtype 154Atomtype 155Atomtype 156Atomtype 157Atomtype 158Atomtype 159Atomtype 160Atomtype 161Atomtype 162Atomtype 163Atomtype 164Atomtype 165Atomtype 166Atomtype 167Atomtype 168Atomtype 169Atomtype 170Atomtype 171Atomtype 172Atomtype 173Atomtype 174Atomtype 175Atomtype 176Atomtype 177Atomtype 178Atomtype 179Atomtype 180Atomtype 181Atomtype 182Atomtype 183Atomtype 184Atomtype 185Atomtype 186Atomtype 187Atomtype 188Atomtype 189Atomtype 190Atomtype 191Atomtype 192Atomtype 193Atomtype 194Atomtype 195Atomtype 196Atomtype 197Atomtype 198Atomtype 199Atomtype 200Atomtype 201Atomtype 202Atomtype 203Atomtype 204Atomtype 205Atomtype 206Atomtype 207Atomtype 208Atomtype 209Atomtype 210Atomtype 211Atomtype 212Atomtype 213Atomtype 214Atomtype 215Atomtype 216Atomtype 217Atomtype 218Atomtype 219Atomtype 220Atomtype 221Atomtype 222Atomtype 223Atomtype 224Atomtype 225Atomtype 226Atomtype 227Atomtype 228Atomtype 229Atomtype 230Atomtype 231Atomtype 232Atomtype 233Atomtype 234Atomtype 235Atomtype 236Atomtype 237Atomtype 238Atomtype 239Atomtype 240Atomtype 241Atomtype 242Atomtype 243Atomtype 244Atomtype 245Atomtype 246Atomtype 247Atomtype 248Atomtype 249Atomtype 250Atomtype 251Atomtype 252Atomtype 253Atomtype 254Atomtype 255Atomtype 256Atomtype 257Atomtype 258Atomtype 259Atomtype 260Atomtype 261Atomtype 262Atomtype 263Atomtype 264Atomtype 265Atomtype 266Atomtype 267Atomtype 268Atomtype 269Atomtype 270Atomtype 271Atomtype 272Atomtype 273Atomtype 274Atomtype 275Atomtype 276Atomtype 277Atomtype 278Atomtype 279Atomtype 280Atomtype 281Atomtype 282Atomtype 283Atomtype 284Atomtype 285Atomtype 286Atomtype 287Atomtype 288Atomtype 289Atomtype 290Atomtype 291Atomtype 292Atomtype 293Atomtype 294Atomtype 295Atomtype 296Atomtype 297Atomtype 298Atomtype 299Atomtype 300Atomtype 301Atomtype 302Atomtype 303Atomtype 304Atomtype 305Atomtype 306Atomtype 307Atomtype 308Atomtype 309Atomtype 310Atomtype 311Atomtype 312Atomtype 313Atomtype 314Atomtype 315Atomtype 316Atomtype 317Atomtype 318Atomtype 319Atomtype 320Atomtype 321Atomtype 322Atomtype 323Atomtype 324Atomtype 325Atomtype 326Atomtype 327Atomtype 328Atomtype 329Atomtype 330Atomtype 331Atomtype 332Atomtype 333Atomtype 334Atomtype 335Atomtype 336Atomtype 337Atomtype 338Atomtype 339Atomtype 340Atomtype 341Atomtype 342Atomtype 343Atomtype 344Atomtype 345Atomtype 346Atomtype 347Atomtype 348Atomtype 349Atomtype 350Atomtype 351Atomtype 352Atomtype 353Atomtype 354Atomtype 355Atomtype 356Atomtype 357Atomtype 358Atomtype 359Atomtype 360Atomtype 361Atomtype 362Atomtype 363Atomtype 364Atomtype 365Atomtype 366Atomtype 367Atomtype 368Atomtype 369Atomtype 370Atomtype 371Atomtype 372Atomtype 373Atomtype 374Atomtype 375Atomtype 376Atomtype 377Atomtype 378Atomtype 379Atomtype 380Atomtype 381Atomtype 382Atomtype 383Atomtype 384Atomtype 385Atomtype 386Atomtype 387Atomtype 388Atomtype 389Atomtype 390Atomtype 391Atomtype 392Atomtype 393Atomtype 394Atomtype 395Atomtype 396Atomtype 397Atomtype 398Atomtype 399Atomtype 400Atomtype 401Atomtype 402Atomtype 403Atomtype 404Atomtype 405Atomtype 406Atomtype 407Atomtype 408Atomtype 409Atomtype 410Atomtype 411Atomtype 412Atomtype 413Atomtype 414Atomtype 415Atomtype 416Atomtype 417Atomtype 418Atomtype 419Atomtype 420Atomtype 421Atomtype 422Atomtype 423Atomtype 424Atomtype 425Atomtype 426Atomtype 427Atomtype 428Atomtype 429Atomtype 430Atomtype 431Atomtype 432Atomtype 433Atomtype 434Atomtype 435Atomtype 436Atomtype 437Atomtype 438Atomtype 439Atomtype 440Atomtype 441Atomtype 442Atomtype 443Atomtype 444Atomtype 445Atomtype 446Atomtype 447Atomtype 448Atomtype 449Atomtype 450Atomtype 451Atomtype 452Atomtype 453Atomtype 454Atomtype 455Atomtype 456Atomtype 457Atomtype 458Atomtype 459Atomtype 460Atomtype 461Atomtype 462Atomtype 463Atomtype 464Atomtype 465Atomtype 466Atomtype 467Atomtype 468Atomtype 469Atomtype 470Atomtype 471Atomtype 472Atomtype 473Atomtype 474Atomtype 475Atomtype 476Atomtype 477Atomtype 478Atomtype 479Atomtype 480Atomtype 481Atomtype 482Atomtype 483Atomtype 484Atomtype 485Atomtype 486Atomtype 487Atomtype 488Atomtype 489Atomtype 490Atomtype 491Atomtype 492Atomtype 493Atomtype 494Atomtype 495Atomtype 496Atomtype 497Atomtype 498Atomtype 499Atomtype 500Atomtype 501Atomtype 502Atomtype 503Atomtype 504Atomtype 505Atomtype 506Atomtype 507Atomtype 508Atomtype 509Atomtype 510Atomtype 511Atomtype 512Atomtype 513Atomtype 514Atomtype 515Atomtype 516Atomtype 517Atomtype 518Atomtype 519Atomtype 520Atomtype 521Atomtype 522Atomtype 523Atomtype 524Atomtype 525Atomtype 526Atomtype 527Atomtype 528Atomtype 529Atomtype 530Atomtype 531Atomtype 532Atomtype 533Atomtype 534Atomtype 535Atomtype 536Atomtype 537Atomtype 538Atomtype 539Atomtype 540Atomtype 541Atomtype 542Atomtype 543Atomtype 544Atomtype 545Atomtype 546Atomtype 547Atomtype 548Atomtype 549Atomtype 550Atomtype 551Atomtype 552Atomtype 553Atomtype 554Atomtype 555Atomtype 556Atomtype 557Atomtype 558Atomtype 559Atomtype 560Atomtype 561Atomtype 562Atomtype 563Atomtype 564Atomtype 565Atomtype 566Atomtype 567Atomtype 568Atomtype 569Atomtype 570Atomtype 571Atomtype 572Atomtype 573Atomtype 574Atomtype 575Atomtype 576Atomtype 577Atomtype 578Atomtype 579Atomtype 580Atomtype 581Atomtype 582Atomtype 583Atomtype 584Atomtype 585Atomtype 586Atomtype 587Atomtype 588Atomtype 589Atomtype 590Atomtype 591Atomtype 592Atomtype 593Atomtype 594Atomtype 595Atomtype 596Atomtype 597Atomtype 598Atomtype 599Atomtype 600Atomtype 601Atomtype 602Atomtype 603Atomtype 604Atomtype 605Atomtype 606Atomtype 607Atomtype 608Atomtype 609Atomtype 610Atomtype 611Atomtype 612Atomtype 613Atomtype 614Atomtype 615Atomtype 616Atomtype 617Atomtype 618Atomtype 619Atomtype 620Atomtype 621Atomtype 622Atomtype 623Atomtype 624Atomtype 625Atomtype 626Atomtype 627Atomtype 628Atomtype 629Atomtype 630Atomtype 631Atomtype 632Atomtype 633Atomtype 634Atomtype 635Atomtype 636Atomtype 637Atomtype 638Atomtype 639Atomtype 640Atomtype 641Atomtype 642Atomtype 643Atomtype 644Atomtype 645Atomtype 646Atomtype 647Atomtype 648Atomtype 649Atomtype 650Atomtype 651Atomtype 652Atomtype 653Atomtype 654Atomtype 655Atomtype 656Atomtype 657Atomtype 658Atomtype 659Atomtype 660Atomtype 661Atomtype 662Atomtype 663Atomtype 664Atomtype 665Atomtype 666Atomtype 667Atomtype 668Atomtype 669Atomtype 670Atomtype 671Atomtype 672Atomtype 673Atomtype 674Atomtype 675Atomtype 676Atomtype 677Atomtype 678Atomtype 679Atomtype 680Atomtype 681Atomtype 682Atomtype 683Atomtype 684Atomtype 685Atomtype 686Atomtype 687Atomtype 688Atomtype 689Atomtype 690Atomtype 691Atomtype 692Atomtype 693Atomtype 694Atomtype 695Atomtype 696Atomtype 697Atomtype 698Atomtype 699Atomtype 700Atomtype 701Atomtype 702Atomtype 703Atomtype 704Atomtype 705Atomtype 706Atomtype 707Atomtype 708Atomtype 709Atomtype 710Atomtype 711Atomtype 712Atomtype 713Atomtype 714Atomtype 715Atomtype 716Atomtype 717Atomtype 718Atomtype 719Atomtype 720Atomtype 721Atomtype 722Atomtype 723Atomtype 724Atomtype 725Atomtype 726Atomtype 727Atomtype 728Atomtype 729Atomtype 730Atomtype 731Atomtype 732Atomtype 733Atomtype 734Atomtype 735Atomtype 736Atomtype 737Atomtype 738Atomtype 739Atomtype 740Atomtype 741Atomtype 742Atomtype 743Atomtype 744Atomtype 745Atomtype 746Atomtype 747Atomtype 748Atomtype 749Atomtype 750Atomtype 751Atomtype 752Atomtype 753Atomtype 754Atomtype 755Atomtype 756Atomtype 757Atomtype 758Atomtype 759Atomtype 760Atomtype 761Atomtype 762Atomtype 763Atomtype 764Atomtype 765Atomtype 766Atomtype 767Atomtype 768Atomtype 769Atomtype 770Atomtype 771Atomtype 772Atomtype 773Atomtype 774Atomtype 775Atomtype 776Atomtype 777Atomtype 778Atomtype 779Atomtype 780Atomtype 781Atomtype 782Atomtype 783Atomtype 784Atomtype 785Atomtype 786Atomtype 787Atomtype 788Atomtype 789Atomtype 790Atomtype 791Atomtype 792Atomtype 793Atomtype 794Atomtype 795Atomtype 796Atomtype 797Atomtype 798Atomtype 799Atomtype 800Atomtype 801Atomtype 802Atomtype 803Atomtype 804Atomtype 805Atomtype 806Atomtype 807Atomtype 808Atomtype 809Atomtype 810Atomtype 811Atomtype 812Atomtype 813Atomtype 814
+Opening force field file /home/admin/usr/share/gromacs/top/oplsaa.ff/aminoacids.rtp
+Residue 1Residue 2Residue 3Residue 4Residue 5Residue 6Residue 7Residue 8Residue 9Residue 10Residue 11Residue 12Residue 13Residue 14Residue 15Residue 16Residue 17Residue 18Residue 19Residue 20Residue 21Residue 22Residue 23Residue 24Residue 25Residue 26Residue 27Residue 28Residue 29Residue 30Residue 31Residue 32Residue 33Residue 34Residue 35Residue 36Residue 37Residue 38Residue 39Residue 40Residue 41Residue 42Residue 43Residue 44Residue 45Residue 46Residue 47Residue 48Residue 49Residue 50Residue 51
+Sorting it all out...
+Opening force field file /home/admin/usr/share/gromacs/top/oplsaa.ff/aminoacids.hdb
+Opening force field file /home/admin/usr/share/gromacs/top/oplsaa.ff/aminoacids.n.tdb
+Opening force field file /home/admin/usr/share/gromacs/top/oplsaa.ff/aminoacids.c.tdb
+Analysing hydrogen-bonding network for automated assignment of histidine
+ protonation. 213 donors and 184 acceptors were found.
+There are 255 hydrogen bonds
+Will use HISE for residue 15
+8 out of 8 lines of specbond.dat converted successfully
+Special Atom Distance matrix:
+                    CYS6   MET12   HIS15   CYS30   CYS64   CYS76   CYS80
+                    SG48    SD87  NE2118   SG238   SG513   SG601   SG630
+   MET12    SD87   1.166
+   HIS15  NE2118   1.776   1.019
+   CYS30   SG238   1.406   1.054   2.069
+   CYS64   SG513   2.835   1.794   1.789   2.241
+   CYS76   SG601   2.704   1.551   1.468   2.116   0.765
+
+Using the Oplsaa force field in directory oplsaa.ff
+
+Reading ../1AKI.pdb...
+Read 'LYSOZYME', 1079 atoms
+Analyzing pdb file
+Splitting chemical chains based on TER records or chain id changing.
+There are 1 chains and 1 blocks of water and 207 residues with 1079 atoms
+
+  chain  #res #atoms
+  1 'A'   129   1001  
+  2 ' '    78     78  (only water)
+
+Reading residue database... (oplsaa)
+Processing chain 1 'A' (1001 atoms, 129 residues)
+Identified residue LYS1 as a starting terminus.
+Identified residue LEU129 as a ending terminus.
+Start terminus LYS-1: NH3+
+End terminus LEU-129: COO-
+Checking for duplicate atoms....
+Generating any missing hydrogen atoms and/or adding termini.
+Now there are 129 residues with 1960 atoms
+   CYS80   SG630   2.959   1.951   1.916   2.391   0.199   0.944
+   CYS94   SG724   2.550   1.407   1.382   1.975   0.665   0.202   0.855
+  MET105   SD799   1.827   0.911   1.683   0.888   1.849   1.461   2.036
+  CYS115   SG889   1.576   1.084   2.078   0.200   2.111   1.989   2.262
+  CYS127   SG981   0.197   1.072   1.721   1.313   2.799   2.622   2.934
+                   CYS94  MET105  CYS115
+                   SG724   SD799   SG889
+  MET105   SD799   1.381
+  CYS115   SG889   1.853   0.790
+  CYS127   SG981   2.475   1.686   1.483
+Linking CYS-6 SG-48 and CYS-127 SG-981...
+Linking CYS-30 SG-238 and CYS-115 SG-889...
+Linking CYS-64 SG-513 and CYS-80 SG-630...
+Linking CYS-76 SG-601 and CYS-94 SG-724...
+Making bonds...
+Number of bonds was 1984, now 1984
+Generating angles, dihedrals and pairs...
+Before cleaning: 5142 pairs
+Before cleaning: 5187 dihedrals
+Keeping all generated dihedrals
+Making cmap torsions...
+There are 5187 dihedrals,  426 impropers, 3547 angles
+          5106 pairs,     1984 bonds and     0 virtual sites
+Total mass 14313.193 a.m.u.
+Total charge 7.887 e
+Writing topology
+8 out of 8 lines of specbond.dat converted successfully
+Making bonds...
+Number of bonds was 156, now 156
+Generating angles, dihedrals and pairs...
+Making cmap torsions...
+There are    0 dihedrals,    0 impropers,   78 angles
+             0 pairs,      156 bonds and     0 virtual sites
+Total mass 1405.201 a.m.u.
+Total charge 0.000 e
+Now there are 2194 atoms and 207 residues
+Total mass in system 15718.394 a.m.u.
+Total charge in system 7.887 e
+
+Writing coordinate file...
+
+gcq#246: "Everything Must Go" (Red Hot Chili Peppers)
+
+Processing chain 2 (78 atoms, 78 residues)
+Problem with chain definition, or missing terminal residues.
+This chain does not appear to contain a recognized chain molecule.
+If this is incorrect, you can edit residuetypes.dat to modify the behavior.
+Checking for duplicate atoms....
+Generating any missing hydrogen atoms and/or adding termini.
+Now there are 78 residues with 234 atoms
+Including chain 1 in system: 1960 atoms 129 residues
+Including chain 2 in system: 234 atoms 78 residues
+		--------- PLEASE NOTE ------------
+You have successfully generated a topology from: ../1AKI.pdb.
+The Oplsaa force field and the spce water model are used.
+		--------- ETON ESAELP ------------
+                 :-) GROMACS - gmx editconf, VERSION 5.1.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx editconf, VERSION 5.1.4
+Executable:   /home/admin/usr/bin/gmx_mpi
+Data prefix:  /home/admin/usr
+Command line:
+  gmx editconf -f 1AKI.gro -o 1AKI_newbox.gro -c -d 1.0 -bt cubic
+
+
+gcq#14: "Your Proposal is Accepted" (Men In Black)
+
+Read 2194 atoms
+Volume: 123.376 nm^3, corresponds to roughly 55500 electrons
+No velocities found
+    system size :  4.196  4.268  3.454 (nm)
+    diameter    :  5.339               (nm)
+    center      :  2.772  2.507  0.003 (nm)
+    box vectors :  5.906  6.845  3.052 (nm)
+    box angles  :  90.00  90.00  90.00 (degrees)
+    box volume  : 123.38               (nm^3)
+    shift       :  0.898  1.162  3.667 (nm)
+new center      :  3.670  3.670  3.670 (nm)
+new box vectors :  7.339  7.339  7.339 (nm)
+new box angles  :  90.00  90.00  90.00 (degrees)
+new box volume  : 395.33               (nm^3)
+                  :-) GROMACS - gmx solvate, VERSION 5.1.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx solvate, VERSION 5.1.4
+Executable:   /home/admin/usr/bin/gmx_mpi
+Data prefix:  /home/admin/usr
+Command line:
+  gmx solvate -cp 1AKI_newbox.gro -cs spc216.gro -o 1AKI_solv.gro -p 1AKI.top
+
+Reading solute configuration
+LYSOZYME
+Containing 2194 atoms in 207 residues
+Reading solvent configuration and velocities
+
+WARNING: Masses and atomic (Van der Waals) radii will be guessed
+         based on residue and atom names, since they could not be
+         definitively assigned from the information in your input
+         files. These guessed numbers might deviate from the mass
+         and radius of the atom type. Please check the output
+         files if necessary.
+
+NOTE: From version 5.0 gmx uses the Van der Waals radii
+from the source below. This means the results may be different
+compared to previous GROMACS versions.
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+A. Bondi
+van der Waals Volumes and Radii
+J. Phys. Chem. 68 (1964) pp. 441-451
+-------- -------- --- Thank You --- -------- --------
+
+216H2O,WATJP01,SPC216,SPC-MODEL,300K,BOX(M)=1.86206NM,WFVG,MAR. 1984
+Containing 648 atoms in 216 residues
+
+Initialising inter-atomic distances...
+Generating solvent configuration
+Will generate new solvent configuration of 4x4x4 boxes
+Solvent box contains 41472 atoms in 13824 residues
+Removed 3204 solvent atoms due to solvent-solvent overlap
+Removed 2070 solvent atoms due to solute-solvent overlap
+Sorting configuration
+Found 1 molecule type:
+    SOL (   3 atoms): 12066 residues
+Generated solvent containing 36198 atoms in 12066 residues
+Writing generated configuration to 1AKI_solv.gro
+
+Output configuration contains 38392 atoms in 12273 residues
+Volume                 :     395.326 (nm^3)
+Density                :     983.101 (g/l)
+Number of SOL molecules:  12144   
+
+Processing topology
+
+Back Off! I just backed up temp.top21R1pO to ./#temp.top21R1pO.1#
+
+Back Off! I just backed up 1AKI.top to ./#1AKI.top.1#
+
+gcq#335: "Can someone please tell Icarus that he's not the only one falling from the sky?" (Urban Dance Squad)
+
+Adding line for 12066 solvent molecules to topology file (1AKI.top)
+                  :-) GROMACS - gmx grompp, VERSION 5.1.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, VERSION 5.1.4
+Executable:   /home/admin/usr/bin/gmx_mpi
+Data prefix:  /home/admin/usr
+Command line:
+  gmx grompp -f ../../ions.mdp -c 1AKI_solv.gro -p 1AKI.top -o 1AKI-ions.tpr
+
+
+NOTE 1 [file ../../ions.mdp]:
+  With Verlet lists the optimal nstlist is >= 10, with GPUs >= 20. Note
+  that with the Verlet scheme, nstlist has no effect on the accuracy of
+  your simulation.
+
+Setting the LD random seed to 2279723985
+Generated 330891 of the 330891 non-bonded parameter combinations
+Generating 1-4 interactions: fudge = 0.5
+Generated 330891 of the 330891 1-4 parameter combinations
+Excluding 3 bonded neighbours molecule type 'Protein_chain_A'
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 2 bonded neighbours molecule type 'SOL'
+
+NOTE 2 [file 1AKI.top, line 18410]:
+  System has non-zero total charge: 7.887000
+  Total charge should normally be an integer. See
+  http://www.gromacs.org/Documentation/Floating_Point_Arithmetic
+  for discussion on how close it should be to an integer.
+  
+
+
+Removing all charge groups because cutoff-scheme=Verlet
+Analysing residue names:
+Number of degrees of freedom in T-Coupling group rest is 78741.00
+Estimate for the relative computational load of the PME mesh part: 0.25
+
+There were 2 notes
+
+gcq#515: "Even the *healthy* people move in clouds of cigarette smoke, women straining polyester, men in raggedly cutoffs slathering mayonnaise on foot-long hot dogs. It's as if the hotel were hosting a conference on adult onset diabetes" (Jess Walter)
+
+There are:   129    Protein residues
+There are: 12144      Water residues
+Analysing Protein...
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 64x64x64, spacing 0.115 0.115 0.115
+This run will generate roughly 3 Mb of data
+                  :-) GROMACS - gmx genion, VERSION 5.1.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx genion, VERSION 5.1.4
+Executable:   /home/admin/usr/bin/gmx_mpi
+Data prefix:  /home/admin/usr
+Command line:
+  gmx genion -s 1AKI-ions.tpr -o 1AKI_solv_ions.gro -p 1AKI.top -pname NA -nname CL -nn 8
+
+Reading file 1AKI-ions.tpr, VERSION 5.1.4 (single precision)
+Reading file 1AKI-ions.tpr, VERSION 5.1.4 (single precision)
+Will try to add 0 NA ions and 8 CL ions.
+Select a continuous group of solvent molecules
+Selected 13: 'SOL'
+
+Processing topology
+Replacing 8 solute molecules in topology file (1AKI.top)  by 0 NA and 8 CL ions.
+Group     0 (         System) has 38392 elements
+Group     1 (        Protein) has  1960 elements
+Group     2 (      Protein-H) has  1001 elements
+Group     3 (        C-alpha) has   129 elements
+Group     4 (       Backbone) has   387 elements
+Group     5 (      MainChain) has   517 elements
+Group     6 (   MainChain+Cb) has   634 elements
+Group     7 (    MainChain+H) has   646 elements
+Group     8 (      SideChain) has  1314 elements
+Group     9 (    SideChain-H) has   484 elements
+Group    10 (    Prot-Masses) has  1960 elements
+Group    11 (    non-Protein) has 36432 elements
+Group    12 (          Water) has 36432 elements
+Group    13 (            SOL) has 36432 elements
+Group    14 (      non-Water) has  1960 elements
+Select a group: Number of (3-atomic) solvent molecules: 12144
+
+Back Off! I just backed up temp.topIHbnQs to ./#temp.topIHbnQs.1#
+
+Back Off! I just backed up 1AKI.top to ./#1AKI.top.2#
+Replacing solvent molecule 1219 (atom 5617) with CL
+Replacing solvent molecule 3380 (atom 12100) with CL
+Replacing solvent molecule 2664 (atom 9952) with CL
+Replacing solvent molecule 11067 (atom 35161) with CL
+Replacing solvent molecule 11306 (atom 35878) with CL
+Replacing solvent molecule 1927 (atom 7741) with CL
+Replacing solvent molecule 4024 (atom 14032) with CL
+Replacing solvent molecule 533 (atom 3559) with CL
+
+
+gcq#80: "Don't Follow Me Home" (Throwing Muses)
+
+                  :-) GROMACS - gmx grompp, VERSION 5.1.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, VERSION 5.1.4
+Executable:   /home/admin/usr/bin/gmx_mpi
+Data prefix:  /home/admin/usr
+Command line:
+  gmx grompp -f ../../minim.2.mdp -c 1AKI_solv_ions.gro -p 1AKI.top -o 1AKI-em.tpr
+
+
+Back Off! I just backed up mdout.mdp to ./#mdout.mdp.1#
+
+NOTE 1 [file ../../minim.2.mdp]:
+  With Verlet lists the optimal nstlist is >= 10, with GPUs >= 20. Note
+  that with the Verlet scheme, nstlist has no effect on the accuracy of
+  your simulation.
+
+Setting the LD random seed to 1643370664
+Generated 330891 of the 330891 non-bonded parameter combinations
+Generating 1-4 interactions: fudge = 0.5
+Generated 330891 of the 330891 1-4 parameter combinations
+Excluding 3 bonded neighbours molecule type 'Protein_chain_A'
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 1 bonded neighbours molecule type 'CL'
+
+NOTE 2 [file 1AKI.top, line 18411]:
+  System has non-zero total charge: -0.113000
+  Total charge should normally be an integer. See
+  http://www.gromacs.org/Documentation/Floating_Point_Arithmetic
+  for discussion on how close it should be to an integer.
+  
+
+
+Removing all charge groups because cutoff-scheme=Verlet
+Analysing residue names:
+Number of degrees of freedom in T-Coupling group rest is 78717.00
+Estimate for the relative computational load of the PME mesh part: 0.25
+
+There were 2 notes
+
+gcq#204: "I Am the Psychotherapist. Please, Describe Your Problems." (GNU Emacs)
+
+There are:   129    Protein residues
+There are: 12136      Water residues
+There are:     8        Ion residues
+Analysing Protein...
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 64x64x64, spacing 0.115 0.115 0.115
+This run will generate roughly 3 Mb of data
+cat machinefile
+n002.vcluster slots=20
+n001.vcluster slots=20
+                   :-) GROMACS - gmx mdrun, VERSION 5.1.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, VERSION 5.1.4
+Executable:   /shared/admin/hpchub_benchmark/tests/gromacs/gromacs-5.1.4/build/bin/gmx_mpi
+Data prefix:  /shared/admin/hpchub_benchmark/tests/gromacs/gromacs-5.1.4 (source tree)
+Command line:
+  gmx_mpi mdrun -v -deffnm 1AKI-em
+
+
+Number of logical cores detected (20) does not match the number reported by OpenMP (1).
+Consider setting the launch configuration manually!
+
+Running on 2 nodes with total 40 logical cores
+  Logical cores per node:   20
+Hardware detected on host n002 (the node of MPI rank 0):
+  CPU info:
+    Vendor: GenuineIntel
+    Brand:  Intel(R) Xeon(R) CPU E5-2680 v2 @ 2.80GHz
+    SIMD instructions most likely to fit this hardware: AVX_256
+    SIMD instructions selected at GROMACS compile time: AVX_256
+
+Reading file 1AKI-em.tpr, VERSION 5.1.4 (single precision)
+
+Will use 30 particle-particle and 10 PME only ranks
+This is a guess, check the performance at the end of the log file
+Using 40 MPI processes
+Using 1 OpenMP thread per MPI process
+
+
+Non-default thread affinity set probably by the OpenMP library,
+disabling internal thread affinity
+
+Steepest Descents:
+   Tolerance (Fmax)   =  1.00000e+03
+   Number of steps    =        50000
+Step=    0, Dmax= 1.0e-02 nm, Epot= -4.52244e+05 Fmax= 2.48681e+05, atom= 710
+Step=    1, Dmax= 1.0e-02 nm, Epot= -4.63337e+05 Fmax= 8.99232e+04, atom= 710
+Step=    2, Dmax= 1.2e-02 nm, Epot= -4.79390e+05 Fmax= 2.77552e+04, atom= 1046
+Step=    3, Dmax= 1.4e-02 nm, Epot= -5.00621e+05 Fmax= 9.62287e+03, atom= 24275
+Step=    4, Dmax= 1.7e-02 nm, Epot= -5.21518e+05 Fmax= 8.99071e+03, atom= 710
+Step=    5, Dmax= 2.1e-02 nm, Epot= -5.32314e+05 Fmax= 1.79824e+04, atom= 710
+Step=    6, Dmax= 2.5e-02 nm, Epot= -5.37519e+05 Fmax= 1.45660e+04, atom= 1046
+Step=    7, Dmax= 3.0e-02 nm, Epot= -5.41974e+05 Fmax= 2.68258e+04, atom= 1515
+Step=    8, Dmax= 3.6e-02 nm, Epot= -5.45856e+05 Fmax= 2.82418e+04, atom= 1515
+Step=    9, Dmax= 4.3e-02 nm, Epot= -5.48702e+05 Fmax= 3.84056e+04, atom= 1515
+Step=   10, Dmax= 5.2e-02 nm, Epot= -5.51671e+05 Fmax= 4.02206e+04, atom= 1515
+Step=   11, Dmax= 6.2e-02 nm, Epot= -5.53474e+05 Fmax= 5.39394e+04, atom= 1515
+Step=   12, Dmax= 7.4e-02 nm, Epot= -5.55672e+05 Fmax= 5.66063e+04, atom= 1515
+Step=   13, Dmax= 8.9e-02 nm, Epot= -5.55953e+05 Fmax= 7.42149e+04, atom= 1515
+Step=   14, Dmax= 1.1e-01 nm, Epot= -5.57192e+05 Fmax= 4.84641e+04, atom= 1517
+Step=   15, Dmax= 1.3e-01 nm, Epot= -5.40045e+05 Fmax= 7.80318e+04, atom= 1516Step=   16, Dmax= 6.4e-02 nm, Epot= -5.61770e+05 Fmax= 4.69323e+04, atom= 1958
+Step=   17, Dmax= 7.7e-02 nm, Epot= -5.61376e+05 Fmax= 6.51209e+04, atom= 1958Step=   18, Dmax= 3.9e-02 nm, Epot= -5.65803e+05 Fmax= 1.06906e+04, atom= 1958
+Step=   19, Dmax= 4.6e-02 nm, Epot= -5.67426e+05 Fmax= 6.10658e+04, atom= 1958
+Step=   20, Dmax= 5.5e-02 nm, Epot= -5.71845e+05 Fmax= 2.35453e+04, atom= 1958
+Step=   21, Dmax= 6.7e-02 nm, Epot= -5.68593e+05 Fmax= 7.81360e+04, atom= 1958Step=   22, Dmax= 3.3e-02 nm, Epot= -5.73135e+05 Fmax= 2.71023e+04, atom= 1958
+Step=   23, Dmax= 4.0e-02 nm, Epot= -5.74139e+05 Fmax= 3.30521e+04, atom= 1958
+Step=   24, Dmax= 4.8e-02 nm, Epot= -5.74933e+05 Fmax= 3.94928e+04, atom= 1958
+Step=   25, Dmax= 5.8e-02 nm, Epot= -5.75373e+05 Fmax= 4.61388e+04, atom= 1958
+Step=   26, Dmax= 6.9e-02 nm, Epot= -5.75074e+05 Fmax= 5.62792e+04, atom= 1958Step=   27, Dmax= 3.5e-02 nm, Epot= -5.78758e+05 Fmax= 5.84344e+03, atom= 1958
+Step=   28, Dmax= 4.1e-02 nm, Epot= -5.79885e+05 Fmax= 5.54994e+04, atom= 1958
+Step=   29, Dmax= 5.0e-02 nm, Epot= -5.84604e+05 Fmax= 2.18626e+04, atom= 1958
+Step=   30, Dmax= 6.0e-02 nm, Epot= -5.79929e+05 Fmax= 6.70180e+04, atom= 1958Step=   31, Dmax= 3.0e-02 nm, Epot= -5.85422e+05 Fmax= 2.33838e+04, atom= 1958
+Step=   32, Dmax= 3.6e-02 nm, Epot= -5.85758e+05 Fmax= 3.16811e+04, atom= 1958
+Step=   33, Dmax= 4.3e-02 nm, Epot= -5.86418e+05 Fmax= 3.30790e+04, atom= 1958
+Step=   34, Dmax= 5.2e-02 nm, Epot= -5.85834e+05 Fmax= 4.50739e+04, atom= 1958Step=   35, Dmax= 2.6e-02 nm, Epot= -5.88645e+05 Fmax= 6.23528e+03, atom= 1958
+Step=   36, Dmax= 3.1e-02 nm, Epot= -5.89020e+05 Fmax= 4.00783e+04, atom= 544
+Step=   37, Dmax= 3.7e-02 nm, Epot= -5.91799e+05 Fmax= 1.68990e+04, atom= 544
+Step=   38, Dmax= 4.5e-02 nm, Epot= -5.89233e+05 Fmax= 5.15053e+04, atom= 544Step=   39, Dmax= 2.2e-02 nm, Epot= -5.92520e+05 Fmax= 1.73478e+04, atom= 544
+Step=   40, Dmax= 2.7e-02 nm, Epot= -5.92925e+05 Fmax= 2.34461e+04, atom= 544
+Step=   41, Dmax= 3.2e-02 nm, Epot= -5.93467e+05 Fmax= 2.57344e+04, atom= 544
+Step=   42, Dmax= 3.8e-02 nm, Epot= -5.93513e+05 Fmax= 3.27036e+04, atom= 544
+Step=   43, Dmax= 4.6e-02 nm, Epot= -5.93623e+05 Fmax= 3.75159e+04, atom= 544
+Step=   44, Dmax= 5.5e-02 nm, Epot= -5.93042e+05 Fmax= 4.55016e+04, atom= 544Step=   45, Dmax= 2.8e-02 nm, Epot= -5.96389e+05 Fmax= 4.63055e+03, atom= 544
+Step=   46, Dmax= 3.3e-02 nm, Epot= -5.96157e+05 Fmax= 4.64298e+04, atom= 544Step=   47, Dmax= 1.7e-02 nm, Epot= -5.97423e+05 Fmax= 2.03553e+04, atom= 544
+Step=   48, Dmax= 2.0e-02 nm, Epot= -5.98416e+05 Fmax= 1.02024e+04, atom= 544
+Step=   49, Dmax= 2.4e-02 nm, Epot= -5.98401e+05 Fmax= 2.67206e+04, atom= 544Step=   50, Dmax= 1.2e-02 nm, Epot= -5.99010e+05 Fmax= 8.24505e+03, atom= 544
+Step=   51, Dmax= 1.4e-02 nm, Epot= -5.99564e+05 Fmax= 1.37062e+04, atom= 544
+Step=   52, Dmax= 1.7e-02 nm, Epot= -6.00148e+05 Fmax= 1.28511e+04, atom= 544
+Step=   53, Dmax= 2.1e-02 nm, Epot= -6.00492e+05 Fmax= 1.87586e+04, atom= 544
+Step=   54, Dmax= 2.5e-02 nm, Epot= -6.00999e+05 Fmax= 1.93881e+04, atom= 544
+Step=   55, Dmax= 3.0e-02 nm, Epot= -6.01076e+05 Fmax= 2.60044e+04, atom= 544
+Step=   56, Dmax= 3.6e-02 nm, Epot= -6.01360e+05 Fmax= 2.86386e+04, atom= 544
+Step=   57, Dmax= 4.3e-02 nm, Epot= -6.01001e+05 Fmax= 3.62354e+04, atom= 544Step=   58, Dmax= 2.1e-02 nm, Epot= -6.03066e+05 Fmax= 4.07781e+03, atom= 544
+Step=   59, Dmax= 2.6e-02 nm, Epot= -6.03228e+05 Fmax= 3.56990e+04, atom= 544
+Step=   60, Dmax= 3.1e-02 nm, Epot= -6.05515e+05 Fmax= 1.18384e+04, atom= 544
+Step=   61, Dmax= 3.7e-02 nm, Epot= -6.03280e+05 Fmax= 4.50963e+04, atom= 544Step=   62, Dmax= 1.9e-02 nm, Epot= -6.05816e+05 Fmax= 1.67060e+04, atom= 544
+Step=   63, Dmax= 2.2e-02 nm, Epot= -6.06224e+05 Fmax= 1.72870e+04, atom= 544
+Step=   64, Dmax= 2.7e-02 nm, Epot= -6.06283e+05 Fmax= 2.36609e+04, atom= 544
+Step=   65, Dmax= 3.2e-02 nm, Epot= -6.06580e+05 Fmax= 2.50874e+04, atom= 544
+Step=   66, Dmax= 3.8e-02 nm, Epot= -6.06183e+05 Fmax= 3.35103e+04, atom= 544Step=   67, Dmax= 1.9e-02 nm, Epot= -6.07908e+05 Fmax= 4.30221e+03, atom= 544
+Step=   68, Dmax= 2.3e-02 nm, Epot= -6.07916e+05 Fmax= 3.08717e+04, atom= 544
+Step=   69, Dmax= 2.8e-02 nm, Epot= -6.09636e+05 Fmax= 1.17368e+04, atom= 544
+Step=   70, Dmax= 3.3e-02 nm, Epot= -6.08002e+05 Fmax= 3.87776e+04, atom= 544Step=   71, Dmax= 1.7e-02 nm, Epot= -6.09962e+05 Fmax= 1.36071e+04, atom= 544
+Step=   72, Dmax= 2.0e-02 nm, Epot= -6.10200e+05 Fmax= 1.70138e+04, atom= 544
+Step=   73, Dmax= 2.4e-02 nm, Epot= -6.10430e+05 Fmax= 1.94552e+04, atom= 544
+Step=   74, Dmax= 2.9e-02 nm, Epot= -6.10445e+05 Fmax= 2.44865e+04, atom= 544
+Step=   75, Dmax= 3.4e-02 nm, Epot= -6.10489e+05 Fmax= 2.77986e+04, atom= 544
+Step=   76, Dmax= 4.1e-02 nm, Epot= -6.10037e+05 Fmax= 3.50314e+04, atom= 544Step=   77, Dmax= 2.1e-02 nm, Epot= -6.12076e+05 Fmax= 3.75991e+03, atom= 544
+Step=   78, Dmax= 2.5e-02 nm, Epot= -6.11707e+05 Fmax= 3.39579e+04, atom= 544Step=   79, Dmax= 1.2e-02 nm, Epot= -6.12560e+05 Fmax= 1.49290e+04, atom= 544
+Step=   80, Dmax= 1.5e-02 nm, Epot= -6.13118e+05 Fmax= 7.92553e+03, atom= 544
+Step=   81, Dmax= 1.8e-02 nm, Epot= -6.13105e+05 Fmax= 1.93003e+04, atom= 544Step=   82, Dmax= 8.9e-03 nm, Epot= -6.13460e+05 Fmax= 5.69567e+03, atom= 544
+Step=   83, Dmax= 1.1e-02 nm, Epot= -6.13776e+05 Fmax= 1.08246e+04, atom= 544
+Step=   84, Dmax= 1.3e-02 nm, Epot= -6.14140e+05 Fmax= 8.82271e+03, atom= 544
+Step=   85, Dmax= 1.5e-02 nm, Epot= -6.14298e+05 Fmax= 1.49148e+04, atom= 544
+Step=   86, Dmax= 1.8e-02 nm, Epot= -6.14672e+05 Fmax= 1.33663e+04, atom= 544
+Step=   87, Dmax= 2.2e-02 nm, Epot= -6.14598e+05 Fmax= 2.07231e+04, atom= 544Step=   88, Dmax= 1.1e-02 nm, Epot= -6.15179e+05 Fmax= 3.68475e+03, atom= 544
+Step=   89, Dmax= 1.3e-02 nm, Epot= -6.15529e+05 Fmax= 1.66067e+04, atom= 544
+Step=   90, Dmax= 1.6e-02 nm, Epot= -6.16145e+05 Fmax= 7.97278e+03, atom= 544
+Step=   91, Dmax= 1.9e-02 nm, Epot= -6.15949e+05 Fmax= 2.13119e+04, atom= 544Step=   92, Dmax= 9.6e-03 nm, Epot= -6.16448e+05 Fmax= 6.68791e+03, atom= 544
+Step=   93, Dmax= 1.1e-02 nm, Epot= -6.16687e+05 Fmax= 1.10417e+04, atom= 544
+Step=   94, Dmax= 1.4e-02 nm, Epot= -6.16994e+05 Fmax= 1.00851e+04, atom= 544
+Step=   95, Dmax= 1.7e-02 nm, Epot= -6.17098e+05 Fmax= 1.54000e+04, atom= 544
+Step=   96, Dmax= 2.0e-02 nm, Epot= -6.17390e+05 Fmax= 1.49942e+04, atom= 544
+Step=   97, Dmax= 2.4e-02 nm, Epot= -6.17274e+05 Fmax= 2.16047e+04, atom= 544Step=   98, Dmax= 1.2e-02 nm, Epot= -6.17956e+05 Fmax= 3.31738e+03, atom= 544
+Step=   99, Dmax= 1.4e-02 nm, Epot= -6.18228e+05 Fmax= 1.85069e+04, atom= 544
+Step=  100, Dmax= 1.7e-02 nm, Epot= -6.18935e+05 Fmax= 7.90821e+03, atom= 544
+Step=  101, Dmax= 2.1e-02 nm, Epot= -6.18529e+05 Fmax= 2.35715e+04, atom= 544Step=  102, Dmax= 1.0e-02 nm, Epot= -6.19194e+05 Fmax= 7.85395e+03, atom= 544
+Step=  103, Dmax= 1.2e-02 nm, Epot= -6.19386e+05 Fmax= 1.11792e+04, atom= 544
+Step=  104, Dmax= 1.5e-02 nm, Epot= -6.19625e+05 Fmax= 1.15285e+04, atom= 544
+Step=  105, Dmax= 1.8e-02 nm, Epot= -6.19703e+05 Fmax= 1.58343e+04, atom= 544
+Step=  106, Dmax= 2.1e-02 nm, Epot= -6.19892e+05 Fmax= 1.68216e+04, atom= 544
+Step=  107, Dmax= 2.6e-02 nm, Epot= -6.19764e+05 Fmax= 2.24683e+04, atom= 544Step=  108, Dmax= 1.3e-02 nm, Epot= -6.20547e+05 Fmax= 2.84535e+03, atom= 544
+Step=  109, Dmax= 1.5e-02 nm, Epot= -6.20762e+05 Fmax= 2.06207e+04, atom= 544
+Step=  110, Dmax= 1.8e-02 nm, Epot= -6.21599e+05 Fmax= 7.78115e+03, atom= 544
+Step=  111, Dmax= 2.2e-02 nm, Epot= -6.20945e+05 Fmax= 2.60536e+04, atom= 544Step=  112, Dmax= 1.1e-02 nm, Epot= -6.21804e+05 Fmax= 9.16719e+03, atom= 544
+Step=  113, Dmax= 1.3e-02 nm, Epot= -6.21977e+05 Fmax= 1.12732e+04, atom= 544
+Step=  114, Dmax= 1.6e-02 nm, Epot= -6.22133e+05 Fmax= 1.31336e+04, atom= 544
+Step=  115, Dmax= 1.9e-02 nm, Epot= -6.22212e+05 Fmax= 1.62498e+04, atom= 544
+Step=  116, Dmax= 2.3e-02 nm, Epot= -6.22275e+05 Fmax= 1.88339e+04, atom= 544
+Step=  117, Dmax= 2.8e-02 nm, Epot= -6.22163e+05 Fmax= 2.33445e+04, atom= 544Step=  118, Dmax= 1.4e-02 nm, Epot= -6.23047e+05 Fmax= 2.29396e+03, atom= 544
+Step=  119, Dmax= 1.7e-02 nm, Epot= -6.23257e+05 Fmax= 2.29166e+04, atom= 544
+Step=  120, Dmax= 2.0e-02 nm, Epot= -6.24258e+05 Fmax= 7.65103e+03, atom= 544
+Step=  121, Dmax= 2.4e-02 nm, Epot= -6.23317e+05 Fmax= 2.86999e+04, atom= 544Step=  122, Dmax= 1.2e-02 nm, Epot= -6.24399e+05 Fmax= 1.05762e+04, atom= 544
+Step=  123, Dmax= 1.4e-02 nm, Epot= -6.24575e+05 Fmax= 1.13876e+04, atom= 544
+Step=  124, Dmax= 1.7e-02 nm, Epot= -6.24634e+05 Fmax= 1.48465e+04, atom= 544
+Step=  125, Dmax= 2.1e-02 nm, Epot= -6.24734e+05 Fmax= 1.67132e+04, atom= 544
+Step=  126, Dmax= 2.5e-02 nm, Epot= -6.24650e+05 Fmax= 2.09771e+04, atom= 544Step=  127, Dmax= 1.2e-02 nm, Epot= -6.25349e+05 Fmax= 2.19551e+03, atom= 544
+Step=  128, Dmax= 1.5e-02 nm, Epot= -6.25572e+05 Fmax= 2.06169e+04, atom= 544
+Step=  129, Dmax= 1.8e-02 nm, Epot= -6.26384e+05 Fmax= 6.69381e+03, atom= 544
+Step=  130, Dmax= 2.1e-02 nm, Epot= -6.25680e+05 Fmax= 2.60845e+04, atom= 544Step=  131, Dmax= 1.1e-02 nm, Epot= -6.26518e+05 Fmax= 9.70296e+03, atom= 544
+Step=  132, Dmax= 1.3e-02 nm, Epot= -6.26693e+05 Fmax= 9.91121e+03, atom= 544
+Step=  133, Dmax= 1.5e-02 nm, Epot= -6.26746e+05 Fmax= 1.36678e+04, atom= 544
+Step=  134, Dmax= 1.8e-02 nm, Epot= -6.26883e+05 Fmax= 1.45373e+04, atom= 544
+Step=  135, Dmax= 2.2e-02 nm, Epot= -6.26794e+05 Fmax= 1.93483e+04, atom= 544Step=  136, Dmax= 1.1e-02 nm, Epot= -6.27358e+05 Fmax= 2.41720e+03, atom= 544
+Step=  137, Dmax= 1.3e-02 nm, Epot= -6.27522e+05 Fmax= 1.78988e+04, atom= 544
+Step=  138, Dmax= 1.6e-02 nm, Epot= -6.28137e+05 Fmax= 6.57102e+03, atom= 544
+Step=  139, Dmax= 1.9e-02 nm, Epot= -6.27662e+05 Fmax= 2.26604e+04, atom= 544Step=  140, Dmax= 9.6e-03 nm, Epot= -6.28284e+05 Fmax= 8.06628e+03, atom= 544
+Step=  141, Dmax= 1.1e-02 nm, Epot= -6.28419e+05 Fmax= 9.53982e+03, atom= 544
+Step=  142, Dmax= 1.4e-02 nm, Epot= -6.28525e+05 Fmax= 1.15331e+04, atom= 544
+Step=  143, Dmax= 1.7e-02 nm, Epot= -6.28602e+05 Fmax= 1.37933e+04, atom= 544
+Step=  144, Dmax= 2.0e-02 nm, Epot= -6.28631e+05 Fmax= 1.65064e+04, atom= 544
+Step=  145, Dmax= 2.4e-02 nm, Epot= -6.28586e+05 Fmax= 1.98842e+04, atom= 544Step=  146, Dmax= 1.2e-02 nm, Epot= -6.29204e+05 Fmax= 1.71550e+03, atom= 544
+Step=  147, Dmax= 1.4e-02 nm, Epot= -6.29496e+05 Fmax= 2.00869e+04, atom= 544
+Step=  148, Dmax= 1.7e-02 nm, Epot= -6.30246e+05 Fmax= 6.26163e+03, atom= 544
+Step=  149, Dmax= 2.1e-02 nm, Epot= -6.29567e+05 Fmax= 2.51345e+04, atom= 544Step=  150, Dmax= 1.0e-02 nm, Epot= -6.30346e+05 Fmax= 9.47868e+03, atom= 544
+Step=  151, Dmax= 1.2e-02 nm, Epot= -6.30497e+05 Fmax= 9.44936e+03, atom= 544
+Step=  152, Dmax= 1.5e-02 nm, Epot= -6.30524e+05 Fmax= 1.32021e+04, atom= 544
+Step=  153, Dmax= 1.8e-02 nm, Epot= -6.30637e+05 Fmax= 1.40100e+04, atom= 544
+Step=  154, Dmax= 2.1e-02 nm, Epot= -6.30543e+05 Fmax= 1.85457e+04, atom= 544Step=  155, Dmax= 1.1e-02 nm, Epot= -6.31060e+05 Fmax= 2.30808e+03, atom= 544
+Step=  156, Dmax= 1.3e-02 nm, Epot= -6.31159e+05 Fmax= 1.73034e+04, atom= 544
+Step=  157, Dmax= 1.5e-02 nm, Epot= -6.31712e+05 Fmax= 6.23081e+03, atom= 544
+Step=  158, Dmax= 1.8e-02 nm, Epot= -6.31252e+05 Fmax= 2.20032e+04, atom= 544Step=  159, Dmax= 9.2e-03 nm, Epot= -6.31830e+05 Fmax= 7.88441e+03, atom= 544
+Step=  160, Dmax= 1.1e-02 nm, Epot= -6.31946e+05 Fmax= 9.04152e+03, atom= 544
+Step=  161, Dmax= 1.3e-02 nm, Epot= -6.32022e+05 Fmax= 1.12761e+04, atom= 544
+Step=  162, Dmax= 1.6e-02 nm, Epot= -6.32094e+05 Fmax= 1.30699e+04, atom= 544
+Step=  163, Dmax= 1.9e-02 nm, Epot= -6.32089e+05 Fmax= 1.61515e+04, atom= 544Step=  164, Dmax= 9.5e-03 nm, Epot= -6.32464e+05 Fmax= 1.55116e+03, atom= 544
+Step=  165, Dmax= 1.1e-02 nm, Epot= -6.32787e+05 Fmax= 1.60062e+04, atom= 544
+Step=  166, Dmax= 1.4e-02 nm, Epot= -6.33272e+05 Fmax= 5.09982e+03, atom= 544
+Step=  167, Dmax= 1.6e-02 nm, Epot= -6.32937e+05 Fmax= 2.01395e+04, atom= 544Step=  168, Dmax= 8.2e-03 nm, Epot= -6.33381e+05 Fmax= 7.54047e+03, atom= 544
+Step=  169, Dmax= 9.9e-03 nm, Epot= -6.33508e+05 Fmax= 7.63449e+03, atom= 544
+Step=  170, Dmax= 1.2e-02 nm, Epot= -6.33570e+05 Fmax= 1.05574e+04, atom= 544
+Step=  171, Dmax= 1.4e-02 nm, Epot= -6.33674e+05 Fmax= 1.12766e+04, atom= 544
+Step=  172, Dmax= 1.7e-02 nm, Epot= -6.33658e+05 Fmax= 1.48842e+04, atom= 544Step=  173, Dmax= 8.5e-03 nm, Epot= -6.33961e+05 Fmax= 1.82707e+03, atom= 544
+Step=  174, Dmax= 1.0e-02 nm, Epot= -6.34178e+05 Fmax= 1.38732e+04, atom= 544
+Step=  175, Dmax= 1.2e-02 nm, Epot= -6.34547e+05 Fmax= 5.01306e+03, atom= 544
+Step=  176, Dmax= 1.5e-02 nm, Epot= -6.34338e+05 Fmax= 1.76286e+04, atom= 544Step=  177, Dmax= 7.4e-03 nm, Epot= -6.34660e+05 Fmax= 6.30571e+03, atom= 544
+Step=  178, Dmax= 8.9e-03 nm, Epot= -6.34769e+05 Fmax= 7.28588e+03, atom= 544
+Step=  179, Dmax= 1.1e-02 nm, Epot= -6.34856e+05 Fmax= 9.01249e+03, atom= 544
+Step=  180, Dmax= 1.3e-02 nm, Epot= -6.34935e+05 Fmax= 1.05410e+04, atom= 544
+Step=  181, Dmax= 1.5e-02 nm, Epot= -6.34974e+05 Fmax= 1.29135e+04, atom= 544
+Step=  182, Dmax= 1.8e-02 nm, Epot= -6.34993e+05 Fmax= 1.51972e+04, atom= 544
+Step=  183, Dmax= 2.2e-02 nm, Epot= -6.34932e+05 Fmax= 1.85216e+04, atom= 544Step=  184, Dmax= 1.1e-02 nm, Epot= -6.35446e+05 Fmax= 1.68167e+03, atom= 544
+Step=  185, Dmax= 1.3e-02 nm, Epot= -6.35564e+05 Fmax= 1.86275e+04, atom= 544
+Step=  186, Dmax= 1.6e-02 nm, Epot= -6.36170e+05 Fmax= 5.76077e+03, atom= 544
+Step=  187, Dmax= 1.9e-02 nm, Epot= -6.35584e+05 Fmax= 2.33860e+04, atom= 544Step=  188, Dmax= 9.5e-03 nm, Epot= -6.36236e+05 Fmax= 8.84483e+03, atom= 544
+Step=  189, Dmax= 1.1e-02 nm, Epot= -6.36352e+05 Fmax= 8.67684e+03, atom= 544
+Step=  190, Dmax= 1.4e-02 nm, Epot= -6.36357e+05 Fmax= 1.23350e+04, atom= 544
+Step=  191, Dmax= 1.6e-02 nm, Epot= -6.36447e+05 Fmax= 1.28688e+04, atom= 544
+Step=  192, Dmax= 2.0e-02 nm, Epot= -6.36347e+05 Fmax= 1.73306e+04, atom= 544Step=  193, Dmax= 9.9e-03 nm, Epot= -6.36783e+05 Fmax= 2.26323e+03, atom= 544
+Step=  194, Dmax= 1.2e-02 nm, Epot= -6.36808e+05 Fmax= 1.58536e+04, atom= 544
+Step=  195, Dmax= 1.4e-02 nm, Epot= -6.37244e+05 Fmax= 5.96050e+03, atom= 544
+Step=  196, Dmax= 1.7e-02 nm, Epot= -6.36855e+05 Fmax= 2.01737e+04, atom= 544Step=  197, Dmax= 8.5e-03 nm, Epot= -6.37336e+05 Fmax= 7.10344e+03, atom= 544
+Step=  198, Dmax= 1.0e-02 nm, Epot= -6.37414e+05 Fmax= 8.59623e+03, atom= 544
+Step=  199, Dmax= 1.2e-02 nm, Epot= -6.37478e+05 Fmax= 1.02177e+04, atom= 544
+Step=  200, Dmax= 1.5e-02 nm, Epot= -6.37513e+05 Fmax= 1.23620e+04, atom= 544
+Step=  201, Dmax= 1.8e-02 nm, Epot= -6.37520e+05 Fmax= 1.47081e+04, atom= 544
+Step=  202, Dmax= 2.1e-02 nm, Epot= -6.37467e+05 Fmax= 1.77343e+04, atom= 544Step=  203, Dmax= 1.1e-02 nm, Epot= -6.37936e+05 Fmax= 1.56057e+03, atom= 544
+Step=  204, Dmax= 1.3e-02 nm, Epot= -6.38054e+05 Fmax= 1.78078e+04, atom= 544
+Step=  205, Dmax= 1.5e-02 nm, Epot= -6.38595e+05 Fmax= 5.67478e+03, atom= 544
+Step=  206, Dmax= 1.8e-02 nm, Epot= -6.38060e+05 Fmax= 2.24053e+04, atom= 544Step=  207, Dmax= 9.2e-03 nm, Epot= -6.38656e+05 Fmax= 8.37402e+03, atom= 544
+Step=  208, Dmax= 1.1e-02 nm, Epot= -6.38752e+05 Fmax= 8.50506e+03, atom= 544
+Step=  209, Dmax= 1.3e-02 nm, Epot= -6.38761e+05 Fmax= 1.17140e+04, atom= 544
+Step=  210, Dmax= 1.6e-02 nm, Epot= -6.38829e+05 Fmax= 1.25524e+04, atom= 544
+Step=  211, Dmax= 1.9e-02 nm, Epot= -6.38748e+05 Fmax= 1.65317e+04, atom= 544Step=  212, Dmax= 9.5e-03 nm, Epot= -6.39141e+05 Fmax= 1.99684e+03, atom= 544
+Step=  213, Dmax= 1.1e-02 nm, Epot= -6.39169e+05 Fmax= 1.55589e+04, atom= 544
+Step=  214, Dmax= 1.4e-02 nm, Epot= -6.39587e+05 Fmax= 5.43002e+03, atom= 544
+Step=  215, Dmax= 1.6e-02 nm, Epot= -6.39205e+05 Fmax= 1.97417e+04, atom= 544Step=  216, Dmax= 8.2e-03 nm, Epot= -6.39660e+05 Fmax= 7.17113e+03, atom= 544
+Step=  217, Dmax= 9.9e-03 nm, Epot= -6.39741e+05 Fmax= 7.92054e+03, atom= 544
+Step=  218, Dmax= 1.2e-02 nm, Epot= -6.39779e+05 Fmax= 1.02090e+04, atom= 544
+Step=  219, Dmax= 1.4e-02 nm, Epot= -6.39830e+05 Fmax= 1.15166e+04, atom= 544
+Step=  220, Dmax= 1.7e-02 nm, Epot= -6.39803e+05 Fmax= 1.45486e+04, atom= 544Step=  221, Dmax= 8.5e-03 nm, Epot= -6.40101e+05 Fmax= 1.54079e+03, atom= 544
+Step=  222, Dmax= 1.0e-02 nm, Epot= -6.40246e+05 Fmax= 1.40166e+04, atom= 544
+Step=  223, Dmax= 1.2e-02 nm, Epot= -6.40596e+05 Fmax= 4.80608e+03, atom= 544
+Step=  224, Dmax= 1.5e-02 nm, Epot= -6.40323e+05 Fmax= 1.77159e+04, atom= 544Step=  225, Dmax= 7.4e-03 nm, Epot= -6.40670e+05 Fmax= 6.45482e+03, atom= 544
+Step=  226, Dmax= 8.8e-03 nm, Epot= -6.40750e+05 Fmax= 7.09198e+03, atom= 544
+Step=  227, Dmax= 1.1e-02 nm, Epot= -6.40797e+05 Fmax= 9.12664e+03, atom= 544
+Step=  228, Dmax= 1.3e-02 nm, Epot= -6.40852e+05 Fmax= 1.03572e+04, atom= 544
+Step=  229, Dmax= 1.5e-02 nm, Epot= -6.40849e+05 Fmax= 1.29877e+04, atom= 544Step=  230, Dmax= 7.6e-03 nm, Epot= -6.41078e+05 Fmax= 1.31977e+03, atom= 544
+Step=  231, Dmax= 9.2e-03 nm, Epot= -6.41274e+05 Fmax= 1.27875e+04, atom= 544
+Step=  232, Dmax= 1.1e-02 nm, Epot= -6.41575e+05 Fmax= 4.05296e+03, atom= 544
+Step=  233, Dmax= 1.3e-02 nm, Epot= -6.41380e+05 Fmax= 1.61619e+04, atom= 544Step=  234, Dmax= 6.6e-03 nm, Epot= -6.41648e+05 Fmax= 6.06556e+03, atom= 544
+Step=  235, Dmax= 7.9e-03 nm, Epot= -6.41734e+05 Fmax= 6.04253e+03, atom= 544
+Step=  236, Dmax= 9.5e-03 nm, Epot= -6.41776e+05 Fmax= 8.51359e+03, atom= 544
+Step=  237, Dmax= 1.1e-02 nm, Epot= -6.41850e+05 Fmax= 8.92011e+03, atom= 544
+Step=  238, Dmax= 1.4e-02 nm, Epot= -6.41841e+05 Fmax= 1.20134e+04, atom= 544Step=  239, Dmax= 6.8e-03 nm, Epot= -6.42029e+05 Fmax= 1.56035e+03, atom= 544
+Step=  240, Dmax= 8.2e-03 nm, Epot= -6.42170e+05 Fmax= 1.09305e+04, atom= 544
+Step=  241, Dmax= 9.8e-03 nm, Epot= -6.42397e+05 Fmax= 4.16511e+03, atom= 544
+Step=  242, Dmax= 1.2e-02 nm, Epot= -6.42281e+05 Fmax= 1.38982e+04, atom= 544Step=  243, Dmax= 5.9e-03 nm, Epot= -6.42476e+05 Fmax= 4.86475e+03, atom= 544
+Step=  244, Dmax= 7.1e-03 nm, Epot= -6.42546e+05 Fmax= 6.00876e+03, atom= 544
+Step=  245, Dmax= 8.5e-03 nm, Epot= -6.42613e+05 Fmax= 7.00142e+03, atom= 544
+Step=  246, Dmax= 1.0e-02 nm, Epot= -6.42660e+05 Fmax= 8.63983e+03, atom= 544
+Step=  247, Dmax= 1.2e-02 nm, Epot= -6.42702e+05 Fmax= 1.00942e+04, atom= 544
+Step=  248, Dmax= 1.5e-02 nm, Epot= -6.42704e+05 Fmax= 1.23976e+04, atom= 544
+Step=  249, Dmax= 1.8e-02 nm, Epot= -6.42691e+05 Fmax= 1.45579e+04, atom= 544Step=  250, Dmax= 8.8e-03 nm, Epot= -6.43004e+05 Fmax= 1.09260e+03, atom= 544
+Step=  251, Dmax= 1.1e-02 nm, Epot= -6.43203e+05 Fmax= 1.51802e+04, atom= 544
+Step=  252, Dmax= 1.3e-02 nm, Epot= -6.43612e+05 Fmax= 4.29802e+03, atom= 544
+Step=  253, Dmax= 1.5e-02 nm, Epot= -6.43236e+05 Fmax= 1.90240e+04, atom= 544Step=  254, Dmax= 7.6e-03 nm, Epot= -6.43655e+05 Fmax= 7.38672e+03, atom= 544
+Step=  255, Dmax= 9.1e-03 nm, Epot= -6.43746e+05 Fmax= 6.60766e+03, atom= 544
+Step=  256, Dmax= 1.1e-02 nm, Epot= -6.43740e+05 Fmax= 1.01998e+04, atom= 544Step=  257, Dmax= 5.5e-03 nm, Epot= -6.43863e+05 Fmax= 1.80346e+03, atom= 544
+Step=  258, Dmax= 6.6e-03 nm, Epot= -6.43966e+05 Fmax= 8.23823e+03, atom= 544
+Step=  259, Dmax= 7.9e-03 nm, Epot= -6.44111e+05 Fmax= 3.87133e+03, atom= 544
+Step=  260, Dmax= 9.5e-03 nm, Epot= -6.44085e+05 Fmax= 1.06191e+04, atom= 544Step=  261, Dmax= 4.7e-03 nm, Epot= -6.44188e+05 Fmax= 3.37220e+03, atom= 544
+Step=  262, Dmax= 5.7e-03 nm, Epot= -6.44255e+05 Fmax= 5.35679e+03, atom= 544
+Step=  263, Dmax= 6.8e-03 nm, Epot= -6.44332e+05 Fmax= 5.08077e+03, atom= 544
+Step=  264, Dmax= 8.2e-03 nm, Epot= -6.44373e+05 Fmax= 7.47469e+03, atom= 544
+Step=  265, Dmax= 9.8e-03 nm, Epot= -6.44444e+05 Fmax= 7.55750e+03, atom= 544
+Step=  266, Dmax= 1.2e-02 nm, Epot= -6.44441e+05 Fmax= 1.05012e+04, atom= 544Step=  267, Dmax= 5.9e-03 nm, Epot= -6.44583e+05 Fmax= 1.48142e+03, atom= 544
+Step=  268, Dmax= 7.1e-03 nm, Epot= -6.44706e+05 Fmax= 9.28966e+03, atom= 544
+Step=  269, Dmax= 8.5e-03 nm, Epot= -6.44881e+05 Fmax= 3.72674e+03, atom= 544
+Step=  270, Dmax= 1.0e-02 nm, Epot= -6.44814e+05 Fmax= 1.18477e+04, atom= 544Step=  271, Dmax= 5.1e-03 nm, Epot= -6.44952e+05 Fmax= 4.05859e+03, atom= 544
+Step=  272, Dmax= 6.1e-03 nm, Epot= -6.45015e+05 Fmax= 5.31997e+03, atom= 544
+Step=  273, Dmax= 7.3e-03 nm, Epot= -6.45078e+05 Fmax= 5.89847e+03, atom= 544
+Step=  274, Dmax= 8.8e-03 nm, Epot= -6.45121e+05 Fmax= 7.59278e+03, atom= 544
+Step=  275, Dmax= 1.1e-02 nm, Epot= -6.45168e+05 Fmax= 8.56368e+03, atom= 544
+Step=  276, Dmax= 1.3e-02 nm, Epot= -6.45172e+05 Fmax= 1.08405e+04, atom= 544
+Step=  277, Dmax= 1.5e-02 nm, Epot= -6.45183e+05 Fmax= 1.24138e+04, atom= 544
+Step=  278, Dmax= 1.8e-02 nm, Epot= -6.45110e+05 Fmax= 1.54777e+04, atom= 544Step=  279, Dmax= 9.1e-03 nm, Epot= -6.45487e+05 Fmax= 1.56293e+03, atom= 544
+Step=  280, Dmax= 1.1e-02 nm, Epot= -6.45466e+05 Fmax= 1.50883e+04, atom= 544Step=  281, Dmax= 5.5e-03 nm, Epot= -6.45598e+05 Fmax= 6.74188e+03, atom= 544
+Step=  282, Dmax= 6.6e-03 nm, Epot= -6.45711e+05 Fmax= 3.33309e+03, atom= 544
+Step=  283, Dmax= 7.9e-03 nm, Epot= -6.45721e+05 Fmax= 8.71534e+03, atom= 544
+Step=  284, Dmax= 9.5e-03 nm, Epot= -6.45854e+05 Fmax= 5.78108e+03, atom= 544
+Step=  285, Dmax= 1.1e-02 nm, Epot= -6.45777e+05 Fmax= 1.15803e+04, atom= 544Step=  286, Dmax= 5.7e-03 nm, Epot= -6.45949e+05 Fmax= 2.89769e+03, atom= 544
+Step=  287, Dmax= 6.8e-03 nm, Epot= -6.45986e+05 Fmax= 7.55823e+03, atom= 544
+Step=  288, Dmax= 8.2e-03 nm, Epot= -6.46100e+05 Fmax= 4.94645e+03, atom= 544
+Step=  289, Dmax= 9.8e-03 nm, Epot= -6.46064e+05 Fmax= 1.00863e+04, atom= 544Step=  290, Dmax= 4.9e-03 nm, Epot= -6.46183e+05 Fmax= 2.57487e+03, atom= 544
+Step=  291, Dmax= 5.9e-03 nm, Epot= -6.46239e+05 Fmax= 6.41134e+03, atom= 544
+Step=  292, Dmax= 7.1e-03 nm, Epot= -6.46334e+05 Fmax= 4.41497e+03, atom= 544
+Step=  293, Dmax= 8.5e-03 nm, Epot= -6.46336e+05 Fmax= 8.54266e+03, atom= 544
+Step=  294, Dmax= 1.0e-02 nm, Epot= -6.46439e+05 Fmax= 7.03488e+03, atom= 544
+Step=  295, Dmax= 1.2e-02 nm, Epot= -6.46371e+05 Fmax= 1.16283e+04, atom= 544Step=  296, Dmax= 6.1e-03 nm, Epot= -6.46563e+05 Fmax= 2.29573e+03, atom= 544
+Step=  297, Dmax= 7.3e-03 nm, Epot= -6.46588e+05 Fmax= 8.94750e+03, atom= 544
+Step=  298, Dmax= 8.8e-03 nm, Epot= -6.46746e+05 Fmax= 4.49710e+03, atom= 544
+Step=  299, Dmax= 1.1e-02 nm, Epot= -6.46652e+05 Fmax= 1.16595e+04, atom= 544Step=  300, Dmax= 5.3e-03 nm, Epot= -6.46818e+05 Fmax= 3.58636e+03, atom= 544
+Step=  301, Dmax= 6.3e-03 nm, Epot= -6.46862e+05 Fmax= 6.08250e+03, atom= 544
+Step=  302, Dmax= 7.6e-03 nm, Epot= -6.46935e+05 Fmax= 5.55198e+03, atom= 544
+Step=  303, Dmax= 9.1e-03 nm, Epot= -6.46944e+05 Fmax= 8.38008e+03, atom= 544
+Step=  304, Dmax= 1.1e-02 nm, Epot= -6.47009e+05 Fmax= 8.35918e+03, atom= 544
+Step=  305, Dmax= 1.3e-02 nm, Epot= -6.46961e+05 Fmax= 1.17013e+04, atom= 544Step=  306, Dmax= 6.6e-03 nm, Epot= -6.47171e+05 Fmax= 1.67186e+03, atom= 544
+Step=  307, Dmax= 7.9e-03 nm, Epot= -6.47205e+05 Fmax= 1.04223e+04, atom= 544
+Step=  308, Dmax= 9.4e-03 nm, Epot= -6.47420e+05 Fmax= 4.03496e+03, atom= 544
+Step=  309, Dmax= 1.1e-02 nm, Epot= -6.47253e+05 Fmax= 1.33301e+04, atom= 544Step=  310, Dmax= 5.7e-03 nm, Epot= -6.47478e+05 Fmax= 4.65374e+03, atom= 544
+Step=  311, Dmax= 6.8e-03 nm, Epot= -6.47527e+05 Fmax= 5.74551e+03, atom= 544
+Step=  312, Dmax= 8.2e-03 nm, Epot= -6.47571e+05 Fmax= 6.75808e+03, atom= 544
+Step=  313, Dmax= 9.8e-03 nm, Epot= -6.47599e+05 Fmax= 8.22036e+03, atom= 544
+Step=  314, Dmax= 1.2e-02 nm, Epot= -6.47614e+05 Fmax= 9.76736e+03, atom= 544
+Step=  315, Dmax= 1.4e-02 nm, Epot= -6.47598e+05 Fmax= 1.17940e+04, atom= 544Step=  316, Dmax= 7.0e-03 nm, Epot= -6.47827e+05 Fmax= 1.01801e+03, atom= 544
+Step=  317, Dmax= 8.5e-03 nm, Epot= -6.47944e+05 Fmax= 1.19902e+04, atom= 544
+Step=  318, Dmax= 1.0e-02 nm, Epot= -6.48236e+05 Fmax= 3.56479e+03, atom= 544
+Step=  319, Dmax= 1.2e-02 nm, Epot= -6.47976e+05 Fmax= 1.50931e+04, atom= 544Step=  320, Dmax= 6.1e-03 nm, Epot= -6.48275e+05 Fmax= 5.77524e+03, atom= 544
+Step=  321, Dmax= 7.3e-03 nm, Epot= -6.48341e+05 Fmax= 5.41002e+03, atom= 544
+Step=  322, Dmax= 8.8e-03 nm, Epot= -6.48347e+05 Fmax= 8.02798e+03, atom= 544
+Step=  323, Dmax= 1.1e-02 nm, Epot= -6.48405e+05 Fmax= 8.07552e+03, atom= 544
+Step=  324, Dmax= 1.3e-02 nm, Epot= -6.48355e+05 Fmax= 1.12540e+04, atom= 544Step=  325, Dmax= 6.3e-03 nm, Epot= -6.48563e+05 Fmax= 1.60013e+03, atom= 544
+Step=  326, Dmax= 7.6e-03 nm, Epot= -6.48588e+05 Fmax= 9.97471e+03, atom= 112
+Step=  327, Dmax= 9.1e-03 nm, Epot= -6.48794e+05 Fmax= 3.95375e+03, atom= 544
+Step=  328, Dmax= 1.1e-02 nm, Epot= -6.48626e+05 Fmax= 1.27891e+04, atom= 112Step=  329, Dmax= 5.5e-03 nm, Epot= -6.48848e+05 Fmax= 4.41824e+03, atom= 112
+Step=  330, Dmax= 6.5e-03 nm, Epot= -6.48891e+05 Fmax= 5.59851e+03, atom= 112
+Step=  331, Dmax= 7.9e-03 nm, Epot= -6.48934e+05 Fmax= 6.45117e+03, atom= 112
+Step=  332, Dmax= 9.4e-03 nm, Epot= -6.48955e+05 Fmax= 7.97531e+03, atom= 112
+Step=  333, Dmax= 1.1e-02 nm, Epot= -6.48970e+05 Fmax= 9.36246e+03, atom= 112
+Step=  334, Dmax= 1.4e-02 nm, Epot= -6.48949e+05 Fmax= 1.14024e+04, atom= 112Step=  335, Dmax= 6.8e-03 nm, Epot= -6.49174e+05 Fmax= 1.02893e+03, atom= 544
+Step=  336, Dmax= 8.1e-03 nm, Epot= -6.49260e+05 Fmax= 1.15281e+04, atom= 112
+Step=  337, Dmax= 9.8e-03 nm, Epot= -6.49537e+05 Fmax= 3.45743e+03, atom= 112
+Step=  338, Dmax= 1.2e-02 nm, Epot= -6.49287e+05 Fmax= 1.45406e+04, atom= 112Step=  339, Dmax= 5.9e-03 nm, Epot= -6.49573e+05 Fmax= 5.54577e+03, atom= 112
+Step=  340, Dmax= 7.0e-03 nm, Epot= -6.49634e+05 Fmax= 5.22692e+03, atom= 112
+Step=  341, Dmax= 8.4e-03 nm, Epot= -6.49639e+05 Fmax= 7.72679e+03, atom= 112
+Step=  342, Dmax= 1.0e-02 nm, Epot= -6.49693e+05 Fmax= 7.78291e+03, atom= 112
+Step=  343, Dmax= 1.2e-02 nm, Epot= -6.49646e+05 Fmax= 1.08533e+04, atom= 112Step=  344, Dmax= 6.1e-03 nm, Epot= -6.49843e+05 Fmax= 1.53838e+03, atom= 112
+Step=  345, Dmax= 7.3e-03 nm, Epot= -6.49865e+05 Fmax= 9.59746e+03, atom= 112
+Step=  346, Dmax= 8.8e-03 nm, Epot= -6.50058e+05 Fmax= 3.82872e+03, atom= 112
+Step=  347, Dmax= 1.1e-02 nm, Epot= -6.49902e+05 Fmax= 1.22401e+04, atom= 112Step=  348, Dmax= 5.3e-03 nm, Epot= -6.50110e+05 Fmax= 4.20689e+03, atom= 112
+Step=  349, Dmax= 6.3e-03 nm, Epot= -6.50148e+05 Fmax= 5.46802e+03, atom= 112
+Step=  350, Dmax= 7.6e-03 nm, Epot= -6.50190e+05 Fmax= 6.10776e+03, atom= 112
+Step=  351, Dmax= 9.1e-03 nm, Epot= -6.50205e+05 Fmax= 7.81364e+03, atom= 112
+Step=  352, Dmax= 1.1e-02 nm, Epot= -6.50227e+05 Fmax= 8.85390e+03, atom= 112
+Step=  353, Dmax= 1.3e-02 nm, Epot= -6.50194e+05 Fmax= 1.11737e+04, atom= 112Step=  354, Dmax= 6.5e-03 nm, Epot= -6.50413e+05 Fmax= 1.16504e+03, atom= 112
+Step=  355, Dmax= 7.8e-03 nm, Epot= -6.50457e+05 Fmax= 1.07827e+04, atom= 112
+Step=  356, Dmax= 9.4e-03 nm, Epot= -6.50702e+05 Fmax= 3.65412e+03, atom= 112
+Step=  357, Dmax= 1.1e-02 nm, Epot= -6.50476e+05 Fmax= 1.36164e+04, atom= 112Step=  358, Dmax= 5.6e-03 nm, Epot= -6.50741e+05 Fmax= 4.98422e+03, atom= 112
+Step=  359, Dmax= 6.8e-03 nm, Epot= -6.50787e+05 Fmax= 5.41422e+03, atom= 112
+Step=  360, Dmax= 8.1e-03 nm, Epot= -6.50806e+05 Fmax= 7.02801e+03, atom= 112
+Step=  361, Dmax= 9.8e-03 nm, Epot= -6.50834e+05 Fmax= 7.93444e+03, atom= 112
+Step=  362, Dmax= 1.2e-02 nm, Epot= -6.50818e+05 Fmax= 9.97936e+03, atom= 112Step=  363, Dmax= 5.9e-03 nm, Epot= -6.50990e+05 Fmax= 1.02666e+03, atom= 112
+Step=  364, Dmax= 7.0e-03 nm, Epot= -6.51068e+05 Fmax= 9.82694e+03, atom= 112
+Step=  365, Dmax= 8.4e-03 nm, Epot= -6.51280e+05 Fmax= 3.09169e+03, atom= 112
+Step=  366, Dmax= 1.0e-02 nm, Epot= -6.51110e+05 Fmax= 1.24436e+04, atom= 112Step=  367, Dmax= 5.1e-03 nm, Epot= -6.51319e+05 Fmax= 4.67782e+03, atom= 112
+Step=  368, Dmax= 6.1e-03 nm, Epot= -6.51371e+05 Fmax= 4.61083e+03, atom= 112
+Step=  369, Dmax= 7.3e-03 nm, Epot= -6.51388e+05 Fmax= 6.56757e+03, atom= 112
+Step=  370, Dmax= 8.7e-03 nm, Epot= -6.51432e+05 Fmax= 6.81923e+03, atom= 1515
+Step=  371, Dmax= 1.0e-02 nm, Epot= -6.51411e+05 Fmax= 9.27111e+03, atom= 1515Step=  372, Dmax= 5.2e-03 nm, Epot= -6.51555e+05 Fmax= 1.22692e+03, atom= 1515
+Step=  373, Dmax= 6.3e-03 nm, Epot= -6.51613e+05 Fmax= 8.41776e+03, atom= 1515
+Step=  374, Dmax= 7.6e-03 nm, Epot= -6.51771e+05 Fmax= 3.17149e+03, atom= 1515
+Step=  375, Dmax= 9.1e-03 nm, Epot= -6.51668e+05 Fmax= 1.07293e+04, atom= 1515Step=  376, Dmax= 4.5e-03 nm, Epot= -6.51817e+05 Fmax= 3.78028e+03, atom= 1515
+Step=  377, Dmax= 5.4e-03 nm, Epot= -6.51860e+05 Fmax= 4.56519e+03, atom= 1515
+Step=  378, Dmax= 6.5e-03 nm, Epot= -6.51896e+05 Fmax= 5.44628e+03, atom= 1515
+Step=  379, Dmax= 7.8e-03 nm, Epot= -6.51924e+05 Fmax= 6.56707e+03, atom= 1515
+Step=  380, Dmax= 9.4e-03 nm, Epot= -6.51942e+05 Fmax= 7.84600e+03, atom= 1515
+Step=  381, Dmax= 1.1e-02 nm, Epot= -6.51941e+05 Fmax= 9.44360e+03, atom= 1515Step=  382, Dmax= 5.6e-03 nm, Epot= -6.52091e+05 Fmax= 8.01531e+02, atom= 1515
+
+writing lowest energy coordinates.
+
+Steepest Descents converged to Fmax < 1000 in 383 steps
+Potential Energy  = -6.5209069e+05
+Maximum force     =  8.0153088e+02 on atom 1515
+Norm of force     =  3.2935516e+01
+
+NOTE: 10 % of the run time was spent in domain decomposition,
+      14 % of the run time was spent in pair search,
+      you might want to increase nstlist (this has no effect on accuracy)
+
+
+gcq#141: "Carry Me Away" (Motors)
+
+                  :-) GROMACS - gmx grompp, VERSION 5.1.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, VERSION 5.1.4
+Executable:   /home/admin/usr/bin/gmx_mpi
+Data prefix:  /home/admin/usr
+Command line:
+  gmx grompp -f ../../nvt.2.mdp -c 1AKI-em.gro -p 1AKI.top -o 1AKI-nvt.tpr
+
+Ignoring obsolete mdp entry 'title'
+
+Back Off! I just backed up mdout.mdp to ./#mdout.mdp.2#
+Setting the LD random seed to 1303790079
+Generated 330891 of the 330891 non-bonded parameter combinations
+Generating 1-4 interactions: fudge = 0.5
+Generated 330891 of the 330891 1-4 parameter combinations
+Excluding 3 bonded neighbours molecule type 'Protein_chain_A'
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 1 bonded neighbours molecule type 'CL'
+
+NOTE 1 [file 1AKI.top, line 18411]:
+  System has non-zero total charge: -0.113000
+  Total charge should normally be an integer. See
+  http://www.gromacs.org/Documentation/Floating_Point_Arithmetic
+  for discussion on how close it should be to an integer.
+  
+
+
+turning all bonds into constraints...
+turning all bonds into constraints...
+turning all bonds into constraints...
+Setting gen_seed to 2949103968
+Velocities were taken from a Maxwell distribution at 300 K
+Removing all charge groups because cutoff-scheme=Verlet
+Number of degrees of freedom in T-Coupling group Protein is 3895.85
+Number of degrees of freedom in T-Coupling group non-Protein is 72837.15
+Analysing residue names:
+There are:   129    Protein residues
+There are: 12136      Water residues
+There are:     8        Ion residues
+Analysing Protein...
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 300 K
+Estimate for the relative computational load of the PME mesh part: 0.21
+
+There was 1 note
+
+gcq#242: "Drugs are Bad, mmokay" (South Park)
+
+Calculated rlist for 1x1 atom pair-list as 1.035 nm, buffer size 0.035 nm
+Set rlist, assuming 4x4 atom pair-list, to 1.000 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 48x48x48, spacing 0.153 0.153 0.153
+This run will generate roughly 13 Mb of data
+cat machinefile
+n002.vcluster slots=20
+n001.vcluster slots=20
+                   :-) GROMACS - gmx mdrun, VERSION 5.1.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, VERSION 5.1.4
+Executable:   /shared/admin/hpchub_benchmark/tests/gromacs/gromacs-5.1.4/build/bin/gmx_mpi
+Data prefix:  /shared/admin/hpchub_benchmark/tests/gromacs/gromacs-5.1.4 (source tree)
+Command line:
+  gmx_mpi mdrun -deffnm 1AKI-nvt
+
+
+Number of logical cores detected (20) does not match the number reported by OpenMP (1).
+Consider setting the launch configuration manually!
+
+Running on 2 nodes with total 40 logical cores
+  Logical cores per node:   20
+Hardware detected on host n002 (the node of MPI rank 0):
+  CPU info:
+    Vendor: GenuineIntel
+    Brand:  Intel(R) Xeon(R) CPU E5-2680 v2 @ 2.80GHz
+    SIMD instructions most likely to fit this hardware: AVX_256
+    SIMD instructions selected at GROMACS compile time: AVX_256
+
+Reading file 1AKI-nvt.tpr, VERSION 5.1.4 (single precision)
+Changing nstlist from 10 to 20, rlist from 1 to 1.029
+
+
+Will use 32 particle-particle and 8 PME only ranks
+This is a guess, check the performance at the end of the log file
+Using 40 MPI processes
+Using 1 OpenMP thread per MPI process
+
+
+Non-default thread affinity set probably by the OpenMP library,
+disabling internal thread affinity
+starting mdrun 'LYSOZYME in water'
+5000 steps,     10.0 ps.
+
+NOTE: Turning on dynamic load balancing
+
+
+Writing final coordinates.
+
+ Average load imbalance: 2.8 %
+ Part of the total run time spent waiting due to load imbalance: 1.7 %
+ Steps where the load balancing was limited by -rdd, -rcon and/or -dds: X 0 % Y 0 % Z 0 %
+ Average PME mesh/force load: 0.859
+ Part of the total run time spent waiting due to PP/PME imbalance: 2.0 %
+
+
+               Core t (s)   Wall t (s)        (%)
+       Time:      464.826       11.669     3983.3
+                 (ns/day)    (hour/ns)
+Performance:       74.055        0.324
+
+gcq#65: "Give a Man a Fish" (Arrested Development)
+
+                  :-) GROMACS - gmx grompp, VERSION 5.1.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, VERSION 5.1.4
+Executable:   /home/admin/usr/bin/gmx_mpi
+Data prefix:  /home/admin/usr
+Command line:
+  gmx grompp -f ../../npt.mdp -c 1AKI-nvt.gro -t 1AKI-nvt.cpt -p 1AKI.top -o 1AKI-npt.tpr
+
+Ignoring obsolete mdp entry 'title'
+
+Back Off! I just backed up mdout.mdp to ./#mdout.mdp.3#
+Setting the LD random seed to 2780881824
+Generated 330891 of the 330891 non-bonded parameter combinations
+Generating 1-4 interactions: fudge = 0.5
+Generated 330891 of the 330891 1-4 parameter combinations
+Excluding 3 bonded neighbours molecule type 'Protein_chain_A'
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 1 bonded neighbours molecule type 'CL'
+
+NOTE 1 [file 1AKI.top, line 18411]:
+  System has non-zero total charge: -0.113000
+  Total charge should normally be an integer. See
+  http://www.gromacs.org/Documentation/Floating_Point_Arithmetic
+  for discussion on how close it should be to an integer.
+  
+
+
+turning all bonds into constraints...
+turning all bonds into constraints...
+turning all bonds into constraints...
+Removing all charge groups because cutoff-scheme=Verlet
+The center of mass of the position restraint coord's is  3.656  3.661  3.683
+The center of mass of the position restraint coord's is  3.656  3.661  3.683
+Number of degrees of freedom in T-Coupling group Protein is 3895.85
+Number of degrees of freedom in T-Coupling group non-Protein is 72837.15
+Analysing residue names:
+There are:   129    Protein residues
+There are: 12136      Water residues
+There are:     8        Ion residues
+Analysing Protein...
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 300 K
+Reading Coordinates, Velocities and Box size from old trajectory
+Will read whole trajectory
+Last frame         -1 time   10.000   
+Using frame at t = 10 ps
+Starting time for run is 0 ps
+Estimate for the relative computational load of the PME mesh part: 0.21
+
+There was 1 note
+
+gcq#345: "The time for theory is over" (J. Hajdu)
+
+Calculated rlist for 1x1 atom pair-list as 1.035 nm, buffer size 0.035 nm
+Set rlist, assuming 4x4 atom pair-list, to 1.000 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 48x48x48, spacing 0.153 0.153 0.153
+This run will generate roughly 92 Mb of data
+cat machinefile
+n002.vcluster slots=20
+n001.vcluster slots=20
+                   :-) GROMACS - gmx mdrun, VERSION 5.1.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, VERSION 5.1.4
+Executable:   /shared/admin/hpchub_benchmark/tests/gromacs/gromacs-5.1.4/build/bin/gmx_mpi
+Data prefix:  /shared/admin/hpchub_benchmark/tests/gromacs/gromacs-5.1.4 (source tree)
+Command line:
+  gmx_mpi mdrun -deffnm 1AKI-npt
+
+
+Number of logical cores detected (20) does not match the number reported by OpenMP (1).
+Consider setting the launch configuration manually!
+
+Running on 2 nodes with total 40 logical cores
+  Logical cores per node:   20
+Hardware detected on host n002 (the node of MPI rank 0):
+  CPU info:
+    Vendor: GenuineIntel
+    Brand:  Intel(R) Xeon(R) CPU E5-2680 v2 @ 2.80GHz
+    SIMD instructions most likely to fit this hardware: AVX_256
+    SIMD instructions selected at GROMACS compile time: AVX_256
+
+Reading file 1AKI-npt.tpr, VERSION 5.1.4 (single precision)
+Changing nstlist from 10 to 20, rlist from 1 to 1.029
+
+
+Will use 32 particle-particle and 8 PME only ranks
+This is a guess, check the performance at the end of the log file
+Using 40 MPI processes
+Using 1 OpenMP thread per MPI process
+
+
+Non-default thread affinity set probably by the OpenMP library,
+disabling internal thread affinity
+starting mdrun 'LYSOZYME in water'
+50000 steps,    100.0 ps.
+
+NOTE: Turning on dynamic load balancing
+
+
+Writing final coordinates.
+
+ Average load imbalance: 2.4 %
+ Part of the total run time spent waiting due to load imbalance: 1.5 %
+ Steps where the load balancing was limited by -rdd, -rcon and/or -dds: X 0 % Y 0 % Z 0 %
+ Average PME mesh/force load: 0.831
+ Part of the total run time spent waiting due to PP/PME imbalance: 2.4 %
+
+
+               Core t (s)   Wall t (s)        (%)
+       Time:     4392.499      110.195     3986.1
+                 (ns/day)    (hour/ns)
+Performance:       78.408        0.306
+
+gcq#441: "The Nobel Prize is fine, but the drugs I've developed are rewards in themselves." (Gertrude Elion)
+
+                  :-) GROMACS - gmx grompp, VERSION 5.1.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, VERSION 5.1.4
+Executable:   /home/admin/usr/bin/gmx_mpi
+Data prefix:  /home/admin/usr
+Command line:
+  gmx grompp -f ../../md.2.100.mdp -c 1AKI-npt.gro -t 1AKI-npt.cpt -p 1AKI.top -o 1AKI-md_0_1.100.tpr
+
+Ignoring obsolete mdp entry 'title'
+
+Back Off! I just backed up mdout.mdp to ./#mdout.mdp.4#
+Setting the LD random seed to 728253479
+Generated 330891 of the 330891 non-bonded parameter combinations
+Generating 1-4 interactions: fudge = 0.5
+Generated 330891 of the 330891 1-4 parameter combinations
+Excluding 3 bonded neighbours molecule type 'Protein_chain_A'
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 1 bonded neighbours molecule type 'CL'
+
+NOTE 1 [file 1AKI.top, line 18411]:
+  System has non-zero total charge: -0.113000
+  Total charge should normally be an integer. See
+  http://www.gromacs.org/Documentation/Floating_Point_Arithmetic
+  for discussion on how close it should be to an integer.
+  
+
+
+turning all bonds into constraints...
+turning all bonds into constraints...
+turning all bonds into constraints...
+Removing all charge groups because cutoff-scheme=Verlet
+Analysing residue names:
+Number of degrees of freedom in T-Coupling group Protein is 3895.85
+Number of degrees of freedom in T-Coupling group non-Protein is 72837.15
+Reading Coordinates, Velocities and Box size from old trajectory
+Will read whole trajectory
+Last frame         -1 time  100.000   
+Using frame at t = 100 ps
+Starting time for run is 0 ps
+Estimate for the relative computational load of the PME mesh part: 0.20
+
+There was 1 note
+There are:   129    Protein residues
+There are: 12136      Water residues
+There are:     8        Ion residues
+Analysing Protein...
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 300 K
+Calculated rlist for 1x1 atom pair-list as 1.036 nm, buffer size 0.036 nm
+Set rlist, assuming 4x4 atom pair-list, to 1.000 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 48x48x48, spacing 0.151 0.151 0.151
+This run will generate roughly 4 Mb of data
+
+gcq#265: "set: No match." (tcsh)
+
+                  :-) GROMACS - gmx grompp, VERSION 5.1.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, VERSION 5.1.4
+Executable:   /home/admin/usr/bin/gmx_mpi
+Data prefix:  /home/admin/usr
+Command line:
+  gmx grompp -f ../../md.2.1000.mdp -c 1AKI-npt.gro -t 1AKI-npt.cpt -p 1AKI.top -o 1AKI-md_0_1.1000.tpr
+
+Ignoring obsolete mdp entry 'title'
+
+Back Off! I just backed up mdout.mdp to ./#mdout.mdp.5#
+Setting the LD random seed to 731561178
+Generated 330891 of the 330891 non-bonded parameter combinations
+Generating 1-4 interactions: fudge = 0.5
+Generated 330891 of the 330891 1-4 parameter combinations
+Excluding 3 bonded neighbours molecule type 'Protein_chain_A'
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 1 bonded neighbours molecule type 'CL'
+
+NOTE 1 [file 1AKI.top, line 18411]:
+  System has non-zero total charge: -0.113000
+  Total charge should normally be an integer. See
+  http://www.gromacs.org/Documentation/Floating_Point_Arithmetic
+  for discussion on how close it should be to an integer.
+  
+
+
+turning all bonds into constraints...
+turning all bonds into constraints...
+turning all bonds into constraints...
+Removing all charge groups because cutoff-scheme=Verlet
+Analysing residue names:
+There are:   129    Protein residues
+There are: 12136      Water residues
+There are:     8        Ion residues
+Analysing Protein...
+Number of degrees of freedom in T-Coupling group Protein is 3895.85
+Number of degrees of freedom in T-Coupling group non-Protein is 72837.15
+Reading Coordinates, Velocities and Box size from old trajectory
+Will read whole trajectory
+Last frame         -1 time  100.000   
+Using frame at t = 100 ps
+Starting time for run is 0 ps
+Estimate for the relative computational load of the PME mesh part: 0.20
+
+There was 1 note
+
+gcq#114: "The Path Of the Righteous Man is Beset On All Sides With the Iniquities Of the Selfish and the Tyranny Of Evil Men." (Pulp Fiction)
+
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 300 K
+Calculated rlist for 1x1 atom pair-list as 1.036 nm, buffer size 0.036 nm
+Set rlist, assuming 4x4 atom pair-list, to 1.000 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 48x48x48, spacing 0.151 0.151 0.151
+This run will generate roughly 4 Mb of data
+                  :-) GROMACS - gmx grompp, VERSION 5.1.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, VERSION 5.1.4
+Executable:   /home/admin/usr/bin/gmx_mpi
+Data prefix:  /home/admin/usr
+Command line:
+  gmx grompp -f ../../md.2.10000.mdp -c 1AKI-npt.gro -t 1AKI-npt.cpt -p 1AKI.top -o 1AKI-md_0_1.10000.tpr
+
+Ignoring obsolete mdp entry 'title'
+
+Back Off! I just backed up mdout.mdp to ./#mdout.mdp.6#
+Setting the LD random seed to 511185360
+Generated 330891 of the 330891 non-bonded parameter combinations
+Generating 1-4 interactions: fudge = 0.5
+Generated 330891 of the 330891 1-4 parameter combinations
+Excluding 3 bonded neighbours molecule type 'Protein_chain_A'
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 1 bonded neighbours molecule type 'CL'
+
+NOTE 1 [file 1AKI.top, line 18411]:
+  System has non-zero total charge: -0.113000
+  Total charge should normally be an integer. See
+  http://www.gromacs.org/Documentation/Floating_Point_Arithmetic
+  for discussion on how close it should be to an integer.
+  
+
+
+turning all bonds into constraints...
+turning all bonds into constraints...
+turning all bonds into constraints...
+Removing all charge groups because cutoff-scheme=Verlet
+Analysing residue names:
+There are:   129    Protein residues
+There are: 12136      Water residues
+There are:     8        Ion residues
+Analysing Protein...
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Number of degrees of freedom in T-Coupling group Protein is 3895.85
+Number of degrees of freedom in T-Coupling group non-Protein is 72837.15
+Reading Coordinates, Velocities and Box size from old trajectory
+Will read whole trajectory
+Last frame         -1 time  100.000   
+Using frame at t = 100 ps
+Starting time for run is 0 ps
+Estimate for the relative computational load of the PME mesh part: 0.20
+
+There was 1 note
+
+gcq#133: "Catholic School Girls Rule" (Red Hot Chili Peppers)
+
+Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 300 K
+Calculated rlist for 1x1 atom pair-list as 1.036 nm, buffer size 0.036 nm
+Set rlist, assuming 4x4 atom pair-list, to 1.000 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 48x48x48, spacing 0.151 0.151 0.151
+This run will generate roughly 6 Mb of data
+                  :-) GROMACS - gmx grompp, VERSION 5.1.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, VERSION 5.1.4
+Executable:   /home/admin/usr/bin/gmx_mpi
+Data prefix:  /home/admin/usr
+Command line:
+  gmx grompp -f ../../md.2.100000.mdp -c 1AKI-npt.gro -t 1AKI-npt.cpt -p 1AKI.top -o 1AKI-md_0_1.100000.tpr
+
+Ignoring obsolete mdp entry 'title'
+
+Back Off! I just backed up mdout.mdp to ./#mdout.mdp.7#
+Setting the LD random seed to 756014929
+Generated 330891 of the 330891 non-bonded parameter combinations
+Generating 1-4 interactions: fudge = 0.5
+Generated 330891 of the 330891 1-4 parameter combinations
+Excluding 3 bonded neighbours molecule type 'Protein_chain_A'
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 1 bonded neighbours molecule type 'CL'
+
+NOTE 1 [file 1AKI.top, line 18411]:
+  System has non-zero total charge: -0.113000
+  Total charge should normally be an integer. See
+  http://www.gromacs.org/Documentation/Floating_Point_Arithmetic
+  for discussion on how close it should be to an integer.
+  
+
+
+turning all bonds into constraints...
+turning all bonds into constraints...
+turning all bonds into constraints...
+Removing all charge groups because cutoff-scheme=Verlet
+Analysing residue names:
+There are:   129    Protein residues
+There are: 12136      Water residues
+There are:     8        Ion residues
+Analysing Protein...
+Number of degrees of freedom in T-Coupling group Protein is 3895.85
+Number of degrees of freedom in T-Coupling group non-Protein is 72837.15
+Reading Coordinates, Velocities and Box size from old trajectory
+Will read whole trajectory
+Last frame         -1 time  100.000   
+Using frame at t = 100 ps
+Starting time for run is 0 ps
+Estimate for the relative computational load of the PME mesh part: 0.20
+
+There was 1 note
+
+gcq#241: "O My God, They Killed Kenny !" (South Park)
+
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 300 K
+Calculated rlist for 1x1 atom pair-list as 1.036 nm, buffer size 0.036 nm
+Set rlist, assuming 4x4 atom pair-list, to 1.000 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 48x48x48, spacing 0.151 0.151 0.151
+This run will generate roughly 25 Mb of data
+cat machinefile
+n002.vcluster slots=20
+n001.vcluster slots=20
+cat machinefile
+n002.vcluster slots=20
+n001.vcluster slots=20
+cat machinefile
+n002.vcluster slots=20
+n001.vcluster slots=20
+cat machinefile
+n002.vcluster slots=20
+n001.vcluster slots=20
