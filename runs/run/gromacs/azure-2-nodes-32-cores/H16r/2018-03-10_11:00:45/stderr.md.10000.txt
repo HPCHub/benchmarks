@@ -1,0 +1,85 @@
+                   :-) GROMACS - gmx mdrun, VERSION 5.1.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, VERSION 5.1.4
+Executable:   /home/ismagilov/hpchub_benchmark/tests/gromacs/gromacs-5.1.4/build/bin/gmx_mpi
+Data prefix:  /home/ismagilov/hpchub_benchmark/tests/gromacs/gromacs-5.1.4 (source tree)
+Command line:
+  gmx_mpi mdrun -deffnm 1AKI-md_0_1.10000
+
+
+Number of logical cores detected (16) does not match the number reported by OpenMP (1).
+Consider setting the launch configuration manually!
+
+Running on 2 nodes with total 32 cores, 32 logical cores
+  Cores per node:           16
+  Logical cores per node:   16
+Hardware detected on host HPCHUB-CENTOS-H-1 (the node of MPI rank 0):
+  CPU info:
+    Vendor: GenuineIntel
+    Brand:  Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz
+    SIMD instructions most likely to fit this hardware: AVX2_256
+    SIMD instructions selected at GROMACS compile time: AVX2_256
+
+Reading file 1AKI-md_0_1.10000.tpr, VERSION 5.1.4 (single precision)
+Changing nstlist from 10 to 20, rlist from 1 to 1.03
+
+The number of OpenMP threads was set by environment variable OMP_NUM_THREADS to 1
+
+Will use 24 particle-particle and 8 PME only ranks
+This is a guess, check the performance at the end of the log file
+Using 32 MPI processes
+Using 1 OpenMP thread per MPI process
+
+
+Non-default thread affinity set probably by the OpenMP library,
+disabling internal thread affinity
+starting mdrun 'LYSOZYME in water'
+10000 steps,     20.0 ps.
+
+NOTE: Turning on dynamic load balancing
+
+
+Writing final coordinates.
+
+ Average load imbalance: 4.1 %
+ Part of the total run time spent waiting due to load imbalance: 2.2 %
+ Steps where the load balancing was limited by -rdd, -rcon and/or -dds: X 0 % Y 0 % Z 0 %
+ Average PME mesh/force load: 0.697
+ Part of the total run time spent waiting due to PP/PME imbalance: 5.1 %
+
+NOTE: 5.1 % performance was lost because the PME ranks
+      had less work to do than the PP ranks.
+      You might want to decrease the number of PME ranks
+      or decrease the cut-off and the grid spacing.
+
+
+               Core t (s)   Wall t (s)        (%)
+       Time:      783.755       24.510     3197.7
+                 (ns/day)    (hour/ns)
+Performance:       70.509        0.340
+
+gcq#451: "Our struggle today is not to have a female Einstein get appointed as an assistant professor. It is for a woman schlemiel to get as quickly promoted as a male schlemiel." (Bella Abzug)
+
