@@ -1,0 +1,568 @@
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+cat machinefile
+n001.vcluster slots=20
+Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1): [r(1)][10.3%][r=4688KiB/s,w=0KiB/s][r=1172,w=0 IOPS][eta 00m:26s]Jobs: 1 (f=1): [r(1)][14.3%][r=4708KiB/s,w=0KiB/s][r=1177,w=0 IOPS][eta 00m:24s]Jobs: 1 (f=1): [r(1)][17.9%][r=4576KiB/s,w=0KiB/s][r=1144,w=0 IOPS][eta 00m:23s]Jobs: 1 (f=1): [r(1)][21.4%][r=4536KiB/s,w=0KiB/s][r=1134,w=0 IOPS][eta 00m:22s]Jobs: 1 (f=1): [r(1)][25.0%][r=4604KiB/s,w=0KiB/s][r=1151,w=0 IOPS][eta 00m:21s]Jobs: 1 (f=1): [r(1)][28.6%][r=4820KiB/s,w=0KiB/s][r=1205,w=0 IOPS][eta 00m:20s]Jobs: 1 (f=1): [r(1)][32.1%][r=4896KiB/s,w=0KiB/s][r=1224,w=0 IOPS][eta 00m:19s]Jobs: 1 (f=1): [r(1)][35.7%][r=4820KiB/s,w=0KiB/s][r=1205,w=0 IOPS][eta 00m:18s]Jobs: 1 (f=1): [r(1)][39.3%][r=5040KiB/s,w=0KiB/s][r=1260,w=0 IOPS][eta 00m:17s]Jobs: 1 (f=1): [r(1)][44.4%][r=4904KiB/s,w=0KiB/s][r=1226,w=0 IOPS][eta 00m:15s]Jobs: 1 (f=1): [r(1)][48.1%][r=4960KiB/s,w=0KiB/s][r=1240,w=0 IOPS][eta 00m:14s]Jobs: 1 (f=1): [r(1)][51.9%][r=5045KiB/s,w=0KiB/s][r=1261,w=0 IOPS][eta 00m:13s]Jobs: 1 (f=1): [r(1)][55.6%][r=5012KiB/s,w=0KiB/s][r=1253,w=0 IOPS][eta 00m:12s]Jobs: 1 (f=1): [r(1)][59.3%][r=5044KiB/s,w=0KiB/s][r=1261,w=0 IOPS][eta 00m:11s]Jobs: 1 (f=1): [r(1)][63.0%][r=4288KiB/s,w=0KiB/s][r=1072,w=0 IOPS][eta 00m:10s]Jobs: 1 (f=1): [r(1)][66.7%][r=5212KiB/s,w=0KiB/s][r=1303,w=0 IOPS][eta 00m:09s]Jobs: 1 (f=1): [r(1)][70.4%][r=5233KiB/s,w=0KiB/s][r=1308,w=0 IOPS][eta 00m:08s]Jobs: 1 (f=1): [r(1)][74.1%][r=5232KiB/s,w=0KiB/s][r=1308,w=0 IOPS][eta 00m:07s]Jobs: 1 (f=1): [r(1)][77.8%][r=5220KiB/s,w=0KiB/s][r=1305,w=0 IOPS][eta 00m:06s]Jobs: 1 (f=1): [r(1)][84.6%][r=5201KiB/s,w=0KiB/s][r=1300,w=0 IOPS][eta 00m:04s]Jobs: 1 (f=1): [r(1)][88.5%][r=5304KiB/s,w=0KiB/s][r=1326,w=0 IOPS][eta 00m:03s]Jobs: 1 (f=1): [r(1)][92.3%][r=5201KiB/s,w=0KiB/s][r=1300,w=0 IOPS][eta 00m:02s]Jobs: 1 (f=1): [r(1)][96.2%][r=5124KiB/s,w=0KiB/s][r=1281,w=0 IOPS][eta 00m:01s]Jobs: 1 (f=1): [r(1)][100.0%][r=5632KiB/s,w=0KiB/s][r=1408,w=0 IOPS][eta 00m:00s]getbw.value: 4976
+getlat.value: 801.61
+log-128m-randread-job.n001: 
+box.n001: (g=0): rw=randread, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+box.n001: Laying out IO file (1 file / 128MiB)
+
+box.n001: (groupid=0, jobs=1): err= 0: pid=14125: Fri Mar 16 00:23:52 2018
+   read: IOPS=1244, BW=4976KiB/s (5096kB/s)(128MiB/26339msec)
+    clat (usec): min=395, max=38252, avg=801.33, stdev=412.46
+     lat (usec): min=395, max=38252, avg=801.61, stdev=412.46
+    clat percentiles (usec):
+     |  1.00th=[  502],  5.00th=[  570], 10.00th=[  603], 20.00th=[  685],
+     | 30.00th=[  734], 40.00th=[  758], 50.00th=[  791], 60.00th=[  816],
+     | 70.00th=[  848], 80.00th=[  889], 90.00th=[  947], 95.00th=[ 1012],
+     | 99.00th=[ 1188], 99.50th=[ 1336], 99.90th=[ 5276], 99.95th=[ 7504],
+     | 99.99th=[20841]
+   bw (  KiB/s): min= 3424, max= 5712, per=99.62%, avg=4957.08, stdev=350.41, samples=52
+   iops        : min=  856, max= 1428, avg=1239.27, stdev=87.60, samples=52
+  lat (usec)   : 500=1.00%, 750=35.13%, 1000=58.01%
+  lat (msec)   : 2=5.66%, 4=0.07%, 10=0.10%, 20=0.02%, 50=0.01%
+  cpu          : usr=0.46%, sys=2.29%, ctx=32845, majf=0, minf=35
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=32768,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=4976KiB/s (5096kB/s), 4976KiB/s-4976KiB/s (5096kB/s-5096kB/s), io=128MiB (134MB), run=26339-26339msec
+
+Disk stats (read/write):
+  sda: ios=32379/532, merge=0/294, ticks=25539/30432, in_queue=55981, util=97.50%
+cat machinefile
+n001.vcluster slots=20
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+getbw.value: 667
+getlat.value: 
+Illegal division by zero at -e line 1, <> line 27.
+log-128m-randwrite-job.n001: 
+box.n001: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.n001: (groupid=0, jobs=1): err= 0: pid=14426: Fri Mar 16 00:24:03 2018
+  write: IOPS=171k, BW=667MiB/s (699MB/s)(128MiB/192msec)
+    clat (usec): min=3, max=151, avg= 4.28, stdev= 1.25
+     lat (usec): min=3, max=151, avg= 4.47, stdev= 1.26
+    clat percentiles (nsec):
+     |  1.00th=[ 3792],  5.00th=[ 3856], 10.00th=[ 3888], 20.00th=[ 3952],
+     | 30.00th=[ 3984], 40.00th=[ 4016], 50.00th=[ 4016], 60.00th=[ 4048],
+     | 70.00th=[ 4128], 80.00th=[ 4192], 90.00th=[ 5024], 95.00th=[ 5792],
+     | 99.00th=[ 8384], 99.50th=[11456], 99.90th=[13760], 99.95th=[15552],
+     | 99.99th=[21632]
+  lat (usec)   : 4=39.08%, 10=60.31%, 20=0.59%, 50=0.02%, 250=0.01%
+  cpu          : usr=17.80%, sys=81.68%, ctx=20, majf=0, minf=34
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,32768,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=667MiB/s (699MB/s), 667MiB/s-667MiB/s (699MB/s-699MB/s), io=128MiB (134MB), run=192-192msec
+
+Disk stats (read/write):
+  sda: ios=0/0, merge=0/0, ticks=0/0, in_queue=0, util=0.00%
+rm: невозможно удалить «job*»cat machinefile
+n001.vcluster slots=20
+: Нет такого файла или каталога
+getbw.value: 159
+getlat.value: 17234.1
+log-128m-read-job.n001: 
+box.n001: (g=0): rw=read, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.n001: (groupid=0, jobs=1): err= 0: pid=14594: Fri Mar 16 00:24:14 2018
+   read: IOPS=40.6k, BW=159MiB/s (166MB/s)(128MiB/807msec)
+    clat (nsec): min=494, max=121067k, avg=17115.92, stdev=681446.91
+     lat (nsec): min=608, max=121067k, avg=17234.10, stdev=681446.94
+    clat percentiles (nsec):
+     |  1.00th=[    516],  5.00th=[    524], 10.00th=[    532],
+     | 20.00th=[    548], 30.00th=[    564], 40.00th=[    580],
+     | 50.00th=[    612], 60.00th=[    724], 70.00th=[    788],
+     | 80.00th=[    812], 90.00th=[    860], 95.00th=[    916],
+     | 99.00th=[ 610304], 99.50th=[1138688], 99.90th=[1744896],
+     | 99.95th=[2039808], 99.99th=[2637824]
+   bw (  KiB/s): min=68168, max=68168, per=41.97%, avg=68168.00, stdev= 0.00, samples=1
+   iops        : min=17042, max=17042, avg=17042.00, stdev= 0.00, samples=1
+  lat (nsec)   : 500=0.02%, 750=62.67%, 1000=34.22%
+  lat (usec)   : 2=1.74%, 4=0.03%, 10=0.10%, 20=0.06%, 50=0.05%
+  lat (usec)   : 100=0.01%, 250=0.01%, 500=0.05%, 750=0.11%, 1000=0.24%
+  lat (msec)   : 2=0.62%, 4=0.06%, 10=0.01%, 250=0.01%
+  cpu          : usr=2.36%, sys=8.56%, ctx=376, majf=0, minf=36
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=32768,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=159MiB/s (166MB/s), 159MiB/s-159MiB/s (166MB/s-166MB/s), io=128MiB (134MB), run=807-807msec
+
+Disk stats (read/write):
+  sda: ios=261/322, merge=0/0, ticks=871/43914, in_queue=44787, util=86.13%
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+cat machinefile
+n001.vcluster slots=20
+getbw.value: 723
+getlat.value: 
+Illegal division by zero at -e line 1, <> line 27.
+log-128m-write-job.n001: 
+box.n001: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.n001: (groupid=0, jobs=1): err= 0: pid=14803: Fri Mar 16 00:24:24 2018
+  write: IOPS=185k, BW=723MiB/s (758MB/s)(128MiB/177msec)
+    clat (usec): min=3, max=151, avg= 3.94, stdev= 1.21
+     lat (usec): min=3, max=152, avg= 4.12, stdev= 1.22
+    clat percentiles (nsec):
+     |  1.00th=[ 3568],  5.00th=[ 3600], 10.00th=[ 3632], 20.00th=[ 3664],
+     | 30.00th=[ 3664], 40.00th=[ 3696], 50.00th=[ 3728], 60.00th=[ 3728],
+     | 70.00th=[ 3792], 80.00th=[ 3856], 90.00th=[ 4448], 95.00th=[ 4960],
+     | 99.00th=[ 6752], 99.50th=[10176], 99.90th=[13760], 99.95th=[17024],
+     | 99.99th=[26496]
+  lat (usec)   : 4=85.60%, 10=13.88%, 20=0.49%, 50=0.02%, 250=0.01%
+  cpu          : usr=19.89%, sys=78.98%, ctx=18, majf=0, minf=34
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,32768,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=723MiB/s (758MB/s), 723MiB/s-723MiB/s (758MB/s-758MB/s), io=128MiB (134MB), run=177-177msec
+
+Disk stats (read/write):
+  sda: ios=0/0, merge=0/0, ticks=0/0, in_queue=0, util=0.00%
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+cat machinefile
+n001.vcluster slots=20
+Jobs: 1 (f=1)getbw.value: 138
+getlat.value: 5572.14
+log-128m-randread-job.n001: 
+box.n001: (g=0): rw=randread, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.n001: (groupid=0, jobs=1): err= 0: pid=15001: Fri Mar 16 00:24:36 2018
+   read: IOPS=138, BW=138MiB/s (145MB/s)(128MiB/926msec)
+    clat (usec): min=135, max=92159, avg=5571.81, stdev=8630.98
+     lat (usec): min=135, max=92160, avg=5572.14, stdev=8631.00
+    clat percentiles (usec):
+     |  1.00th=[  137],  5.00th=[  137], 10.00th=[  139], 20.00th=[  143],
+     | 30.00th=[  196], 40.00th=[ 5735], 50.00th=[ 6194], 60.00th=[ 6456],
+     | 70.00th=[ 6915], 80.00th=[ 7308], 90.00th=[ 7767], 95.00th=[ 8029],
+     | 99.00th=[30016], 99.50th=[91751], 99.90th=[91751], 99.95th=[91751],
+     | 99.99th=[91751]
+   bw (  KiB/s): min=75776, max=75776, per=53.53%, avg=75776.00, stdev= 0.00, samples=1
+   iops        : min=   74, max=   74, avg=74.00, stdev= 0.00, samples=1
+  lat (usec)   : 250=30.47%
+  lat (msec)   : 10=67.19%, 20=0.78%, 50=0.78%, 100=0.78%
+  cpu          : usr=0.11%, sys=5.30%, ctx=202, majf=0, minf=292
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=128,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=138MiB/s (145MB/s), 138MiB/s-138MiB/s (145MB/s-145MB/s), io=128MiB (134MB), run=926-926msec
+
+Disk stats (read/write):
+  sda: ios=248/322, merge=1/0, ticks=1763/40089, in_queue=41857, util=89.29%
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+cat machinefile
+n001.vcluster slots=20
+getbw.value: 1164
+getlat.value: 768.18
+log-128m-randwrite-job.n001: 
+box.n001: (g=0): rw=randwrite, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.n001: (groupid=0, jobs=1): err= 0: pid=15169: Fri Mar 16 00:24:46 2018
+  write: IOPS=1163, BW=1164MiB/s (1220MB/s)(128MiB/110msec)
+    clat (usec): min=726, max=789, avg=756.11, stdev=12.15
+     lat (usec): min=739, max=801, avg=768.18, stdev=12.16
+    clat percentiles (usec):
+     |  1.00th=[  734],  5.00th=[  734], 10.00th=[  742], 20.00th=[  750],
+     | 30.00th=[  750], 40.00th=[  758], 50.00th=[  758], 60.00th=[  758],
+     | 70.00th=[  766], 80.00th=[  766], 90.00th=[  766], 95.00th=[  775],
+     | 99.00th=[  791], 99.50th=[  791], 99.90th=[  791], 99.95th=[  791],
+     | 99.99th=[  791]
+  lat (usec)   : 750=30.47%, 1000=69.53%
+  cpu          : usr=2.75%, sys=97.25%, ctx=10, majf=0, minf=34
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,128,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1164MiB/s (1220MB/s), 1164MiB/s-1164MiB/s (1220MB/s-1220MB/s), io=128MiB (134MB), run=110-110msec
+
+Disk stats (read/write):
+  sda: ios=0/0, merge=0/0, ticks=0/0, in_queue=0, util=0.00%
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+cat machinefile
+n001.vcluster slots=20
+getbw.value: 175
+getlat.value: 4060.57
+log-128m-read-job.n001: 
+box.n001: (g=0): rw=read, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.n001: (groupid=0, jobs=1): err= 0: pid=15352: Fri Mar 16 00:24:57 2018
+   read: IOPS=175, BW=175MiB/s (184MB/s)(128MiB/731msec)
+    clat (usec): min=138, max=15950, avg=4060.30, stdev=2668.03
+     lat (usec): min=138, max=15950, avg=4060.57, stdev=2668.06
+    clat percentiles (usec):
+     |  1.00th=[  143],  5.00th=[  145], 10.00th=[  149], 20.00th=[  169],
+     | 30.00th=[ 3818], 40.00th=[ 4178], 50.00th=[ 4490], 60.00th=[ 4817],
+     | 70.00th=[ 5080], 80.00th=[ 5538], 90.00th=[ 6652], 95.00th=[ 7373],
+     | 99.00th=[11469], 99.50th=[15926], 99.90th=[15926], 99.95th=[15926],
+     | 99.99th=[15926]
+   bw (  KiB/s): min=124928, max=124928, per=69.67%, avg=124928.00, stdev= 0.00, samples=1
+   iops        : min=  122, max=  122, avg=122.00, stdev= 0.00, samples=1
+  lat (usec)   : 250=21.09%, 1000=0.78%
+  lat (msec)   : 2=2.34%, 4=10.16%, 10=63.28%, 20=2.34%
+  cpu          : usr=0.14%, sys=7.67%, ctx=407, majf=0, minf=292
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=128,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=175MiB/s (184MB/s), 175MiB/s-175MiB/s (184MB/s-184MB/s), io=128MiB (134MB), run=731-731msec
+
+Disk stats (read/write):
+  sda: ios=362/323, merge=3/0, ticks=920/33318, in_queue=34239, util=86.27%
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+cat machinefile
+n001.vcluster slots=20
+getbw.value: 1153
+getlat.value: 775.85
+log-128m-write-job.n001: 
+box.n001: (g=0): rw=write, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.n001: (groupid=0, jobs=1): err= 0: pid=15536: Fri Mar 16 00:25:08 2018
+  write: IOPS=1153, BW=1153MiB/s (1209MB/s)(128MiB/111msec)
+    clat (usec): min=738, max=903, avg=764.26, stdev=15.63
+     lat (usec): min=750, max=915, avg=775.85, stdev=15.85
+    clat percentiles (usec):
+     |  1.00th=[  742],  5.00th=[  750], 10.00th=[  750], 20.00th=[  758],
+     | 30.00th=[  758], 40.00th=[  758], 50.00th=[  766], 60.00th=[  766],
+     | 70.00th=[  766], 80.00th=[  775], 90.00th=[  775], 95.00th=[  783],
+     | 99.00th=[  791], 99.50th=[  906], 99.90th=[  906], 99.95th=[  906],
+     | 99.99th=[  906]
+  lat (usec)   : 750=7.81%, 1000=92.19%
+  cpu          : usr=0.00%, sys=100.00%, ctx=11, majf=0, minf=34
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,128,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1153MiB/s (1209MB/s), 1153MiB/s-1153MiB/s (1209MB/s-1209MB/s), io=128MiB (134MB), run=111-111msec
+
+Disk stats (read/write):
+  sda: ios=0/0, merge=0/0, ticks=0/0, in_queue=0, util=0.00%
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+cat machinefile
+n001.vcluster slots=20
+Jobs: 1 (f=1)Jobs: 1 (f=1): [r(1)][2.5%][r=4600KiB/s,w=0KiB/s][r=1150,w=0 IOPS][eta 01m:59s]Jobs: 1 (f=1): [r(1)][3.4%][r=4716KiB/s,w=0KiB/s][r=1179,w=0 IOPS][eta 01m:54s]Jobs: 1 (f=1): [r(1)][4.3%][r=4808KiB/s,w=0KiB/s][r=1202,w=0 IOPS][eta 01m:51s]Jobs: 1 (f=1): [r(1)][5.2%][r=4800KiB/s,w=0KiB/s][r=1200,w=0 IOPS][eta 01m:49s]Jobs: 1 (f=1): [r(1)][6.1%][r=4684KiB/s,w=0KiB/s][r=1171,w=0 IOPS][eta 01m:47s]Jobs: 1 (f=1): [r(1)][7.0%][r=4684KiB/s,w=0KiB/s][r=1171,w=0 IOPS][eta 01m:46s]Jobs: 1 (f=1): [r(1)][7.9%][r=4496KiB/s,w=0KiB/s][r=1124,w=0 IOPS][eta 01m:45s]Jobs: 1 (f=1): [r(1)][8.8%][r=4588KiB/s,w=0KiB/s][r=1147,w=0 IOPS][eta 01m:44s]Jobs: 1 (f=1): [r(1)][9.6%][r=4784KiB/s,w=0KiB/s][r=1196,w=0 IOPS][eta 01m:43s]Jobs: 1 (f=1): [r(1)][10.5%][r=4784KiB/s,w=0KiB/s][r=1196,w=0 IOPS][eta 01m:42s]Jobs: 1 (f=1): [r(1)][11.5%][r=4716KiB/s,w=0KiB/s][r=1179,w=0 IOPS][eta 01m:40s]Jobs: 1 (f=1): [r(1)][12.4%][r=4820KiB/s,w=0KiB/s][r=1205,w=0 IOPS][eta 01m:39s]Jobs: 1 (f=1): [r(1)][13.3%][r=4812KiB/s,w=0KiB/s][r=1203,w=0 IOPS][eta 01m:38s]Jobs: 1 (f=1): [r(1)][14.2%][r=4864KiB/s,w=0KiB/s][r=1216,w=0 IOPS][eta 01m:37s]Jobs: 1 (f=1): [r(1)][15.2%][r=4928KiB/s,w=0KiB/s][r=1232,w=0 IOPS][eta 01m:35s]Jobs: 1 (f=1): [r(1)][16.1%][r=4892KiB/s,w=0KiB/s][r=1223,w=0 IOPS][eta 01m:34s]Jobs: 1 (f=1): [r(1)][17.0%][r=4852KiB/s,w=0KiB/s][r=1213,w=0 IOPS][eta 01m:33s]Jobs: 1 (f=1): [r(1)][17.9%][r=4776KiB/s,w=0KiB/s][r=1194,w=0 IOPS][eta 01m:32s]Jobs: 1 (f=1): [r(1)][18.9%][r=4972KiB/s,w=0KiB/s][r=1243,w=0 IOPS][eta 01m:30s]Jobs: 1 (f=1): [r(1)][19.8%][r=4904KiB/s,w=0KiB/s][r=1226,w=0 IOPS][eta 01m:29s]Jobs: 1 (f=1): [r(1)][20.7%][r=4820KiB/s,w=0KiB/s][r=1205,w=0 IOPS][eta 01m:28s]Jobs: 1 (f=1): [r(1)][21.6%][r=4868KiB/s,w=0KiB/s][r=1217,w=0 IOPS][eta 01m:27s]Jobs: 1 (f=1): [r(1)][22.5%][r=4868KiB/s,w=0KiB/s][r=1217,w=0 IOPS][eta 01m:26s]Jobs: 1 (f=1): [r(1)][23.4%][r=4872KiB/s,w=0KiB/s][r=1218,w=0 IOPS][eta 01m:25s]Jobs: 1 (f=1): [r(1)][24.3%][r=4872KiB/s,w=0KiB/s][r=1218,w=0 IOPS][eta 01m:24s]Jobs: 1 (f=1): [r(1)][25.2%][r=4808KiB/s,w=0KiB/s][r=1202,w=0 IOPS][eta 01m:23s]Jobs: 1 (f=1): [r(1)][26.1%][r=4724KiB/s,w=0KiB/s][r=1181,w=0 IOPS][eta 01m:22s]Jobs: 1 (f=1): [r(1)][27.0%][r=4656KiB/s,w=0KiB/s][r=1164,w=0 IOPS][eta 01m:21s]Jobs: 1 (f=1): [r(1)][27.9%][r=4840KiB/s,w=0KiB/s][r=1210,w=0 IOPS][eta 01m:20s]Jobs: 1 (f=1): [r(1)][29.1%][r=4944KiB/s,w=0KiB/s][r=1236,w=0 IOPS][eta 01m:18s]Jobs: 1 (f=1): [r(1)][30.0%][r=4896KiB/s,w=0KiB/s][r=1224,w=0 IOPS][eta 01m:17s]Jobs: 1 (f=1): [r(1)][30.9%][r=4844KiB/s,w=0KiB/s][r=1211,w=0 IOPS][eta 01m:16s]Jobs: 1 (f=1): [r(1)][31.8%][r=4840KiB/s,w=0KiB/s][r=1210,w=0 IOPS][eta 01m:15s]Jobs: 1 (f=1): [r(1)][32.7%][r=4940KiB/s,w=0KiB/s][r=1235,w=0 IOPS][eta 01m:14s]Jobs: 1 (f=1): [r(1)][33.6%][r=4972KiB/s,w=0KiB/s][r=1243,w=0 IOPS][eta 01m:13s]Jobs: 1 (f=1): [r(1)][34.5%][r=4976KiB/s,w=0KiB/s][r=1244,w=0 IOPS][eta 01m:12s]Jobs: 1 (f=1): [r(1)][35.5%][r=4984KiB/s,w=0KiB/s][r=1246,w=0 IOPS][eta 01m:11s]Jobs: 1 (f=1): [r(1)][36.4%][r=5009KiB/s,w=0KiB/s][r=1252,w=0 IOPS][eta 01m:10s]Jobs: 1 (f=1): [r(1)][37.3%][r=4968KiB/s,w=0KiB/s][r=1242,w=0 IOPS][eta 01m:09s]Jobs: 1 (f=1): [r(1)][38.2%][r=4996KiB/s,w=0KiB/s][r=1249,w=0 IOPS][eta 01m:08s]Jobs: 1 (f=1): [r(1)][39.4%][r=4960KiB/s,w=0KiB/s][r=1240,w=0 IOPS][eta 01m:06s]Jobs: 1 (f=1): [r(1)][40.4%][r=4860KiB/s,w=0KiB/s][r=1215,w=0 IOPS][eta 01m:05s]Jobs: 1 (f=1): [r(1)][41.3%][r=4864KiB/s,w=0KiB/s][r=1216,w=0 IOPS][eta 01m:04s]Jobs: 1 (f=1): [r(1)][42.2%][r=4928KiB/s,w=0KiB/s][r=1232,w=0 IOPS][eta 01m:03s]Jobs: 1 (f=1): [r(1)][43.1%][r=4916KiB/s,w=0KiB/s][r=1229,w=0 IOPS][eta 01m:02s]Jobs: 1 (f=1): [r(1)][44.0%][r=4972KiB/s,w=0KiB/s][r=1243,w=0 IOPS][eta 01m:01s]Jobs: 1 (f=1): [r(1)][45.0%][r=5096KiB/s,w=0KiB/s][r=1274,w=0 IOPS][eta 01m:00s]Jobs: 1 (f=1): [r(1)][45.9%][r=4948KiB/s,w=0KiB/s][r=1237,w=0 IOPS][eta 00m:59s]Jobs: 1 (f=1): [r(1)][46.8%][r=5040KiB/s,w=0KiB/s][r=1260,w=0 IOPS][eta 00m:58s]Jobs: 1 (f=1): [r(1)][47.7%][r=4936KiB/s,w=0KiB/s][r=1234,w=0 IOPS][eta 00m:57s]Jobs: 1 (f=1): [r(1)][48.6%][r=4876KiB/s,w=0KiB/s][r=1219,w=0 IOPS][eta 00m:56s]Jobs: 1 (f=1): [r(1)][49.5%][r=4932KiB/s,w=0KiB/s][r=1233,w=0 IOPS][eta 00m:55s]Jobs: 1 (f=1): [r(1)][50.5%][r=4848KiB/s,w=0KiB/s][r=1212,w=0 IOPS][eta 00m:54s]Jobs: 1 (f=1): [r(1)][51.4%][r=4860KiB/s,w=0KiB/s][r=1215,w=0 IOPS][eta 00m:53s]Jobs: 1 (f=1): [r(1)][52.3%][r=4940KiB/s,w=0KiB/s][r=1235,w=0 IOPS][eta 00m:52s]Jobs: 1 (f=1): [r(1)][53.2%][r=4888KiB/s,w=0KiB/s][r=1222,w=0 IOPS][eta 00m:51s]Jobs: 1 (f=1): [r(1)][54.1%][r=4960KiB/s,w=0KiB/s][r=1240,w=0 IOPS][eta 00m:50s]Jobs: 1 (f=1): [r(1)][55.0%][r=4804KiB/s,w=0KiB/s][r=1201,w=0 IOPS][eta 00m:49s]Jobs: 1 (f=1): [r(1)][56.0%][r=4992KiB/s,w=0KiB/s][r=1248,w=0 IOPS][eta 00m:48s]Jobs: 1 (f=1): [r(1)][56.9%][r=4988KiB/s,w=0KiB/s][r=1247,w=0 IOPS][eta 00m:47s]Jobs: 1 (f=1): [r(1)][57.8%][r=4924KiB/s,w=0KiB/s][r=1231,w=0 IOPS][eta 00m:46s]Jobs: 1 (f=1): [r(1)][58.7%][r=4972KiB/s,w=0KiB/s][r=1243,w=0 IOPS][eta 00m:45s]Jobs: 1 (f=1): [r(1)][59.6%][r=4924KiB/s,w=0KiB/s][r=1231,w=0 IOPS][eta 00m:44s]Jobs: 1 (f=1): [r(1)][60.6%][r=4928KiB/s,w=0KiB/s][r=1232,w=0 IOPS][eta 00m:43s]Jobs: 1 (f=1): [r(1)][61.5%][r=4876KiB/s,w=0KiB/s][r=1219,w=0 IOPS][eta 00m:42s]Jobs: 1 (f=1): [r(1)][63.0%][r=5013KiB/s,w=0KiB/s][r=1253,w=0 IOPS][eta 00m:40s]Jobs: 1 (f=1): [r(1)][63.9%][r=4852KiB/s,w=0KiB/s][r=1213,w=0 IOPS][eta 00m:39s]Jobs: 1 (f=1): [r(1)][64.8%][r=4928KiB/s,w=0KiB/s][r=1232,w=0 IOPS][eta 00m:38s]Jobs: 1 (f=1): [r(1)][65.7%][r=4860KiB/s,w=0KiB/s][r=1215,w=0 IOPS][eta 00m:37s]Jobs: 1 (f=1): [r(1)][66.7%][r=4988KiB/s,w=0KiB/s][r=1247,w=0 IOPS][eta 00m:36s]Jobs: 1 (f=1): [r(1)][67.6%][r=4972KiB/s,w=0KiB/s][r=1243,w=0 IOPS][eta 00m:35s]Jobs: 1 (f=1): [r(1)][68.5%][r=4952KiB/s,w=0KiB/s][r=1238,w=0 IOPS][eta 00m:34s]Jobs: 1 (f=1): [r(1)][69.4%][r=4872KiB/s,w=0KiB/s][r=1218,w=0 IOPS][eta 00m:33s]Jobs: 1 (f=1): [r(1)][70.4%][r=4996KiB/s,w=0KiB/s][r=1249,w=0 IOPS][eta 00m:32s]Jobs: 1 (f=1): [r(1)][71.3%][r=4904KiB/s,w=0KiB/s][r=1226,w=0 IOPS][eta 00m:31s]Jobs: 1 (f=1): [r(1)][72.2%][r=4892KiB/s,w=0KiB/s][r=1223,w=0 IOPS][eta 00m:30s]Jobs: 1 (f=1): [r(1)][73.1%][r=4876KiB/s,w=0KiB/s][r=1219,w=0 IOPS][eta 00m:29s]Jobs: 1 (f=1): [r(1)][74.1%][r=4876KiB/s,w=0KiB/s][r=1219,w=0 IOPS][eta 00m:28s]Jobs: 1 (f=1): [r(1)][75.0%][r=4952KiB/s,w=0KiB/s][r=1238,w=0 IOPS][eta 00m:27s]Jobs: 1 (f=1): [r(1)][75.9%][r=4968KiB/s,w=0KiB/s][r=1242,w=0 IOPS][eta 00m:26s]Jobs: 1 (f=1): [r(1)][76.9%][r=4916KiB/s,w=0KiB/s][r=1229,w=0 IOPS][eta 00m:25s]Jobs: 1 (f=1): [r(1)][77.8%][r=4796KiB/s,w=0KiB/s][r=1199,w=0 IOPS][eta 00m:24s]Jobs: 1 (f=1): [r(1)][78.7%][r=4704KiB/s,w=0KiB/s][r=1176,w=0 IOPS][eta 00m:23s]Jobs: 1 (f=1): [r(1)][79.6%][r=4800KiB/s,w=0KiB/s][r=1200,w=0 IOPS][eta 00m:22s]Jobs: 1 (f=1): [r(1)][80.6%][r=4916KiB/s,w=0KiB/s][r=1229,w=0 IOPS][eta 00m:21s]Jobs: 1 (f=1): [r(1)][81.5%][r=4940KiB/s,w=0KiB/s][r=1235,w=0 IOPS][eta 00m:20s]Jobs: 1 (f=1): [r(1)][82.4%][r=4932KiB/s,w=0KiB/s][r=1233,w=0 IOPS][eta 00m:19s]Jobs: 1 (f=1): [r(1)][83.3%][r=5029KiB/s,w=0KiB/s][r=1257,w=0 IOPS][eta 00m:18s]Jobs: 1 (f=1): [r(1)][84.3%][r=4852KiB/s,w=0KiB/s][r=1213,w=0 IOPS][eta 00m:17s]Jobs: 1 (f=1): [r(1)][85.2%][r=4872KiB/s,w=0KiB/s][r=1218,w=0 IOPS][eta 00m:16s]Jobs: 1 (f=1): [r(1)][86.1%][r=4968KiB/s,w=0KiB/s][r=1242,w=0 IOPS][eta 00m:15s]Jobs: 1 (f=1): [r(1)][87.0%][r=4976KiB/s,w=0KiB/s][r=1244,w=0 IOPS][eta 00m:14s]Jobs: 1 (f=1): [r(1)][88.0%][r=4944KiB/s,w=0KiB/s][r=1236,w=0 IOPS][eta 00m:13s]Jobs: 1 (f=1): [r(1)][88.9%][r=4920KiB/s,w=0KiB/s][r=1230,w=0 IOPS][eta 00m:12s]Jobs: 1 (f=1): [r(1)][89.8%][r=4836KiB/s,w=0KiB/s][r=1209,w=0 IOPS][eta 00m:11s]Jobs: 1 (f=1): [r(1)][90.7%][r=4756KiB/s,w=0KiB/s][r=1189,w=0 IOPS][eta 00m:10s]Jobs: 1 (f=1): [r(1)][91.7%][r=4936KiB/s,w=0KiB/s][r=1234,w=0 IOPS][eta 00m:09s]Jobs: 1 (f=1): [r(1)][92.6%][r=4824KiB/s,w=0KiB/s][r=1206,w=0 IOPS][eta 00m:08s]Jobs: 1 (f=1): [r(1)][93.5%][r=4832KiB/s,w=0KiB/s][r=1208,w=0 IOPS][eta 00m:07s]Jobs: 1 (f=1): [r(1)][94.4%][r=4868KiB/s,w=0KiB/s][r=1217,w=0 IOPS][eta 00m:06s]Jobs: 1 (f=1): [r(1)][95.4%][r=4916KiB/s,w=0KiB/s][r=1229,w=0 IOPS][eta 00m:05s]Jobs: 1 (f=1): [r(1)][96.3%][r=4952KiB/s,w=0KiB/s][r=1238,w=0 IOPS][eta 00m:04s]Jobs: 1 (f=1): [r(1)][97.2%][r=4972KiB/s,w=0KiB/s][r=1243,w=0 IOPS][eta 00m:03s]Jobs: 1 (f=1): [r(1)][98.1%][r=4972KiB/s,w=0KiB/s][r=1243,w=0 IOPS][eta 00m:02s]Jobs: 1 (f=1): [r(1)][99.1%][r=5152KiB/s,w=0KiB/s][r=1288,w=0 IOPS][eta 00m:01s]Jobs: 1 (f=1): [r(1)][100.0%][r=5609KiB/s,w=0KiB/s][r=1402,w=0 IOPS][eta 00m:00s]getbw.value: 4890
+getlat.value: 815.59
+log-512m-randread-job.n001: 
+box.n001: (g=0): rw=randread, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+box.n001: Laying out IO file (1 file / 512MiB)
+
+box.n001: (groupid=0, jobs=1): err= 0: pid=15775: Fri Mar 16 00:27:18 2018
+   read: IOPS=1222, BW=4890KiB/s (5008kB/s)(512MiB/107211msec)
+    clat (usec): min=413, max=9237, avg=815.32, stdev=217.83
+     lat (usec): min=413, max=9237, avg=815.59, stdev=217.83
+    clat percentiles (usec):
+     |  1.00th=[  553],  5.00th=[  619], 10.00th=[  676], 20.00th=[  734],
+     | 30.00th=[  758], 40.00th=[  783], 50.00th=[  807], 60.00th=[  832],
+     | 70.00th=[  857], 80.00th=[  881], 90.00th=[  930], 95.00th=[  979],
+     | 99.00th=[ 1172], 99.50th=[ 1352], 99.90th=[ 4555], 99.95th=[ 6063],
+     | 99.99th=[ 7767]
+   bw (  KiB/s): min= 4312, max= 5912, per=99.93%, avg=4886.64, stdev=149.58, samples=214
+   iops        : min= 1078, max= 1478, avg=1221.65, stdev=37.40, samples=214
+  lat (usec)   : 500=0.17%, 750=25.73%, 1000=70.27%
+  lat (msec)   : 2=3.65%, 4=0.06%, 10=0.11%
+  cpu          : usr=0.44%, sys=2.40%, ctx=131379, majf=0, minf=68
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=131072,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=4890KiB/s (5008kB/s), 4890KiB/s-4890KiB/s (5008kB/s-5008kB/s), io=512MiB (537MB), run=107211-107211msec
+
+Disk stats (read/write):
+  sda: ios=131003/15, merge=0/0, ticks=104682/92, in_queue=104714, util=97.57%
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+cat machinefile
+n001.vcluster slots=20
+getbw.value: 690
+Illegal division by zero at -e line 1, <> line 30.
+getlat.value: 
+log-512m-randwrite-job.n001: 
+box.n001: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.n001: (groupid=0, jobs=1): err= 0: pid=16514: Fri Mar 16 00:27:29 2018
+  write: IOPS=177k, BW=690MiB/s (724MB/s)(512MiB/742msec)
+    clat (usec): min=3, max=153, avg= 4.17, stdev= 1.05
+     lat (usec): min=3, max=153, avg= 4.35, stdev= 1.06
+    clat percentiles (nsec):
+     |  1.00th=[ 3696],  5.00th=[ 3760], 10.00th=[ 3792], 20.00th=[ 3824],
+     | 30.00th=[ 3856], 40.00th=[ 3888], 50.00th=[ 3920], 60.00th=[ 3952],
+     | 70.00th=[ 4016], 80.00th=[ 4128], 90.00th=[ 4640], 95.00th=[ 5920],
+     | 99.00th=[ 7968], 99.50th=[10944], 99.90th=[13632], 99.95th=[17536],
+     | 99.99th=[21632]
+   bw (  KiB/s): min=682416, max=682416, per=96.58%, avg=682416.00, stdev= 0.00, samples=1
+   iops        : min=170604, max=170604, avg=170604.00, stdev= 0.00, samples=1
+  lat (usec)   : 4=67.70%, 10=31.72%, 20=0.56%, 50=0.02%, 100=0.01%
+  lat (usec)   : 250=0.01%
+  cpu          : usr=17.68%, sys=82.05%, ctx=78, majf=0, minf=34
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,131072,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=690MiB/s (724MB/s), 690MiB/s-690MiB/s (724MB/s-724MB/s), io=512MiB (537MB), run=742-742msec
+
+Disk stats (read/write):
+  sda: ios=0/0, merge=0/0, ticks=0/0, in_queue=0, util=0.00%
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+cat machinefile
+n001.vcluster slots=20
+Jobs: 1 (f=1)Jobs: 1 (f=1)getbw.value: 199
+getlat.value: 18528.85
+log-512m-read-job.n001: 
+box.n001: (g=0): rw=read, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.n001: (groupid=0, jobs=1): err= 0: pid=16682: Fri Mar 16 00:27:42 2018
+   read: IOPS=50.9k, BW=199MiB/s (209MB/s)(512MiB/2573msec)
+    clat (nsec): min=484, max=7431.3k, avg=18406.92, stdev=152205.70
+     lat (nsec): min=598, max=7431.4k, avg=18528.85, stdev=152207.73
+    clat percentiles (nsec):
+     |  1.00th=[    502],  5.00th=[    516], 10.00th=[    516],
+     | 20.00th=[    524], 30.00th=[    532], 40.00th=[    540],
+     | 50.00th=[    548], 60.00th=[    564], 70.00th=[    580],
+     | 80.00th=[    604], 90.00th=[    636], 95.00th=[    684],
+     | 99.00th=[ 929792], 99.50th=[1236992], 99.90th=[1744896],
+     | 99.95th=[2023424], 99.99th=[2703360]
+   bw (  KiB/s): min=168928, max=219136, per=99.90%, avg=203564.80, stdev=20029.69, samples=5
+   iops        : min=42232, max=54784, avg=50891.20, stdev=5007.42, samples=5
+  lat (nsec)   : 500=0.51%, 750=95.47%, 1000=0.39%
+  lat (usec)   : 2=1.75%, 4=0.01%, 10=0.12%, 20=0.03%, 50=0.05%
+  lat (usec)   : 100=0.01%, 250=0.04%, 500=0.11%, 750=0.22%, 1000=0.40%
+  lat (msec)   : 2=0.84%, 4=0.05%, 10=0.01%
+  cpu          : usr=2.49%, sys=10.77%, ctx=2234, majf=0, minf=36
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=131072,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=199MiB/s (209MB/s), 199MiB/s-199MiB/s (209MB/s-209MB/s), io=512MiB (537MB), run=2573-2573msec
+
+Disk stats (read/write):
+  sda: ios=2154/0, merge=0/0, ticks=4847/0, in_queue=4848, util=93.04%
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+cat machinefile
+n001.vcluster slots=20
+getbw.value: 759
+getlat.value: 
+Illegal division by zero at -e line 1, <> line 29.
+log-512m-write-job.n001: 
+box.n001: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.n001: (groupid=0, jobs=1): err= 0: pid=16850: Fri Mar 16 00:27:54 2018
+  write: IOPS=194k, BW=759MiB/s (795MB/s)(512MiB/675msec)
+    clat (usec): min=3, max=151, avg= 3.89, stdev= 1.06
+     lat (usec): min=3, max=151, avg= 4.07, stdev= 1.08
+    clat percentiles (nsec):
+     |  1.00th=[ 3536],  5.00th=[ 3568], 10.00th=[ 3568], 20.00th=[ 3600],
+     | 30.00th=[ 3632], 40.00th=[ 3664], 50.00th=[ 3696], 60.00th=[ 3696],
+     | 70.00th=[ 3760], 80.00th=[ 3824], 90.00th=[ 4320], 95.00th=[ 4960],
+     | 99.00th=[ 6624], 99.50th=[ 9920], 99.90th=[13504], 99.95th=[15936],
+     | 99.99th=[21632]
+   bw (  KiB/s): min=761224, max=761224, per=98.00%, avg=761224.00, stdev= 0.00, samples=1
+   iops        : min=190306, max=190306, avg=190306.00, stdev= 0.00, samples=1
+  lat (usec)   : 4=85.65%, 10=13.86%, 20=0.47%, 50=0.02%, 250=0.01%
+  cpu          : usr=18.40%, sys=81.31%, ctx=71, majf=0, minf=34
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,131072,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=759MiB/s (795MB/s), 759MiB/s-759MiB/s (795MB/s-795MB/s), io=512MiB (537MB), run=675-675msec
+
+Disk stats (read/write):
+  sda: ios=0/0, merge=0/0, ticks=0/0, in_queue=0, util=0.00%
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+cat machinefile
+n001.vcluster slots=20
+Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1): [r(1)][60.0%][r=139MiB/s,w=0KiB/s][r=139,w=0 IOPS][eta 00m:02s]Jobs: 1 (f=1): [r(1)][100.0%][r=137MiB/s,w=0KiB/s][r=137,w=0 IOPS][eta 00m:00s]getbw.value: 112
+getlat.value: 7234.95
+log-512m-randread-job.n001: 
+box.n001: (g=0): rw=randread, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.n001: (groupid=0, jobs=1): err= 0: pid=17048: Fri Mar 16 00:28:09 2018
+   read: IOPS=111, BW=112MiB/s (117MB/s)(512MiB/4585msec)
+    clat (usec): min=150, max=16104, avg=7234.65, stdev=1184.97
+     lat (usec): min=151, max=16104, avg=7234.95, stdev=1184.97
+    clat percentiles (usec):
+     |  1.00th=[ 4883],  5.00th=[ 5407], 10.00th=[ 5932], 20.00th=[ 6456],
+     | 30.00th=[ 6849], 40.00th=[ 7046], 50.00th=[ 7242], 60.00th=[ 7504],
+     | 70.00th=[ 7832], 80.00th=[ 8029], 90.00th=[ 8455], 95.00th=[ 8586],
+     | 99.00th=[ 9241], 99.50th=[11731], 99.90th=[16057], 99.95th=[16057],
+     | 99.99th=[16057]
+   bw (  KiB/s): min=34816, max=145408, per=100.00%, avg=128035.88, stdev=37811.77, samples=8
+   iops        : min=   34, max=  142, avg=125.00, stdev=36.91, samples=8
+  lat (usec)   : 250=0.20%
+  lat (msec)   : 2=0.39%, 10=98.63%, 20=0.78%
+  cpu          : usr=0.11%, sys=5.98%, ctx=1198, majf=0, minf=292
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=512,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=112MiB/s (117MB/s), 112MiB/s-112MiB/s (117MB/s-117MB/s), io=512MiB (537MB), run=4585-4585msec
+
+Disk stats (read/write):
+  sda: ios=1455/1288, merge=7/0, ticks=8603/121085, in_queue=129688, util=95.78%
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+cat machinefile
+n001.vcluster slots=20
+getbw.value: 1172
+getlat.value: 777.43
+log-512m-randwrite-job.n001: 
+box.n001: (g=0): rw=randwrite, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.n001: (groupid=0, jobs=1): err= 0: pid=17257: Fri Mar 16 00:28:20 2018
+  write: IOPS=1171, BW=1172MiB/s (1229MB/s)(512MiB/437msec)
+    clat (usec): min=736, max=922, avg=765.53, stdev=15.16
+     lat (usec): min=746, max=935, avg=777.43, stdev=15.19
+    clat percentiles (usec):
+     |  1.00th=[  742],  5.00th=[  750], 10.00th=[  750], 20.00th=[  758],
+     | 30.00th=[  758], 40.00th=[  758], 50.00th=[  766], 60.00th=[  766],
+     | 70.00th=[  775], 80.00th=[  775], 90.00th=[  783], 95.00th=[  791],
+     | 99.00th=[  799], 99.50th=[  824], 99.90th=[  922], 99.95th=[  922],
+     | 99.99th=[  922]
+  lat (usec)   : 750=9.96%, 1000=90.04%
+  cpu          : usr=2.06%, sys=97.71%, ctx=46, majf=0, minf=34
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,512,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1172MiB/s (1229MB/s), 1172MiB/s-1172MiB/s (1229MB/s-1229MB/s), io=512MiB (537MB), run=437-437msec
+
+Disk stats (read/write):
+  sda: ios=0/0, merge=0/0, ticks=0/0, in_queue=0, util=0.00%
+rm: невозможно удалить «job*»cat machinefile
+n001.vcluster slots=20
+: Нет такого файла или каталога
+Jobs: 1 (f=1)Jobs: 1 (f=1)getbw.value: 205
+getlat.value: 4762.69
+log-512m-read-job.n001: 
+box.n001: (g=0): rw=read, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.n001: (groupid=0, jobs=1): err= 0: pid=17455: Fri Mar 16 00:28:32 2018
+   read: IOPS=205, BW=205MiB/s (215MB/s)(512MiB/2497msec)
+    clat (usec): min=3295, max=12483, avg=4762.41, stdev=991.68
+     lat (usec): min=3296, max=12484, avg=4762.69, stdev=991.69
+    clat percentiles (usec):
+     |  1.00th=[ 3425],  5.00th=[ 3621], 10.00th=[ 3785], 20.00th=[ 3982],
+     | 30.00th=[ 4178], 40.00th=[ 4359], 50.00th=[ 4555], 60.00th=[ 4817],
+     | 70.00th=[ 5080], 80.00th=[ 5407], 90.00th=[ 5997], 95.00th=[ 6325],
+     | 99.00th=[ 7767], 99.50th=[10159], 99.90th=[12518], 99.95th=[12518],
+     | 99.99th=[12518]
+   bw (  KiB/s): min=182272, max=225280, per=99.00%, avg=207872.00, stdev=18203.02, samples=4
+   iops        : min=  178, max=  220, avg=203.00, stdev=17.78, samples=4
+  lat (msec)   : 4=21.09%, 10=78.32%, 20=0.59%
+  cpu          : usr=0.04%, sys=8.13%, ctx=2244, majf=0, minf=293
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=512,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=205MiB/s (215MB/s), 205MiB/s-205MiB/s (215MB/s-215MB/s), io=512MiB (537MB), run=2497-2497msec
+
+Disk stats (read/write):
+  sda: ios=2214/0, merge=0/0, ticks=5016/0, in_queue=5017, util=93.76%
+rm: невозможно удалить «job*»: Нет такого файла или каталога
+cat machinefile
+n001.vcluster slots=20
+getbw.value: 1180
+getlat.value: 773.07
+log-512m-write-job.n001: 
+box.n001: (g=0): rw=write, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.n001: (groupid=0, jobs=1): err= 0: pid=17623: Fri Mar 16 00:28:43 2018
+  write: IOPS=1179, BW=1180MiB/s (1237MB/s)(512MiB/434msec)
+    clat (usec): min=732, max=923, avg=761.13, stdev=14.92
+     lat (usec): min=739, max=936, avg=773.07, stdev=15.04
+    clat percentiles (usec):
+     |  1.00th=[  742],  5.00th=[  742], 10.00th=[  750], 20.00th=[  750],
+     | 30.00th=[  758], 40.00th=[  758], 50.00th=[  758], 60.00th=[  766],
+     | 70.00th=[  766], 80.00th=[  766], 90.00th=[  775], 95.00th=[  783],
+     | 99.00th=[  799], 99.50th=[  848], 99.90th=[  922], 99.95th=[  922],
+     | 99.99th=[  922]
+  lat (usec)   : 750=16.21%, 1000=83.79%
+  cpu          : usr=1.85%, sys=97.92%, ctx=46, majf=0, minf=34
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,512,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1180MiB/s (1237MB/s), 1180MiB/s-1180MiB/s (1237MB/s-1237MB/s), io=512MiB (537MB), run=434-434msec
+
+Disk stats (read/write):
+  sda: ios=0/0, merge=0/0, ticks=0/0, in_queue=0, util=0.00%
