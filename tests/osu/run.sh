@@ -63,7 +63,8 @@ else
 	echo $runstr | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out
 	eval $runstr
 	export NCPU=$local_NCPU
-	LogStep osu latency
+    min_lat=$(cat ${OSU_RESULTS}/osu_latency.2.1.out | tail -n 19  | awk '!i++{min=$2}{ for (j=2; j <= NF; j++) {min=(min < $j) ? min : $j}} END{ printf "%.2f\n", min}')
+	LogStep osu latency $min_lat
 
 #	run osu_mbw_mr 
 	for i in `echo ${LOG_PPN}`; do
@@ -72,7 +73,8 @@ else
 			runstr="$HPCHUB_MPIRUN $PWD/mpi/pt2pt/osu_mbw_mr -V -m 2097152 | tee -a ${OSU_RESULTS}/osu_mbw_mr.2.$i.out"
 			echo $runstr | tee -a  ${OSU_RESULTS}/osu_mbw_mr.2.$i.out
 			eval $runstr
-			LogStep osu mbw_mr_2_$i 1
+            max_bw=$(cat ${OSU_RESULTS}/osu_mbw_mr.2.$i.out  | tail -n 49 | head -n 23 | awk '!i++{max=$2}{ for (j=2; j <= NF; j++) {max=(max > $j) ? max : $j}} END{ printf "%.2f\n", max}')
+			LogStep osu mbw_mr_2_$i $max_bw
 	done
 fi
 
@@ -94,15 +96,15 @@ for i in `seq 1 $local_NNODES`; do
 		runstr="$HPCHUB_MPIRUN  $PWD/mpi/collective/osu_alltoall | tee -a ${OSU_RESULTS}/osu_alltoall.$i.$j.out"
 		echo $runstr | tee -a ${OSU_RESULTS}/osu_alltoall.$i.$j.out
 		eval $runstr
-		LogStep osu alltoall_$i $j
+		LogStep osu alltoall_$i_$j
 		runstr="$HPCHUB_MPIRUN $PWD/mpi/collective/osu_barrier -i 400000 | tee -a ${OSU_RESULTS}/osu_barrier.$i.$j.out"
 		echo $runstr | tee -a ${OSU_RESULTS}/osu_barrier.$i.$j.out
 		eval $runstr
-		LogStep osu barrier_$i $j
+		LogStep osu barrier_$i_$j
 		runstr="$HPCHUB_MPIRUN $PWD/mpi/collective/osu_allreduce | tee -a ${OSU_RESULTS}/osu_allreduce.$i.$j.out"
 		echo $runstr | tee -a ${OSU_RESULTS}/osu_allreduce.$i.$j.out
 		eval $runstr
-		LogStep osu  allreduce_$i $j
+		LogStep osu  allreduce_$i_$j
 	done
 done
 
