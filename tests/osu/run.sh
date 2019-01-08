@@ -63,7 +63,7 @@ else
 	echo $runstr | tee -a  ${OSU_RESULTS}/osu_latency.2.1.out
 	eval $runstr
 	export NCPU=$local_NCPU
-    min_lat=$(cat ${OSU_RESULTS}/osu_latency.2.1.out | tail -n 19  | awk '!i++{min=$2}{ for (j=2; j <= NF; j++) {min=(min < $j) ? min : $j}} END{ printf "%.2f\n", min}')
+    min_lat=$(../../../analise_scripts/get_stat_osu.py ${OSU_RESULTS} --test_name osu_latency --decimal_separator '.' | tail -n 19 |sed  's/;//g' | awk '!i++{min=$2}{ for (j=2; j <= NF; j++) {min=(min < $j) ? min : $j}} END{ printf "%.2f\n", min}')
 	LogStep osu latency $min_lat
 
 #	run osu_mbw_mr 
@@ -73,9 +73,9 @@ else
 			runstr="$HPCHUB_MPIRUN $PWD/mpi/pt2pt/osu_mbw_mr -V -m 2097152 | tee -a ${OSU_RESULTS}/osu_mbw_mr.2.$i.out"
 			echo $runstr | tee -a  ${OSU_RESULTS}/osu_mbw_mr.2.$i.out
 			eval $runstr
-            max_bw=$(cat ${OSU_RESULTS}/osu_mbw_mr.2.$i.out  | tail -n 49 | head -n 23 | awk '!i++{max=$2}{ for (j=2; j <= NF; j++) {max=(max > $j) ? max : $j}} END{ printf "%.2f\n", max}')
-			LogStep osu mbw_mr_2_$i $max_bw
 	done
+    max_bw=$(../../../analise_scripts/get_stat_osu.py ${OSU_RESULTS} --test_name osu_mbw_mr --decimal_separator '.'  | tail -n 22 | sed  's/;//g' | awk '!i++{max=$2}{ for (j=2; j <= NF; j++) {max=(max > $j) ? max : $j}} END{ printf "%.2f\n", max}')
+	LogStep osu mbw_mr $max_bw
 fi
 
 export NCPU=$local_NCPU
