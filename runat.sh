@@ -28,6 +28,7 @@ if [ -f "local_platform_hooks/$platform.$operation.sh" ];then
 fi
 
 remwd=`ssh $remhost pwd`
+remwd=$remwd/$platform_nfs_dir
 
 if [ ! "$?" = "0" -o "$remwd" = "" ]; then
   echo "Problems connecting to host $remhost"
@@ -41,13 +42,13 @@ else
 fi
 
 if [ "$operation" = "install" ]; then
-  git archive --format tar.gz master | ssh $remhost "cat > hpchub_benchmark.tar.gz"
-  ssh $remhost "mkdir hpchub_benchmark" 
-  ssh $remhost "cd hpchub_benchmark; tar -xvzf ../hpchub_benchmark.tar.gz" || exit 4
+  git archive --format tar.gz master | ssh $remhost "cat > $remwd/hpchub_benchmark.tar.gz"
+  ssh $remhost "mkdir -p $remwd/hpchub_benchmark" 
+  ssh $remhost "cd $remwd/hpchub_benchmark; tar -xvzf ../hpchub_benchmark.tar.gz" || exit 4
   echo "tarballs sent."
   for i in $testset; do
     if [ -d "$i" -a ! "$i" = "tests/include" -a ! -f "$i/.disable_install" ]; then 
-      ssh $remhost "cd hpchub_benchmark/$i; HPCHUB_PLATFORM=../../platforms/${platform}.sh ./install.sh" || exit 5
+      ssh $remhost "cd $remwd/hpchub_benchmark/$i; HPCHUB_PLATFORM=../../platforms/${platform}.sh ./install.sh" || exit 5
     fi
   done
   ssh $remhost "echo ok > hpchub_benchmark/install_ok"
@@ -72,7 +73,7 @@ else
        echo "Runing test: $testname"
        echo "expecting remote host $remhost to generate report at: ${remreport}"
 
-       ssh $remhost "cd hpchub_benchmark/$i; HPCHUB_OPERATION=${operation} HPCHUB_REPORT=${remreport} HPCHUB_RESDIR=${resdir} HPCHUB_PLATFORM=../../platforms/${platform}.sh ./${operation}.sh" 2>&1 | tee $resdir/out.log
+       ssh $remhost "cd $remwd/hpchub_benchmark/$i; HPCHUB_OPERATION=${operation} HPCHUB_REPORT=${remreport} HPCHUB_RESDIR=${resdir} HPCHUB_PLATFORM=../../platforms/${platform}.sh ./${operation}.sh" 2>&1 | tee $resdir/out.log
        scp $remhost:$remreport $resdir/report.time.txt || echo "report time not logged"
        if [ $testname == 'npb' -o $testname == 'osu' ]; then
            echo "Also fetching additional files: "
