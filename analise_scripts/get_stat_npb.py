@@ -187,7 +187,7 @@ if namespace.npb_classes:
 for npb_class in list_npb_classes:
 	list_names[npb_class] = []
 	list_names[npb_class] = mteps[npb_class].keys()
-	if namespace.npb_classes:
+	if namespace.test_name:
 		set1 = set(list_names[npb_class])
 		set2 = set(namespace.test_name)
 		list_names[npb_class] = list(set1 & set2)
