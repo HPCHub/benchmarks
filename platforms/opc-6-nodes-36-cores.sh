@@ -101,7 +101,7 @@ function hpchub_mpirun {
 		for _h in  ${NODES_ARRAY[@]:0:$NNODES}; do
 			echo $h slots=$(($HPCHUB_PPN*$OMP_NUM_THREADS)) >> machinefile
 		done
-		mpirun -np $NCPU -machinefile machinefile -n $NCPU --map-by socket:pe=$OMP_NUM_THREADS --bind-to core $@
+		mpirun -x UCB_IB_TRAFFIC_CLASS=104 -x UCX_IB_GID_INDEX=3 -x HCOLL_ENABLE_MCAST_ALL=0 --cpu-set 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35 -np $NCPU -machinefile machinefile --map-by socket:pe=$OMP_NUM_THREADS --bind-to core $@
 	fi
 }
 
