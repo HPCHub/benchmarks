@@ -71,9 +71,9 @@ fi
 if [ "$HPCHUB_OPERATION" == "install_system" ]; then
   echo YUM:
   
-  sudo yum -y install atlas cmake blas-devel
+  sudo yum -y install atlas cmake blas-devel  gcc-c++
   for i in $NODES; do
-    ssh $i  sudo yum -y install atlas cmake blas-devel
+    ssh $i  sudo yum -y install atlas cmake blas-devel gcc-c++
   done
 fi
 export FFTW_CONFIGURE_FLAGS
