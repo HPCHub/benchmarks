@@ -51,7 +51,7 @@ if [ "$operation" = "install" ]; then
       ssh $remhost "cd $remwd/hpchub_benchmark/$i; HPCHUB_PLATFORM=../../platforms/${platform}.sh ./install.sh" || exit 5
     fi
   done
-  ssh $remhost "echo ok > hpchub_benchmark/install_ok"
+  ssh $remhost "echo ok > $remwd/hpchub_benchmark/install_ok"
 
 elif [ "$operation" = "clean" ];then
   for i in $testset; do
