@@ -12,7 +12,6 @@ NCPU=`for i in $NODES; do ssh \$i cat /proc/cpuinfo | grep processor; done | wc 
 
 echo NNODE=$NODES
 echo NCPU=$NCPU
-exit 1
 
 #export OMP_NUM_THREADS=`ssh n001 cat /proc/cpuinfo | grep processor | wc -l`
 
