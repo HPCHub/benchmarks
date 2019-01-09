@@ -6,7 +6,7 @@ if [ $AVAIL_NNODES -lt $NNODES ]; then
   exit 1
 fi
 
-NODES=`cat /opt/hpc/hostlist.rdma | head -n $NNODES | awk '{print $1;};'`
+NODES=`cat /opt/hpc/hostlist.rdma | tail -n $NNODES | awk '{print $1;};'`
 
 NCPU=`for i in $NODES; do ssh \$i cat /proc/cpuinfo | grep processor; done | wc -l`
 
