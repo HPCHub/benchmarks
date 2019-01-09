@@ -96,15 +96,15 @@ for i in `seq 1 $local_NNODES`; do
 		runstr="$HPCHUB_MPIRUN  $PWD/mpi/collective/osu_alltoall | tee -a ${OSU_RESULTS}/osu_alltoall.$i.$j.out"
 		echo $runstr | tee -a ${OSU_RESULTS}/osu_alltoall.$i.$j.out
 		eval $runstr
-		LogStep osu alltoall_$i_$j
+		LogStep osu alltoall_${i}_${j}
 		runstr="$HPCHUB_MPIRUN $PWD/mpi/collective/osu_barrier -i 400000 | tee -a ${OSU_RESULTS}/osu_barrier.$i.$j.out"
 		echo $runstr | tee -a ${OSU_RESULTS}/osu_barrier.$i.$j.out
 		eval $runstr
-		LogStep osu barrier_$i_$j
+		LogStep osu barrier_${i}_${j}
 		runstr="$HPCHUB_MPIRUN $PWD/mpi/collective/osu_allreduce | tee -a ${OSU_RESULTS}/osu_allreduce.$i.$j.out"
 		echo $runstr | tee -a ${OSU_RESULTS}/osu_allreduce.$i.$j.out
 		eval $runstr
-		LogStep osu  allreduce_$i_$j
+		LogStep osu  allreduce_${i}_${j}
 	done
 done
 
