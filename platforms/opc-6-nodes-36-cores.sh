@@ -85,6 +85,7 @@ HPCHUB_PWD=`pwd`
 function hpchub_mpirun {
 	export MLNX_INTERFACE_NAME="enp94s0f0"
 	export MLNX_ROCE_NAME="mlx5_0"
+    MPI_FLAGS="-mca btl self -x UCX_TLS=rc,self,sm -x HCOLL_ENABLE_MCAST_ALL=0 -mca coll_hcoll_enable 0 -x UCX_IB_TRAFFIC_CLASS=105 -x UCX_IB_GID_INDEX=3"
 	HPCHUB_PPN=$(($NCPU/$NNODES))
 	NODES_ARRAY=($NODES)
 	rm machinefile
@@ -94,8 +95,8 @@ function hpchub_mpirun {
 		done
 		echo cat machinefile
 		cat machinefile
-		echo "mpirun -x UCB_IB_TRAFFIC_CLASS=104 -x UCX_IB_GID_INDEX=3 -x HCOLL_ENABLE_MCAST_ALL=0 -np $NCPU -machinefile machinefile --map-by socket:pe=1 --bind-to core  $@"
-		mpirun -x UCB_IB_TRAFFIC_CLASS=104 -x UCX_IB_GID_INDEX=3 -x HCOLL_ENABLE_MCAST_ALL=0 -np $NCPU -machinefile machinefile --map-by socket:pe=1 --bind-to core  $@
+		echo "mpirun $MPI_FLAGS -np $NCPU -machinefile machinefile --map-by socket:pe=1 --bind-to core  $@"
+		mpirun $MPI_FLAGS -np $NCPU -machinefile machinefile --map-by socket:pe=1 --bind-to core  $@
 	else
 		cpu_cores=`for i in $NODES; do ssh \$i cat /proc/cpuinfo | grep processor; done | wc -l`
 		if [ $(($cpu_cores/$NNODES)) -lt $(($HPCHUB_PPN*$OMP_NUM_THREADS)) ]; then
@@ -106,8 +107,8 @@ function hpchub_mpirun {
 		done
 		echo cat machinefile
 		cat machinefile
-		echo "mpirun -x UCB_IB_TRAFFIC_CLASS=104 -x UCX_IB_GID_INDEX=3 -x HCOLL_ENABLE_MCAST_ALL=0 -np $NCPU -machinefile machinefile --map-by socket:pe=$OMP_NUM_THREADS --bind-to core $@"
-		mpirun -x UCB_IB_TRAFFIC_CLASS=104 -x UCX_IB_GID_INDEX=3 -x HCOLL_ENABLE_MCAST_ALL=0 -np $NCPU -machinefile machinefile --map-by socket:pe=$OMP_NUM_THREADS --bind-to core $@
+		echo "mpirun $MPI_FLAGS -np $NCPU -machinefile machinefile --map-by socket:pe=$OMP_NUM_THREADS --bind-to core $@"
+		mpirun $MPI_FLAGS -np $NCPU -machinefile machinefile --map-by socket:pe=$OMP_NUM_THREADS --bind-to core $@
 		
 	fi
 }
