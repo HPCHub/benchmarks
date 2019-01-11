@@ -83,6 +83,8 @@ export HPCHUB_LAPACK_DIR="/usr/lib"
 HPCHUB_PWD=`pwd`
 
 function hpchub_mpirun {
+	export MLNX_INTERFACE_NAME="enp94s0f0"
+	export MLNX_ROCE_NAME="mlx5_0"
 	HPCHUB_PPN=$(($NCPU/$NNODES))
 	NODES_ARRAY=($NODES)
 	rm machinefile
@@ -92,16 +94,21 @@ function hpchub_mpirun {
 		done
 		echo cat machinefile
 		cat machinefile
-		mpirun -np $NCPU -machinefile machinefile --map-by socket --bind-to core  $@
+		echo "mpirun -x UCB_IB_TRAFFIC_CLASS=104 -x UCX_IB_GID_INDEX=3 -x HCOLL_ENABLE_MCAST_ALL=0 -np $NCPU -machinefile machinefile --map-by socket:pe=1 --bind-to core  $@"
+		mpirun -x UCB_IB_TRAFFIC_CLASS=104 -x UCX_IB_GID_INDEX=3 -x HCOLL_ENABLE_MCAST_ALL=0 -np $NCPU -machinefile machinefile --map-by socket:pe=1 --bind-to core  $@
 	else
 		cpu_cores=`for i in $NODES; do ssh \$i cat /proc/cpuinfo | grep processor; done | wc -l`
 		if [ $(($cpu_cores/$NNODES)) -lt $(($HPCHUB_PPN*$OMP_NUM_THREADS)) ]; then
 			echo ERROR: not enough cores cpu cores=$cpu_cores ppn=$HPCHUB_PPN OMP_NUM_THREADS=$OMP_NUM_THREADS
 		fi
 		for _h in  ${NODES_ARRAY[@]:0:$NNODES}; do
-			echo $h slots=$(($HPCHUB_PPN*$OMP_NUM_THREADS)) >> machinefile
+			echo $_h slots=$(($HPCHUB_PPN*$OMP_NUM_THREADS)) >> machinefile
 		done
-		mpirun -x UCB_IB_TRAFFIC_CLASS=104 -x UCX_IB_GID_INDEX=3 -x HCOLL_ENABLE_MCAST_ALL=0 --cpu-set 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35 -np $NCPU -machinefile machinefile --map-by socket:pe=$OMP_NUM_THREADS --bind-to core $@
+		echo cat machinefile
+		cat machinefile
+		echo "mpirun -x UCB_IB_TRAFFIC_CLASS=104 -x UCX_IB_GID_INDEX=3 -x HCOLL_ENABLE_MCAST_ALL=0 -np $NCPU -machinefile machinefile --map-by socket:pe=$OMP_NUM_THREADS --bind-to core $@"
+		mpirun -x UCB_IB_TRAFFIC_CLASS=104 -x UCX_IB_GID_INDEX=3 -x HCOLL_ENABLE_MCAST_ALL=0 -np $NCPU -machinefile machinefile --map-by socket:pe=$OMP_NUM_THREADS --bind-to core $@
+		
 	fi
 }
 
