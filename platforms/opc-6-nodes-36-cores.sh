@@ -85,7 +85,7 @@ HPCHUB_PWD=`pwd`
 function hpchub_mpirun {
 	export MLNX_INTERFACE_NAME="enp94s0f0"
 	export MLNX_ROCE_NAME="mlx5_0"
-    MPI_FLAGS="-mca btl self -x UCX_TLS=rc,self,sm -x HCOLL_ENABLE_MCAST_ALL=0 -mca coll_hcoll_enable 0 -x UCX_IB_TRAFFIC_CLASS=105 -x UCX_IB_GID_INDEX=3"
+	MPI_FLAGS="-mca btl self -x UCX_TLS=rc,self,sm -x HCOLL_ENABLE_MCAST_ALL=0 -mca coll_hcoll_enable 0 -x UCX_IB_TRAFFIC_CLASS=105 -x UCX_IB_GID_INDEX=3"
 	HPCHUB_PPN=$(($NCPU/$NNODES))
 	NODES_ARRAY=($NODES)
 	rm machinefile
