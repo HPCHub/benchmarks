@@ -1,0 +1,1657 @@
+NNODE=hpc-lhr2-02-rdma hpc-lhr2-03-rdma hpc-lhr2-04-rdma hpc-lhr2-05-rdma
+NCPU=144
+cat machinefile
+hpc-lhr2-02-rdma slots=36
+hpc-lhr2-03-rdma slots=36
+hpc-lhr2-04-rdma slots=36
+hpc-lhr2-05-rdma slots=36
+Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1): [r(1)][-.-%][r=54.8MiB/s,w=0KiB/s][r=14.0k,w=0 IOPS][eta 00m:00s]Jobs: 1 (f=1): [r(1)][-.-%][r=54.9MiB/s,w=0KiB/s][r=14.1k,w=0 IOPS][eta 00m:00s]Jobs: 1 (f=1): [r(1)][-.-%][r=54.1MiB/s,w=0KiB/s][r=13.8k,w=0 IOPS][eta 00m:00s]Jobs: 1 (f=1): [r(1)][-.-%][r=54.3MiB/s,w=0KiB/s][r=13.9k,w=0 IOPS][eta 00m:00s]getbw.value: 54.3
+getlat.value: 71.5675
+log-128m-randread-job.hpc-lhr2-02: 
+box.hpc-lhr2-02: (g=0): rw=randread, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+box.hpc-lhr2-02: Laying out IO file (1 file / 128MiB)
+
+box.hpc-lhr2-02: (groupid=0, jobs=1): err= 0: pid=81808: Tue Jan  8 17:48:03 2019
+   read: IOPS=13.0k, BW=54.7MiB/s (57.3MB/s)(128MiB/2341msec)
+    clat (usec): min=65, max=304, avg=71.01, stdev= 5.00
+     lat (usec): min=65, max=304, avg=71.05, stdev= 5.00
+    clat percentiles (usec):
+     |  1.00th=[   68],  5.00th=[   68], 10.00th=[   69], 20.00th=[   69],
+     | 30.00th=[   70], 40.00th=[   70], 50.00th=[   71], 60.00th=[   71],
+     | 70.00th=[   72], 80.00th=[   74], 90.00th=[   76], 95.00th=[   79],
+     | 99.00th=[   86], 99.50th=[   89], 99.90th=[  113], 99.95th=[  145],
+     | 99.99th=[  245]
+   bw (  KiB/s): min=55496, max=56968, per=100.00%, avg=56202.00, stdev=616.65, samples=4
+   iops        : min=13874, max=14242, avg=14050.50, stdev=154.16, samples=4
+  lat (usec)   : 100=99.80%, 250=0.19%, 500=0.01%
+  cpu          : usr=0.98%, sys=5.51%, ctx=65539, majf=0, minf=8
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=32768,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=54.7MiB/s (57.3MB/s), 54.7MiB/s-54.7MiB/s (57.3MB/s-57.3MB/s), io=128MiB (134MB), run=2341-2341msec
+log-128m-randread-job.hpc-lhr2-03: 
+box.hpc-lhr2-03: (g=0): rw=randread, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+box.hpc-lhr2-03: Laying out IO file (1 file / 128MiB)
+
+box.hpc-lhr2-03: (groupid=0, jobs=1): err= 0: pid=88837: Tue Jan  8 17:48:02 2019
+   read: IOPS=13.8k, BW=54.1MiB/s (56.7MB/s)(128MiB/2367msec)
+    clat (usec): min=64, max=258, avg=71.80, stdev= 5.68
+     lat (usec): min=64, max=258, avg=71.84, stdev= 5.68
+    clat percentiles (usec):
+     |  1.00th=[   67],  5.00th=[   69], 10.00th=[   69], 20.00th=[   69],
+     | 30.00th=[   70], 40.00th=[   70], 50.00th=[   71], 60.00th=[   72],
+     | 70.00th=[   73], 80.00th=[   75], 90.00th=[   78], 95.00th=[   81],
+     | 99.00th=[   90], 99.50th=[   95], 99.90th=[  143], 99.95th=[  153],
+     | 99.99th=[  174]
+   bw (  KiB/s): min=54504, max=56144, per=100.00%, avg=55474.00, stdev=720.60, samples=4
+   iops        : min=13626, max=14036, avg=13868.50, stdev=180.15, samples=4
+  lat (usec)   : 100=99.69%, 250=0.31%, 500=0.01%
+  cpu          : usr=0.63%, sys=5.87%, ctx=65538, majf=0, minf=8
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=32768,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=54.1MiB/s (56.7MB/s), 54.1MiB/s-54.1MiB/s (56.7MB/s-56.7MB/s), io=128MiB (134MB), run=2367-2367msec
+log-128m-randread-job.hpc-lhr2-04: 
+box.hpc-lhr2-04: (g=0): rw=randread, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+box.hpc-lhr2-04: Laying out IO file (1 file / 128MiB)
+
+box.hpc-lhr2-04: (groupid=0, jobs=1): err= 0: pid=71862: Tue Jan  8 17:48:03 2019
+   read: IOPS=13.9k, BW=54.4MiB/s (56.0MB/s)(128MiB/2355msec)
+    clat (usec): min=64, max=263, avg=71.42, stdev= 4.36
+     lat (usec): min=64, max=263, avg=71.46, stdev= 4.36
+    clat percentiles (usec):
+     |  1.00th=[   68],  5.00th=[   69], 10.00th=[   69], 20.00th=[   69],
+     | 30.00th=[   70], 40.00th=[   70], 50.00th=[   71], 60.00th=[   72],
+     | 70.00th=[   73], 80.00th=[   74], 90.00th=[   77], 95.00th=[   79],
+     | 99.00th=[   87], 99.50th=[   90], 99.90th=[  103], 99.95th=[  127],
+     | 99.99th=[  143]
+   bw (  KiB/s): min=55080, max=56128, per=100.00%, avg=55742.00, stdev=476.72, samples=4
+   iops        : min=13770, max=14032, avg=13935.50, stdev=119.18, samples=4
+  lat (usec)   : 100=99.83%, 250=0.17%, 500=0.01%
+  cpu          : usr=0.76%, sys=5.61%, ctx=65538, majf=0, minf=8
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=32768,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=54.4MiB/s (56.0MB/s), 54.4MiB/s-54.4MiB/s (56.0MB/s-56.0MB/s), io=128MiB (134MB), run=2355-2355msec
+log-128m-randread-job.hpc-lhr2-05: 
+box.hpc-lhr2-05: (g=0): rw=randread, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+box.hpc-lhr2-05: Laying out IO file (1 file / 128MiB)
+
+box.hpc-lhr2-05: (groupid=0, jobs=1): err= 0: pid=97048: Tue Jan  8 17:48:03 2019
+   read: IOPS=13.8k, BW=54.0MiB/s (56.6MB/s)(128MiB/2370msec)
+    clat (usec): min=64, max=159, avg=71.88, stdev= 4.23
+     lat (usec): min=64, max=159, avg=71.92, stdev= 4.23
+    clat percentiles (usec):
+     |  1.00th=[   68],  5.00th=[   69], 10.00th=[   69], 20.00th=[   70],
+     | 30.00th=[   70], 40.00th=[   71], 50.00th=[   72], 60.00th=[   73],
+     | 70.00th=[   74], 80.00th=[   75], 90.00th=[   77], 95.00th=[   80],
+     | 99.00th=[   87], 99.50th=[   90], 99.90th=[  102], 99.95th=[  112],
+     | 99.99th=[  145]
+   bw (  KiB/s): min=55000, max=56088, per=100.00%, avg=55468.00, stdev=507.21, samples=4
+   iops        : min=13750, max=14022, avg=13867.00, stdev=126.80, samples=4
+  lat (usec)   : 100=99.88%, 250=0.12%
+  cpu          : usr=0.76%, sys=5.66%, ctx=65538, majf=0, minf=8
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=32768,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=54.0MiB/s (56.6MB/s), 54.0MiB/s-54.0MiB/s (56.6MB/s-56.6MB/s), io=128MiB (134MB), run=2370-2370msec
+cat machinefile
+hpc-lhr2-02-rdma slots=36
+hpc-lhr2-03-rdma slots=36
+hpc-lhr2-04-rdma slots=36
+hpc-lhr2-05-rdma slots=36
+rm: cannot remove ‘job*’: No such file or directory
+getbw.value: 1809.5
+getlat.value: 1685.8925
+log-128m-randwrite-job.hpc-lhr2-02: 
+box.hpc-lhr2-02: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-02: (groupid=0, jobs=1): err= 0: pid=82086: Tue Jan  8 17:48:14 2019
+  write: IOPS=462k, BW=1803MiB/s (1890MB/s)(128MiB/71msec)
+    clat (nsec): min=968, max=11431, avg=1659.36, stdev=356.15
+     lat (nsec): min=998, max=11458, avg=1694.77, stdev=356.71
+    clat percentiles (nsec):
+     |  1.00th=[ 1464],  5.00th=[ 1480], 10.00th=[ 1496], 20.00th=[ 1512],
+     | 30.00th=[ 1512], 40.00th=[ 1528], 50.00th=[ 1544], 60.00th=[ 1576],
+     | 70.00th=[ 1592], 80.00th=[ 1656], 90.00th=[ 1992], 95.00th=[ 2256],
+     | 99.00th=[ 3152], 99.50th=[ 3472], 99.90th=[ 5152], 99.95th=[ 5856],
+     | 99.99th=[10176]
+  lat (nsec)   : 1000=0.04%
+  lat (usec)   : 2=90.36%, 4=9.41%, 10=0.16%, 20=0.02%
+  cpu          : usr=14.29%, sys=84.29%, ctx=6, majf=0, minf=9
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,32768,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1803MiB/s (1890MB/s), 1803MiB/s-1803MiB/s (1890MB/s-1890MB/s), io=128MiB (134MB), run=71-71msec
+log-128m-randwrite-job.hpc-lhr2-03: 
+box.hpc-lhr2-03: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-03: (groupid=0, jobs=1): err= 0: pid=89104: Tue Jan  8 17:48:14 2019
+  write: IOPS=468k, BW=1829MiB/s (1917MB/s)(128MiB/70msec)
+    clat (nsec): min=956, max=13048, avg=1652.95, stdev=407.33
+     lat (nsec): min=992, max=13085, avg=1689.70, stdev=412.09
+    clat percentiles (nsec):
+     |  1.00th=[ 1448],  5.00th=[ 1480], 10.00th=[ 1480], 20.00th=[ 1496],
+     | 30.00th=[ 1512], 40.00th=[ 1512], 50.00th=[ 1528], 60.00th=[ 1560],
+     | 70.00th=[ 1592], 80.00th=[ 1640], 90.00th=[ 1976], 95.00th=[ 2192],
+     | 99.00th=[ 3408], 99.50th=[ 3728], 99.90th=[ 5408], 99.95th=[ 7904],
+     | 99.99th=[10944]
+  lat (nsec)   : 1000=0.09%
+  lat (usec)   : 2=90.99%, 4=8.57%, 10=0.33%, 20=0.02%
+  cpu          : usr=7.25%, sys=91.30%, ctx=6, majf=0, minf=8
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,32768,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1829MiB/s (1917MB/s), 1829MiB/s-1829MiB/s (1917MB/s-1917MB/s), io=128MiB (134MB), run=70-70msec
+log-128m-randwrite-job.hpc-lhr2-04: 
+box.hpc-lhr2-04: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-04: (groupid=0, jobs=1): err= 0: pid=72129: Tue Jan  8 17:48:14 2019
+  write: IOPS=462k, BW=1803MiB/s (1890MB/s)(128MiB/71msec)
+    clat (nsec): min=970, max=11941, avg=1645.66, stdev=369.68
+     lat (nsec): min=998, max=11969, avg=1675.19, stdev=370.18
+    clat percentiles (nsec):
+     |  1.00th=[ 1480],  5.00th=[ 1496], 10.00th=[ 1496], 20.00th=[ 1512],
+     | 30.00th=[ 1512], 40.00th=[ 1512], 50.00th=[ 1528], 60.00th=[ 1544],
+     | 70.00th=[ 1576], 80.00th=[ 1624], 90.00th=[ 1976], 95.00th=[ 2192],
+     | 99.00th=[ 3152], 99.50th=[ 3472], 99.90th=[ 4512], 99.95th=[ 8032],
+     | 99.99th=[10304]
+  lat (nsec)   : 1000=0.05%
+  lat (usec)   : 2=91.90%, 4=7.86%, 10=0.17%, 20=0.02%
+  cpu          : usr=12.86%, sys=85.71%, ctx=6, majf=0, minf=7
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,32768,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1803MiB/s (1890MB/s), 1803MiB/s-1803MiB/s (1890MB/s-1890MB/s), io=128MiB (134MB), run=71-71msec
+log-128m-randwrite-job.hpc-lhr2-05: 
+box.hpc-lhr2-05: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-05: (groupid=0, jobs=1): err= 0: pid=97338: Tue Jan  8 17:48:14 2019
+  write: IOPS=462k, BW=1803MiB/s (1890MB/s)(128MiB/71msec)
+    clat (nsec): min=972, max=11449, avg=1655.21, stdev=374.87
+     lat (nsec): min=1000, max=11476, avg=1683.91, stdev=375.50
+    clat percentiles (nsec):
+     |  1.00th=[ 1480],  5.00th=[ 1496], 10.00th=[ 1496], 20.00th=[ 1512],
+     | 30.00th=[ 1512], 40.00th=[ 1528], 50.00th=[ 1528], 60.00th=[ 1544],
+     | 70.00th=[ 1592], 80.00th=[ 1640], 90.00th=[ 1992], 95.00th=[ 2224],
+     | 99.00th=[ 3280], 99.50th=[ 3600], 99.90th=[ 4832], 99.95th=[ 6048],
+     | 99.99th=[ 9920]
+  lat (nsec)   : 1000=0.04%
+  lat (usec)   : 2=91.45%, 4=8.28%, 10=0.23%, 20=0.01%
+  cpu          : usr=21.43%, sys=77.14%, ctx=6, majf=0, minf=8
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,32768,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1803MiB/s (1890MB/s), 1803MiB/s-1803MiB/s (1890MB/s-1890MB/s), io=128MiB (134MB), run=71-71msec
+cat machinefile
+hpc-lhr2-02-rdma slots=36
+hpc-lhr2-03-rdma slots=36
+hpc-lhr2-04-rdma slots=36
+hpc-lhr2-05-rdma slots=36
+rm: cannot remove ‘job*’: No such file or directory
+getbw.value: 739.666666666667
+getlat.value: 4879.66666666667
+log-128m-read-job.hpc-lhr2-02: 
+box.hpc-lhr2-02: (g=0): rw=read, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-02: (groupid=0, jobs=1): err= 0: pid=82350: Tue Jan  8 17:48:25 2019
+   read: IOPS=187k, BW=731MiB/s (767MB/s)(128MiB/175msec)
+    clat (nsec): min=349, max=2547.6k, avg=4909.98, stdev=72400.53
+     lat (nsec): min=368, max=2547.6k, avg=4931.69, stdev=72400.59
+    clat percentiles (nsec):
+     |  1.00th=[    398],  5.00th=[    406], 10.00th=[    414],
+     | 20.00th=[    422], 30.00th=[    430], 40.00th=[    438],
+     | 50.00th=[    442], 60.00th=[    450], 70.00th=[    466],
+     | 80.00th=[    498], 90.00th=[    580], 95.00th=[    740],
+     | 99.00th=[   1176], 99.50th=[   6688], 99.90th=[1220608],
+     | 99.95th=[1236992], 99.99th=[1286144]
+  lat (nsec)   : 500=80.54%, 750=14.70%, 1000=2.37%
+  lat (usec)   : 2=1.80%, 4=0.05%, 10=0.05%, 20=0.08%, 50=0.01%
+  lat (usec)   : 250=0.01%, 500=0.01%, 750=0.02%, 1000=0.03%
+  lat (msec)   : 2=0.32%, 4=0.01%
+  cpu          : usr=5.17%, sys=18.39%, ctx=278, majf=0, minf=11
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=32768,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=731MiB/s (767MB/s), 731MiB/s-731MiB/s (767MB/s-767MB/s), io=128MiB (134MB), run=175-175msec
+log-128m-read-job.hpc-lhr2-03: 
+box.hpc-lhr2-03: (g=0): rw=read, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-03: (groupid=0, jobs=1): err= 0: pid=89379: Tue Jan  8 17:48:25 2019
+   read: IOPS=194k, BW=757MiB/s (794MB/s)(128MiB/169msec)
+    clat (nsec): min=355, max=2594.6k, avg=4753.00, stdev=71865.75
+     lat (nsec): min=376, max=2594.6k, avg=4773.80, stdev=71865.83
+    clat percentiles (nsec):
+     |  1.00th=[    402],  5.00th=[    414], 10.00th=[    418],
+     | 20.00th=[    430], 30.00th=[    438], 40.00th=[    442],
+     | 50.00th=[    450], 60.00th=[    458], 70.00th=[    474],
+     | 80.00th=[    498], 90.00th=[    580], 95.00th=[    692],
+     | 99.00th=[    876], 99.50th=[   2768], 99.90th=[1220608],
+     | 99.95th=[1236992], 99.99th=[1286144]
+  lat (nsec)   : 500=80.19%, 750=16.44%, 1000=2.74%
+  lat (usec)   : 2=0.11%, 4=0.05%, 10=0.03%, 20=0.06%, 100=0.01%
+  lat (usec)   : 250=0.01%, 500=0.02%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.33%, 4=0.01%
+  cpu          : usr=5.36%, sys=19.05%, ctx=260, majf=0, minf=10
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=32768,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=757MiB/s (794MB/s), 757MiB/s-757MiB/s (794MB/s-794MB/s), io=128MiB (134MB), run=169-169msec
+log-128m-read-job.hpc-lhr2-04: 
+box.hpc-lhr2-04: (g=0): rw=read, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-04: (groupid=0, jobs=1): err= 0: pid=72416: Tue Jan  8 17:48:25 2019
+   read: IOPS=187k, BW=731MiB/s (767MB/s)(128MiB/175msec)
+    clat (nsec): min=364, max=1316.1k, avg=4911.83, stdev=71173.19
+     lat (nsec): min=384, max=1316.1k, avg=4933.51, stdev=71173.25
+    clat percentiles (nsec):
+     |  1.00th=[    406],  5.00th=[    418], 10.00th=[    422],
+     | 20.00th=[    434], 30.00th=[    438], 40.00th=[    446],
+     | 50.00th=[    450], 60.00th=[    462], 70.00th=[    474],
+     | 80.00th=[    502], 90.00th=[    588], 95.00th=[    716],
+     | 99.00th=[   1080], 99.50th=[   7200], 99.90th=[1220608],
+     | 99.95th=[1236992], 99.99th=[1269760]
+  lat (nsec)   : 500=79.03%, 750=16.98%, 1000=2.59%
+  lat (usec)   : 2=0.77%, 4=0.07%, 10=0.07%, 20=0.08%, 50=0.01%
+  lat (usec)   : 100=0.01%, 250=0.01%, 500=0.02%, 750=0.01%, 1000=0.03%
+  lat (msec)   : 2=0.34%
+  cpu          : usr=3.45%, sys=20.11%, ctx=287, majf=0, minf=9
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=32768,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=731MiB/s (767MB/s), 731MiB/s-731MiB/s (767MB/s-767MB/s), io=128MiB (134MB), run=175-175msec
+cat machinefile
+hpc-lhr2-02-rdma slots=36
+hpc-lhr2-03-rdma slots=36
+hpc-lhr2-04-rdma slots=36
+hpc-lhr2-05-rdma slots=36
+rm: cannot remove ‘job*’: No such file or directory
+getbw.value: 1939
+getlat.value: 1663.67666666667
+log-128m-write-job.hpc-lhr2-02: 
+box.hpc-lhr2-02: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-02: (groupid=0, jobs=1): err= 0: pid=82613: Tue Jan  8 17:48:36 2019
+  write: IOPS=496k, BW=1939MiB/s (2034MB/s)(128MiB/66msec)
+    clat (nsec): min=962, max=12767, avg=1631.04, stdev=376.26
+     lat (nsec): min=998, max=13553, avg=1666.99, stdev=376.96
+    clat percentiles (nsec):
+     |  1.00th=[ 1464],  5.00th=[ 1480], 10.00th=[ 1480], 20.00th=[ 1496],
+     | 30.00th=[ 1496], 40.00th=[ 1496], 50.00th=[ 1512], 60.00th=[ 1512],
+     | 70.00th=[ 1528], 80.00th=[ 1592], 90.00th=[ 1960], 95.00th=[ 2160],
+     | 99.00th=[ 3344], 99.50th=[ 3600], 99.90th=[ 4832], 99.95th=[ 5216],
+     | 99.99th=[ 9920]
+  lat (nsec)   : 1000=0.16%
+  lat (usec)   : 2=92.23%, 4=7.42%, 10=0.19%, 20=0.01%
+  cpu          : usr=15.38%, sys=83.08%, ctx=6, majf=0, minf=9
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,32768,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1939MiB/s (2034MB/s), 1939MiB/s-1939MiB/s (2034MB/s-2034MB/s), io=128MiB (134MB), run=66-66msec
+log-128m-write-job.hpc-lhr2-03: 
+box.hpc-lhr2-03: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-03: (groupid=0, jobs=1): err= 0: pid=89643: Tue Jan  8 17:48:36 2019
+  write: IOPS=496k, BW=1939MiB/s (2034MB/s)(128MiB/66msec)
+    clat (nsec): min=961, max=13530, avg=1634.75, stdev=394.49
+     lat (nsec): min=990, max=14215, avg=1665.08, stdev=395.19
+    clat percentiles (nsec):
+     |  1.00th=[ 1464],  5.00th=[ 1480], 10.00th=[ 1480], 20.00th=[ 1496],
+     | 30.00th=[ 1496], 40.00th=[ 1496], 50.00th=[ 1512], 60.00th=[ 1512],
+     | 70.00th=[ 1528], 80.00th=[ 1624], 90.00th=[ 1960], 95.00th=[ 2192],
+     | 99.00th=[ 3344], 99.50th=[ 3664], 99.90th=[ 5088], 99.95th=[ 5536],
+     | 99.99th=[11200]
+  lat (nsec)   : 1000=0.14%
+  lat (usec)   : 2=92.46%, 4=7.14%, 10=0.24%, 20=0.02%
+  cpu          : usr=12.31%, sys=84.62%, ctx=5, majf=0, minf=9
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,32768,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1939MiB/s (2034MB/s), 1939MiB/s-1939MiB/s (2034MB/s-2034MB/s), io=128MiB (134MB), run=66-66msec
+log-128m-write-job.hpc-lhr2-04: 
+box.hpc-lhr2-04: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-04: (groupid=0, jobs=1): err= 0: pid=72692: Tue Jan  8 17:48:36 2019
+  write: IOPS=496k, BW=1939MiB/s (2034MB/s)(128MiB/66msec)
+    clat (nsec): min=953, max=12409, avg=1630.47, stdev=371.91
+     lat (nsec): min=983, max=13034, avg=1658.96, stdev=372.52
+    clat percentiles (nsec):
+     |  1.00th=[ 1464],  5.00th=[ 1480], 10.00th=[ 1480], 20.00th=[ 1496],
+     | 30.00th=[ 1496], 40.00th=[ 1496], 50.00th=[ 1512], 60.00th=[ 1512],
+     | 70.00th=[ 1528], 80.00th=[ 1608], 90.00th=[ 1960], 95.00th=[ 2160],
+     | 99.00th=[ 3408], 99.50th=[ 3632], 99.90th=[ 4256], 99.95th=[ 4640],
+     | 99.99th=[ 9536]
+  lat (nsec)   : 1000=0.12%
+  lat (usec)   : 2=93.26%, 4=6.44%, 10=0.18%, 20=0.01%
+  cpu          : usr=18.46%, sys=80.00%, ctx=6, majf=0, minf=10
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,32768,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1939MiB/s (2034MB/s), 1939MiB/s-1939MiB/s (2034MB/s-2034MB/s), io=128MiB (134MB), run=66-66msec
+cat machinefile
+rm: cannot remove ‘job*’: No such file or directory
+hpc-lhr2-02-rdma slots=36
+hpc-lhr2-03-rdma slots=36
+hpc-lhr2-04-rdma slots=36
+hpc-lhr2-05-rdma slots=36
+getbw.value: 679.666666666667
+getlat.value: 1424.88666666667
+log-128m-randread-job.hpc-lhr2-02: 
+box.hpc-lhr2-02: (g=0): rw=randread, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-02: (groupid=0, jobs=1): err= 0: pid=82878: Tue Jan  8 17:48:47 2019
+   read: IOPS=680, BW=681MiB/s (714MB/s)(128MiB/188msec)
+    clat (usec): min=852, max=1960, avg=1420.93, stdev=210.78
+     lat (usec): min=852, max=1961, avg=1421.04, stdev=210.80
+    clat percentiles (usec):
+     |  1.00th=[  865],  5.00th=[  971], 10.00th=[ 1045], 20.00th=[ 1205],
+     | 30.00th=[ 1401], 40.00th=[ 1450], 50.00th=[ 1483], 60.00th=[ 1532],
+     | 70.00th=[ 1565], 80.00th=[ 1565], 90.00th=[ 1614], 95.00th=[ 1647],
+     | 99.00th=[ 1713], 99.50th=[ 1958], 99.90th=[ 1958], 99.95th=[ 1958],
+     | 99.99th=[ 1958]
+  lat (usec)   : 1000=6.25%
+  lat (msec)   : 2=93.75%
+  cpu          : usr=0.00%, sys=18.18%, ctx=256, majf=0, minf=263
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=128,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=681MiB/s (714MB/s), 681MiB/s-681MiB/s (714MB/s-714MB/s), io=128MiB (134MB), run=188-188msec
+log-128m-randread-job.hpc-lhr2-03: 
+box.hpc-lhr2-03: (g=0): rw=randread, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-03: (groupid=0, jobs=1): err= 0: pid=89907: Tue Jan  8 17:48:47 2019
+   read: IOPS=677, BW=677MiB/s (710MB/s)(128MiB/189msec)
+    clat (usec): min=734, max=1746, avg=1431.64, stdev=224.11
+     lat (usec): min=734, max=1746, avg=1431.76, stdev=224.13
+    clat percentiles (usec):
+     |  1.00th=[  742],  5.00th=[  963], 10.00th=[ 1090], 20.00th=[ 1319],
+     | 30.00th=[ 1401], 40.00th=[ 1450], 50.00th=[ 1500], 60.00th=[ 1532],
+     | 70.00th=[ 1565], 80.00th=[ 1582], 90.00th=[ 1647], 95.00th=[ 1680],
+     | 99.00th=[ 1713], 99.50th=[ 1745], 99.90th=[ 1745], 99.95th=[ 1745],
+     | 99.99th=[ 1745]
+  lat (usec)   : 750=1.56%, 1000=6.25%
+  lat (msec)   : 2=92.19%
+  cpu          : usr=1.06%, sys=17.02%, ctx=258, majf=0, minf=265
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=128,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=677MiB/s (710MB/s), 677MiB/s-677MiB/s (710MB/s-710MB/s), io=128MiB (134MB), run=189-189msec
+log-128m-randread-job.hpc-lhr2-04: 
+box.hpc-lhr2-04: (g=0): rw=randread, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-04: (groupid=0, jobs=1): err= 0: pid=72957: Tue Jan  8 17:48:47 2019
+   read: IOPS=680, BW=681MiB/s (714MB/s)(128MiB/188msec)
+    clat (usec): min=695, max=1921, avg=1421.73, stdev=224.28
+     lat (usec): min=695, max=1922, avg=1421.86, stdev=224.30
+    clat percentiles (usec):
+     |  1.00th=[  717],  5.00th=[  906], 10.00th=[ 1045], 20.00th=[ 1287],
+     | 30.00th=[ 1385], 40.00th=[ 1450], 50.00th=[ 1500], 60.00th=[ 1516],
+     | 70.00th=[ 1549], 80.00th=[ 1598], 90.00th=[ 1631], 95.00th=[ 1647],
+     | 99.00th=[ 1680], 99.50th=[ 1926], 99.90th=[ 1926], 99.95th=[ 1926],
+     | 99.99th=[ 1926]
+  lat (usec)   : 750=1.56%, 1000=7.81%
+  lat (msec)   : 2=90.62%
+  cpu          : usr=0.53%, sys=17.65%, ctx=256, majf=0, minf=263
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=128,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=681MiB/s (714MB/s), 681MiB/s-681MiB/s (714MB/s-714MB/s), io=128MiB (134MB), run=188-188msec
+rm: cannot remove ‘job*’: No such file or directory
+cat machinefile
+hpc-lhr2-02-rdma slots=36
+hpc-lhr2-03-rdma slots=36
+hpc-lhr2-04-rdma slots=36
+hpc-lhr2-05-rdma slots=36
+Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1)getbw.value: 2510
+getlat.value: 350.986666666667
+log-128m-randwrite-job.hpc-lhr2-02: 
+box.hpc-lhr2-02: (g=0): rw=randwrite, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-02: (groupid=0, jobs=1): err= 0: pid=83153: Tue Jan  8 17:48:59 2019
+  write: IOPS=2509, BW=2510MiB/s (2632MB/s)(128MiB/51msec)
+    clat (usec): min=331, max=364, avg=338.93, stdev= 5.47
+     lat (usec): min=341, max=383, avg=351.18, stdev= 5.92
+    clat percentiles (usec):
+     |  1.00th=[  334],  5.00th=[  334], 10.00th=[  334], 20.00th=[  334],
+     | 30.00th=[  334], 40.00th=[  338], 50.00th=[  338], 60.00th=[  338],
+     | 70.00th=[  338], 80.00th=[  343], 90.00th=[  347], 95.00th=[  351],
+     | 99.00th=[  363], 99.50th=[  367], 99.90th=[  367], 99.95th=[  367],
+     | 99.99th=[  367]
+  lat (usec)   : 500=100.00%
+  cpu          : usr=2.00%, sys=94.00%, ctx=4, majf=0, minf=7
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,128,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=2510MiB/s (2632MB/s), 2510MiB/s-2510MiB/s (2632MB/s-2632MB/s), io=128MiB (134MB), run=51-51msec
+log-128m-randwrite-job.hpc-lhr2-03: 
+box.hpc-lhr2-03: (g=0): rw=randwrite, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-03: (groupid=0, jobs=1): err= 0: pid=90171: Tue Jan  8 17:48:59 2019
+  write: IOPS=2509, BW=2510MiB/s (2632MB/s)(128MiB/51msec)
+    clat (usec): min=332, max=355, avg=340.20, stdev= 4.79
+     lat (usec): min=340, max=375, avg=352.53, stdev= 5.39
+    clat percentiles (usec):
+     |  1.00th=[  334],  5.00th=[  334], 10.00th=[  334], 20.00th=[  334],
+     | 30.00th=[  338], 40.00th=[  338], 50.00th=[  338], 60.00th=[  343],
+     | 70.00th=[  343], 80.00th=[  343], 90.00th=[  347], 95.00th=[  351],
+     | 99.00th=[  355], 99.50th=[  355], 99.90th=[  355], 99.95th=[  355],
+     | 99.99th=[  355]
+  lat (usec)   : 500=100.00%
+  cpu          : usr=0.00%, sys=100.00%, ctx=4, majf=0, minf=7
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,128,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=2510MiB/s (2632MB/s), 2510MiB/s-2510MiB/s (2632MB/s-2632MB/s), io=128MiB (134MB), run=51-51msec
+log-128m-randwrite-job.hpc-lhr2-04: 
+box.hpc-lhr2-04: (g=0): rw=randwrite, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-04: (groupid=0, jobs=1): err= 0: pid=73220: Tue Jan  8 17:48:59 2019
+  write: IOPS=2509, BW=2510MiB/s (2632MB/s)(128MiB/51msec)
+    clat (usec): min=329, max=359, avg=337.04, stdev= 4.91
+     lat (usec): min=339, max=382, avg=349.25, stdev= 5.62
+    clat percentiles (usec):
+     |  1.00th=[  330],  5.00th=[  330], 10.00th=[  334], 20.00th=[  334],
+     | 30.00th=[  334], 40.00th=[  334], 50.00th=[  334], 60.00th=[  338],
+     | 70.00th=[  338], 80.00th=[  338], 90.00th=[  347], 95.00th=[  347],
+     | 99.00th=[  355], 99.50th=[  359], 99.90th=[  359], 99.95th=[  359],
+     | 99.99th=[  359]
+  lat (usec)   : 500=100.00%
+  cpu          : usr=0.00%, sys=96.00%, ctx=4, majf=0, minf=8
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,128,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=2510MiB/s (2632MB/s), 2510MiB/s-2510MiB/s (2632MB/s-2632MB/s), io=128MiB (134MB), run=51-51msec
+rm: cannot remove ‘job*’: No such file or directory
+cat machinefile
+hpc-lhr2-02-rdma slots=36
+hpc-lhr2-03-rdma slots=36
+hpc-lhr2-04-rdma slots=36
+hpc-lhr2-05-rdma slots=36
+getbw.value: 737.333333333333
+getlat.value: 1307.63333333333
+log-128m-read-job.hpc-lhr2-02: 
+box.hpc-lhr2-02: (g=0): rw=read, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-02: (groupid=0, jobs=1): err= 0: pid=83416: Tue Jan  8 17:49:10 2019
+   read: IOPS=735, BW=736MiB/s (771MB/s)(128MiB/174msec)
+    clat (usec): min=117, max=3034, avg=1312.57, stdev=349.48
+     lat (usec): min=117, max=3034, avg=1312.66, stdev=349.49
+    clat percentiles (usec):
+     |  1.00th=[  163],  5.00th=[  676], 10.00th=[  963], 20.00th=[ 1270],
+     | 30.00th=[ 1319], 40.00th=[ 1336], 50.00th=[ 1352], 60.00th=[ 1369],
+     | 70.00th=[ 1385], 80.00th=[ 1401], 90.00th=[ 1483], 95.00th=[ 1582],
+     | 99.00th=[ 2900], 99.50th=[ 3032], 99.90th=[ 3032], 99.95th=[ 3032],
+     | 99.99th=[ 3032]
+  lat (usec)   : 250=1.56%, 500=0.78%, 750=5.47%, 1000=3.91%
+  lat (msec)   : 2=85.94%, 4=2.34%
+  cpu          : usr=0.00%, sys=19.65%, ctx=366, majf=0, minf=265
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=128,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=736MiB/s (771MB/s), 736MiB/s-736MiB/s (771MB/s-771MB/s), io=128MiB (134MB), run=174-174msec
+log-128m-read-job.hpc-lhr2-03: 
+box.hpc-lhr2-03: (g=0): rw=read, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-03: (groupid=0, jobs=1): err= 0: pid=90445: Tue Jan  8 17:49:10 2019
+   read: IOPS=735, BW=736MiB/s (771MB/s)(128MiB/174msec)
+    clat (usec): min=112, max=2244, avg=1309.92, stdev=212.33
+     lat (usec): min=112, max=2245, avg=1310.02, stdev=212.35
+    clat percentiles (usec):
+     |  1.00th=[  330],  5.00th=[  979], 10.00th=[ 1123], 20.00th=[ 1303],
+     | 30.00th=[ 1319], 40.00th=[ 1336], 50.00th=[ 1352], 60.00th=[ 1369],
+     | 70.00th=[ 1385], 80.00th=[ 1401], 90.00th=[ 1418], 95.00th=[ 1434],
+     | 99.00th=[ 1450], 99.50th=[ 2245], 99.90th=[ 2245], 99.95th=[ 2245],
+     | 99.99th=[ 2245]
+  lat (usec)   : 250=0.78%, 500=0.78%, 750=2.34%, 1000=1.56%
+  lat (msec)   : 2=93.75%, 4=0.78%
+  cpu          : usr=0.00%, sys=19.08%, ctx=288, majf=0, minf=267
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=128,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=736MiB/s (771MB/s), 736MiB/s-736MiB/s (771MB/s-771MB/s), io=128MiB (134MB), run=174-174msec
+log-128m-read-job.hpc-lhr2-04: 
+box.hpc-lhr2-04: (g=0): rw=read, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-04: (groupid=0, jobs=1): err= 0: pid=73495: Tue Jan  8 17:49:10 2019
+   read: IOPS=739, BW=740MiB/s (776MB/s)(128MiB/173msec)
+    clat (usec): min=102, max=3554, avg=1300.11, stdev=320.38
+     lat (usec): min=102, max=3554, avg=1300.22, stdev=320.41
+    clat percentiles (usec):
+     |  1.00th=[  112],  5.00th=[  685], 10.00th=[ 1029], 20.00th=[ 1287],
+     | 30.00th=[ 1319], 40.00th=[ 1336], 50.00th=[ 1352], 60.00th=[ 1369],
+     | 70.00th=[ 1385], 80.00th=[ 1401], 90.00th=[ 1450], 95.00th=[ 1516],
+     | 99.00th=[ 1631], 99.50th=[ 3556], 99.90th=[ 3556], 99.95th=[ 3556],
+     | 99.99th=[ 3556]
+  lat (usec)   : 250=1.56%, 500=0.78%, 750=4.69%, 1000=2.34%
+  lat (msec)   : 2=89.84%, 4=0.78%
+  cpu          : usr=0.00%, sys=19.77%, ctx=333, majf=0, minf=266
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=128,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=740MiB/s (776MB/s), 740MiB/s-740MiB/s (776MB/s-776MB/s), io=128MiB (134MB), run=173-173msec
+cat machinefile
+hpc-lhr2-02-rdma slots=36
+hpc-lhr2-03-rdma slots=36
+hpc-lhr2-04-rdma slots=36
+hpc-lhr2-05-rdma slots=36
+rm: cannot remove ‘job*’: No such file or directory
+getbw.value: 2510
+getlat.value: 350.963333333333
+log-128m-write-job.hpc-lhr2-02: 
+box.hpc-lhr2-02: (g=0): rw=write, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-02: (groupid=0, jobs=1): err= 0: pid=83679: Tue Jan  8 17:49:21 2019
+  write: IOPS=2509, BW=2510MiB/s (2632MB/s)(128MiB/51msec)
+    clat (usec): min=331, max=364, avg=339.53, stdev= 4.98
+     lat (usec): min=341, max=387, avg=351.55, stdev= 5.56
+    clat percentiles (usec):
+     |  1.00th=[  334],  5.00th=[  334], 10.00th=[  334], 20.00th=[  334],
+     | 30.00th=[  338], 40.00th=[  338], 50.00th=[  338], 60.00th=[  338],
+     | 70.00th=[  343], 80.00th=[  343], 90.00th=[  347], 95.00th=[  351],
+     | 99.00th=[  359], 99.50th=[  367], 99.90th=[  367], 99.95th=[  367],
+     | 99.99th=[  367]
+  lat (usec)   : 500=100.00%
+  cpu          : usr=0.00%, sys=98.00%, ctx=4, majf=0, minf=10
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,128,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=2510MiB/s (2632MB/s), 2510MiB/s-2510MiB/s (2632MB/s-2632MB/s), io=128MiB (134MB), run=51-51msec
+log-128m-write-job.hpc-lhr2-03: 
+box.hpc-lhr2-03: (g=0): rw=write, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-03: (groupid=0, jobs=1): err= 0: pid=90730: Tue Jan  8 17:49:21 2019
+  write: IOPS=2509, BW=2510MiB/s (2632MB/s)(128MiB/51msec)
+    clat (usec): min=332, max=368, avg=339.97, stdev= 5.11
+     lat (usec): min=341, max=390, avg=351.89, stdev= 5.85
+    clat percentiles (usec):
+     |  1.00th=[  334],  5.00th=[  334], 10.00th=[  334], 20.00th=[  334],
+     | 30.00th=[  338], 40.00th=[  338], 50.00th=[  338], 60.00th=[  343],
+     | 70.00th=[  343], 80.00th=[  343], 90.00th=[  347], 95.00th=[  347],
+     | 99.00th=[  355], 99.50th=[  371], 99.90th=[  371], 99.95th=[  371],
+     | 99.99th=[  371]
+  lat (usec)   : 500=100.00%
+  cpu          : usr=2.00%, sys=96.00%, ctx=4, majf=0, minf=10
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,128,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=2510MiB/s (2632MB/s), 2510MiB/s-2510MiB/s (2632MB/s-2632MB/s), io=128MiB (134MB), run=51-51msec
+log-128m-write-job.hpc-lhr2-04: 
+box.hpc-lhr2-04: (g=0): rw=write, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-04: (groupid=0, jobs=1): err= 0: pid=73757: Tue Jan  8 17:49:21 2019
+  write: IOPS=2509, BW=2510MiB/s (2632MB/s)(128MiB/51msec)
+    clat (usec): min=329, max=364, avg=337.27, stdev= 5.15
+     lat (usec): min=338, max=386, avg=349.45, stdev= 5.77
+    clat percentiles (usec):
+     |  1.00th=[  330],  5.00th=[  330], 10.00th=[  330], 20.00th=[  334],
+     | 30.00th=[  334], 40.00th=[  334], 50.00th=[  338], 60.00th=[  338],
+     | 70.00th=[  338], 80.00th=[  343], 90.00th=[  343], 95.00th=[  347],
+     | 99.00th=[  359], 99.50th=[  363], 99.90th=[  363], 99.95th=[  363],
+     | 99.99th=[  363]
+  lat (usec)   : 500=100.00%
+  cpu          : usr=2.00%, sys=94.00%, ctx=4, majf=0, minf=9
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,128,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=2510MiB/s (2632MB/s), 2510MiB/s-2510MiB/s (2632MB/s-2632MB/s), io=128MiB (134MB), run=51-51msec
+rm: cannot remove ‘job*’: No such file or directory
+cat machinefile
+hpc-lhr2-02-rdma slots=36
+hpc-lhr2-03-rdma slots=36
+hpc-lhr2-04-rdma slots=36
+hpc-lhr2-05-rdma slots=36
+Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1): [r(1)][30.0%][r=55.6MiB/s,w=0KiB/s][r=14.2k,w=0 IOPS][eta 00m:07s]Jobs: 1 (f=1)Jobs: 1 (f=1): [r(1)][30.0%][r=54.3MiB/s,w=0KiB/s][r=13.9k,w=0 IOPS][eta 00m:07s]Jobs: 1 (f=1): [r(1)][33.3%][r=53.9MiB/s,w=0KiB/s][r=13.8k,w=0 IOPS][eta 00m:06s]Jobs: 1 (f=1): [r(1)][40.0%][r=54.4MiB/s,w=0KiB/s][r=13.9k,w=0 IOPS][eta 00m:06s]Jobs: 1 (f=1): [r(1)][33.3%][r=53.5MiB/s,w=0KiB/s][r=13.7k,w=0 IOPS][eta 00m:06s]Jobs: 1 (f=1): [r(1)][40.0%][r=54.4MiB/s,w=0KiB/s][r=13.9k,w=0 IOPS][eta 00m:06s]Jobs: 1 (f=1): [r(1)][44.4%][r=54.6MiB/s,w=0KiB/s][r=13.0k,w=0 IOPS][eta 00m:05s]Jobs: 1 (f=1): [r(1)][50.0%][r=55.1MiB/s,w=0KiB/s][r=14.1k,w=0 IOPS][eta 00m:05s]Jobs: 1 (f=1): [r(1)][44.4%][r=53.9MiB/s,w=0KiB/s][r=13.8k,w=0 IOPS][eta 00m:05s]Jobs: 1 (f=1): [r(1)][50.0%][r=54.6MiB/s,w=0KiB/s][r=13.0k,w=0 IOPS][eta 00m:05s]Jobs: 1 (f=1): [r(1)][55.6%][r=54.2MiB/s,w=0KiB/s][r=13.9k,w=0 IOPS][eta 00m:04s]Jobs: 1 (f=1): [r(1)][60.0%][r=54.4MiB/s,w=0KiB/s][r=13.9k,w=0 IOPS][eta 00m:04s]Jobs: 1 (f=1): [r(1)][55.6%][r=54.2MiB/s,w=0KiB/s][r=13.9k,w=0 IOPS][eta 00m:04s]Jobs: 1 (f=1): [r(1)][60.0%][r=54.7MiB/s,w=0KiB/s][r=14.0k,w=0 IOPS][eta 00m:04s]Jobs: 1 (f=1): [r(1)][66.7%][r=54.6MiB/s,w=0KiB/s][r=13.0k,w=0 IOPS][eta 00m:03s]Jobs: 1 (f=1): [r(1)][70.0%][r=54.9MiB/s,w=0KiB/s][r=14.1k,w=0 IOPS][eta 00m:03s]Jobs: 1 (f=1): [r(1)][66.7%][r=54.7MiB/s,w=0KiB/s][r=13.0k,w=0 IOPS][eta 00m:03s]Jobs: 1 (f=1): [r(1)][70.0%][r=54.7MiB/s,w=0KiB/s][r=14.0k,w=0 IOPS][eta 00m:03s]Jobs: 1 (f=1): [r(1)][77.8%][r=54.1MiB/s,w=0KiB/s][r=13.9k,w=0 IOPS][eta 00m:02s]Jobs: 1 (f=1): [r(1)][80.0%][r=54.5MiB/s,w=0KiB/s][r=13.0k,w=0 IOPS][eta 00m:02s]Jobs: 1 (f=1): [r(1)][77.8%][r=54.1MiB/s,w=0KiB/s][r=13.9k,w=0 IOPS][eta 00m:02s]Jobs: 1 (f=1): [r(1)][80.0%][r=53.0MiB/s,w=0KiB/s][r=13.8k,w=0 IOPS][eta 00m:02s]Jobs: 1 (f=1): [r(1)][88.9%][r=54.4MiB/s,w=0KiB/s][r=13.9k,w=0 IOPS][eta 00m:01s]Jobs: 1 (f=1): [r(1)][90.0%][r=54.5MiB/s,w=0KiB/s][r=13.9k,w=0 IOPS][eta 00m:01s]Jobs: 1 (f=1): [r(1)][88.9%][r=54.1MiB/s,w=0KiB/s][r=13.8k,w=0 IOPS][eta 00m:01s]Jobs: 1 (f=1): [r(1)][90.0%][r=54.9MiB/s,w=0KiB/s][r=14.0k,w=0 IOPS][eta 00m:01s]Jobs: 1 (f=1): [r(1)][100.0%][r=54.5MiB/s,w=0KiB/s][r=13.0k,w=0 IOPS][eta 00m:00s]Jobs: 1 (f=1): [r(1)][100.0%][r=55.2MiB/s,w=0KiB/s][r=14.1k,w=0 IOPS][eta 00m:00s]Jobs: 1 (f=1): [r(1)][100.0%][r=54.3MiB/s,w=0KiB/s][r=13.9k,w=0 IOPS][eta 00m:00s]Jobs: 1 (f=1): [r(1)][100.0%][r=54.6MiB/s,w=0KiB/s][r=13.0k,w=0 IOPS][eta 00m:00s]getbw.value: 54.3333333333333
+getlat.value: 71.45
+log-512m-randread-job.hpc-lhr2-02: 
+box.hpc-lhr2-02: (g=0): rw=randread, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+box.hpc-lhr2-02: Laying out IO file (1 file / 512MiB)
+
+box.hpc-lhr2-02: (groupid=0, jobs=1): err= 0: pid=83953: Tue Jan  8 17:49:44 2019
+   read: IOPS=13.9k, BW=54.4MiB/s (57.1MB/s)(512MiB/9407msec)
+    clat (usec): min=63, max=239, avg=71.33, stdev= 4.61
+     lat (usec): min=63, max=240, avg=71.37, stdev= 4.61
+    clat percentiles (usec):
+     |  1.00th=[   67],  5.00th=[   68], 10.00th=[   68], 20.00th=[   69],
+     | 30.00th=[   70], 40.00th=[   70], 50.00th=[   71], 60.00th=[   72],
+     | 70.00th=[   73], 80.00th=[   75], 90.00th=[   77], 95.00th=[   79],
+     | 99.00th=[   87], 99.50th=[   90], 99.90th=[  111], 99.95th=[  135],
+     | 99.99th=[  159]
+   bw (  KiB/s): min=54920, max=56712, per=100.00%, avg=55806.67, stdev=440.15, samples=18
+   iops        : min=13730, max=14178, avg=13951.67, stdev=110.04, samples=18
+  lat (usec)   : 100=99.84%, 250=0.16%
+  cpu          : usr=0.90%, sys=5.78%, ctx=262148, majf=0, minf=7
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=131072,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=54.4MiB/s (57.1MB/s), 54.4MiB/s-54.4MiB/s (57.1MB/s-57.1MB/s), io=512MiB (537MB), run=9407-9407msec
+log-512m-randread-job.hpc-lhr2-03: 
+box.hpc-lhr2-03: (g=0): rw=randread, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+box.hpc-lhr2-03: Laying out IO file (1 file / 512MiB)
+
+box.hpc-lhr2-03: (groupid=0, jobs=1): err= 0: pid=91007: Tue Jan  8 17:49:44 2019
+   read: IOPS=13.8k, BW=53.9MiB/s (56.5MB/s)(512MiB/9494msec)
+    clat (usec): min=64, max=237, avg=71.99, stdev= 4.54
+     lat (usec): min=64, max=237, avg=72.03, stdev= 4.54
+    clat percentiles (usec):
+     |  1.00th=[   68],  5.00th=[   69], 10.00th=[   69], 20.00th=[   70],
+     | 30.00th=[   70], 40.00th=[   71], 50.00th=[   72], 60.00th=[   73],
+     | 70.00th=[   74], 80.00th=[   75], 90.00th=[   78], 95.00th=[   80],
+     | 99.00th=[   88], 99.50th=[   91], 99.90th=[  105], 99.95th=[  133],
+     | 99.99th=[  153]
+   bw (  KiB/s): min=53712, max=56232, per=100.00%, avg=55239.11, stdev=580.72, samples=18
+   iops        : min=13428, max=14058, avg=13809.78, stdev=145.18, samples=18
+  lat (usec)   : 100=99.85%, 250=0.15%
+  cpu          : usr=0.90%, sys=5.63%, ctx=262149, majf=0, minf=7
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=131072,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=53.9MiB/s (56.5MB/s), 53.9MiB/s-53.9MiB/s (56.5MB/s-56.5MB/s), io=512MiB (537MB), run=9494-9494msec
+log-512m-randread-job.hpc-lhr2-04: 
+box.hpc-lhr2-04: (g=0): rw=randread, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+box.hpc-lhr2-04: Laying out IO file (1 file / 512MiB)
+
+box.hpc-lhr2-04: (groupid=0, jobs=1): err= 0: pid=74021: Tue Jan  8 17:49:44 2019
+   read: IOPS=14.0k, BW=54.7MiB/s (57.4MB/s)(512MiB/9353msec)
+    clat (usec): min=64, max=375, avg=70.92, stdev= 4.44
+     lat (usec): min=64, max=375, avg=70.95, stdev= 4.44
+    clat percentiles (usec):
+     |  1.00th=[   68],  5.00th=[   68], 10.00th=[   69], 20.00th=[   69],
+     | 30.00th=[   70], 40.00th=[   70], 50.00th=[   71], 60.00th=[   71],
+     | 70.00th=[   72], 80.00th=[   74], 90.00th=[   76], 95.00th=[   79],
+     | 99.00th=[   87], 99.50th=[   90], 99.90th=[  118], 99.95th=[  135],
+     | 99.99th=[  155]
+   bw (  KiB/s): min=54016, max=57064, per=99.96%, avg=56030.67, stdev=746.95, samples=18
+   iops        : min=13504, max=14266, avg=14007.67, stdev=186.74, samples=18
+  lat (usec)   : 100=99.82%, 250=0.18%, 500=0.01%
+  cpu          : usr=0.68%, sys=5.99%, ctx=262148, majf=0, minf=7
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=131072,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=54.7MiB/s (57.4MB/s), 54.7MiB/s-54.7MiB/s (57.4MB/s-57.4MB/s), io=512MiB (537MB), run=9353-9353msec
+cat machinefile
+hpc-lhr2-02-rdma slots=36
+hpc-lhr2-03-rdma slots=36
+hpc-lhr2-04-rdma slots=36
+hpc-lhr2-05-rdma slots=36
+rm: cannot remove ‘job*’: No such file or directory
+Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1): [f(1)][-.-%][r=0KiB/s,w=0KiB/s][r=0,w=0 IOPS][eta 00m:00s]getbw.value: 1745.75
+getlat.value: 1751.3025
+log-512m-randwrite-job.hpc-lhr2-02: 
+box.hpc-lhr2-02: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-02: (groupid=0, jobs=1): err= 0: pid=84251: Tue Jan  8 17:49:57 2019
+  write: IOPS=449k, BW=1753MiB/s (1839MB/s)(512MiB/292msec)
+    clat (nsec): min=990, max=59362, avg=1722.97, stdev=422.44
+     lat (nsec): min=1021, max=59396, avg=1758.30, stdev=423.10
+    clat percentiles (nsec):
+     |  1.00th=[ 1480],  5.00th=[ 1496], 10.00th=[ 1512], 20.00th=[ 1528],
+     | 30.00th=[ 1560], 40.00th=[ 1592], 50.00th=[ 1608], 60.00th=[ 1640],
+     | 70.00th=[ 1672], 80.00th=[ 1752], 90.00th=[ 2064], 95.00th=[ 2320],
+     | 99.00th=[ 3440], 99.50th=[ 3728], 99.90th=[ 5152], 99.95th=[ 5728],
+     | 99.99th=[ 9536]
+  lat (nsec)   : 1000=0.01%
+  lat (usec)   : 2=87.79%, 4=11.92%, 10=0.28%, 20=0.01%, 50=0.01%
+  lat (usec)   : 100=0.01%
+  cpu          : usr=14.78%, sys=84.88%, ctx=26, majf=0, minf=9
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,131072,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1753MiB/s (1839MB/s), 1753MiB/s-1753MiB/s (1839MB/s-1839MB/s), io=512MiB (537MB), run=292-292msec
+log-512m-randwrite-job.hpc-lhr2-03: 
+box.hpc-lhr2-03: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-03: (groupid=0, jobs=1): err= 0: pid=91294: Tue Jan  8 17:49:57 2019
+  write: IOPS=450k, BW=1759MiB/s (1845MB/s)(512MiB/291msec)
+    clat (nsec): min=987, max=61544, avg=1705.45, stdev=418.60
+     lat (nsec): min=1022, max=61580, avg=1741.54, stdev=418.79
+    clat percentiles (nsec):
+     |  1.00th=[ 1480],  5.00th=[ 1496], 10.00th=[ 1512], 20.00th=[ 1528],
+     | 30.00th=[ 1560], 40.00th=[ 1576], 50.00th=[ 1592], 60.00th=[ 1608],
+     | 70.00th=[ 1640], 80.00th=[ 1704], 90.00th=[ 2040], 95.00th=[ 2288],
+     | 99.00th=[ 3408], 99.50th=[ 3728], 99.90th=[ 5088], 99.95th=[ 5600],
+     | 99.99th=[ 9664]
+  lat (nsec)   : 1000=0.01%
+  lat (usec)   : 2=88.66%, 4=11.07%, 10=0.26%, 20=0.01%, 100=0.01%
+  cpu          : usr=13.79%, sys=85.86%, ctx=26, majf=0, minf=7
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,131072,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1759MiB/s (1845MB/s), 1759MiB/s-1759MiB/s (1845MB/s-1845MB/s), io=512MiB (537MB), run=291-291msec
+log-512m-randwrite-job.hpc-lhr2-04: 
+box.hpc-lhr2-04: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-04: (groupid=0, jobs=1): err= 0: pid=74316: Tue Jan  8 17:49:56 2019
+  write: IOPS=441k, BW=1724MiB/s (1808MB/s)(512MiB/297msec)
+    clat (nsec): min=971, max=17573, avg=1725.09, stdev=374.82
+     lat (nsec): min=1008, max=17603, avg=1756.51, stdev=375.11
+    clat percentiles (nsec):
+     |  1.00th=[ 1496],  5.00th=[ 1512], 10.00th=[ 1512], 20.00th=[ 1544],
+     | 30.00th=[ 1576], 40.00th=[ 1592], 50.00th=[ 1608], 60.00th=[ 1640],
+     | 70.00th=[ 1672], 80.00th=[ 1784], 90.00th=[ 2064], 95.00th=[ 2256],
+     | 99.00th=[ 3472], 99.50th=[ 3728], 99.90th=[ 4384], 99.95th=[ 4704],
+     | 99.99th=[ 9280]
+  lat (nsec)   : 1000=0.01%
+  lat (usec)   : 2=88.11%, 4=11.63%, 10=0.26%, 20=0.01%
+  cpu          : usr=16.55%, sys=83.11%, ctx=27, majf=0, minf=8
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,131072,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1724MiB/s (1808MB/s), 1724MiB/s-1724MiB/s (1808MB/s-1808MB/s), io=512MiB (537MB), run=297-297msec
+log-512m-randwrite-job.hpc-lhr2-05: 
+box.hpc-lhr2-05: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-05: (groupid=0, jobs=1): err= 0: pid=99518: Tue Jan  8 17:49:56 2019
+  write: IOPS=447k, BW=1747MiB/s (1832MB/s)(512MiB/293msec)
+    clat (nsec): min=994, max=12225, avg=1715.25, stdev=368.57
+     lat (nsec): min=1025, max=13318, avg=1748.86, stdev=369.68
+    clat percentiles (nsec):
+     |  1.00th=[ 1496],  5.00th=[ 1512], 10.00th=[ 1528], 20.00th=[ 1544],
+     | 30.00th=[ 1576], 40.00th=[ 1592], 50.00th=[ 1608], 60.00th=[ 1624],
+     | 70.00th=[ 1656], 80.00th=[ 1720], 90.00th=[ 2040], 95.00th=[ 2256],
+     | 99.00th=[ 3440], 99.50th=[ 3696], 99.90th=[ 4384], 99.95th=[ 4768],
+     | 99.99th=[ 9536]
+  lat (nsec)   : 1000=0.01%
+  lat (usec)   : 2=88.04%, 4=11.72%, 10=0.24%, 20=0.01%
+  cpu          : usr=14.38%, sys=84.93%, ctx=26, majf=0, minf=7
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,131072,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1747MiB/s (1832MB/s), 1747MiB/s-1747MiB/s (1832MB/s-1832MB/s), io=512MiB (537MB), run=293-293msec
+cat machinefile
+hpc-lhr2-02-rdma slots=36
+hpc-lhr2-03-rdma slots=36
+hpc-lhr2-04-rdma slots=36
+hpc-lhr2-05-rdma slots=36
+rm: cannot remove ‘job*’: No such file or directory
+getbw.value: 712.5
+getlat.value: 5078.8
+log-512m-read-job.hpc-lhr2-02: 
+box.hpc-lhr2-02: (g=0): rw=read, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-02: (groupid=0, jobs=1): err= 0: pid=84546: Tue Jan  8 17:50:08 2019
+   read: IOPS=185k, BW=721MiB/s (756MB/s)(512MiB/710msec)
+    clat (nsec): min=334, max=2440.2k, avg=4996.14, stdev=73080.30
+     lat (nsec): min=355, max=2440.3k, avg=5018.28, stdev=73080.26
+    clat percentiles (nsec):
+     |  1.00th=[    398],  5.00th=[    406], 10.00th=[    414],
+     | 20.00th=[    422], 30.00th=[    430], 40.00th=[    438],
+     | 50.00th=[    442], 60.00th=[    450], 70.00th=[    462],
+     | 80.00th=[    490], 90.00th=[    580], 95.00th=[    764],
+     | 99.00th=[   1176], 99.50th=[   3504], 99.90th=[1220608],
+     | 99.95th=[1253376], 99.99th=[1286144]
+   bw (  KiB/s): min=732832, max=732832, per=99.24%, avg=732832.00, stdev= 0.00, samples=1
+   iops        : min=183208, max=183208, avg=183208.00, stdev= 0.00, samples=1
+  lat (nsec)   : 500=82.41%, 750=12.31%, 1000=2.17%
+  lat (usec)   : 2=2.56%, 4=0.07%, 10=0.04%, 20=0.06%, 50=0.01%
+  lat (usec)   : 250=0.01%, 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.37%, 4=0.01%
+  cpu          : usr=4.65%, sys=19.18%, ctx=1054, majf=0, minf=10
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=131072,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=721MiB/s (756MB/s), 721MiB/s-721MiB/s (756MB/s-756MB/s), io=512MiB (537MB), run=710-710msec
+log-512m-read-job.hpc-lhr2-03: 
+box.hpc-lhr2-03: (g=0): rw=read, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-03: (groupid=0, jobs=1): err= 0: pid=91566: Tue Jan  8 17:50:08 2019
+   read: IOPS=182k, BW=709MiB/s (744MB/s)(512MiB/722msec)
+    clat (nsec): min=350, max=2613.9k, avg=5086.92, stdev=74595.14
+     lat (nsec): min=370, max=2613.9k, avg=5107.92, stdev=74595.15
+    clat percentiles (nsec):
+     |  1.00th=[    402],  5.00th=[    414], 10.00th=[    422],
+     | 20.00th=[    430], 30.00th=[    438], 40.00th=[    442],
+     | 50.00th=[    450], 60.00th=[    458], 70.00th=[    470],
+     | 80.00th=[    490], 90.00th=[    556], 95.00th=[    676],
+     | 99.00th=[    860], 99.50th=[   2704], 99.90th=[1220608],
+     | 99.95th=[1236992], 99.99th=[1286144]
+   bw (  KiB/s): min=702112, max=702112, per=96.69%, avg=702112.00, stdev= 0.00, samples=1
+   iops        : min=175528, max=175528, avg=175528.00, stdev= 0.00, samples=1
+  lat (nsec)   : 500=82.82%, 750=14.08%, 1000=2.48%
+  lat (usec)   : 2=0.07%, 4=0.05%, 10=0.04%, 20=0.05%, 250=0.01%
+  lat (usec)   : 500=0.01%, 750=0.01%, 1000=0.02%
+  lat (msec)   : 2=0.36%, 4=0.01%
+  cpu          : usr=3.61%, sys=19.56%, ctx=1048, majf=0, minf=11
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=131072,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=709MiB/s (744MB/s), 709MiB/s-709MiB/s (744MB/s-744MB/s), io=512MiB (537MB), run=722-722msec
+log-512m-read-job.hpc-lhr2-04: 
+box.hpc-lhr2-04: (g=0): rw=read, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-04: (groupid=0, jobs=1): err= 0: pid=74589: Tue Jan  8 17:50:08 2019
+   read: IOPS=182k, BW=710MiB/s (745MB/s)(512MiB/721msec)
+    clat (nsec): min=317, max=2634.3k, avg=5069.81, stdev=73815.14
+     lat (nsec): min=338, max=2634.3k, avg=5092.98, stdev=73815.05
+    clat percentiles (nsec):
+     |  1.00th=[    386],  5.00th=[    394], 10.00th=[    402],
+     | 20.00th=[    410], 30.00th=[    418], 40.00th=[    426],
+     | 50.00th=[    434], 60.00th=[    442], 70.00th=[    454],
+     | 80.00th=[    482], 90.00th=[    596], 95.00th=[    996],
+     | 99.00th=[   1240], 99.50th=[   5600], 99.90th=[1236992],
+     | 99.95th=[1253376], 99.99th=[1302528]
+   bw (  KiB/s): min=702754, max=702754, per=96.64%, avg=702754.00, stdev= 0.00, samples=1
+   iops        : min=175688, max=175688, avg=175688.00, stdev= 0.00, samples=1
+  lat (nsec)   : 500=83.82%, 750=9.54%, 1000=1.72%
+  lat (usec)   : 2=4.32%, 4=0.08%, 10=0.04%, 20=0.09%, 50=0.01%
+  lat (usec)   : 250=0.01%, 500=0.01%, 750=0.01%, 1000=0.03%
+  lat (msec)   : 2=0.35%, 4=0.01%
+  cpu          : usr=4.17%, sys=19.44%, ctx=1083, majf=0, minf=11
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=131072,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=710MiB/s (745MB/s), 710MiB/s-710MiB/s (745MB/s-745MB/s), io=512MiB (537MB), run=721-721msec
+log-512m-read-job.hpc-lhr2-05: 
+box.hpc-lhr2-05: (g=0): rw=read, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-05: (groupid=0, jobs=1): err= 0: pid=99805: Tue Jan  8 17:50:08 2019
+   read: IOPS=182k, BW=710MiB/s (745MB/s)(512MiB/721msec)
+    clat (nsec): min=339, max=2615.0k, avg=5073.81, stdev=74290.74
+     lat (nsec): min=358, max=2615.0k, avg=5096.02, stdev=74290.69
+    clat percentiles (nsec):
+     |  1.00th=[    402],  5.00th=[    414], 10.00th=[    418],
+     | 20.00th=[    426], 30.00th=[    434], 40.00th=[    442],
+     | 50.00th=[    446], 60.00th=[    454], 70.00th=[    470],
+     | 80.00th=[    494], 90.00th=[    588], 95.00th=[    772],
+     | 99.00th=[   1176], 99.50th=[   4256], 99.90th=[1220608],
+     | 99.95th=[1236992], 99.99th=[1302528]
+   bw (  KiB/s): min=706208, max=706208, per=97.12%, avg=706208.00, stdev= 0.00, samples=1
+   iops        : min=176552, max=176552, avg=176552.00, stdev= 0.00, samples=1
+  lat (nsec)   : 500=81.41%, 750=12.90%, 1000=2.38%
+  lat (usec)   : 2=2.73%, 4=0.06%, 10=0.05%, 20=0.06%, 50=0.01%
+  lat (usec)   : 250=0.01%, 500=0.01%, 750=0.01%, 1000=0.03%
+  lat (msec)   : 2=0.35%, 4=0.01%
+  cpu          : usr=4.31%, sys=19.17%, ctx=1075, majf=0, minf=9
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=131072,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=710MiB/s (745MB/s), 710MiB/s-710MiB/s (745MB/s-745MB/s), io=512MiB (537MB), run=721-721msec
+cat machinefile
+hpc-lhr2-02-rdma slots=36
+hpc-lhr2-03-rdma slots=36
+hpc-lhr2-04-rdma slots=36
+hpc-lhr2-05-rdma slots=36
+rm: cannot remove ‘job*’: No such file or directory
+Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1)getbw.value: 1946.75
+getlat.value: 1666.7825
+log-512m-write-job.hpc-lhr2-02: 
+box.hpc-lhr2-02: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-02: (groupid=0, jobs=1): err= 0: pid=84810: Tue Jan  8 17:50:21 2019
+  write: IOPS=500k, BW=1954MiB/s (2049MB/s)(512MiB/262msec)
+    clat (nsec): min=943, max=59366, avg=1628.49, stdev=415.80
+     lat (nsec): min=973, max=59403, avg=1664.33, stdev=416.67
+    clat percentiles (nsec):
+     |  1.00th=[ 1464],  5.00th=[ 1464], 10.00th=[ 1480], 20.00th=[ 1480],
+     | 30.00th=[ 1496], 40.00th=[ 1496], 50.00th=[ 1496], 60.00th=[ 1512],
+     | 70.00th=[ 1528], 80.00th=[ 1592], 90.00th=[ 1960], 95.00th=[ 2256],
+     | 99.00th=[ 3376], 99.50th=[ 3664], 99.90th=[ 5088], 99.95th=[ 5600],
+     | 99.99th=[ 9024]
+  lat (nsec)   : 1000=0.03%
+  lat (usec)   : 2=92.43%, 4=7.28%, 10=0.25%, 20=0.01%, 100=0.01%
+  cpu          : usr=14.56%, sys=85.06%, ctx=24, majf=0, minf=11
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,131072,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1954MiB/s (2049MB/s), 1954MiB/s-1954MiB/s (2049MB/s-2049MB/s), io=512MiB (537MB), run=262-262msec
+log-512m-write-job.hpc-lhr2-03: 
+box.hpc-lhr2-03: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-03: (groupid=0, jobs=1): err= 0: pid=91839: Tue Jan  8 17:50:21 2019
+  write: IOPS=498k, BW=1947MiB/s (2041MB/s)(512MiB/263msec)
+    clat (nsec): min=968, max=59913, avg=1637.81, stdev=414.05
+     lat (nsec): min=996, max=59941, avg=1669.47, stdev=414.98
+    clat percentiles (nsec):
+     |  1.00th=[ 1464],  5.00th=[ 1480], 10.00th=[ 1496], 20.00th=[ 1496],
+     | 30.00th=[ 1496], 40.00th=[ 1512], 50.00th=[ 1512], 60.00th=[ 1528],
+     | 70.00th=[ 1544], 80.00th=[ 1592], 90.00th=[ 1960], 95.00th=[ 2192],
+     | 99.00th=[ 3376], 99.50th=[ 3632], 99.90th=[ 5024], 99.95th=[ 5472],
+     | 99.99th=[ 9664]
+  lat (nsec)   : 1000=0.05%
+  lat (usec)   : 2=92.46%, 4=7.24%, 10=0.24%, 20=0.01%, 100=0.01%
+  cpu          : usr=10.31%, sys=88.93%, ctx=24, majf=0, minf=10
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,131072,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1947MiB/s (2041MB/s), 1947MiB/s-1947MiB/s (2041MB/s-2041MB/s), io=512MiB (537MB), run=263-263msec
+log-512m-write-job.hpc-lhr2-04: 
+box.hpc-lhr2-04: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-04: (groupid=0, jobs=1): err= 0: pid=74852: Tue Jan  8 17:50:21 2019
+  write: IOPS=498k, BW=1947MiB/s (2041MB/s)(512MiB/263msec)
+    clat (nsec): min=954, max=59978, avg=1628.39, stdev=421.53
+     lat (nsec): min=984, max=60007, avg=1658.72, stdev=421.69
+    clat percentiles (nsec):
+     |  1.00th=[ 1464],  5.00th=[ 1480], 10.00th=[ 1480], 20.00th=[ 1496],
+     | 30.00th=[ 1496], 40.00th=[ 1496], 50.00th=[ 1512], 60.00th=[ 1512],
+     | 70.00th=[ 1528], 80.00th=[ 1576], 90.00th=[ 1960], 95.00th=[ 2160],
+     | 99.00th=[ 3376], 99.50th=[ 3664], 99.90th=[ 4448], 99.95th=[ 5280],
+     | 99.99th=[ 9920]
+  lat (nsec)   : 1000=0.03%
+  lat (usec)   : 2=93.69%, 4=6.03%, 10=0.23%, 20=0.01%, 100=0.01%
+  cpu          : usr=11.07%, sys=88.17%, ctx=24, majf=0, minf=10
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,131072,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1947MiB/s (2041MB/s), 1947MiB/s-1947MiB/s (2041MB/s-2041MB/s), io=512MiB (537MB), run=263-263msec
+log-512m-write-job.hpc-lhr2-05: 
+box.hpc-lhr2-05: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-05: (groupid=0, jobs=1): err= 0: pid=100068: Tue Jan  8 17:50:21 2019
+  write: IOPS=496k, BW=1939MiB/s (2034MB/s)(512MiB/264msec)
+    clat (nsec): min=969, max=58738, avg=1643.65, stdev=408.85
+     lat (nsec): min=998, max=58769, avg=1674.61, stdev=409.62
+    clat percentiles (nsec):
+     |  1.00th=[ 1480],  5.00th=[ 1496], 10.00th=[ 1496], 20.00th=[ 1512],
+     | 30.00th=[ 1512], 40.00th=[ 1512], 50.00th=[ 1528], 60.00th=[ 1528],
+     | 70.00th=[ 1544], 80.00th=[ 1592], 90.00th=[ 1976], 95.00th=[ 2128],
+     | 99.00th=[ 3376], 99.50th=[ 3632], 99.90th=[ 4448], 99.95th=[ 5024],
+     | 99.99th=[ 9792]
+  lat (nsec)   : 1000=0.03%
+  lat (usec)   : 2=92.85%, 4=6.89%, 10=0.22%, 20=0.01%, 100=0.01%
+  cpu          : usr=15.59%, sys=83.65%, ctx=24, majf=0, minf=9
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,131072,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1939MiB/s (2034MB/s), 1939MiB/s-1939MiB/s (2034MB/s-2034MB/s), io=512MiB (537MB), run=264-264msec
+cat machinefile
+hpc-lhr2-02-rdma slots=36
+hpc-lhr2-03-rdma slots=36
+hpc-lhr2-04-rdma slots=36
+hpc-lhr2-05-rdma slots=36
+rm: cannot remove ‘job*’: No such file or directory
+getbw.value: 666.5
+getlat.value: 1456.03
+log-512m-randread-job.hpc-lhr2-02: 
+box.hpc-lhr2-02: (g=0): rw=randread, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-02: (groupid=0, jobs=1): err= 0: pid=85073: Tue Jan  8 17:50:33 2019
+   read: IOPS=664, BW=665MiB/s (697MB/s)(512MiB/770msec)
+    clat (usec): min=699, max=1825, avg=1458.79, stdev=205.80
+     lat (usec): min=699, max=1825, avg=1458.92, stdev=205.82
+    clat percentiles (usec):
+     |  1.00th=[  832],  5.00th=[  979], 10.00th=[ 1139], 20.00th=[ 1352],
+     | 30.00th=[ 1434], 40.00th=[ 1483], 50.00th=[ 1516], 60.00th=[ 1549],
+     | 70.00th=[ 1565], 80.00th=[ 1598], 90.00th=[ 1663], 95.00th=[ 1680],
+     | 99.00th=[ 1745], 99.50th=[ 1778], 99.90th=[ 1827], 99.95th=[ 1827],
+     | 99.99th=[ 1827]
+   bw (  KiB/s): min=669696, max=669696, per=98.36%, avg=669696.00, stdev= 0.00, samples=1
+   iops        : min=  654, max=  654, avg=654.00, stdev= 0.00, samples=1
+  lat (usec)   : 750=0.39%, 1000=5.27%
+  lat (msec)   : 2=94.34%
+  cpu          : usr=0.00%, sys=17.95%, ctx=1026, majf=0, minf=264
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=512,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=665MiB/s (697MB/s), 665MiB/s-665MiB/s (697MB/s-697MB/s), io=512MiB (537MB), run=770-770msec
+log-512m-randread-job.hpc-lhr2-03: 
+box.hpc-lhr2-03: (g=0): rw=randread, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-03: (groupid=0, jobs=1): err= 0: pid=92101: Tue Jan  8 17:50:33 2019
+   read: IOPS=673, BW=674MiB/s (706MB/s)(512MiB/760msec)
+    clat (usec): min=712, max=1889, avg=1439.50, stdev=209.48
+     lat (usec): min=712, max=1890, avg=1439.62, stdev=209.48
+    clat percentiles (usec):
+     |  1.00th=[  799],  5.00th=[  979], 10.00th=[ 1123], 20.00th=[ 1303],
+     | 30.00th=[ 1418], 40.00th=[ 1467], 50.00th=[ 1500], 60.00th=[ 1532],
+     | 70.00th=[ 1549], 80.00th=[ 1582], 90.00th=[ 1631], 95.00th=[ 1663],
+     | 99.00th=[ 1778], 99.50th=[ 1778], 99.90th=[ 1893], 99.95th=[ 1893],
+     | 99.99th=[ 1893]
+   bw (  KiB/s): min=677888, max=677888, per=98.27%, avg=677888.00, stdev= 0.00, samples=1
+   iops        : min=  662, max=  662, avg=662.00, stdev= 0.00, samples=1
+  lat (usec)   : 750=0.39%, 1000=5.86%
+  lat (msec)   : 2=93.75%
+  cpu          : usr=0.13%, sys=17.65%, ctx=1027, majf=0, minf=264
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=512,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=674MiB/s (706MB/s), 674MiB/s-674MiB/s (706MB/s-706MB/s), io=512MiB (537MB), run=760-760msec
+log-512m-randread-job.hpc-lhr2-04: 
+box.hpc-lhr2-04: (g=0): rw=randread, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-04: (groupid=0, jobs=1): err= 0: pid=75127: Tue Jan  8 17:50:33 2019
+   read: IOPS=663, BW=663MiB/s (695MB/s)(512MiB/772msec)
+    clat (usec): min=658, max=1808, avg=1463.21, stdev=207.98
+     lat (usec): min=659, max=1808, avg=1463.34, stdev=207.99
+    clat percentiles (usec):
+     |  1.00th=[  824],  5.00th=[ 1004], 10.00th=[ 1172], 20.00th=[ 1336],
+     | 30.00th=[ 1434], 40.00th=[ 1483], 50.00th=[ 1516], 60.00th=[ 1549],
+     | 70.00th=[ 1582], 80.00th=[ 1614], 90.00th=[ 1647], 95.00th=[ 1713],
+     | 99.00th=[ 1778], 99.50th=[ 1778], 99.90th=[ 1811], 99.95th=[ 1811],
+     | 99.99th=[ 1811]
+   bw (  KiB/s): min=663552, max=663552, per=97.71%, avg=663552.00, stdev= 0.00, samples=1
+   iops        : min=  648, max=  648, avg=648.00, stdev= 0.00, samples=1
+  lat (usec)   : 750=0.39%, 1000=4.49%
+  lat (msec)   : 2=95.12%
+  cpu          : usr=0.39%, sys=17.51%, ctx=1026, majf=0, minf=263
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=512,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=663MiB/s (695MB/s), 663MiB/s-663MiB/s (695MB/s-695MB/s), io=512MiB (537MB), run=772-772msec
+log-512m-randread-job.hpc-lhr2-05: 
+box.hpc-lhr2-05: (g=0): rw=randread, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-05: (groupid=0, jobs=1): err= 0: pid=100343: Tue Jan  8 17:50:33 2019
+   read: IOPS=664, BW=664MiB/s (696MB/s)(512MiB/771msec)
+    clat (usec): min=769, max=1890, avg=1462.10, stdev=199.31
+     lat (usec): min=770, max=1890, avg=1462.24, stdev=199.33
+    clat percentiles (usec):
+     |  1.00th=[  840],  5.00th=[  996], 10.00th=[ 1139], 20.00th=[ 1336],
+     | 30.00th=[ 1450], 40.00th=[ 1483], 50.00th=[ 1516], 60.00th=[ 1549],
+     | 70.00th=[ 1582], 80.00th=[ 1614], 90.00th=[ 1647], 95.00th=[ 1680],
+     | 99.00th=[ 1762], 99.50th=[ 1778], 99.90th=[ 1893], 99.95th=[ 1893],
+     | 99.99th=[ 1893]
+   bw (  KiB/s): min=661504, max=661504, per=97.28%, avg=661504.00, stdev= 0.00, samples=1
+   iops        : min=  646, max=  646, avg=646.00, stdev= 0.00, samples=1
+  lat (usec)   : 1000=5.27%
+  lat (msec)   : 2=94.73%
+  cpu          : usr=0.13%, sys=17.79%, ctx=1025, majf=0, minf=263
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=512,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=664MiB/s (696MB/s), 664MiB/s-664MiB/s (696MB/s-696MB/s), io=512MiB (537MB), run=771-771msec
+cat machinefile
+hpc-lhr2-02-rdma slots=36
+hpc-lhr2-03-rdma slots=36
+hpc-lhr2-04-rdma slots=36
+hpc-lhr2-05-rdma slots=36
+rm: cannot remove ‘job*’: No such file or directory
+Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1)getbw.value: 2540.75
+getlat.value: 349.36
+log-512m-randwrite-job.hpc-lhr2-02: 
+box.hpc-lhr2-02: (g=0): rw=randwrite, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-02: (groupid=0, jobs=1): err= 0: pid=85350: Tue Jan  8 17:50:46 2019
+  write: IOPS=2547, BW=2547MiB/s (2671MB/s)(512MiB/201msec)
+    clat (usec): min=328, max=398, avg=336.05, stdev= 4.79
+     lat (usec): min=337, max=406, avg=347.47, stdev= 5.14
+    clat percentiles (usec):
+     |  1.00th=[  330],  5.00th=[  330], 10.00th=[  330], 20.00th=[  334],
+     | 30.00th=[  334], 40.00th=[  334], 50.00th=[  334], 60.00th=[  338],
+     | 70.00th=[  338], 80.00th=[  338], 90.00th=[  343], 95.00th=[  343],
+     | 99.00th=[  347], 99.50th=[  355], 99.90th=[  400], 99.95th=[  400],
+     | 99.99th=[  400]
+  lat (usec)   : 500=100.00%
+  cpu          : usr=4.50%, sys=95.00%, ctx=18, majf=0, minf=7
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,512,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=2547MiB/s (2671MB/s), 2547MiB/s-2547MiB/s (2671MB/s-2671MB/s), io=512MiB (537MB), run=201-201msec
+log-512m-randwrite-job.hpc-lhr2-03: 
+box.hpc-lhr2-03: (g=0): rw=randwrite, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-03: (groupid=0, jobs=1): err= 0: pid=92364: Tue Jan  8 17:50:46 2019
+  write: IOPS=2547, BW=2547MiB/s (2671MB/s)(512MiB/201msec)
+    clat (usec): min=311, max=397, avg=337.26, stdev= 5.23
+     lat (usec): min=319, max=409, avg=348.74, stdev= 5.69
+    clat percentiles (usec):
+     |  1.00th=[  330],  5.00th=[  334], 10.00th=[  334], 20.00th=[  334],
+     | 30.00th=[  334], 40.00th=[  334], 50.00th=[  338], 60.00th=[  338],
+     | 70.00th=[  338], 80.00th=[  338], 90.00th=[  343], 95.00th=[  347],
+     | 99.00th=[  351], 99.50th=[  359], 99.90th=[  400], 99.95th=[  400],
+     | 99.99th=[  400]
+  lat (usec)   : 500=100.00%
+  cpu          : usr=3.50%, sys=96.00%, ctx=18, majf=0, minf=7
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,512,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=2547MiB/s (2671MB/s), 2547MiB/s-2547MiB/s (2671MB/s-2671MB/s), io=512MiB (537MB), run=201-201msec
+log-512m-randwrite-job.hpc-lhr2-04: 
+box.hpc-lhr2-04: (g=0): rw=randwrite, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-04: (groupid=0, jobs=1): err= 0: pid=75390: Tue Jan  8 17:50:45 2019
+  write: IOPS=2547, BW=2547MiB/s (2671MB/s)(512MiB/201msec)
+    clat (usec): min=329, max=395, avg=337.06, stdev= 4.82
+     lat (usec): min=340, max=410, avg=349.04, stdev= 5.32
+    clat percentiles (usec):
+     |  1.00th=[  330],  5.00th=[  334], 10.00th=[  334], 20.00th=[  334],
+     | 30.00th=[  334], 40.00th=[  334], 50.00th=[  338], 60.00th=[  338],
+     | 70.00th=[  338], 80.00th=[  338], 90.00th=[  343], 95.00th=[  347],
+     | 99.00th=[  351], 99.50th=[  355], 99.90th=[  396], 99.95th=[  396],
+     | 99.99th=[  396]
+  lat (usec)   : 500=100.00%
+  cpu          : usr=3.00%, sys=96.50%, ctx=18, majf=0, minf=7
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,512,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=2547MiB/s (2671MB/s), 2547MiB/s-2547MiB/s (2671MB/s-2671MB/s), io=512MiB (537MB), run=201-201msec
+log-512m-randwrite-job.hpc-lhr2-05: 
+box.hpc-lhr2-05: (g=0): rw=randwrite, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-05: (groupid=0, jobs=1): err= 0: pid=100606: Tue Jan  8 17:50:45 2019
+  write: IOPS=2522, BW=2522MiB/s (2645MB/s)(512MiB/203msec)
+    clat (usec): min=333, max=399, avg=339.93, stdev= 4.87
+     lat (usec): min=342, max=412, avg=352.19, stdev= 5.26
+    clat percentiles (usec):
+     |  1.00th=[  334],  5.00th=[  334], 10.00th=[  334], 20.00th=[  338],
+     | 30.00th=[  338], 40.00th=[  338], 50.00th=[  338], 60.00th=[  338],
+     | 70.00th=[  343], 80.00th=[  343], 90.00th=[  347], 95.00th=[  351],
+     | 99.00th=[  355], 99.50th=[  363], 99.90th=[  400], 99.95th=[  400],
+     | 99.99th=[  400]
+  lat (usec)   : 500=100.00%
+  cpu          : usr=1.98%, sys=97.03%, ctx=18, majf=0, minf=7
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,512,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=2522MiB/s (2645MB/s), 2522MiB/s-2522MiB/s (2645MB/s-2645MB/s), io=512MiB (537MB), run=203-203msec
+cat machinefile
+hpc-lhr2-02-rdma slots=36
+hpc-lhr2-03-rdma slots=36
+hpc-lhr2-04-rdma slots=36
+hpc-lhr2-05-rdma slots=36
+rm: cannot remove ‘job*’: No such file or directory
+getbw.value: 722.25
+getlat.value: 1338.9625
+log-512m-read-job.hpc-lhr2-02: 
+box.hpc-lhr2-02: (g=0): rw=read, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-02: (groupid=0, jobs=1): err= 0: pid=85614: Tue Jan  8 17:50:57 2019
+   read: IOPS=724, BW=724MiB/s (759MB/s)(512MiB/707msec)
+    clat (usec): min=108, max=2787, avg=1335.02, stdev=298.70
+     lat (usec): min=108, max=2787, avg=1335.11, stdev=298.70
+    clat percentiles (usec):
+     |  1.00th=[  113],  5.00th=[ 1057], 10.00th=[ 1221], 20.00th=[ 1303],
+     | 30.00th=[ 1319], 40.00th=[ 1336], 50.00th=[ 1352], 60.00th=[ 1369],
+     | 70.00th=[ 1385], 80.00th=[ 1418], 90.00th=[ 1434], 95.00th=[ 1516],
+     | 99.00th=[ 2671], 99.50th=[ 2769], 99.90th=[ 2802], 99.95th=[ 2802],
+     | 99.99th=[ 2802]
+   bw (  KiB/s): min=737280, max=737280, per=99.42%, avg=737280.00, stdev= 0.00, samples=1
+   iops        : min=  720, max=  720, avg=720.00, stdev= 0.00, samples=1
+  lat (usec)   : 250=2.34%, 500=0.59%, 750=1.56%, 1000=0.20%
+  lat (msec)   : 2=93.55%, 4=1.76%
+  cpu          : usr=0.42%, sys=18.56%, ctx=1242, majf=0, minf=266
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=512,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=724MiB/s (759MB/s), 724MiB/s-724MiB/s (759MB/s-759MB/s), io=512MiB (537MB), run=707-707msec
+log-512m-read-job.hpc-lhr2-03: 
+box.hpc-lhr2-03: (g=0): rw=read, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-03: (groupid=0, jobs=1): err= 0: pid=92638: Tue Jan  8 17:50:57 2019
+   read: IOPS=723, BW=723MiB/s (758MB/s)(512MiB/708msec)
+    clat (usec): min=105, max=3606, avg=1338.60, stdev=177.12
+     lat (usec): min=105, max=3607, avg=1338.70, stdev=177.13
+    clat percentiles (usec):
+     |  1.00th=[  635],  5.00th=[ 1270], 10.00th=[ 1287], 20.00th=[ 1319],
+     | 30.00th=[ 1336], 40.00th=[ 1352], 50.00th=[ 1352], 60.00th=[ 1369],
+     | 70.00th=[ 1385], 80.00th=[ 1401], 90.00th=[ 1418], 95.00th=[ 1434],
+     | 99.00th=[ 1467], 99.50th=[ 1483], 99.90th=[ 3621], 99.95th=[ 3621],
+     | 99.99th=[ 3621]
+   bw (  KiB/s): min=716800, max=716800, per=96.80%, avg=716800.00, stdev= 0.00, samples=1
+   iops        : min=  700, max=  700, avg=700.00, stdev= 0.00, samples=1
+  lat (usec)   : 250=0.39%, 500=0.39%, 750=1.56%, 1000=0.78%
+  lat (msec)   : 2=96.68%, 4=0.20%
+  cpu          : usr=0.14%, sys=18.67%, ctx=1133, majf=0, minf=266
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=512,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=723MiB/s (758MB/s), 723MiB/s-723MiB/s (758MB/s-758MB/s), io=512MiB (537MB), run=708-708msec
+log-512m-read-job.hpc-lhr2-04: 
+box.hpc-lhr2-04: (g=0): rw=read, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-04: (groupid=0, jobs=1): err= 0: pid=75665: Tue Jan  8 17:50:57 2019
+   read: IOPS=721, BW=721MiB/s (756MB/s)(512MiB/710msec)
+    clat (usec): min=106, max=2910, avg=1340.67, stdev=225.49
+     lat (usec): min=106, max=2910, avg=1340.79, stdev=225.46
+    clat percentiles (usec):
+     |  1.00th=[  347],  5.00th=[ 1074], 10.00th=[ 1254], 20.00th=[ 1303],
+     | 30.00th=[ 1319], 40.00th=[ 1352], 50.00th=[ 1352], 60.00th=[ 1369],
+     | 70.00th=[ 1385], 80.00th=[ 1401], 90.00th=[ 1434], 95.00th=[ 1500],
+     | 99.00th=[ 1745], 99.50th=[ 2769], 99.90th=[ 2900], 99.95th=[ 2900],
+     | 99.99th=[ 2900]
+   bw (  KiB/s): min=731136, max=731136, per=99.01%, avg=731136.00, stdev= 0.00, samples=1
+   iops        : min=  714, max=  714, avg=714.00, stdev= 0.00, samples=1
+  lat (usec)   : 250=0.98%, 500=0.20%, 750=1.17%, 1000=0.98%
+  lat (msec)   : 2=95.70%, 4=0.98%
+  cpu          : usr=0.14%, sys=18.62%, ctx=1293, majf=0, minf=267
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=512,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=721MiB/s (756MB/s), 721MiB/s-721MiB/s (756MB/s-756MB/s), io=512MiB (537MB), run=710-710msec
+log-512m-read-job.hpc-lhr2-05: 
+box.hpc-lhr2-05: (g=0): rw=read, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-05: (groupid=0, jobs=1): err= 0: pid=100878: Tue Jan  8 17:50:57 2019
+   read: IOPS=721, BW=721MiB/s (756MB/s)(512MiB/710msec)
+    clat (usec): min=110, max=2947, avg=1341.15, stdev=253.51
+     lat (usec): min=110, max=2948, avg=1341.25, stdev=253.51
+    clat percentiles (usec):
+     |  1.00th=[  115],  5.00th=[ 1057], 10.00th=[ 1270], 20.00th=[ 1303],
+     | 30.00th=[ 1336], 40.00th=[ 1336], 50.00th=[ 1352], 60.00th=[ 1369],
+     | 70.00th=[ 1385], 80.00th=[ 1401], 90.00th=[ 1434], 95.00th=[ 1467],
+     | 99.00th=[ 2737], 99.50th=[ 2769], 99.90th=[ 2933], 99.95th=[ 2933],
+     | 99.99th=[ 2933]
+   bw (  KiB/s): min=718848, max=718848, per=97.35%, avg=718848.00, stdev= 0.00, samples=1
+   iops        : min=  702, max=  702, avg=702.00, stdev= 0.00, samples=1
+  lat (usec)   : 250=1.17%, 500=0.59%, 750=1.37%, 1000=0.59%
+  lat (msec)   : 2=94.92%, 4=1.37%
+  cpu          : usr=0.42%, sys=18.62%, ctx=1222, majf=0, minf=265
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=512,0,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=721MiB/s (756MB/s), 721MiB/s-721MiB/s (756MB/s-756MB/s), io=512MiB (537MB), run=710-710msec
+cat machinefile
+hpc-lhr2-02-rdma slots=36
+hpc-lhr2-03-rdma slots=36
+hpc-lhr2-04-rdma slots=36
+hpc-lhr2-05-rdma slots=36
+rm: cannot remove ‘job*’: No such file or directory
+Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1)Jobs: 1 (f=1)getbw.value: 2534.75
+getlat.value: 350.6475
+log-512m-write-job.hpc-lhr2-02: 
+box.hpc-lhr2-02: (g=0): rw=write, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-02: (groupid=0, jobs=1): err= 0: pid=85888: Tue Jan  8 17:51:10 2019
+  write: IOPS=2534, BW=2535MiB/s (2658MB/s)(512MiB/202msec)
+    clat (usec): min=330, max=397, avg=338.91, stdev= 5.11
+     lat (usec): min=340, max=409, avg=350.95, stdev= 5.58
+    clat percentiles (usec):
+     |  1.00th=[  334],  5.00th=[  334], 10.00th=[  334], 20.00th=[  334],
+     | 30.00th=[  338], 40.00th=[  338], 50.00th=[  338], 60.00th=[  338],
+     | 70.00th=[  338], 80.00th=[  343], 90.00th=[  347], 95.00th=[  347],
+     | 99.00th=[  355], 99.50th=[  363], 99.90th=[  400], 99.95th=[  400],
+     | 99.99th=[  400]
+  lat (usec)   : 500=100.00%
+  cpu          : usr=2.99%, sys=96.52%, ctx=18, majf=0, minf=11
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,512,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=2535MiB/s (2658MB/s), 2535MiB/s-2535MiB/s (2658MB/s-2658MB/s), io=512MiB (537MB), run=202-202msec
+log-512m-write-job.hpc-lhr2-03: 
+box.hpc-lhr2-03: (g=0): rw=write, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-03: (groupid=0, jobs=1): err= 0: pid=92904: Tue Jan  8 17:51:10 2019
+  write: IOPS=2522, BW=2522MiB/s (2645MB/s)(512MiB/203msec)
+    clat (usec): min=333, max=401, avg=339.99, stdev= 4.98
+     lat (usec): min=342, max=414, avg=352.22, stdev= 5.32
+    clat percentiles (usec):
+     |  1.00th=[  334],  5.00th=[  334], 10.00th=[  334], 20.00th=[  338],
+     | 30.00th=[  338], 40.00th=[  338], 50.00th=[  338], 60.00th=[  343],
+     | 70.00th=[  343], 80.00th=[  343], 90.00th=[  347], 95.00th=[  347],
+     | 99.00th=[  355], 99.50th=[  367], 99.90th=[  404], 99.95th=[  404],
+     | 99.99th=[  404]
+  lat (usec)   : 500=100.00%
+  cpu          : usr=0.50%, sys=99.01%, ctx=18, majf=0, minf=10
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,512,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=2522MiB/s (2645MB/s), 2522MiB/s-2522MiB/s (2645MB/s-2645MB/s), io=512MiB (537MB), run=203-203msec
+log-512m-write-job.hpc-lhr2-04: 
+box.hpc-lhr2-04: (g=0): rw=write, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-04: (groupid=0, jobs=1): err= 0: pid=75930: Tue Jan  8 17:51:10 2019
+  write: IOPS=2547, BW=2547MiB/s (2671MB/s)(512MiB/201msec)
+    clat (usec): min=328, max=398, avg=336.96, stdev= 4.93
+     lat (usec): min=338, max=410, avg=348.71, stdev= 5.39
+    clat percentiles (usec):
+     |  1.00th=[  330],  5.00th=[  330], 10.00th=[  334], 20.00th=[  334],
+     | 30.00th=[  334], 40.00th=[  334], 50.00th=[  338], 60.00th=[  338],
+     | 70.00th=[  338], 80.00th=[  338], 90.00th=[  343], 95.00th=[  347],
+     | 99.00th=[  351], 99.50th=[  363], 99.90th=[  400], 99.95th=[  400],
+     | 99.99th=[  400]
+  lat (usec)   : 500=100.00%
+  cpu          : usr=4.00%, sys=95.50%, ctx=18, majf=0, minf=10
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,512,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=2547MiB/s (2671MB/s), 2547MiB/s-2547MiB/s (2671MB/s-2671MB/s), io=512MiB (537MB), run=201-201msec
+log-512m-write-job.hpc-lhr2-05: 
+box.hpc-lhr2-05: (g=0): rw=write, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.3
+Starting 1 process
+
+box.hpc-lhr2-05: (groupid=0, jobs=1): err= 0: pid=101142: Tue Jan  8 17:51:09 2019
+  write: IOPS=2534, BW=2535MiB/s (2658MB/s)(512MiB/202msec)
+    clat (usec): min=330, max=404, avg=338.68, stdev= 5.28
+     lat (usec): min=339, max=417, avg=350.71, stdev= 5.72
+    clat percentiles (usec):
+     |  1.00th=[  330],  5.00th=[  334], 10.00th=[  334], 20.00th=[  334],
+     | 30.00th=[  338], 40.00th=[  338], 50.00th=[  338], 60.00th=[  338],
+     | 70.00th=[  343], 80.00th=[  343], 90.00th=[  343], 95.00th=[  347],
+     | 99.00th=[  351], 99.50th=[  355], 99.90th=[  404], 99.95th=[  404],
+     | 99.99th=[  404]
+  lat (usec)   : 500=100.00%
+  cpu          : usr=3.98%, sys=95.52%, ctx=18, majf=0, minf=9
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwt: total=0,512,0, short=0,0,0, dropped=0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=2535MiB/s (2658MB/s), 2535MiB/s-2535MiB/s (2658MB/s-2658MB/s), io=512MiB (537MB), run=202-202msec
