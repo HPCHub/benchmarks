@@ -1,0 +1,58 @@
+hpchub_mpirun /home/opc/nfs-share/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/mg.C.32 | tee -a ../../../../runs/run/npb/opc-6-nodes-36-cores/Oracle/2019-01-11_17:09:11/mg.C.2.16.3.out
+cat machinefile
+hpc-lhr2-02-rdma slots=16
+hpc-lhr2-03-rdma slots=16
+mpirun -mca btl self -x UCX_TLS=rc,self,sm -x HCOLL_ENABLE_MCAST_ALL=0 -mca coll_hcoll_enable 0 -x UCX_IB_TRAFFIC_CLASS=105 -x UCX_IB_GID_INDEX=3 -np 32 -machinefile machinefile --map-by socket:pe=1 --bind-to core  /home/opc/nfs-share/hpchub_benchmark/tests/npb/NPB3.3.1/NPB3.3-MPI/bin/mg.C.32
+
+
+ NAS Parallel Benchmarks 3.3 -- MG Benchmark
+
+ No input file. Using compiled defaults 
+ Size:  512x 512x 512  (class C)
+ Iterations:   20
+ Number of processes:     32
+
+ Initialization time:           0.219 seconds
+
+  iter    1
+  iter    5
+  iter   10
+  iter   15
+  iter   20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.5706732285740E-06
+ Error is    0.4230168472607E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        C
+ Size            =            512x 512x 512
+ Iterations      =                       20
+ Time in seconds =                     1.77
+ Total processes =                       32
+ Compiled procs  =                       32
+ Mop/s total     =                 87797.36
+ Mop/s/process   =                  2743.67
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+ Compile date    =              11 Jan 2019
+
+ Compile options:
+    MPIF77       = /usr/mpi/gcc/openmpi-3.1.0rc2/bin/mpif90
+    FLINK        = $(MPIF77)
+    FMPI_LIB     = (none)
+    FMPI_INC     = (none)
+    FFLAGS       = -Ofast -mcmodel=medium
+    FLINKFLAGS   = -Ofast
+    RAND         = randi8
+
+
+ Please send feedbacks and/or the results of this run to:
+
+ NPB Development Team 
+ Internet: npb@nas.nasa.gov
+
+
