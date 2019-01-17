@@ -1,0 +1,26 @@
+hpchub_mpirun /home/opc/nfs-share/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072 | tee -a ../../../runs/run/osu/opc-6-nodes-36-cores/Oracle/2019-01-11_13:29:45/osu_latency.2.1.out
+cat machinefile
+hpc-lhr2-02-rdma slots=1
+hpc-lhr2-03-rdma slots=1
+mpirun -mca btl self -x UCX_TLS=rc,self,sm -x HCOLL_ENABLE_MCAST_ALL=0 -mca coll_hcoll_enable 0 -x UCX_IB_TRAFFIC_CLASS=105 -x UCX_IB_GID_INDEX=3 -np 2 -machinefile machinefile --map-by socket:pe=1 --bind-to core  /home/opc/nfs-share/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/pt2pt/osu_latency -x 10000 -i 100000 -m 131072
+# OSU MPI Latency Test v5.4.0
+# Size          Latency (us)
+0                       1.48
+1                       1.49
+2                       1.49
+4                       1.49
+8                       1.49
+16                      1.49
+32                      1.51
+64                      1.55
+128                     1.99
+256                     2.05
+512                     2.14
+1024                    2.36
+2048                    2.77
+4096                    3.65
+8192                    5.08
+16384                   6.85
+32768                   8.99
+65536                  12.53
+131072                 19.26

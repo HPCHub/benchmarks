@@ -1,0 +1,29 @@
+hpchub_mpirun /home/opc/nfs-share/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce | tee -a ../../../runs/run/osu/opc-6-nodes-36-cores/Oracle/2019-01-11_13:29:45/osu_allreduce.4.8.out
+cat machinefile
+hpc-lhr2-02-rdma slots=8
+hpc-lhr2-03-rdma slots=8
+hpc-lhr2-04-rdma slots=8
+hpc-lhr2-05-rdma slots=8
+mpirun -mca btl self -x UCX_TLS=rc,self,sm -x HCOLL_ENABLE_MCAST_ALL=0 -mca coll_hcoll_enable 0 -x UCX_IB_TRAFFIC_CLASS=105 -x UCX_IB_GID_INDEX=3 -np 32 -machinefile machinefile --map-by socket:pe=1 --bind-to core  /home/opc/nfs-share/hpchub_benchmark/tests/osu/osu-micro-benchmarks-5.4/mpi/collective/osu_allreduce
+
+# OSU MPI Allreduce Latency Test v5.4.0
+# Size       Avg Latency(us)
+4                       5.71
+8                       5.46
+16                      5.32
+32                      5.88
+64                      6.06
+128                     8.57
+256                     7.97
+512                     8.66
+1024                   10.10
+2048                   12.95
+4096                   18.91
+8192                   33.67
+16384                  54.15
+32768                  68.18
+65536                  89.90
+131072                140.87
+262144                273.09
+524288                529.96
+1048576               985.25
