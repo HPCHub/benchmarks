@@ -69,8 +69,8 @@ if [ "$HPCHUB_TEST_STATE" == "install" ]; then
 fi
 
 if [ "$HPCHUB_OPERATION" == "install_system" ]; then
+  run_on_cluster_nodes.sh sudo /etc/hpc.setup/control_hyperthreading.sh off
   echo YUM:
-  
   sudo yum -y install atlas cmake blas-devel  gcc-c++ numpy
   for i in $NODES; do
     ssh $i  sudo yum -y install atlas cmake blas-devel gcc-c++ numpy
