@@ -1,1 +1,1 @@
-platform_nfs_dir=nfs-share
+platform_hook_nfs_dir=nfs-share

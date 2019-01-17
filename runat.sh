@@ -28,12 +28,11 @@ if [ -f "local_platform_hooks/$platform.$operation.sh" ];then
 fi
 
 remwd=`ssh $remhost pwd`
-remwd=$remwd/$platform_nfs_dir
-
 if [ ! "$?" = "0" -o "$remwd" = "" ]; then
   echo "Problems connecting to host $remhost"
   exit 2
 fi
+remwd=$remwd/$platform_hook_nfs_dir
 
 if [ "$testopt" = "" ]; then
   testset=tests/*
