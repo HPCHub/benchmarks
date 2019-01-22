@@ -94,7 +94,10 @@ def sample_standard_deviation(lst):
 	differences = [x - mean for x in lst]
 	sq_differences = [d ** 2 for d in differences]
 	ssd = sum(sq_differences)
-	variance = ssd / (num_items - 1)
+	if num_items == 1:
+		variance = ssd / (num_items )
+	else:
+		variance = ssd / (num_items - 1)
 	sd = sqrt(variance)
 	return sd
 
