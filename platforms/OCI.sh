@@ -3,14 +3,16 @@ NNODES="$(echo "$NODES" | wc -w)"
 
 NCPU=`for i in $NODES; do ssh \$i cat /proc/cpuinfo | grep processor; done | wc -l`
 
-MINCORES=""
+MINCORES="999999"
 for node in $NODES; do
-	s="$(ssh "$SSH_PARAMS" "$cmd_ssh" lscpu | grep -oP "Socket\(s\):[ ]*\K[0-9]+")"
-	cps="$(ssh "$SSH_PARAMS" "$cmd_ssh" lscpu | grep -oP "Core\(s\) per socket:[ ]*\K[0-9]+")"
-	if [ -z "$MINCORES" -o "$MINCORES" > "$((s * cps))" ]; then
-		MINCORES="$((s * cps))"
+	s="$(ssh $node lscpu | grep -oP "Socket\(s\):[ ]*\K[0-9]+")"
+	cps="$(ssh $node lscpu | grep -oP "Core\(s\) per socket:[ ]*\K[0-9]+")"
+    cores="$((s * cps))"
+	if [ -z "$MINCORES" -o "$MINCORES" -gt "$cores" ]; then
+		MINCORES="$cores"
 	fi
 done
+export MINCORES
 
 #export OMP_NUM_THREADS=`ssh n001 cat /proc/cpuinfo | grep processor | wc -l`
 
