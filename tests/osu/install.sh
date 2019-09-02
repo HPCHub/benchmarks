@@ -48,8 +48,8 @@ ${HPCHUB_COMPILE_PREFIX} ./configure  CC=$MPICC CXX=$MPICXX FC=$MPIFC
 
 ${HPCHUB_COMPILE_PREFIX} make
 
-PLATFORM_NAME=$(basename "$HPCHUB_PLATFORM" | sed -e "s/\..*//" )
-if [ "$PLATFORM_NAME" == "azurer" -o -o "$PLATFORM_NAME" = "OCI" ]; then
+PLATFORM_NAME="$(basename "$HPCHUB_PLATFORM" | sed -e "s/\..*//" )"
+if [ "$PLATFORM_NAME" = "azurer" -o "$PLATFORM_NAME" = "OCI" ]; then
 	for i in $NODES; do
 		scp -r ../../../tests/  $i:$HOME/hpchub_benchmark/
 	done

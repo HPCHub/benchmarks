@@ -73,7 +73,7 @@ else
 fi
 
 if [ "$operation" = "install" ]; then
-  if [ "$islocal" = "0" ]; the
+  if [ "$islocal" = "0" ]; then
     tar -czf - . | ssh $remhost "cat > $remwd/hpchub_benchmark.tar.gz"
     #git archive --format tar.gz master | ssh $remhost "cat > $remwd/hpchub_benchmark.tar.gz"
     $remcomm "mkdir -p $remwd/${hpchub_benchmark_dir}" 
@@ -117,13 +117,7 @@ elif [ "$operation" = "run" ]; then
       echo "Runing test: $testname"
       echo "expecting remote host $remhost to generate report at: ${remreport}"
 
-      $remcomm "cd $remwd/${hpchub_benchmark_dir}/$ctest;
-                HPCHUB_OPERATION=${operation}
-                HPCHUB_REPORT=${remreport}
-                HPCHUB_RESDIR=${resdir}
-				HPCHUB_ISLOCAL=${islocal}
-                HPCHUB_PLATFORM=../../platforms/${platform}.sh
-                 ./${operation}.sh" 2>&1 | tee $resdir/out.log
+      $remcomm "cd $remwd/${hpchub_benchmark_dir}/$ctest; HPCHUB_OPERATION=${operation} HPCHUB_REPORT=${remreport} HPCHUB_RESDIR=${resdir} HPCHUB_ISLOCAL=${islocal} HPCHUB_PLATFORM=../../platforms/${platform}.sh ./${operation}.sh" 2>&1 | tee $resdir/out.log
 
       if [ "$islocal" = "0" ]; then
         scp $remhost:$remreport $resdir/report.time.txt || echo "report time not logged"
