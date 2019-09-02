@@ -36,10 +36,20 @@ if [ ! -x $MPIFC ]; then
 	echo no MPIFC
 	exit 1
 fi
+if [ ! -x "$CC" ]; then
+	echo no CC compiler
+	exit 1
+fi
+if [ ! -x "$CXX" ]; then
+	echo no CXX compiler
+	exit 1
+fi
 ${HPCHUB_COMPILE_PREFIX} ./configure  CC=$MPICC CXX=$MPICXX FC=$MPIFC
 
 ${HPCHUB_COMPILE_PREFIX} make
-if [ $HPCHUB_PLATFORM == 'azure' ]; then
+
+PLATFORM_NAME=$(basename "$HPCHUB_PLATFORM" | sed -e "s/\..*//" )
+if [ "$PLATFORM_NAME" == "azurer" -o -o "$PLATFORM_NAME" = "OCI" ]; then
 	for i in $NODES; do
 		scp -r ../../../tests/  $i:$HOME/hpchub_benchmark/
 	done
