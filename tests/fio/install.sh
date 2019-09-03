@@ -32,7 +32,7 @@ if [ "$HPCHUB_ISLOCAL" != "1" -a "$HPCHUB_ISNFS" != "1" ]; then
     if [ "$PLATFORM_NAME" = "azurer" -o "$PLATFORM_NAME" = "OCI" ]; then
         for i in $NODES; do
             ssh $i "mkdir -p $hpchub_benchmark_dir"
-            scp -r ../../../tests  "$i:$hpchub_benchmark_dir"
+            scp -r ../../../tests  "$i:$hpchub_benchmark_dir/"
         done
     fi
 fi

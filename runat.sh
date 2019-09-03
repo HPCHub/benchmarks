@@ -170,15 +170,17 @@ elif [ "$operation" = "run" ]; then
         cp "$remreport" "$resdir/report.time.txt" || echo "report time not logged"
         if [ "$testname" == 'npb' -o "$testname" == 'osu' ]; then
             echo "Also fetching additional files: "
-            cp "$remwd/${hpchub_benchmark_dir}/$resdir/*" "$resdir"
+            cp "$remwd/${hpchub_benchmark_dir}/$resdir"/* "$resdir"
         fi
       fi
     
       if [ "$tarball" = "1" ]; then
-        tarball_name="${platform}_${test}_${node}_${now2}"
+        mkdir -p tarballs
+        tarball_name="${platform}_${testname}_${remhost}_${now2}"
         mkdir "$tarball_name"
-        cp -r "$resdir/*" "$tarball_name/"
+        cp -r "$resdir"/* "$tarball_name/"
         tar -czf "${tarball_name}.tar.gz" "$tarball_name"
+        mv "${tarball_name}.tar.gz" ./tarballs/
         rm -rf "$tarball_name" 
       fi
     fi

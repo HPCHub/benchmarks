@@ -74,25 +74,25 @@ for i in `seq $local_NNODES -1 1`; do
 				maxiter=1
 			fi
 			if [ -f ./bin/${npb_test}.C.$(($i*$j)) ]; then
-                                if [ "${tests_done[${npb_test}_$i]}" = "" ]; then
-                                     tests_done[${npb_test}_$i]=1
-                                else
-                                     tests_done[${npb_test}_$i]=$((tests_done[${npb_test}_$i]+1))
-                                fi
-                                if [ "${tests_done[${npb_test}_$i]}" -le 2 ]; then
+                if [ "${tests_done[${npb_test}_$i]}" = "" ]; then
+                     tests_done[${npb_test}_$i]=1
+                else
+                     tests_done[${npb_test}_$i]=$((tests_done[${npb_test}_$i]+1))
+                fi
+                if [ "${tests_done[${npb_test}_$i]}" -le 2 ]; then
   					iter=1
 					while [ $iter -le $maxiter ]; do
-                                	        outfile=${NPB_RESULTS}/${npb_test}.C.${i}.${j}.${iter}.out
+                        outfile=${NPB_RESULTS}/${npb_test}.C.${i}.${j}.${iter}.out
 						runstr="$HPCHUB_MPIRUN $PWD/bin/${npb_test}.C.$((i*j)) | tee -a ${outfile}"
 						echo ${runstr} | tee -a $outfile
 						eval ${runstr}
-                	                        Vtotal=`grep "Mop/s total" $outfile  | awk '{print $4; };'`
-                        	                Vperprocess=`grep "Mop/s/process" $outfile  | awk '{print $3; };'`
+                	    Vtotal=`grep "Mop/s total" $outfile  | awk '{print $4; };'`
+                        Vperprocess=`grep "Mop/s/process" $outfile  | awk '{print $3; };'`
 						LogStep npb ${npb_test}_${i}_${j} ${iter}
 						LogStep npb ${npb_test}_${i}_${j}_total $Vtotal
 						LogStep npb ${npb_test}_${i}_${j}_perprocess $Vperprocess
 						let iter=iter+1
-                	                        echo "RunStr: $runstr"
+                	    echo "RunStr: $runstr"
 					done
 				fi
 			fi

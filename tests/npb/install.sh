@@ -11,6 +11,8 @@ if [ -f "${HPCHUB_PLATFORM}" ]; then
   . ${HPCHUB_PLATFORM}
 fi
 
+test_dir=$(pwd)
+
 if [ ! -x $MPICC ]; then
 	echo no MPICC
 	exit 1
@@ -83,10 +85,14 @@ done
 ${HPCHUB_COMPILE_PREFIX} make clean
 ${HPCHUB_COMPILE_PREFIX} make suite
 
-if [ $HPCHUB_PLATFORM == 'azure' ]; then
-	for i in $NODES; do
-		echo copying tests to $i:$HOME/hpchub_benchmark/
-		scp -r ../../../../tests/  $i:$HOME/hpchub_benchmark/
-		echo done
-	done
+hpchub_benchmark_dir="$(realpath "$test_dir/../../")"
+
+PLATFORM_NAME=$(basename "$HPCHUB_PLATFORM" | sed -e "s/\..*//" )
+if [ "$HPCHUB_ISLOCAL" != "1" -a "$HPCHUB_ISNFS" != "1" ]; then
+    if [ "$PLATFORM_NAME" = 'azure' -o "$PLATFORM_NAME" = "OCI" ]; then
+        for i in $NODES; do
+            ssh $i "mkdir -p $hpchub_benchmark_dir"
+            scp -r ../../../../tests  "$i:$hpchub_benchmark_dir/"
+        done
+    fi
 fi
