@@ -181,7 +181,8 @@ elif [ "$operation" = "run" ]; then
         cp -r "$resdir"/* "$tarball_name/"
         tar -czf "${tarball_name}.tar.gz" "$tarball_name"
         mv "${tarball_name}.tar.gz" ./tarballs/
-        rm -rf "$tarball_name" 
+        rm -rf "$tarball_name"
+        echo "Tar ball with result: ./tarball/${tarball_name}.tar.gz" 
       fi
     fi
   done
