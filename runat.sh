@@ -115,8 +115,8 @@ fi
 
 if [ "$operation" = "install" ]; then
   if [ "$islocal" = "0" ]; then
-    tar -czf - . | ssh "$remhost" "cat > $remwd/hpchub_benchmark.tar.gz"
-    #git archive --format tar.gz master | ssh $remhost "cat > $remwd/hpchub_benchmark.tar.gz"
+    #tar -czf - . | ssh "$remhost" "cat > $remwd/hpchub_benchmark.tar.gz"
+    git archive --format tar.gz master | ssh "$remhost" "cat > $remwd/hpchub_benchmark.tar.gz"
     $remcomm "mkdir -p $remwd/${hpchub_benchmark_dir}" 
     $remcomm "cd $remwd/${hpchub_benchmark_dir}; tar -xvzf ../hpchub_benchmark.tar.gz" || exit 4
     echo "tarballs sent."
