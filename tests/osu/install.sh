@@ -7,9 +7,20 @@ fi
 
 HPCHUB_TEST_STATE=install
 
+which pip >/dev/null 2>&1
+[ "$?" != "0" ] && sudo yum -y install python2-pip
+
+sudo pip install --upgrade pip
+
+python -c "import numpy" >/dev/null 2>&1
+[ "$?" != "0" ] && sudo pip install numpy
+
+
 if [ -f "${HPCHUB_PLATFORM}" ]; then
   . ${HPCHUB_PLATFORM}
 fi
+
+test_dir=$(pwd)
 
 if [ ! -f osu-micro-benchmarks-${osu_version}.tar.gz ]; then
   wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-${osu_version}.tar.gz 
@@ -47,11 +58,16 @@ fi
 ${HPCHUB_COMPILE_PREFIX} ./configure  CC=$MPICC CXX=$MPICXX FC=$MPIFC
 
 ${HPCHUB_COMPILE_PREFIX} make
-
-PLATFORM_NAME="$(basename "$HPCHUB_PLATFORM" | sed -e "s/\..*//" )"
-if [ "$PLATFORM_NAME" = "azurer" -o "$PLATFORM_NAME" = "OCI" ]; then
-	for i in $NODES; do
-		scp -r ../../../tests/  $i:$HOME/hpchub_benchmark/
-	done
-fi
 #make install
+
+hpchub_benchmark_dir="$(realpath "$test_dir/../../")"
+
+PLATFORM_NAME=$(basename "$HPCHUB_PLATFORM" | sed -e "s/\..*//" )
+if [ "$HPCHUB_ISLOCAL" != "1" -a "$HPCHUB_ISNFS" != "1" ]; then
+    if [ "$PLATFORM_NAME" = 'azure' -o "$PLATFORM_NAME" = "OCI" ]; then
+        for i in $NODES; do
+            ssh "$i" "mkdir -p $hpchub_benchmark_dir"
+            scp -r ../../../tests  "$i:$hpchub_benchmark_dir/"
+        done
+    fi
+fi
