@@ -1,17 +1,32 @@
-NODES="$(cat /etc/hosts | grep 'ibn00*' | awk '{ print $2 }')"
-NNODES="$(echo "$NODES" | wc -w)"
+#!/bin/bash
 
-NCPU=`for i in $NODES; do ssh \$i cat /proc/cpuinfo | grep processor; done | wc -l`
+if [ "$HPCHUB_ISLOCAL" != "1" ]; then
+    NODES="$(grep 'ibn00*' /etc/hosts | awk '{ print $2 }')"
+    NNODES="$(echo "$NODES" | wc -w)"
 
-MINCORES="999999"
-for node in $NODES; do
-	s="$(ssh $node lscpu | grep -oP "Socket\(s\):[ ]*\K[0-9]+")"
-	cps="$(ssh $node lscpu | grep -oP "Core\(s\) per socket:[ ]*\K[0-9]+")"
-    cores="$((s * cps))"
-	if [ -z "$MINCORES" -o "$MINCORES" -gt "$cores" ]; then
-		MINCORES="$cores"
-	fi
-done
+    NCPU="$(for i in $NODES; do ssh $i grep "processor" /proc/cpuinfo ; done | wc -l)"
+
+    MINCORES="999999"
+    for node in $NODES; do
+	    s="$(ssh "$node" lscpu | grep -oP "Socket\(s\):[ ]*\K[0-9]+")"
+    	cps="$(ssh "$node" lscpu | grep -oP "Core\(s\) per socket:[ ]*\K[0-9]+")"
+        cores="$((s * cps))"
+    	if [ -z "$MINCORES" -o "$MINCORES" -gt "$cores" ]; then
+	    	MINCORES="$cores"
+    	fi
+    done
+
+    NCPU="$((MINCORES * NNODES))"
+else
+    NODES="$(hostname)"
+    NNODES="1"
+	    
+    s="$(lscpu | grep -oP "Socket\(s\):[ ]*\K[0-9]+")"
+    cps="$(lscpu | grep -oP "Core\(s\) per socket:[ ]*\K[0-9]+")"
+    MINCORES="$((s * cps))"
+    NCPU="$MINCORES"
+fi
+
 export MINCORES
 
 #export OMP_NUM_THREADS=`ssh n001 cat /proc/cpuinfo | grep processor | wc -l`
@@ -25,9 +40,9 @@ done
 
 HPCHUB_HAS_CPUSET=1
 
-export CC=`which mpicc`
+export CC="$(which mpicc)"
 if [ ! -x "$CC" ]; then
-  export CC=`which gcc`
+  export CC="$(which gcc)"
 fi
 if [ ! -x "$CC" ]; then
   if [ "$HPCHUB_TEST_STATE" == "install" ]; then
@@ -36,9 +51,9 @@ if [ ! -x "$CC" ]; then
   fi
 fi
 
-export CXX=`which mpicxx`
+export CXX="$(which mpicxx)"
 if [ ! -x "$CXX" ]; then
-  export CXX=`which g++`
+  export CXX="$(which g++)"
 fi
 if [ ! -x "$CXX" ]; then
   if [ "$HPCHUB_TEST_STATE" == "install" ]; then
@@ -47,16 +62,16 @@ if [ ! -x "$CXX" ]; then
   fi
 fi
 
-export FC=`which mpif90`
+export FC="$(which mpif90)"
 
-export MPICC=`which mpicc`
-export MPICXX=`which mpicxx`
-export MPIF77=`which mpif77`
-export MPIF90=`which mpif90`
-export MPIFC=`which mpif90`
+export MPICC="$(which mpicc)"
+export MPICXX="$(which mpicxx)"
+export MPIF77="$(which mpif77)"
+export MPIF90="$(which mpif90)"
+export MPIFC="$(which mpif90)"
 
 if [ ! -x "$FC" ]; then
-  export FC=`which mpif90`
+  export FC="$(which mpif90)"
 fi
 if [ ! -x "$FC" ]; then
   if [ "$HPCHUB_TEST_STATE" == "install" ]; then
@@ -74,29 +89,29 @@ if [ "$HPCHUB_OPERATION" == "install_system" ]; then
   
   sudo yum -y install atlas cmake blas-devel
   for i in $NODES; do
-    ssh $i  sudo yum -y install atlas cmake blas-devel
+    ssh "$i"  sudo yum -y install atlas cmake blas-devel
   done
 fi
 export FFTW_CONFIGURE_FLAGS
-export HPCHUB_LINKER=`which mpif77`
+export HPCHUB_LINKER="$(which mpif77)"
 export HPCHUB_LAPACK_DIR="/usr/lib"
 
-HPCHUB_PWD=`pwd`
+HPCHUB_PWD="$(pwd)"
 
 function hpchub_mpirun {
-	HPCHUB_PPN=$(($NCPU/$NNODES))
+	HPCHUB_PPN="$((NCPU/NNODES))"
 	NODES_ARRAY=($NODES)
 	rm machinefile
-	if [ -z $OMP_NUM_THREADS ] || [ $OMP_NUM_THREADS -eq 1 ]; then
+	if [ -z "$OMP_NUM_THREADS" ] || [ "$OMP_NUM_THREADS" -eq 1 ]; then
 		for _h in  ${NODES_ARRAY[@]:0:$NNODES}; do
-			echo $_h slots=$HPCHUB_PPN >> machinefile
+			echo "$_h slots=$HPCHUB_PPN" >> machinefile
 		done
 		echo cat machinefile
 		cat machinefile
 		if [ "$MINCORES" -ge "$HPCHUB_PPN" ]; then
-			mpirun -np $NCPU -machinefile machinefile --map-by socket --bind-to core  $@
+			mpirun -np "$NCPU" -machinefile machinefile --map-by socket --bind-to core  "$@"
 		else
-			mpirun -np $NCPU -machinefile machinefile --map-by socket  $@
+			mpirun -np "$NCPU" -machinefile machinefile --map-by socket  "$@"
 		fi
 	else
 		echo ""
@@ -114,8 +129,8 @@ function hpchub_mpirun {
 
 if [ ! -f machinefile ]; then 
    for h in $NODES; do
-    for i in `seq 1 $(($NCPU/$NNODES))`; do
-      echo $h >> machinefile
+    for i in $(seq 1 $((NCPU/NNODES))); do
+      echo "$h" >> machinefile
     done
    done
 fi
