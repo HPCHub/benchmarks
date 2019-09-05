@@ -84,14 +84,15 @@ if [ "$HPCHUB_TEST_STATE" == "install" ]; then
   echo "Platform: using $CC as compiler"
 fi
 
-if [ "$HPCHUB_OPERATION" == "install_system" ]; then
+if [ "$HPCHUB_TEST_STATE" = "install" ]; then
   echo YUM:
   
-  sudo yum -y install atlas cmake blas-devel
+  sudo yum -y install libaio libaio-devel 
   for i in $NODES; do
-    ssh "$i"  sudo yum -y install atlas cmake blas-devel
+    ssh "$i"  sudo yum -y install libaio libaio-devel
   done
 fi
+
 export FFTW_CONFIGURE_FLAGS
 export HPCHUB_LINKER="$(which mpif77)"
 export HPCHUB_LAPACK_DIR="/usr/lib"
