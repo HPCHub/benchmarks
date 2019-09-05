@@ -20,10 +20,27 @@ function help
     echo "    Disable nfs usage (ignore platform_hook_nfs_dir)."
     echo "  -t, --tar-ball"
     echo "    Pack result to archive"
+    echo "  -a, --analise"
+    echo "    Auto analize OSU and NPB results to analize.out file"
+}
+
+function analise_req
+{
+    python -c "import numpy" >/dev/null 2>&1
+    [ "$?" = "0" ] && return 0
+
+    ch pip >/dev/null 2>&1
+    [ "$?" != "0" ] && sudo yum -y install python2-pip
+
+    sudo pip install --upgrade pip
+
+    python -c "import numpy" >/dev/null 2>&1
+    [ "$?" != "0" ] && sudo pip install numpy
 }
 
 disable_nfs="0"
 tarball="0"
+analise="0"
 
 while [ "$#" -gt 0 ]; do
     key="$1"
@@ -40,6 +57,10 @@ while [ "$#" -gt 0 ]; do
             tarball="1"
             shift;
             ;;
+        "-a"|"--analise")
+            analise="1"
+            shift;
+            ;;
         -*)
             echo "[ERROR] Unrecognized option \"$key\""
             echo ""
@@ -51,6 +72,10 @@ while [ "$#" -gt 0 ]; do
             ;;
     esac
 done
+
+if [ "$analise" = "1" ]; then
+    analise_req
+fi
 
 hpchub_benchmark_dir="hpchub_benchmark"
 
@@ -117,8 +142,8 @@ if [ "$operation" = "install" ]; then
   if [ "$islocal" = "0" ]; then
     #tar -czf - . | ssh "$remhost" "cat > $remwd/hpchub_benchmark.tar.gz"
     git archive --format tar.gz master | ssh "$remhost" "cat > $remwd/hpchub_benchmark.tar.gz"
-    $remcomm "mkdir -p $remwd/${hpchub_benchmark_dir}" 
-    $remcomm "cd $remwd/${hpchub_benchmark_dir}; tar -xvzf ../hpchub_benchmark.tar.gz" || exit 4
+    $remcomm "(mkdir -p $remwd/${hpchub_benchmark_dir})" 
+    $remcomm "(cd $remwd/${hpchub_benchmark_dir}; tar -xvzf ../hpchub_benchmark.tar.gz)" || exit 4
     echo "tarballs sent."
   else
     echo "Running on the localhost. Tarball sending will be skipped"
@@ -126,22 +151,22 @@ if [ "$operation" = "install" ]; then
 
   for ctest in $testset; do
     if [ -d "$ctest" -a ! "$ctest" = "tests/include" -a ! -f "$ctest/.disable_install" ]; then
-      $remcomm "cd $remwd/${hpchub_benchmark_dir}/$ctest; HPCHUB_ISLOCAL=$islocal HPCHUB_ISNFS=$isnfs HPCHUB_PLATFORM=../../platforms/${platform}.sh ./install.sh" || exit 5
+      $remcomm "(cd $remwd/${hpchub_benchmark_dir}/$ctest; HPCHUB_ISLOCAL=$islocal HPCHUB_ISNFS=$isnfs HPCHUB_PLATFORM=../../platforms/${platform}.sh ./install.sh)" || exit 5
     fi
   done
 
-  $remcomm "echo ok > $remwd/${hpchub_benchmark_dir}/install_ok"
+  $remcomm "(echo ok > $remwd/${hpchub_benchmark_dir}/install_ok)"
 
 elif [ "$operation" = "clean" ];then
 
   for i in $testset; do
     if [ -x "$i/clean.sh" -a ! "$i" = "tests/include" ]; then 
-       $remcomm "cd $remwd/${hpchub_benchmark_dir}/$i; HPCHUB_ISLOCAL=$islocal HPCHUB_ISNFS=$isnfs HPCHUB_PLATFORM=../../platforms/${platform}.sh ./clean.sh"
+       $remcomm "(cd $remwd/${hpchub_benchmark_dir}/$i; HPCHUB_ISLOCAL=$islocal HPCHUB_ISNFS=$isnfs HPCHUB_PLATFORM=../../platforms/${platform}.sh ./clean.sh)"
     fi
   done
   if [ "$islocal" != "1" ]; then
-    $remcomm "rm -rf $remwd/hpchub_benchmark.tar.gz"
-    $remcomm "rm -rf $remwd/${hpchub_benchmark_dir}"
+    $remcomm "(rm -rf $remwd/hpchub_benchmark.tar.gz)"
+    $remcomm "(rm -rf $remwd/${hpchub_benchmark_dir})"
   fi
 
 elif [ "$operation" = "run" ]; then
@@ -158,7 +183,7 @@ elif [ "$operation" = "run" ]; then
       echo "Runing test: $testname"
       echo "expecting remote host $remhost to generate report at: ${remreport}"
 
-      $remcomm "cd $remwd/${hpchub_benchmark_dir}/$ctest; HPCHUB_OPERATION=${operation} HPCHUB_REPORT=${remreport} HPCHUB_RESDIR=${resdir} HPCHUB_ISLOCAL=${islocal} HPCHUB_ISNFS=$isnfs HPCHUB_PLATFORM=../../platforms/${platform}.sh ./${operation}.sh" 2>&1 | tee "$resdir/out.log"
+      $remcomm "(cd $remwd/${hpchub_benchmark_dir}/$ctest; HPCHUB_OPERATION=${operation} HPCHUB_REPORT=${remreport} HPCHUB_RESDIR=${resdir} HPCHUB_ISLOCAL=${islocal} HPCHUB_ISNFS=$isnfs HPCHUB_PLATFORM=../../platforms/${platform}.sh ./${operation}.sh)" 2>&1 | tee "$resdir/out.log"
 
       if [ "$islocal" = "0" ]; then
         scp "$remhost":"$remreport" "$resdir/report.time.txt" || echo "report time not logged"
@@ -171,6 +196,13 @@ elif [ "$operation" = "run" ]; then
         if [ "$testname" == 'npb' -o "$testname" == 'osu' ]; then
             echo "Also fetching additional files: "
             cp "$remwd/${hpchub_benchmark_dir}/$resdir"/* "$resdir"
+            if [ "$analise" = "1" ]; then
+                if [ "$testname" = "npb" ]; then
+                    ./analise_scripts/get_stat_npb.py "$resdir" | "tee $resdir/analize.out"
+                elif [ "$testname" = "osu" ]; then
+                    ./analise_scripts/get_stat_osu.py "$resdir" | "tee $resdir/analize.out"
+                fi
+            fi      
         fi
       fi
     
