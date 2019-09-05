@@ -44,12 +44,55 @@ fi
 
 LogStep fio-noargs Start 
 
-function getbw { 
-  value="$(cat job* | perl -e '$S=0;$N=0;while(<>){if(s/.*bw=(\d+.?\d*).*/$1/) { $S+=$_; $N++;} ; }; print $S/$N; ')"
-  echo "getbw.value: $value"
-  if [ "$value" = "" ]; then
-    value="0.0";  
-  fi; 
+function getbw {
+    local N="0"
+    local S="0"
+    local val=""
+    local strval=""
+    local ext=""
+    for i in job*; do
+        strval=$(grep -oP "bw=\K[0-9]+.?[0-9][^ ]*" "$i")
+        val="$(echo "$strval" | grep -oP "\K[0-9]+.?[0-9]")"
+        ext="$(echo "$strval" | grep -oP "\K[^0-9/]+" | tr "[:upper:]" "[:lower:]" | head -1)"
+
+        if [ "$ext" = "k" -o "$ext" = "kb" -o "$ext" = "kib" ]; then
+            val="$(python -c "print($val * 1024)")"
+        elif [ "$ext" = "ki" ]; then
+            val="$(python -c "print($val * 1000)")"
+        elif [ "$ext" = "mib" -o "$ext" = "m" ]; then
+            val="$(python -c "print($val * 1024**2)")"
+        elif [ "$ext" = "mb" -o "$ext" = "mi" ]; then
+            val="$(python -c "print($val * 1000**2)")"
+        elif [ "$ext" = "tib" -o "$ext" = "t" ]; then
+            val="$(python -c "print($val * 1024**3)")"
+        elif [ "$ext" = "tb" -o "$ext" = "ti" ]; then
+            val="$(python -c "print($val * 1000*3)")"
+        fi    
+
+        N="$((N+1))"
+        S="$(python -c "print($S + $val)")"
+    done
+
+    if [ "$S" -ge "$((1024 * 1024 * 1024))" ]; then
+        ext="TiB"
+        val="$(python -c "print \"%.3f\" % ($S/1024.**3)")"
+    elif [ "$S" -ge "$((1024 * 1024))" ]; then
+        ext="MiB"
+        val="$(python -c "print \"%.3f\" % ($S/1024.**2)")"
+    elif [ "$S" -ge "1024" ]; then
+        ext="KiB"
+        val="$(python -c "print \"%.3f\" % ($S/1024.)")"
+    else
+        ext="B"
+    fi
+
+    value="${val}${ext}"
+    echo "getbw.value: ${value}/s"
+    
+    if [ "$value" = "" ]; then
+        value="0.0";
+    fi; 
+#  value="$(cat job* | perl -e '$S=0;$N=0;while(<>){if(s/.*bw=(\d+.?\d*).*/$1/) { $S+=$_; $N++;} ; }; print $S/$N; ')"
 }
 
 function getlat {
@@ -62,6 +105,15 @@ function getlat {
   fi; 
 }
 
+function getiops {
+  value="$(cat job* | perl -e '$S=0;$N=0;while(<>){if(s/.*iops=(\d+\.?\d*),.*/$1/) { $S+=$_; $N++;} ; }; print $S/$N;')"
+  echo "getiops.value: $value"
+  if [ "$value" = "" ]; then
+    value="0.0";  
+  fi
+} 
+
+
 if [ "$HPCHUB_PLATFORM" == 'azure' ]; then
 	cp -r ../fio ~/nfs
 	cd ~/nfs/fio
@@ -70,9 +122,17 @@ elif [ -n "$nfs_dir" ]; then
     cd "$nfs_dir/fio/$fio_dir"
 fi
 
-for size in 128m 512m; do
-for blocksize in 4096 1024k; do 
-for op in "randread" "randwrite" "read" "write" ; do
+#$1 -- op
+#$2 -- blocksize
+#$3 -- jobs
+#$4 -- size
+function fio_wrapper
+{
+    local op="$1"
+    local blocksize="$2"
+    local ppn="$3"
+    local size="$4"
+
     if [ "$HPCHUB_ISLOCAL" = 1 -o -n "$nfs_dir" ]; then
         rm -f job*
     else
@@ -81,9 +141,10 @@ for op in "randread" "randwrite" "read" "write" ; do
         done
     fi 
   
-    export NCPU=$((NNODES * 1)) 
+    export NCPU="$((NNODES * 1))" 
 
-    ${HPCHUB_MPIRUN} "$(pwd)/fiorun.sh" "$op" "$size" "$(pwd)/fio" "$blocksize"
+    ${HPCHUB_MPIRUN} "$(pwd)/fiorun.sh" "$op" "$size" "$(pwd)/fio" "$blocksize" "$ppn"
+    [ "$?" != "0" ] && exit 1
     ${HPCHUB_MPIWAIT}
 
     if [ "$HPCHUB_ISLOCAL" != 1 -a -z "$nfs_dir" ]; then
@@ -94,17 +155,61 @@ for op in "randread" "randwrite" "read" "write" ; do
         
     getbw
 
-    LogStep fio-${size}-${op}-bs-${blocksize} BW $value
+    LogStep "fio-${size}-${op}-bs-${blocksize}-ppn-${ppn}" BW "$value"
 
     getlat
   
-    LogStep fio-${size}-${op}-bs-${blocksize} Latency.avg $value
+    LogStep "fio-${size}-${op}-bs-${blocksize}-ppn-${ppn}" Latency.avg "$value"
+
+    getiops
+  
+    LogStep "fio-${size}-${op}-bs-${blocksize}-ppn-${ppn}" IOPS "$value"
 
     for i in job*; do
-        mv "$i" "log-${size}-${op}-$i"
-        echo "log-${size}-${op}-$i: "
-        cat "log-${size}-${op}-$i"
+        fname="log-${size}-${op}-${blocksize}-${ppn}-$i"
+        mv "$i" "$fname"
+        echo "$fname: "
+        cat "$fname"
     done
+}
+
+#$1 - val
+function ceil_log
+{
+    local i="2"
+    while [ "$((i*i))" -lt "$1" ]; do
+        i="$((i*2))"
+    done
+    echo "$((i*i))"
+}
+
+i="2"
+LOG_PPN="1"
+while [ "$i" -le "$((NCPU/NNODES))" ]; do
+    LOG_PPN="$LOG_PPN $i"
+    let i=i*2
 done
-done
+let i=i/2
+if [ "$i" -ne "$((NCPU/NNODES))" ]; then
+    LOG_PPN="$LOG_PPN $((NCPU/NNODES))"
+fi
+    
+
+for op in "randread" "randwrite" "read" "write" ; do
+    for bs in  "512" "4096" "1024k" "1M" "16m" "128m"  "4096m" ; do
+        for ppn in $LOG_PPN; do
+            ceil_ppn="$(ceil_log "$ppn")"
+            size=""
+	        if [ "$bs" = 512 -o "$bs" = 4096 -o "$bs" = 1024k ]; then
+		        size="$((256/ppn))M"
+	        elif [ "$bs" = "1M" -o "$bs" = "16m" -o "$bs" = "128m" ]; then
+		        size="$((16*1024/ceil_ppn))M"
+	        elif [ "$bs" = "4096m" ]; then
+    		    size="$((256 * 1024/ceil_ppn))M"
+            fi
+            if [ -n "$size" ]; then            
+                fio_wrapper "$op" "$bs" "$ppn" "$size"
+            fi
+        done
+    done
 done
