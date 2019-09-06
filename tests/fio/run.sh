@@ -51,9 +51,13 @@ function getbw {
     local strval=""
     local ext=""
     for i in job*; do
+        if [ "$i" = "job*" ]; then
+            break
+        fi
+
         strval=$(grep -oP "bw=\K[0-9]+.?[0-9][^ ]*" "$i")
         val="$(echo "$strval" | grep -oP "\K[0-9]+.?[0-9]")"
-        ext="$(echo "$strval" | grep -oP "\K[^0-9/]+" | tr "[:upper:]" "[:lower:]" | head -1)"
+        ext="$(echo "$strval" | grep -oP "\K[^0-9./]+" | tr "[:upper:]" "[:lower:]" | head -1)"
 
         if [ "$ext" = "k" -o "$ext" = "kb" -o "$ext" = "kib" ]; then
             val="$(python -c "print($val * 1024)")"
@@ -73,25 +77,30 @@ function getbw {
         S="$(python -c "print($S + $val)")"
     done
 
-    if [ "$S" -ge "$((1024 * 1024 * 1024))" ]; then
-        ext="TiB"
-        val="$(python -c "print \"%.3f\" % ($S/1024.**3)")"
-    elif [ "$S" -ge "$((1024 * 1024))" ]; then
-        ext="MiB"
-        val="$(python -c "print \"%.3f\" % ($S/1024.**2)")"
-    elif [ "$S" -ge "1024" ]; then
-        ext="KiB"
-        val="$(python -c "print \"%.3f\" % ($S/1024.)")"
-    else
-        ext="B"
-    fi
+    if [ "$N" != "0" ]; then
+            
+        S="$(python -c "print(1. * $S / $N)")"
+        S_ceil="$(echo "$S" |  grep -oE "[0-9]+" | head -1)"
 
-    value="${val}${ext}"
-    echo "getbw.value: ${value}/s"
-    
-    if [ "$value" = "" ]; then
+        if [ "$S_ceil" -ge "$((1024 * 1024 * 1024))" ]; then
+            ext="TiB"
+            val="$(python -c "print \"%.3f\" % ($S/1024.**3)")"
+        elif [ "$S_ceil" -ge "$((1024 * 1024))" ]; then
+            ext="MiB"
+            val="$(python -c "print \"%.3f\" % ($S/1024.**2)")"
+        elif [ "$S_ceil" -ge "1024" ]; then
+            ext="KiB"
+            val="$(python -c "print \"%.3f\" % ($S/1024.)")"
+        else
+            ext="B"
+        fi
+
+        value="${val}${ext}/s"
+        echo "getbw.value: ${value}"
+    else 
+        echo "getbw.value: "
         value="0.0";
-    fi; 
+    fi 
 #  value="$(cat job* | perl -e '$S=0;$N=0;while(<>){if(s/.*bw=(\d+.?\d*).*/$1/) { $S+=$_; $N++;} ; }; print $S/$N; ')"
 }
 
