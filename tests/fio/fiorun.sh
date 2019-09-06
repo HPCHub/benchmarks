@@ -5,7 +5,7 @@ fio="$3"
 blocksize="$4"
 ppn="$5"
 cd "$(dirname $fio)"
-
+echo "FioRun. pwd: $(pwd); op: $op; size: $size; fio exec: $fio; blocksize: $blocksize; numjobs: $ppn"
 $fio --rw=$op \
      --direct=1 \
      --ioengine=libaio \
