@@ -196,14 +196,15 @@ elif [ "$operation" = "run" ]; then
         if [ "$testname" == 'npb' -o "$testname" == 'osu' ]; then
             echo "Also fetching additional files: "
             cp "$remwd/${hpchub_benchmark_dir}/$resdir"/* "$resdir"
-            if [ "$analise" = "1" ]; then
-                if [ "$testname" = "npb" ]; then
-                    ./analise_scripts/get_stat_npb.py "$resdir" | "tee $resdir/analize.out"
-                elif [ "$testname" = "osu" ]; then
-                    ./analise_scripts/get_stat_osu.py "$resdir" | "tee $resdir/analize.out"
-                fi
-            fi      
         fi
+      fi
+
+      if [ "$analise" = "1" ]; then
+          if [ "$testname" = "npb" ]; then
+              ./analise_scripts/get_stat_npb.py "$resdir" | tee "$resdir/analize.out"
+          elif [ "$testname" = "osu" ]; then
+              ./analise_scripts/get_stat_osu.py "$resdir" | tee "$resdir/analize.out"
+          fi
       fi
     
       if [ "$tarball" = "1" ]; then
