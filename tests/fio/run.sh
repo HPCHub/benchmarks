@@ -205,7 +205,7 @@ fi
     
 
 for op in "randread" "randwrite" "read" "write" ; do
-    for bs in  "512" "4096" "1024k" "1M" "16m" "128m"  "4096m" ; do
+    for bs in  "512" "4096" "1024k" "1M" "16m" "128m"  "4095m" ; do
         for ppn in $LOG_PPN; do
             ceil_ppn="$(ceil_log "$ppn")"
             size=""
@@ -213,7 +213,7 @@ for op in "randread" "randwrite" "read" "write" ; do
 		        size="$((256/ppn))M"
 	        elif [ "$bs" = "1M" -o "$bs" = "16m" -o "$bs" = "128m" ]; then
 		        size="$((16*1024/ceil_ppn))M"
-	        elif [ "$bs" = "4096m" ]; then
+	        elif [ "$bs" = "4095m" ]; then
     		    size="$((256 * 1024/ceil_ppn))M"
             fi
             if [ -n "$size" ]; then            
