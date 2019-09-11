@@ -205,7 +205,7 @@ fi
     
 
 for op in "randread" "randwrite" "read" "write" ; do
-    for bs in  "512" "4096" "1024k" "1M" "16m" "128m"  "4095m" ; do
+    for bs in  "512" "4096" "1024k" "16m" "128m"  "4095m" ; do
         for ppn in $LOG_PPN; do
             ceil_ppn="$(ceil_log "$ppn")"
             size=""
