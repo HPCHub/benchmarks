@@ -17,6 +17,7 @@ if [ "$HPCHUB_ISLOCAL" != "1" ]; then
     done
 
     NCPU="$((MINCORES * NNODES))"
+	HPCHUB_MPIRUN_OPTIONS=""
 else
     NODES="$(hostname)"
     NNODES="1"
@@ -25,6 +26,7 @@ else
     cps="$(lscpu | grep -oP "Core\(s\) per socket:[ ]*\K[0-9]+")"
     MINCORES="$((s * cps))"
     NCPU="$MINCORES"
+	HPCHUB_MPIRUN_OPTIONS=" -mca coll_hcoll_enable 0   -x UCX_NET_DEVICES= "
 fi
 
 export MINCORES
@@ -110,9 +112,11 @@ function hpchub_mpirun {
 		echo cat machinefile
 		cat machinefile
 		if [ "$MINCORES" -ge "$HPCHUB_PPN" ]; then
-			mpirun -np "$NCPU" -machinefile machinefile --map-by socket --bind-to core  "$@"
+			echo "mpirun $HPCHUB_MPIRUN_OPTIONS -np "$NCPU" -machinefile machinefile --map-by socket --bind-to core  "$@""
+			mpirun $HPCHUB_MPIRUN_OPTIONS -np "$NCPU" -machinefile machinefile --map-by socket --bind-to core  "$@"
 		else
-			mpirun -np "$NCPU" -machinefile machinefile --map-by socket  "$@"
+			echo "mpirun $HPCHUB_MPIRUN_OPTIONS -np "$NCPU" -machinefile machinefile --map-by socket  "$@""
+			mpirun $HPCHUB_MPIRUN_OPTIONS -np "$NCPU" -machinefile machinefile --map-by socket  "$@"
 		fi
 	else
 		echo ""
