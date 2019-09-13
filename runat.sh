@@ -150,12 +150,12 @@ if [ "$operation" = "install" ]; then
   fi
 
   for ctest in $testset; do
+    testname=${ctest##tests/}
     if [ -d "$ctest" -a ! "$ctest" = "tests/include" -a ! -f "$ctest/.disable_install" ]; then
       $remcomm "(cd $remwd/${hpchub_benchmark_dir}/$ctest; HPCHUB_ISLOCAL=$islocal HPCHUB_ISNFS=$isnfs HPCHUB_PLATFORM=../../platforms/${platform}.sh ./install.sh)" || exit 5
+	  $remcomm "(echo ok > $remwd/${hpchub_benchmark_dir}/install_${testname}_ok)"
     fi
   done
-
-  $remcomm "(echo ok > $remwd/${hpchub_benchmark_dir}/install_ok)"
 
 elif [ "$operation" = "clean" ];then
 
@@ -174,8 +174,14 @@ elif [ "$operation" = "run" ]; then
   now2="$(date +%Y%m%d_%H%M%S)"
   
   for ctest in $testset; do
-    if [ -x "$ctest/${operation}.sh" -a ! "$ctest" = "tests/include" -a ! -f "$ctest/.disable_run" ]; then 
+    if [ -x "$ctest/${operation}.sh" -a ! "$ctest" = "tests/include" -a ! -f "$ctest/.disable_run" ]; then
       testname=${ctest##tests/}
+
+	  if [ ! -f "$remwd/${hpchub_benchmark_dir}/install_${testname}_ok" ]; then
+		echo "${testname} test not installed correctly."
+		exit 1
+	  fi
+
       resdir="runs/${operation}/${testname}/${platform}/${remhost}/${now}"
       mkdir -p "$resdir"
       remreport=$remwd/${hpchub_benchmark_dir}/${operation}_${testname}_${now}.log
@@ -183,7 +189,11 @@ elif [ "$operation" = "run" ]; then
       echo "Runing test: $testname"
       echo "expecting remote host $remhost to generate report at: ${remreport}"
 
+	  set -o pipefail
       $remcomm "(cd $remwd/${hpchub_benchmark_dir}/$ctest; HPCHUB_OPERATION=${operation} HPCHUB_REPORT=${remreport} HPCHUB_RESDIR=${resdir} HPCHUB_ISLOCAL=${islocal} HPCHUB_ISNFS=$isnfs HPCHUB_PLATFORM=../../platforms/${platform}.sh ./${operation}.sh)" 2>&1 | tee "$resdir/out.log"
+	  exit_code="$?"
+	  set +o pipefail
+	  [ "$exit_code" != "0" ] && "Test $testname return non zeroe exit code" && exit 1
 
       if [ "$islocal" = "0" ]; then
         scp "$remhost":"$remreport" "$resdir/report.time.txt" || echo "report time not logged"
