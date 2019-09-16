@@ -131,6 +131,19 @@ elif [ -n "$nfs_dir" ]; then
     cd "$nfs_dir/fio/$fio_dir"
 fi
 
+function clean_fio
+{
+    if [ "$HPCHUB_ISLOCAL" = 1 -o -n "$nfs_dir" ]; then
+        rm -f job*
+        rm -f box*
+    else
+        for node in $NODES; do
+            ssh "$node" "rm -f $(pwd)/job*"
+            ssh "$node" "rm -f $(pwd)/box*"
+        done
+    fi 
+}
+
 #$1 -- op
 #$2 -- blocksize
 #$3 -- jobs
@@ -142,18 +155,20 @@ function fio_wrapper
     local ppn="$3"
     local size="$4"
 
-    if [ "$HPCHUB_ISLOCAL" = 1 -o -n "$nfs_dir" ]; then
-        rm -f job*
-    else
-        for node in $NODES; do
-            ssh "$node" "rm -f $(pwd)/job*"
-        done
-    fi 
+	clean_fio
   
     export NCPU="$((NNODES * 1))" 
 
     ${HPCHUB_MPIRUN} "$(pwd)/fiorun.sh" "$op" "$size" "$(pwd)/fio" "$blocksize" "$ppn"
-    [ "$?" != "0" ] && exit 1
+    exit_code="$?"
+    if [ "$exit_code" = "2" ]; then
+		LogStep "fio-${size}-${op}-bs-${blocksize}-ppn-${ppn}" BW "NONE (out of memory)"
+		LogStep "fio-${size}-${op}-bs-${blocksize}-ppn-${ppn}" Latency.avg "NONE (out of memory)"
+		LogStep "fio-${size}-${op}-bs-${blocksize}-ppn-${ppn}" IOPS "NONE (out of memory)"
+		continue
+    elif [ "$exit_code" = "1" ]; then
+        exit 1
+    fi
     ${HPCHUB_MPIWAIT}
 
     if [ "$HPCHUB_ISLOCAL" != 1 -a -z "$nfs_dir" ]; then
@@ -180,6 +195,8 @@ function fio_wrapper
         echo "$fname: "
         cat "$fname"
     done
+    
+	clean_fio
 }
 
 #$1 - val
