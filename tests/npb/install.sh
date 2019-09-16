@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 if [ -f ../platform.sh ]; then
   . ../platform.sh
 fi
@@ -27,12 +29,20 @@ if [ ! -x $MPIFC ]; then
 fi
 
 if [ ! -f NPB${npb_version}.tar.gz ]; then
-  wget https://www.nas.nasa.gov/assets/npb/NPB${npb_version}.tar.gz
+	set +e
+	wget https://www.nas.nasa.gov/assets/npb/NPB${npb_version}.tar.gz
+	[ "$?" != "0" ] && echo "Unable to connect to ${fio_url}" && exit 1
+	set -e
 fi
 
-if [ ! -d NPB${npb_version} ]; then
-  tar -xvzf NPB${npb_version}.tar.gz
+if [ -d "NPB${npb_version}" ]; then
+	rm -rf "NPB${npb_version}"
 fi
+
+set +e
+tar -xvzf NPB${npb_version}.tar.gz
+[ "$?" != "0" ] && echo "Unable to unpack the NPB${npb_version}.tar.gz file" && exit 1
+set -e
 
 cd NPB${npb_version}/NPB3.3-MPI
 
@@ -96,3 +106,4 @@ if [ "$HPCHUB_ISLOCAL" != "1" -a "$HPCHUB_ISNFS" != "1" ]; then
         done
     fi
 fi
+
