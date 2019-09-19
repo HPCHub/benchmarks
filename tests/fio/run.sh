@@ -115,7 +115,7 @@ function getlat {
 }
 
 function getiops {
-  value="$(cat job* | perl -e '$S=0;$N=0;while(<>){if(s/.*iops=(\d+\.?\d*),.*/$1/) { $S+=$_; $N++;} ; }; print $S/$N;')"
+  value="$(cat job* | perl -e '$S=0;$N=0;while(<>){if(s/.*IOPS=(\d+\.?\d*),.*/$1/) { $S+=$_; $N++;} ; }; print $S/$N;')"
   echo "getiops.value: $value"
   if [ "$value" = "" ]; then
     value="0.0";  
